@@ -30,11 +30,6 @@ class BottomBarWidget extends StatelessWidget {
       selectedItemColor: Colors.red,
       onTap: (index) {
         context.read<BottomBarBloc>().add(BottomBarEvent.changeIndex(index));
-
-        final locationDoc =
-            _firestore.collection("ee").doc("2eee").set({"data": "eee"});
-        print("CALLED");
-
         switch (index) {
           case 1:
             AutoRouter.of(context).replace(const SplashPageRoute());
