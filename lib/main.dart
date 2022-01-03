@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
+import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 void main() async {
@@ -19,6 +24,9 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (BuildContext context) => AuthBloc(FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)),
+        ),        
         BlocProvider(
           create: (BuildContext context) => BottomBarBloc(),
         ),
