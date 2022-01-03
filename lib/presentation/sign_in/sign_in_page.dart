@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget {
                   print("Failure in Sign In");
                 },
                 (_) {
-                  AutoRouter.of(context).replace(const SplashPageRoute());
+                  AutoRouter.of(context).replace(const HomePageRoute());
                   context.read<AuthBloc>().add(const AuthEvent.authRequest());
                 },
               ),

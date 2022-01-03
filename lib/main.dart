@@ -25,14 +25,14 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => AuthBloc(FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)),
+          create: (BuildContext context) => AuthBloc(FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance))..add(const AuthEvent.authRequest()),
         ),        
         BlocProvider(
           create: (BuildContext context) => BottomBarBloc(),
         ),
       ],
       child: MaterialApp.router(
-        title: 'Cell Fence',
+        title: 'R-Home',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
           primaryColor: Colors.blue[900],

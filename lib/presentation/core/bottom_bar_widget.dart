@@ -30,7 +30,7 @@ class BottomBarWidget extends StatelessWidget {
         context.read<BottomBarBloc>().add(BottomBarEvent.changeIndex(index));
         switch (index) {
           case 1:
-            AutoRouter.of(context).replace(const SplashPageRoute());
+            AutoRouter.of(context).replace(const HomePageRoute());
             break;
           default:
             AutoRouter.of(context).replace(const TestPageRoute());
