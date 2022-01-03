@@ -23,15 +23,16 @@ class MyRouter extends _i3.RootStackRouter {
   @override
   final Map<String, _i3.PageFactory> pagesMap = {
     SplashPageRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.SplashPage());
+      return _i3.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i1.SplashPage(),
+          opaque: true,
+          barrierDismissible: false);
     },
     TestPageRoute.name: (routeData) {
       return _i3.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i2.TestPage(),
-          transitionsBuilder: _i3.TransitionsBuilders.slideLeft,
-          durationInMilliseconds: 100,
           opaque: true,
           barrierDismissible: false);
     }

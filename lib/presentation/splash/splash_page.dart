@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
+import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class SplashPage extends StatelessWidget {
@@ -19,13 +22,14 @@ class SplashPage extends StatelessWidget {
             splashRadius: 20.0,
             icon: const Icon(Icons.shopping_cart),
             tooltip: 'Open shopping cart',
-            onPressed: () => AutoRouter.of(context).push(const TestPageRoute()),
+            onPressed: () => {},
           ),
         ],
       ),
       body: const Center(
-        child: Text("cona"),
+        child: Text("splash cona"),
       ),
+      bottomNavigationBar: BottomBarWidget(),
     );
   }
 }

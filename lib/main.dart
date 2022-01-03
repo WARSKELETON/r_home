@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 void main() {
@@ -12,23 +14,29 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Cell Fence',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        primaryColor: Colors.blue[900],
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: Colors.yellow[900],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => BottomBarBloc(),
         ),
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
+      ],
+      child: MaterialApp.router(
+        title: 'Cell Fence',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light().copyWith(
+          primaryColor: Colors.blue[900],
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.yellow[900],
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
-      ), 
-      routeInformationParser:  _appRouter.defaultRouteParser(),
-      routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: _appRouter.delegate(),
+      ),
     );
   }
 }
-

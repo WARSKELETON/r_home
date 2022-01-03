@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 
 class TestPage extends StatelessWidget {
   const TestPage({Key? key}) : super(key: key);
@@ -17,15 +18,14 @@ class TestPage extends StatelessWidget {
             splashRadius: 20.0,
             icon: const Icon(Icons.shopping_cart),
             tooltip: 'Open shopping cart',
-            onPressed: () {
-              // handle the press
-            },
+            onPressed: () {},
           ),
         ],
       ),
       body: const Center(
         child: Text("cona"),
       ),
+      bottomNavigationBar: BottomBarWidget(),
     );
   }
 }
