@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/domain/auth/auth_failure.dart';
 import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
+import 'package:r_home/infrastructure/auth/user_dto.dart';
 import './firebase_user_mapper.dart';
 
 class FirebaseAuthFacade implements IAuthFacade {
@@ -22,13 +23,13 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Option<DomainUser>> getSignedInUser() async {
-    final role = await getCurrentUserRole();
+    final userDto = await getCurrentUserDto();
 
-   if (role == "") {
+   if (userDto == null) {
      return optionOf(null);
    }
 
-    return optionOf(_firebaseAuth.currentUser?.toDomain(role));
+    return optionOf(_firebaseAuth.currentUser?.toDomain(userDto));
   }
 
   @override
@@ -69,9 +70,17 @@ class FirebaseAuthFacade implements IAuthFacade {
       final isRegistered = await isUserRegistered();
 
       if (!isRegistered) {
-        await docRef.set({
-          "role": role
-        });
+        final userDto = UserDto(
+          id: _firebaseAuth.currentUser!.uid,
+          email: _firebaseAuth.currentUser?.email,
+          name: _firebaseAuth.currentUser?.displayName,
+          photo: _firebaseAuth.currentUser?.photoURL,
+          role: role,
+          walletAddress: "0xASADKSANKSNFMA",
+          numTokens: 0
+        );
+
+        await docRef.set(userDto.toJson());
         return right(unit);
       }
       return left(const AuthFailure.userAlreadyRegistered());
@@ -103,7 +112,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     return false;
   }
 
-  Future<String> getCurrentUserRole() async {
+  Future<UserDto?> getCurrentUserDto() async {
     try {
       final docRef = _firestore
           .collection(USERS_COLLECTION)
@@ -112,14 +121,14 @@ class FirebaseAuthFacade implements IAuthFacade {
       final doc = await docRef.get();
 
       if (doc.exists) {
-        final role = doc.data()?['role'];
-        return role;
+        final userDto = UserDto.fromFirestore(doc);
+        return userDto;
       } else {
-        return "";
+        return null;
       }
     } on FirebaseException catch (e) {
       print("Missing Permissions");
-      return "";
+      return null;
     }
   }
 }

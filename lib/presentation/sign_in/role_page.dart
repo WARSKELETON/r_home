@@ -3,11 +3,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/sign_in/sign_in_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
-import 'package:r_home/presentation/core/app_bar_widget.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class RolePage extends StatelessWidget {
@@ -45,74 +47,75 @@ class RolePage extends StatelessWidget {
         },
         builder: (context, state) { 
           return Scaffold(
-          appBar: const AppBarWidget(title: "R-HOME"),
+          backgroundColor: Theme.of(context).colorScheme.primaryBlue,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100.0, right: 100.0, top: 100.0, bottom: 50.0),
+                    child: SvgPicture.asset('assets/icons/splash-logo.svg', width: 250),
+                  ),
                 const Padding(
-                  padding: EdgeInsets.all(50.0),
+                  padding: EdgeInsets.only(bottom: 50.0),
                   child: Text(
                     "Choose your user experience.",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    context
-                        .read<SignInBloc>()
-                        .add(const SignInEvent.registerWithRole("guest"));
-                  },
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.lightBlue),
-                      fixedSize: MaterialStateProperty.all<Size>(
-                          const Size.fromWidth(200.0))),
-                  child: const Text(
-                    'GUEST',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    context
-                        .read<SignInBloc>()
-                        .add(const SignInEvent.registerWithRole("host"));
-                  },
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.lightBlue),
-                      fixedSize: MaterialStateProperty.all<Size>(
-                          const Size.fromWidth(200.0))),
-                  child: const Text(
-                    'HOST',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: RoundedButtonWidget(
+                    text: 'GUEST', 
+                    onPressed: () {
+                      context
+                          .read<SignInBloc>()
+                          .add(const SignInEvent.registerWithRole("guest"));
+                    }, 
+                    backgroundColor: Colors.grey[300]!, 
+                    fontWeight: FontWeight.w500, 
+                    textColor: Colors.black,
+                    fontSize: 20,
+                    height: 50,
+                    width: 310,
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    context
-                        .read<SignInBloc>()
-                        .add(const SignInEvent.registerWithRole("producer"));
-                  },
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.lightBlue),
-                      fixedSize: MaterialStateProperty.all<Size>(
-                          const Size.fromWidth(200.0))),
-                  child: const Text(
-                    'ACTIVITY PRODUCER',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: RoundedButtonWidget(
+                    text: 'HOST', 
+                    onPressed: () {
+                      context
+                          .read<SignInBloc>()
+                          .add(const SignInEvent.registerWithRole("host"));
+                    }, 
+                    backgroundColor: Colors.grey[300]!, 
+                    fontWeight: FontWeight.w500, 
+                    textColor: Colors.black,
+                    fontSize: 20,
+                    height: 50,
+                    width: 310,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: RoundedButtonWidget(
+                    text: 'ACTIVITY PRODUCER', 
+                    onPressed: () {
+                      context
+                          .read<SignInBloc>()
+                          .add(const SignInEvent.registerWithRole("producer"));
+                    }, 
+                    backgroundColor: Colors.grey[300]!, 
+                    fontWeight: FontWeight.w500, 
+                    textColor: Colors.black,
+                    fontSize: 20,
+                    height: 50,
+                    width: 310,
                   ),
                 ),
               ],

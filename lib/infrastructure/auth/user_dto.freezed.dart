@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'domain_user.dart';
+part of 'user_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,11 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$DomainUserTearOff {
-  const _$DomainUserTearOff();
+UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
+  return _UserDto.fromJson(json);
+}
 
-  _DomainUser call(
+/// @nodoc
+class _$UserDtoTearOff {
+  const _$UserDtoTearOff();
+
+  _UserDto call(
       {required String id,
       String? email,
       String? name,
@@ -26,7 +30,7 @@ class _$DomainUserTearOff {
       required String role,
       required String walletAddress,
       required int numTokens}) {
-    return _DomainUser(
+    return _UserDto(
       id: id,
       email: email,
       name: name,
@@ -36,13 +40,17 @@ class _$DomainUserTearOff {
       numTokens: numTokens,
     );
   }
+
+  UserDto fromJson(Map<String, Object?> json) {
+    return UserDto.fromJson(json);
+  }
 }
 
 /// @nodoc
-const $DomainUser = _$DomainUserTearOff();
+const $UserDto = _$UserDtoTearOff();
 
 /// @nodoc
-mixin _$DomainUser {
+mixin _$UserDto {
   String get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
@@ -51,16 +59,15 @@ mixin _$DomainUser {
   String get walletAddress => throw _privateConstructorUsedError;
   int get numTokens => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DomainUserCopyWith<DomainUser> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UserDtoCopyWith<UserDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DomainUserCopyWith<$Res> {
-  factory $DomainUserCopyWith(
-          DomainUser value, $Res Function(DomainUser) then) =
-      _$DomainUserCopyWithImpl<$Res>;
+abstract class $UserDtoCopyWith<$Res> {
+  factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) then) =
+      _$UserDtoCopyWithImpl<$Res>;
   $Res call(
       {String id,
       String? email,
@@ -72,12 +79,12 @@ abstract class $DomainUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DomainUserCopyWithImpl<$Res> implements $DomainUserCopyWith<$Res> {
-  _$DomainUserCopyWithImpl(this._value, this._then);
+class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
+  _$UserDtoCopyWithImpl(this._value, this._then);
 
-  final DomainUser _value;
+  final UserDto _value;
   // ignore: unused_field
-  final $Res Function(DomainUser) _then;
+  final $Res Function(UserDto) _then;
 
   @override
   $Res call({
@@ -123,10 +130,9 @@ class _$DomainUserCopyWithImpl<$Res> implements $DomainUserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$DomainUserCopyWith<$Res> implements $DomainUserCopyWith<$Res> {
-  factory _$DomainUserCopyWith(
-          _DomainUser value, $Res Function(_DomainUser) then) =
-      __$DomainUserCopyWithImpl<$Res>;
+abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
+  factory _$UserDtoCopyWith(_UserDto value, $Res Function(_UserDto) then) =
+      __$UserDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id,
@@ -139,14 +145,13 @@ abstract class _$DomainUserCopyWith<$Res> implements $DomainUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$DomainUserCopyWithImpl<$Res> extends _$DomainUserCopyWithImpl<$Res>
-    implements _$DomainUserCopyWith<$Res> {
-  __$DomainUserCopyWithImpl(
-      _DomainUser _value, $Res Function(_DomainUser) _then)
-      : super(_value, (v) => _then(v as _DomainUser));
+class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
+    implements _$UserDtoCopyWith<$Res> {
+  __$UserDtoCopyWithImpl(_UserDto _value, $Res Function(_UserDto) _then)
+      : super(_value, (v) => _then(v as _UserDto));
 
   @override
-  _DomainUser get _value => super._value as _DomainUser;
+  _UserDto get _value => super._value as _UserDto;
 
   @override
   $Res call({
@@ -158,7 +163,7 @@ class __$DomainUserCopyWithImpl<$Res> extends _$DomainUserCopyWithImpl<$Res>
     Object? walletAddress = freezed,
     Object? numTokens = freezed,
   }) {
-    return _then(_DomainUser(
+    return _then(_UserDto(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -192,16 +197,20 @@ class __$DomainUserCopyWithImpl<$Res> extends _$DomainUserCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_DomainUser implements _DomainUser {
-  const _$_DomainUser(
+@JsonSerializable()
+class _$_UserDto extends _UserDto {
+  const _$_UserDto(
       {required this.id,
       this.email,
       this.name,
       this.photo,
       required this.role,
       required this.walletAddress,
-      required this.numTokens});
+      required this.numTokens})
+      : super._();
+
+  factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
+      _$$_UserDtoFromJson(json);
 
   @override
   final String id;
@@ -220,14 +229,14 @@ class _$_DomainUser implements _DomainUser {
 
   @override
   String toString() {
-    return 'DomainUser(id: $id, email: $email, name: $name, photo: $photo, role: $role, walletAddress: $walletAddress, numTokens: $numTokens)';
+    return 'UserDto(id: $id, email: $email, name: $name, photo: $photo, role: $role, walletAddress: $walletAddress, numTokens: $numTokens)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DomainUser &&
+            other is _UserDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -251,19 +260,27 @@ class _$_DomainUser implements _DomainUser {
 
   @JsonKey(ignore: true)
   @override
-  _$DomainUserCopyWith<_DomainUser> get copyWith =>
-      __$DomainUserCopyWithImpl<_DomainUser>(this, _$identity);
+  _$UserDtoCopyWith<_UserDto> get copyWith =>
+      __$UserDtoCopyWithImpl<_UserDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserDtoToJson(this);
+  }
 }
 
-abstract class _DomainUser implements DomainUser {
-  const factory _DomainUser(
+abstract class _UserDto extends UserDto {
+  const factory _UserDto(
       {required String id,
       String? email,
       String? name,
       String? photo,
       required String role,
       required String walletAddress,
-      required int numTokens}) = _$_DomainUser;
+      required int numTokens}) = _$_UserDto;
+  const _UserDto._() : super._();
+
+  factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
   @override
   String get id;
@@ -281,6 +298,6 @@ abstract class _DomainUser implements DomainUser {
   int get numTokens;
   @override
   @JsonKey(ignore: true)
-  _$DomainUserCopyWith<_DomainUser> get copyWith =>
+  _$UserDtoCopyWith<_UserDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

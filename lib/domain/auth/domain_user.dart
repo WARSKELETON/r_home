@@ -9,6 +9,8 @@ abstract class DomainUser with _$DomainUser {
     String? email,
     String? name,
     String? photo,
-    required String role  // maybe enum
+    required String role,  // maybe enum
+    required String walletAddress,
+    required int numTokens
   }) = _DomainUser;
 }

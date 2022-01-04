@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/sign_in/sign_in_bloc.dart';
@@ -42,25 +43,31 @@ class SignInPage extends StatelessWidget {
             );
           },
           builder: (context, state) {
-            return ListView(
-              padding: const EdgeInsets.all(8),
-              children: [
-                RoundedButtonWidget(
-                  text: 'SIGN IN WITH GOOGLE', 
-                  onPressed: () {
-                    context
-                        .read<SignInBloc>()
-                        .add(const SignInEvent.signInWithGooglePressed());
-                  }, 
-                  backgroundColor: Colors.grey[300]!, 
-                  fontWeight: FontWeight.w500, 
-                  textColor: Colors.black,
-                ),
-                if (state.isSubmitting) ...[
-                  const SizedBox(height: 8),
-                  const LinearProgressIndicator(value: null),
-                ]
-              ],
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(100.0),
+                    child: SvgPicture.asset('assets/icons/splash-logo.svg', width: 250),
+                  ),
+                  RoundedButtonWidget(
+                    text: 'SIGN IN WITH GOOGLE', 
+                    onPressed: () {
+                      context
+                          .read<SignInBloc>()
+                          .add(const SignInEvent.signInWithGooglePressed());
+                    }, 
+                    backgroundColor: Colors.grey[300]!, 
+                    fontWeight: FontWeight.w500, 
+                    textColor: Colors.black,
+                    fontSize: 20,
+                    height: 50,
+                    width: 310,
+                  ),
+                ],
+              ),
             );
           },
         )
