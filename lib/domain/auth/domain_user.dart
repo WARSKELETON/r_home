@@ -13,4 +13,11 @@ abstract class DomainUser with _$DomainUser {
     required String walletAddress,
     required int numTokens
   }) = _DomainUser;
+
+  factory DomainUser.empty() => const DomainUser(
+    id: "id",
+    role: "guest",
+    walletAddress: "0x",
+    numTokens: 0,
+  );
 }

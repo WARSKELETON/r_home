@@ -13,15 +13,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
       title: SvgPicture.asset('assets/icons/app-title.svg', width: 150),
       foregroundColor: Colors.grey[600],
       centerTitle: true,
-      backgroundColor: Colors.grey[50],
-      actions: [
-        IconButton(
-          splashRadius: 20.0,
-          icon: const Icon(Icons.shopping_cart),
-          tooltip: 'Open shopping cart',
-          onPressed: () => {},
-        ),
-      ],
+      backgroundColor: Colors.grey[50]
     );
   }
 

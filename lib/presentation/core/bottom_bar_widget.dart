@@ -32,6 +32,9 @@ class BottomBarWidget extends StatelessWidget {
           case 1:
             AutoRouter.of(context).replace(const HomePageRoute());
             break;
+          case 2:
+            AutoRouter.of(context).replace(const ProfilePageRoute());
+            break;
           default:
             AutoRouter.of(context).replace(const TestPageRoute());
         }
