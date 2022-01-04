@@ -1,3 +1,4 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
@@ -9,7 +10,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      title: Text(title),
+      title: SvgPicture.asset('assets/icons/app-title.svg', width: 150),
       foregroundColor: Colors.grey[600],
       centerTitle: true,
       backgroundColor: Colors.grey[50],
