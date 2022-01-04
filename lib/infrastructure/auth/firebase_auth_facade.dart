@@ -39,9 +39,13 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
 
       await _firebaseAuth.signInWithCredential(authCredential);
-      await registerUser("producer");
+
+      if (await isUserRegistered()) {
+        return right(unit);
+      } else {
+        return left(const AuthFailure.userNotRegistered());
+      }
       
-      return right(unit);
     } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
     }
@@ -52,6 +56,22 @@ class FirebaseAuthFacade implements IAuthFacade {
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
       ]);
+
+  Future<bool> isUserRegistered() async {
+    try {
+      final docRef = _firestore
+          .collection(USERS_COLLECTION)
+          .doc(_firebaseAuth.currentUser?.uid);
+
+      final doc = await docRef.get();
+
+      return doc.exists;
+    } on FirebaseException catch (e) {
+      print("Missing Permissions");
+    }
+
+    return false;
+  }
 
   Future<void> registerUser(String role) async {
     try {

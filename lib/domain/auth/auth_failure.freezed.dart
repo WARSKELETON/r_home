@@ -25,6 +25,10 @@ class _$AuthFailureTearOff {
   ServerError serverError() {
     return const ServerError();
   }
+
+  UserNotRegistered userNotRegistered() {
+    return const UserNotRegistered();
+  }
 }
 
 /// @nodoc
@@ -36,18 +40,21 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() userNotRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,18 +62,21 @@ mixin _$AuthFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotRegistered value) userNotRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +141,7 @@ class _$CancelledByUser implements CancelledByUser {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() userNotRegistered,
   }) {
     return cancelledByUser();
   }
@@ -140,6 +151,7 @@ class _$CancelledByUser implements CancelledByUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
   }) {
     return cancelledByUser?.call();
   }
@@ -149,6 +161,7 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -162,6 +175,7 @@ class _$CancelledByUser implements CancelledByUser {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotRegistered value) userNotRegistered,
   }) {
     return cancelledByUser(this);
   }
@@ -171,6 +185,7 @@ class _$CancelledByUser implements CancelledByUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -180,6 +195,7 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -235,6 +251,7 @@ class _$ServerError implements ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() userNotRegistered,
   }) {
     return serverError();
   }
@@ -244,6 +261,7 @@ class _$ServerError implements ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
   }) {
     return serverError?.call();
   }
@@ -253,6 +271,7 @@ class _$ServerError implements ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -266,6 +285,7 @@ class _$ServerError implements ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotRegistered value) userNotRegistered,
   }) {
     return serverError(this);
   }
@@ -275,6 +295,7 @@ class _$ServerError implements ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
   }) {
     return serverError?.call(this);
   }
@@ -284,6 +305,7 @@ class _$ServerError implements ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -295,4 +317,115 @@ class _$ServerError implements ServerError {
 
 abstract class ServerError implements AuthFailure {
   const factory ServerError() = _$ServerError;
+}
+
+/// @nodoc
+abstract class $UserNotRegisteredCopyWith<$Res> {
+  factory $UserNotRegisteredCopyWith(
+          UserNotRegistered value, $Res Function(UserNotRegistered) then) =
+      _$UserNotRegisteredCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserNotRegisteredCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UserNotRegisteredCopyWith<$Res> {
+  _$UserNotRegisteredCopyWithImpl(
+      UserNotRegistered _value, $Res Function(UserNotRegistered) _then)
+      : super(_value, (v) => _then(v as UserNotRegistered));
+
+  @override
+  UserNotRegistered get _value => super._value as UserNotRegistered;
+}
+
+/// @nodoc
+
+class _$UserNotRegistered implements UserNotRegistered {
+  const _$UserNotRegistered();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userNotRegistered()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserNotRegistered);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() userNotRegistered,
+  }) {
+    return userNotRegistered();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
+  }) {
+    return userNotRegistered?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
+    required TResult orElse(),
+  }) {
+    if (userNotRegistered != null) {
+      return userNotRegistered();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotRegistered value) userNotRegistered,
+  }) {
+    return userNotRegistered(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
+  }) {
+    return userNotRegistered?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
+    required TResult orElse(),
+  }) {
+    if (userNotRegistered != null) {
+      return userNotRegistered(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserNotRegistered implements AuthFailure {
+  const factory UserNotRegistered() = _$UserNotRegistered;
 }
