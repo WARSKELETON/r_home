@@ -33,6 +33,7 @@ class RolePage extends StatelessWidget {
                     AutoRouter.of(context).popUntilRouteWithName("SignInPageRoute");
                     AutoRouter.of(context).replace(const HomePageRoute());
                     context.read<AuthBloc>().add(const AuthEvent.authRequest());
+                    context.read<AuthBloc>().add(const AuthEvent.getDomainUser());
                   }
                 );
                 print("Failure in Register");
@@ -41,6 +42,7 @@ class RolePage extends StatelessWidget {
                 AutoRouter.of(context).popUntilRouteWithName("SignInPageRoute");
                 AutoRouter.of(context).replace(const HomePageRoute());
                 context.read<AuthBloc>().add(const AuthEvent.authRequest());
+                context.read<AuthBloc>().add(const AuthEvent.getDomainUser());
               },
             ),
           );

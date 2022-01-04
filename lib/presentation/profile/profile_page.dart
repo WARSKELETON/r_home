@@ -1,11 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:r_home/application/profile/profile_bloc.dart';
-import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
@@ -17,9 +13,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(title: "R-HOME"),
-      body: BlocProvider(
-        create: (context) => ProfileBloc(FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance))..add(const ProfileEvent.getDomainUser()),
-        child: BlocBuilder<ProfileBloc, ProfileState>(
+      body: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
             return Center(
               child: Column(
@@ -102,7 +96,6 @@ class ProfilePage extends StatelessWidget {
               ),
             );
           },
-        ),
       ),
       bottomNavigationBar: const BottomBarWidget(),
     );
