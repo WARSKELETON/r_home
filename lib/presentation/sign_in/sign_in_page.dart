@@ -7,8 +7,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/sign_in/sign_in_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
-import 'package:r_home/presentation/core/app_bar_widget.dart';
+import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "Sign-In"),
+      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
       body: BlocProvider<SignInBloc>(
         create: (context) => SignInBloc(FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)),
         child: BlocConsumer<SignInBloc, SignInState>(
@@ -44,22 +45,16 @@ class SignInPage extends StatelessWidget {
             return ListView(
               padding: const EdgeInsets.all(8),
               children: [
-                ElevatedButton(
+                RoundedButtonWidget(
+                  text: 'SIGN IN WITH GOOGLE', 
                   onPressed: () {
                     context
                         .read<SignInBloc>()
                         .add(const SignInEvent.signInWithGooglePressed());
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlue),
-                  ),
-                  child: const Text(
-                    'SIGN IN WITH GOOGLE',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  }, 
+                  backgroundColor: Colors.grey[300]!, 
+                  fontWeight: FontWeight.w500, 
+                  textColor: Colors.black,
                 ),
                 if (state.isSubmitting) ...[
                   const SizedBox(height: 8),
