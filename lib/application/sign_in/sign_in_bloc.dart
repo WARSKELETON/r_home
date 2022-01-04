@@ -13,6 +13,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
   SignInBloc(this._authFacade) : super(SignInState.initial()) {
     on<SignInWithGooglePressed>(_onSignInWithGooglePressed);
+    on<RegisterWithRole>(_registerWithRole);
   }
 
   void _onSignInWithGooglePressed(SignInEvent event, Emitter<SignInState> emit) async {
@@ -21,6 +22,19 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       authFailureOrSuccessOption: none(),
     ));
     final failureOrSuccess = await _authFacade.signInWithGoogle();
+    emit(state.copyWith(
+      isSubmitting: false,
+      authFailureOrSuccessOption: some(failureOrSuccess),
+    ));
+  }
+
+  void _registerWithRole(RegisterWithRole event, Emitter<SignInState> emit) async {
+    final role = event.role;
+    emit(state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    ));
+    final failureOrSuccess = await _authFacade.registerUserWithRole(role);
     emit(state.copyWith(
       isSubmitting: false,
       authFailureOrSuccessOption: some(failureOrSuccess),

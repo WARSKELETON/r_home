@@ -21,7 +21,15 @@ class FirebaseAuthFacade implements IAuthFacade {
   );
 
   @override
-  Option<DomainUser> getSignedInUser() => optionOf(_firebaseAuth.currentUser?.toDomain("producer"));
+  Future<Option<DomainUser>> getSignedInUser() async {
+    final role = await getCurrentUserRole();
+
+   if (role == "") {
+     return optionOf(null);
+   }
+
+    return optionOf(_firebaseAuth.currentUser?.toDomain(role));
+  }
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
@@ -52,6 +60,28 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
+  Future<Either<AuthFailure, Unit>> registerUserWithRole(String role) async {
+    try {
+      final docRef = _firestore
+          .collection(USERS_COLLECTION)
+          .doc(_firebaseAuth.currentUser?.uid);
+
+      final isRegistered = await isUserRegistered();
+
+      if (!isRegistered) {
+        await docRef.set({
+          "role": role
+        });
+        return right(unit);
+      }
+      return left(const AuthFailure.userAlreadyRegistered());
+    } on FirebaseException catch (e) {
+      print("Missing Permissions");
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
   Future<void> signOut() => Future.wait([
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
@@ -73,7 +103,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     return false;
   }
 
-  Future<void> registerUser(String role) async {
+  Future<String> getCurrentUserRole() async {
     try {
       final docRef = _firestore
           .collection(USERS_COLLECTION)
@@ -81,13 +111,15 @@ class FirebaseAuthFacade implements IAuthFacade {
 
       final doc = await docRef.get();
 
-      if (!doc.exists) {
-        await docRef.set({
-          "role": role
-        });
+      if (doc.exists) {
+        final role = doc.data()?['role'];
+        return role;
+      } else {
+        return "";
       }
     } on FirebaseException catch (e) {
       print("Missing Permissions");
+      return "";
     }
   }
 }

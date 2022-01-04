@@ -21,6 +21,12 @@ class _$SignInEventTearOff {
   SignInWithGooglePressed signInWithGooglePressed() {
     return const SignInWithGooglePressed();
   }
+
+  RegisterWithRole registerWithRole(String role) {
+    return RegisterWithRole(
+      role,
+    );
+  }
 }
 
 /// @nodoc
@@ -31,16 +37,19 @@ mixin _$SignInEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String role) registerWithRole,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String role)? registerWithRole,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String role)? registerWithRole,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,16 +57,19 @@ mixin _$SignInEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RegisterWithRole value) registerWithRole,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RegisterWithRole value)? registerWithRole,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RegisterWithRole value)? registerWithRole,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInWithGooglePressed,
+    required TResult Function(String role) registerWithRole,
   }) {
     return signInWithGooglePressed();
   }
@@ -129,6 +142,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String role)? registerWithRole,
   }) {
     return signInWithGooglePressed?.call();
   }
@@ -137,6 +151,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInWithGooglePressed,
+    TResult Function(String role)? registerWithRole,
     required TResult orElse(),
   }) {
     if (signInWithGooglePressed != null) {
@@ -150,6 +165,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(RegisterWithRole value) registerWithRole,
   }) {
     return signInWithGooglePressed(this);
   }
@@ -158,6 +174,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RegisterWithRole value)? registerWithRole,
   }) {
     return signInWithGooglePressed?.call(this);
   }
@@ -166,6 +183,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RegisterWithRole value)? registerWithRole,
     required TResult orElse(),
   }) {
     if (signInWithGooglePressed != null) {
@@ -177,6 +195,141 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
 
 abstract class SignInWithGooglePressed implements SignInEvent {
   const factory SignInWithGooglePressed() = _$SignInWithGooglePressed;
+}
+
+/// @nodoc
+abstract class $RegisterWithRoleCopyWith<$Res> {
+  factory $RegisterWithRoleCopyWith(
+          RegisterWithRole value, $Res Function(RegisterWithRole) then) =
+      _$RegisterWithRoleCopyWithImpl<$Res>;
+  $Res call({String role});
+}
+
+/// @nodoc
+class _$RegisterWithRoleCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res>
+    implements $RegisterWithRoleCopyWith<$Res> {
+  _$RegisterWithRoleCopyWithImpl(
+      RegisterWithRole _value, $Res Function(RegisterWithRole) _then)
+      : super(_value, (v) => _then(v as RegisterWithRole));
+
+  @override
+  RegisterWithRole get _value => super._value as RegisterWithRole;
+
+  @override
+  $Res call({
+    Object? role = freezed,
+  }) {
+    return _then(RegisterWithRole(
+      role == freezed
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RegisterWithRole implements RegisterWithRole {
+  const _$RegisterWithRole(this.role);
+
+  @override
+  final String role;
+
+  @override
+  String toString() {
+    return 'SignInEvent.registerWithRole(role: $role)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RegisterWithRole &&
+            const DeepCollectionEquality().equals(other.role, role));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(role));
+
+  @JsonKey(ignore: true)
+  @override
+  $RegisterWithRoleCopyWith<RegisterWithRole> get copyWith =>
+      _$RegisterWithRoleCopyWithImpl<RegisterWithRole>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function(String role) registerWithRole,
+  }) {
+    return registerWithRole(role);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? signInWithGooglePressed,
+    TResult Function(String role)? registerWithRole,
+  }) {
+    return registerWithRole?.call(role);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signInWithGooglePressed,
+    TResult Function(String role)? registerWithRole,
+    required TResult orElse(),
+  }) {
+    if (registerWithRole != null) {
+      return registerWithRole(role);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(RegisterWithRole value) registerWithRole,
+  }) {
+    return registerWithRole(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RegisterWithRole value)? registerWithRole,
+  }) {
+    return registerWithRole?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(RegisterWithRole value)? registerWithRole,
+    required TResult orElse(),
+  }) {
+    if (registerWithRole != null) {
+      return registerWithRole(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterWithRole implements SignInEvent {
+  const factory RegisterWithRole(String role) = _$RegisterWithRole;
+
+  String get role;
+  @JsonKey(ignore: true)
+  $RegisterWithRoleCopyWith<RegisterWithRole> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

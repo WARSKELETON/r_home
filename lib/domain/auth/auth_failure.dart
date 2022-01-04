@@ -7,4 +7,5 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.cancelledByUser() = CancelledByUser;
   const factory AuthFailure.serverError() = ServerError;
   const factory AuthFailure.userNotRegistered() = UserNotRegistered;
+  const factory AuthFailure.userAlreadyRegistered() = UserAlreadyRegistered;
 }

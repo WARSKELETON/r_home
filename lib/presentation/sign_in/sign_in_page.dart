@@ -28,7 +28,8 @@ class SignInPage extends StatelessWidget {
                   failure.map(
                     cancelledByUser: (_) => {},
                     serverError: (_) => {}, 
-                    userNotRegistered: (_) => AutoRouter.of(context).push(const RolePageRoute())
+                    userNotRegistered: (_) => AutoRouter.of(context).push(const RolePageRoute()),
+                    userAlreadyRegistered: (_) => {}
                   );
                   print("Failure in Sign In");
                 },

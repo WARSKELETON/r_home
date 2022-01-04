@@ -44,6 +44,12 @@ class AppWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
+          textTheme: ThemeData.light().textTheme.apply(
+                fontFamily: 'Montserrat',
+              ),
+          primaryTextTheme: ThemeData.light().textTheme.apply(
+                fontFamily: 'Montserrat',
+              ),
         ),
         routeInformationParser: _appRouter.defaultRouteParser(),
         routerDelegate: _appRouter.delegate(),

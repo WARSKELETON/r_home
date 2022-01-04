@@ -29,6 +29,10 @@ class _$AuthFailureTearOff {
   UserNotRegistered userNotRegistered() {
     return const UserNotRegistered();
   }
+
+  UserAlreadyRegistered userAlreadyRegistered() {
+    return const UserAlreadyRegistered();
+  }
 }
 
 /// @nodoc
@@ -41,6 +45,7 @@ mixin _$AuthFailure {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() userNotRegistered,
+    required TResult Function() userAlreadyRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +53,7 @@ mixin _$AuthFailure {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +61,7 @@ mixin _$AuthFailure {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +70,8 @@ mixin _$AuthFailure {
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotRegistered value) userNotRegistered,
+    required TResult Function(UserAlreadyRegistered value)
+        userAlreadyRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +79,7 @@ mixin _$AuthFailure {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +87,7 @@ mixin _$AuthFailure {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +153,7 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() userNotRegistered,
+    required TResult Function() userAlreadyRegistered,
   }) {
     return cancelledByUser();
   }
@@ -152,6 +164,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
   }) {
     return cancelledByUser?.call();
   }
@@ -162,6 +175,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -176,6 +190,8 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotRegistered value) userNotRegistered,
+    required TResult Function(UserAlreadyRegistered value)
+        userAlreadyRegistered,
   }) {
     return cancelledByUser(this);
   }
@@ -186,6 +202,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -196,6 +213,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -252,6 +270,7 @@ class _$ServerError implements ServerError {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() userNotRegistered,
+    required TResult Function() userAlreadyRegistered,
   }) {
     return serverError();
   }
@@ -262,6 +281,7 @@ class _$ServerError implements ServerError {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
   }) {
     return serverError?.call();
   }
@@ -272,6 +292,7 @@ class _$ServerError implements ServerError {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -286,6 +307,8 @@ class _$ServerError implements ServerError {
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotRegistered value) userNotRegistered,
+    required TResult Function(UserAlreadyRegistered value)
+        userAlreadyRegistered,
   }) {
     return serverError(this);
   }
@@ -296,6 +319,7 @@ class _$ServerError implements ServerError {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
   }) {
     return serverError?.call(this);
   }
@@ -306,6 +330,7 @@ class _$ServerError implements ServerError {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -363,6 +388,7 @@ class _$UserNotRegistered implements UserNotRegistered {
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
     required TResult Function() userNotRegistered,
+    required TResult Function() userAlreadyRegistered,
   }) {
     return userNotRegistered();
   }
@@ -373,6 +399,7 @@ class _$UserNotRegistered implements UserNotRegistered {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
   }) {
     return userNotRegistered?.call();
   }
@@ -383,6 +410,7 @@ class _$UserNotRegistered implements UserNotRegistered {
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
     TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
     required TResult orElse(),
   }) {
     if (userNotRegistered != null) {
@@ -397,6 +425,8 @@ class _$UserNotRegistered implements UserNotRegistered {
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotRegistered value) userNotRegistered,
+    required TResult Function(UserAlreadyRegistered value)
+        userAlreadyRegistered,
   }) {
     return userNotRegistered(this);
   }
@@ -407,6 +437,7 @@ class _$UserNotRegistered implements UserNotRegistered {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
   }) {
     return userNotRegistered?.call(this);
   }
@@ -417,6 +448,7 @@ class _$UserNotRegistered implements UserNotRegistered {
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
     required TResult orElse(),
   }) {
     if (userNotRegistered != null) {
@@ -428,4 +460,122 @@ class _$UserNotRegistered implements UserNotRegistered {
 
 abstract class UserNotRegistered implements AuthFailure {
   const factory UserNotRegistered() = _$UserNotRegistered;
+}
+
+/// @nodoc
+abstract class $UserAlreadyRegisteredCopyWith<$Res> {
+  factory $UserAlreadyRegisteredCopyWith(UserAlreadyRegistered value,
+          $Res Function(UserAlreadyRegistered) then) =
+      _$UserAlreadyRegisteredCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserAlreadyRegisteredCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UserAlreadyRegisteredCopyWith<$Res> {
+  _$UserAlreadyRegisteredCopyWithImpl(
+      UserAlreadyRegistered _value, $Res Function(UserAlreadyRegistered) _then)
+      : super(_value, (v) => _then(v as UserAlreadyRegistered));
+
+  @override
+  UserAlreadyRegistered get _value => super._value as UserAlreadyRegistered;
+}
+
+/// @nodoc
+
+class _$UserAlreadyRegistered implements UserAlreadyRegistered {
+  const _$UserAlreadyRegistered();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userAlreadyRegistered()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserAlreadyRegistered);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() userNotRegistered,
+    required TResult Function() userAlreadyRegistered,
+  }) {
+    return userAlreadyRegistered();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
+  }) {
+    return userAlreadyRegistered?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? userNotRegistered,
+    TResult Function()? userAlreadyRegistered,
+    required TResult orElse(),
+  }) {
+    if (userAlreadyRegistered != null) {
+      return userAlreadyRegistered();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotRegistered value) userNotRegistered,
+    required TResult Function(UserAlreadyRegistered value)
+        userAlreadyRegistered,
+  }) {
+    return userAlreadyRegistered(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
+  }) {
+    return userAlreadyRegistered?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotRegistered value)? userNotRegistered,
+    TResult Function(UserAlreadyRegistered value)? userAlreadyRegistered,
+    required TResult orElse(),
+  }) {
+    if (userAlreadyRegistered != null) {
+      return userAlreadyRegistered(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserAlreadyRegistered implements AuthFailure {
+  const factory UserAlreadyRegistered() = _$UserAlreadyRegistered;
 }
