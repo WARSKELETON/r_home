@@ -30,7 +30,7 @@ class RoundedCardWidget extends StatelessWidget {
           Material(
             elevation: 5.0,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
+                borderRadius: BorderRadius.circular(15.0)),
             clipBehavior: Clip.hardEdge,
             color: Colors.transparent,
             child: Ink.image(
@@ -41,7 +41,7 @@ class RoundedCardWidget extends StatelessWidget {
               colorFilter: ColorFilter.mode(
                   Colors.white.withOpacity(opacity), BlendMode.dstATop),
               child: InkWell(
-                splashColor: Colors.transparent,
+                splashColor: const Color.fromRGBO(128,128,128, 0.3),
                 onTap: () {},
               ),
             ),
