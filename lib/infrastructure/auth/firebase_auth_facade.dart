@@ -84,7 +84,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         return right(unit);
       }
       return left(const AuthFailure.userAlreadyRegistered());
-    } on FirebaseException catch (e) {
+    } on FirebaseException {
       print("Missing Permissions");
       return left(const AuthFailure.serverError());
     }
@@ -105,7 +105,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       final doc = await docRef.get();
 
       return doc.exists;
-    } on FirebaseException catch (e) {
+    } on FirebaseException {
       print("Missing Permissions");
     }
 
@@ -126,7 +126,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return null;
       }
-    } on FirebaseException catch (e) {
+    } on FirebaseException {
       print("Missing Permissions");
       return null;
     }

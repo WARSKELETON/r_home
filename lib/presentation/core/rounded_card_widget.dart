@@ -44,7 +44,7 @@ class RoundedCardWidget extends StatelessWidget {
           ),
           // When retrieving from the network use Image.network(...),
           Padding(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

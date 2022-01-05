@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,6 +6,7 @@ import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -12,7 +14,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: "R-HOME"),
+      appBar: const AppBarWidget(title: "R-HOME"),
       body: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
             return Center(
@@ -31,7 +33,7 @@ class ProfilePage extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 50.0),
                     child: Text(
                       "@" + (state.user.name == null ? "name" : state.user.name!.replaceAll(" ", "").toLowerCase()),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                   Padding(
@@ -65,7 +67,7 @@ class ProfilePage extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10.0),
                     child: RoundedButtonWidget(
                       text: 'WALLET',
-                      onPressed: () {},
+                      onPressed: () => AutoRouter.of(context).push(const WalletPageRoute()),
                       backgroundColor: Colors.black,
                       fontWeight: FontWeight.w400,
                       textColor: Colors.white,
