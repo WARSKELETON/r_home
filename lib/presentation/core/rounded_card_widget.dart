@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_new
-
 import 'package:flutter/material.dart';
 
 class RoundedCardWidget extends StatelessWidget {
@@ -8,7 +6,6 @@ class RoundedCardWidget extends StatelessWidget {
   final String image;
   final double width;
   final double height;
-  final double opacity;
 
   const RoundedCardWidget({
     Key? key,
@@ -17,7 +14,6 @@ class RoundedCardWidget extends StatelessWidget {
     required this.image,
     required this.width,
     required this.height,
-    required this.opacity,
   }) : super(key: key);
 
   @override
@@ -25,7 +21,9 @@ class RoundedCardWidget extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
-      child: Stack(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Material(
             elevation: 5.0,
@@ -38,8 +36,6 @@ class RoundedCardWidget extends StatelessWidget {
               fit: BoxFit.cover,
               width: width,
               height: height,
-              colorFilter: ColorFilter.mode(
-                  Colors.white.withOpacity(opacity), BlendMode.dstATop),
               child: InkWell(
                 splashColor: const Color.fromRGBO(128,128,128, 0.3),
                 onTap: () {},
@@ -48,9 +44,8 @@ class RoundedCardWidget extends StatelessWidget {
           ),
           // When retrieving from the network use Image.network(...),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(5),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -66,9 +61,9 @@ class RoundedCardWidget extends StatelessWidget {
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                   ),
-                ),
+                )
               ],
-            ),
+            )
           )
         ],
       ),

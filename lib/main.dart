@@ -50,6 +50,9 @@ class AppWidget extends StatelessWidget {
           primaryTextTheme: ThemeData.light().textTheme.apply(
                 fontFamily: 'Montserrat',
               ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(minimumSize: const Size(10, 10))
+          )
         ),
         routeInformationParser: _appRouter.defaultRouteParser(),
         routerDelegate: _appRouter.delegate(),

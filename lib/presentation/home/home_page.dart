@@ -14,24 +14,31 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: const [
             SizedBox(
-              height: 240,
+              height: 280,
               child: HorizontalScrollWidget(
-                  buttonText: "Look for a home to stay",
-                  subtitle: "Recommended for you:",
+                  title: "Recommended for you",
                   items: [1, 2, 3, 4]),
             ),
-            SizedBox(
-              height: 240,
-              child: HorizontalScrollWidget(
-                  buttonText: "Look for a home to stay",
-                  subtitle: "My Stays",
-                  items: [1, 2, 3, 4]),
+            Divider(
+              thickness: 10,
+              height: 40,
+              color: Color.fromRGBO(128,128,128, 0.3),
             ),
             SizedBox(
-              height: 240,
+              height: 280,
               child: HorizontalScrollWidget(
-                  buttonText: "Look for a home to stay",
-                  subtitle: "My Host Recommendations",
+                  title: "My Stays",
+                  items: [1, 2, 3, 4]),
+            ),
+            Divider(
+              thickness: 10,
+              height: 40,
+              color: Color.fromRGBO(128,128,128, 0.3),
+            ),
+            SizedBox(
+              height: 280,
+              child: HorizontalScrollWidget(
+                  title: "My Host Recommendations",
                   items: [1, 2, 3, 4]),
             ),
           ],
