@@ -11,19 +11,20 @@ class RoundedButtonWidget extends StatelessWidget {
   final double height;
   final Icon? leadingIcon;
   final Icon? trailingIcon;
+  final bool? disabled;
 
-  const RoundedButtonWidget({Key? key, required this.text, required this.onPressed, required this.backgroundColor, required this.textColor, required this.fontWeight, required this.fontSize, required this.width, required this.height, this.leadingIcon, this.trailingIcon}) : super(key: key);
+  const RoundedButtonWidget({Key? key, required this.text, required this.onPressed, required this.backgroundColor, required this.textColor, required this.fontWeight, required this.fontSize, required this.width, required this.height, this.leadingIcon, this.trailingIcon, this.disabled}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: disabled == null ? onPressed : (disabled! ? null : onPressed),
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
+        backgroundColor: disabled == null ? MaterialStateProperty.all<Color>(backgroundColor) : (disabled! ? MaterialStateProperty.all<Color>(Color.fromRGBO(backgroundColor.red, backgroundColor.green, backgroundColor.blue, 0.4)) : MaterialStateProperty.all<Color>(backgroundColor)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
-            side: BorderSide(color: backgroundColor)
+            side: BorderSide(color: disabled == null ? backgroundColor : (disabled! ? Color.fromRGBO(backgroundColor.red, backgroundColor.green, backgroundColor.blue, 0) : backgroundColor))
           )
         ),
         fixedSize: MaterialStateProperty.all<Size>(Size(width, height))

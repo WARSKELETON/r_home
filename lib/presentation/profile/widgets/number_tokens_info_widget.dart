@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class TokenCountWidget extends StatelessWidget {
+class NumberTokensInfoWidget extends StatelessWidget {
   final String title;
   final int tokens;
 
-  const TokenCountWidget({
+  const NumberTokensInfoWidget({
     Key? key,
     required this.title,
     required this.tokens,

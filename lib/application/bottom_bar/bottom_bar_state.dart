@@ -7,6 +7,6 @@ class BottomBarState with _$BottomBarState {
   }) = _BottomBarState;
 
   factory BottomBarState.initial() => const BottomBarState(
-        selectedIndex: 1,
-      );
+    selectedIndex: 1,
+  );
 }

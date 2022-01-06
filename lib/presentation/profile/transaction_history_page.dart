@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/profile/widgets/token_count_widget.dart';
+import 'package:r_home/presentation/profile/widgets/number_tokens_info_widget.dart';
 import 'package:r_home/presentation/profile/widgets/transaction_history_item_widget.dart';
 
 class TransactionHistoryPage extends StatelessWidget {
@@ -22,7 +22,7 @@ class TransactionHistoryPage extends StatelessWidget {
                   left: 40.0, top: 25.0, right: 40.0, bottom: 50.0),
               child: Column(
                 children: [
-                  TokenCountWidget(
+                  NumberTokensInfoWidget(
                       title: "My tokens:", tokens: state.user.numTokens),
                   const Padding(
                     padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
