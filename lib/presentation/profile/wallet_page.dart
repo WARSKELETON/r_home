@@ -5,7 +5,7 @@ import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
-import 'package:r_home/presentation/profile/widgets/token_count_widget.dart';
+import 'package:r_home/presentation/profile/widgets/number_tokens_info_widget.dart';
 import 'package:r_home/presentation/profile/widgets/wallet_address_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
@@ -25,7 +25,7 @@ class WalletPage extends StatelessWidget {
                           left: 40.0, top: 25.0, right: 40.0, bottom: 50.0),
                   child: Column(
                     children: [
-                      TokenCountWidget(title: "My tokens:", tokens: state.user.numTokens),
+                      NumberTokensInfoWidget(title: "My tokens:", tokens: state.user.numTokens),
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Image.asset("assets/icons/qr-code.png"),
@@ -37,7 +37,7 @@ class WalletPage extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13
-                          ),  
+                          ),
                         ),
                       ),
                       const Padding(
@@ -46,7 +46,7 @@ class WalletPage extends StatelessWidget {
                       ),
                       RoundedButtonWidget(
                         text: 'Send Tokens',
-                        onPressed: () {},
+                        onPressed: () => AutoRouter.of(context).push(const SendTokensPageRoute()),
                         backgroundColor: const Color.fromRGBO(28, 94, 139, 1),
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,
