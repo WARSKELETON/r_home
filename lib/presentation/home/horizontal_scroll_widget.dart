@@ -1,6 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:r_home/presentation/core/flat_rounded_button_widget.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_card_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class HorizontalScrollWidget extends StatelessWidget {
   final String title;
@@ -43,18 +47,19 @@ class HorizontalScrollWidget extends StatelessWidget {
                       )
                     ),
                   ),
-                  RoundedButtonWidget(
+                  FlatRoundedButtonWidget(
                     text: "see all",
-                    onPressed: () => {},
-                    backgroundColor: const Color.fromRGBO(24, 94, 139, 0.13),
-                    textColor: Colors.white,
+                    onPressed: () => AutoRouter.of(context).push(const MyHomesPageRoute()),
+                    backgroundColor: Color.fromRGBO(Theme.of(context).colorScheme.primaryBlue.red, Theme.of(context).colorScheme.primaryBlue.green, Theme.of(context).colorScheme.primaryBlue.blue, 0.13),
+                    textColor: Theme.of(context).colorScheme.primaryBlue,
                     fontWeight: FontWeight.w400,
-                    fontSize: 10,
+                    fontSize: 14,
                     height: 25,
                     width: 85,
                     trailingIcon: const Icon(
                       Icons.arrow_forward_ios_rounded,
-                      size: 10,
+                      color: Color(0xff185e8b),
+                      size: 14,
                     ),
                   ),
                 ],

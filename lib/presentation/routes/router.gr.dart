@@ -14,10 +14,10 @@ import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:flutter/material.dart' as _i11;
 
 import '../home/home_page.dart' as _i4;
-import '../profile/profile_page.dart' as _i5;
-import '../profile/send_tokens_page.dart' as _i8;
-import '../profile/transaction_history_page.dart' as _i7;
-import '../profile/wallet_page.dart' as _i6;
+import '../my_homes/my_homes_page.dart' as _i5;
+import '../profile/profile_page.dart' as _i6;
+import '../profile/transaction_history_page.dart' as _i8;
+import '../profile/wallet_page.dart' as _i7;
 import '../sign_in/role_page.dart' as _i3;
 import '../sign_in/sign_in_page.dart' as _i2;
 import '../splash/splash_page.dart' as _i1;
@@ -48,17 +48,24 @@ class MyRouter extends _i10.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    MyHomesPageRoute.name: (routeData) {
+      return _i10.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i5.MyHomesPage(),
+          opaque: true,
+          barrierDismissible: false);
+    },
     ProfilePageRoute.name: (routeData) {
       return _i10.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i5.ProfilePage(),
+          child: const _i6.ProfilePage(),
           opaque: true,
           barrierDismissible: false);
     },
     WalletPageRoute.name: (routeData) {
       return _i10.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i6.WalletPage(),
+          child: const _i7.WalletPage(),
           transitionsBuilder: _i10.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -68,7 +75,7 @@ class MyRouter extends _i10.RootStackRouter {
       final args = routeData.argsAs<TransactionHistoryPageRouteArgs>();
       return _i10.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i7.TransactionHistoryPage(
+          child: _i8.TransactionHistoryPage(
               key: args.key, transactions: args.transactions),
           transitionsBuilder: _i10.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
@@ -99,11 +106,11 @@ class MyRouter extends _i10.RootStackRouter {
         _i10.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
         _i10.RouteConfig(RolePageRoute.name, path: '/role-page'),
         _i10.RouteConfig(HomePageRoute.name, path: '/home-page'),
+        _i10.RouteConfig(MyHomesPageRoute.name, path: '/my-homes-page'),
         _i10.RouteConfig(ProfilePageRoute.name, path: '/profile-page'),
         _i10.RouteConfig(WalletPageRoute.name, path: '/wallet-page'),
         _i10.RouteConfig(TransactionHistoryPageRoute.name,
             path: '/transaction-history-page'),
-        _i10.RouteConfig(SendTokensPageRoute.name, path: '/send-tokens-page'),
         _i10.RouteConfig(TestPageRoute.name, path: '/test-page')
       ];
 }
@@ -141,7 +148,16 @@ class HomePageRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.ProfilePage]
+/// [_i5.MyHomesPage]
+class MyHomesPageRoute extends _i10.PageRouteInfo<void> {
+  const MyHomesPageRoute()
+      : super(MyHomesPageRoute.name, path: '/my-homes-page');
+
+  static const String name = 'MyHomesPageRoute';
+}
+
+/// generated route for
+/// [_i6.ProfilePage]
 class ProfilePageRoute extends _i10.PageRouteInfo<void> {
   const ProfilePageRoute()
       : super(ProfilePageRoute.name, path: '/profile-page');
@@ -150,7 +166,7 @@ class ProfilePageRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.WalletPage]
+/// [_i7.WalletPage]
 class WalletPageRoute extends _i10.PageRouteInfo<void> {
   const WalletPageRoute() : super(WalletPageRoute.name, path: '/wallet-page');
 
@@ -158,7 +174,7 @@ class WalletPageRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.TransactionHistoryPage]
+/// [_i8.TransactionHistoryPage]
 class TransactionHistoryPageRoute
     extends _i10.PageRouteInfo<TransactionHistoryPageRouteArgs> {
   TransactionHistoryPageRoute({_i11.Key? key, required List<int> transactions})
@@ -181,15 +197,6 @@ class TransactionHistoryPageRouteArgs {
   String toString() {
     return 'TransactionHistoryPageRouteArgs{key: $key, transactions: $transactions}';
   }
-}
-
-/// generated route for
-/// [_i8.SendTokensPage]
-class SendTokensPageRoute extends _i10.PageRouteInfo<void> {
-  const SendTokensPageRoute()
-      : super(SendTokensPageRoute.name, path: '/send-tokens-page');
-
-  static const String name = 'SendTokensPageRoute';
 }
 
 /// generated route for
