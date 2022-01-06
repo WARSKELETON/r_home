@@ -1,7 +1,6 @@
 import 'package:r_home/domain/homes/home.dart';
 
-abstract class IHomesRepository {
-  Stream<List<Home>> initializeAll();
+abstract class IMyHomesRepository {
   Stream<List<Home>> watchAll();
   Future<void> create(Home home);
   Future<void> update(Home home);

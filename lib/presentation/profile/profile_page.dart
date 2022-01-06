@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "R-HOME"),
+      appBar: const AppBarWidget(title: "Profile"),
       body: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
             return Center(

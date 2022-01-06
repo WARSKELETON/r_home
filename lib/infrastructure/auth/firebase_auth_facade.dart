@@ -13,7 +13,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
   final FirebaseFirestore _firestore;
-  static const String USERS_COLLECTION = "Users";
+  static const String USERS_COLLECTION = "users";
 
   FirebaseAuthFacade(
     this._firebaseAuth,
@@ -30,6 +30,11 @@ class FirebaseAuthFacade implements IAuthFacade {
    }
 
     return optionOf(_firebaseAuth.currentUser?.toDomain(userDto));
+  }
+
+  @override
+  String? getSignedInUserId() {
+    return _firebaseAuth.currentUser?.uid;
   }
 
   @override
