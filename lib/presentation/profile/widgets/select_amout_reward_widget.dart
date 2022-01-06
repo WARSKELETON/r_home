@@ -46,7 +46,7 @@ class SelectAmountRewardWidget extends StatelessWidget {
                       ),
                     ),
                     SvgPicture.asset('assets/icons/token.svg',
-                        color: const Color.fromRGBO(28, 94, 139, 1),
+                        color: Theme.of(context).colorScheme.primaryBlue,
                         width: 23,
                     )
                   ],

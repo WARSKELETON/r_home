@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
@@ -68,7 +69,7 @@ class ProfilePage extends StatelessWidget {
                     child: RoundedButtonWidget(
                       text: 'WALLET',
                       onPressed: () => AutoRouter.of(context).push(const WalletPageRoute()),
-                      backgroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                       fontWeight: FontWeight.w400,
                       textColor: Colors.white,
                       fontSize: 20,
@@ -83,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                   RoundedButtonWidget(
                     text: 'MY ACTIVITIES',
                     onPressed: () {},
-                    backgroundColor: Colors.black,
+                    backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                     fontWeight: FontWeight.w400,
                     textColor: Colors.white,
                     fontSize: 20,

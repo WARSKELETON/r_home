@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/profile/widgets/number_tokens_info_widget.dart';
 import 'package:r_home/presentation/profile/widgets/wallet_address_widget.dart';
@@ -21,8 +22,7 @@ class WalletPage extends StatelessWidget {
             return SingleChildScrollView(
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                          left: 40.0, top: 25.0, right: 40.0, bottom: 50.0),
+                  padding: const EdgeInsets.only(left: 40.0, top: 25.0, right: 40.0, bottom: 50.0),
                   child: Column(
                     children: [
                       NumberTokensInfoWidget(title: "My tokens:", tokens: state.user.numTokens),
@@ -47,7 +47,7 @@ class WalletPage extends StatelessWidget {
                       RoundedButtonWidget(
                         text: 'Send Tokens',
                         onPressed: () => AutoRouter.of(context).push(const SendTokensPageRoute()),
-                        backgroundColor: const Color.fromRGBO(28, 94, 139, 1),
+                        backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,
                         fontSize: 20,
@@ -60,7 +60,7 @@ class WalletPage extends StatelessWidget {
                       RoundedButtonWidget(
                         text: 'Transaction History',
                         onPressed: () => AutoRouter.of(context).push(TransactionHistoryPageRoute(transactions: const [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3])),
-                        backgroundColor: const Color.fromRGBO(28, 94, 139, 1),
+                        backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,
                         fontSize: 20,
@@ -73,7 +73,7 @@ class WalletPage extends StatelessWidget {
                       RoundedButtonWidget(
                         text: 'Monitorize Fees',
                         onPressed: () {},
-                        backgroundColor: const Color.fromRGBO(28, 94, 139, 1),
+                        backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,
                         fontSize: 20,
