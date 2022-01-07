@@ -61,7 +61,7 @@ class MyHomesForm extends StatelessWidget {
                     HomeNameField(initialize: home!.name),
                     LocationField(initialize: home!.location),
                     PriceField(initialize: home!.price),
-                    const GuestsField()
+                    GuestsField(initializeMaxAdults: home!.maxAdults, initializeMaxChildren: home!.maxChildren, initializeMaxPets: home!.maxPets)
                   ]
                 ],
               ),

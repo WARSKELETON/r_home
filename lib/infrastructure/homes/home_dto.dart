@@ -20,12 +20,12 @@ abstract class HomeDto implements _$HomeDto {
       required int maxPets,
       required List<String> localActivities}) = _HomeDto;
 
-  factory HomeDto.fromDomain(Home home) {
+  factory HomeDto.fromDomain(Home home, String hostId) {
     return HomeDto(
         name: home.name,
         location: home.location,
         description: home.description,
-        host: home.host,
+        host: hostId,
         price: home.price,
         maxAdults: home.maxAdults,
         maxChildren: home.maxChildren,

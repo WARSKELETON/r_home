@@ -7,7 +7,11 @@ import 'package:r_home/presentation/my_homes/widgets/children_field_widget.dart'
 import 'package:r_home/presentation/my_homes/widgets/pets_field_widget.dart';
 
 class GuestsField extends StatelessWidget {
-  const GuestsField({Key? key}) : super(key: key);
+  final int? initializeMaxAdults;
+  final int? initializeMaxChildren;
+  final int? initializeMaxPets;
+
+  const GuestsField({Key? key, this.initializeMaxAdults, this.initializeMaxChildren, this.initializeMaxPets}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +19,19 @@ class GuestsField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text("How many guests are allowed?", style: TextStyle(fontSize: 18, color: Colors.grey)),
+        children: [
+          const Text("How many guests are allowed?", style: TextStyle(fontSize: 18, color: Colors.grey)),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 2.0),
-            child: AdultsField(),
+            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            child: AdultsField(initialize: initializeMaxAdults),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 2.0),
-            child: ChildrenField(),
+            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            child: ChildrenField(initialize: initializeMaxChildren),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 2.0),
-            child: PetsField(),
+            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            child: PetsField(initialize: initializeMaxPets),
           )
         ],
       ),

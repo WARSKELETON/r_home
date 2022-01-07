@@ -26,6 +26,20 @@ class MyHomesRepository implements IMyHomesRepository {
         .map((query) => query.toListHome());
   }
 
+  Future<HomeDto> get(String homeName) async {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    final colRef = _firestore
+        .collection(HOMES_COLLECTION)
+        .doc(userId)
+        .collection(HOMES_COLLECTION);
+
+    QuerySnapshot<Map<String, dynamic>> snapshot =
+        await colRef.where('name', isEqualTo: homeName).get();
+
+    return HomeDto.fromFirestore(snapshot.docs.first);
+  }
+
   @override
   Future<void> create(Home home) async {
     final userId = _authFacade.getSignedInUserId()!;
@@ -35,9 +49,9 @@ class MyHomesRepository implements IMyHomesRepository {
       .doc(userId)
       .collection(HOMES_COLLECTION)
       .doc(home.name)
-      .set(HomeDto.fromDomain(home).toJson())
-        .then((_) => print("Home created successfuly"))
-        .catchError((onError) => print(onError));
+      .set(HomeDto.fromDomain(home, userId).toJson())
+      .then((_) => print("Home created successfuly"))
+      .catchError((onError) => print(onError));
   }
 
   @override
@@ -52,8 +66,8 @@ class MyHomesRepository implements IMyHomesRepository {
       .doc(userId)
       .collection(HOMES_COLLECTION)
       .doc(docId)
-      .update(HomeDto.fromDomain(home).toJson())
-        .then((_) => print("Home updated successfuly"))
-        .catchError((onError) => print(onError));
+      .update(HomeDto.fromDomain(home, userId).toJson())
+      .then((_) => print("Home updated successfuly"))
+      .catchError((onError) => print(onError));
   }
 }
