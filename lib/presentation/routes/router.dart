@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:r_home/presentation/home/home_page.dart';
 import 'package:r_home/presentation/my_homes/my_home_page.dart';
-import 'package:r_home/presentation/my_homes/my_homes_form.dart';
+import 'package:r_home/presentation/my_homes_form/my_homes_form.dart';
 import 'package:r_home/presentation/my_homes/my_homes_page.dart';
 import 'package:r_home/presentation/profile/my_local_activities_page.dart';
 import 'package:r_home/presentation/profile/profile_page.dart';

@@ -11,10 +11,10 @@ import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/my_homes/my_homes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/my_homes/widgets/guests_field_widget.dart';
-import 'package:r_home/presentation/my_homes/widgets/home_name_field_widget.dart';
-import 'package:r_home/presentation/my_homes/widgets/location_field_widget.dart';
-import 'package:r_home/presentation/my_homes/widgets/price_field_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/guests_field_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/home_name_field_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/location_field_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/price_field_widget.dart';
 
 class MyHomesForm extends StatelessWidget {
   final Home? editedHome;
