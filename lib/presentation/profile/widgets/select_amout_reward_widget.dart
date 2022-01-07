@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:r_home/application/reward_user/reward_user_bloc.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/r_home_icon_icons.dart';
-import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class SelectAmountRewardWidget extends StatelessWidget {
   const SelectAmountRewardWidget({

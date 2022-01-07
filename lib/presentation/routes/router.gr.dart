@@ -61,11 +61,9 @@ class MyRouter extends _i14.RootStackRouter {
           barrierDismissible: false);
     },
     MyHomesFormRoute.name: (routeData) {
-      final args = routeData.argsAs<MyHomesFormRouteArgs>();
       return _i14.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i6.MyHomesForm(
-              key: args.key, formAction: args.formAction, home: args.home),
+          child: const _i6.MyHomesForm(),
           fullscreenDialog: true);
     },
     ProfilePageRoute.name: (routeData) {
@@ -195,30 +193,11 @@ class MyHomesPageRoute extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.MyHomesForm]
-class MyHomesFormRoute extends _i14.PageRouteInfo<MyHomesFormRouteArgs> {
-  MyHomesFormRoute(
-      {_i15.Key? key, required _i6.FormAction formAction, _i16.Home? home})
-      : super(MyHomesFormRoute.name,
-            path: '/my-homes-form',
-            args: MyHomesFormRouteArgs(
-                key: key, formAction: formAction, home: home));
+class MyHomesFormRoute extends _i14.PageRouteInfo<void> {
+  const MyHomesFormRoute()
+      : super(MyHomesFormRoute.name, path: '/my-homes-form');
 
   static const String name = 'MyHomesFormRoute';
-}
-
-class MyHomesFormRouteArgs {
-  const MyHomesFormRouteArgs({this.key, required this.formAction, this.home});
-
-  final _i15.Key? key;
-
-  final _i6.FormAction formAction;
-
-  final _i16.Home? home;
-
-  @override
-  String toString() {
-    return 'MyHomesFormRouteArgs{key: $key, formAction: $formAction, home: $home}';
-  }
 }
 
 /// generated route for

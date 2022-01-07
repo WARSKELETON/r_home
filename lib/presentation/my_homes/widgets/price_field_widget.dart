@@ -5,19 +5,16 @@ import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 
 class PriceField extends HookWidget {
-  final double? initialize;
-
-  const PriceField({Key? key, this.initialize}) : super(key: key);
+  const PriceField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (initialize != null) context.read<MyHomesFormBloc>().add(MyHomesFormEvent.priceChanged(initialize!));
-    final textEditingController = initialize == null ? useTextEditingController() : useTextEditingController(text: initialize.toString());
+    final textEditingController = useTextEditingController();
 
     return BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
-        textEditingController.text = state.home.price.toString();
+        textEditingController.text = state.home.location;
       },
       builder: (context, state) {
         return Padding(

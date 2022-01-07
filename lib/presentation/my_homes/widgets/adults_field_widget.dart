@@ -5,14 +5,10 @@ import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class AdultsField extends StatelessWidget {
-  final int? initialize;
-
-  const AdultsField({Key? key, this.initialize}) : super(key: key);
+  const AdultsField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (initialize != null) context.read<MyHomesFormBloc>().add(MyHomesFormEvent.adultsChange(initialize!));
-
     return BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {

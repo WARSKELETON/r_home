@@ -9,7 +9,6 @@ import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/my_homes/my_homes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/my_homes/my_homes_form.dart';
 import 'package:r_home/presentation/my_homes/widgets/my_home_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
@@ -23,7 +22,7 @@ class MyHomesPage extends StatelessWidget {
         title: "My Homes",
         actions: [
           IconButton(
-            onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute(formAction: FormAction.addition)), 
+            onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute()), 
             icon: const Icon(Icons.add),
             splashRadius: 20,
           )

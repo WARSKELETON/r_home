@@ -1,9 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_card_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyLocalActivitiesPage extends StatelessWidget {
   const MyLocalActivitiesPage({Key? key}) : super(key: key);

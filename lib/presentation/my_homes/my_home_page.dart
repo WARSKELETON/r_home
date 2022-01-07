@@ -5,7 +5,6 @@ import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/my_homes/my_homes_form.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -51,7 +50,7 @@ class MyHomePage extends StatelessWidget {
         title: home.name,
         actions: [
           IconButton(
-            onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute(formAction: FormAction.edition, home: home)),
+            onPressed: () => AutoRouter.of(context).push(const MyHomesFormRoute()),
             icon: const Icon(Icons.edit),
             splashRadius: 20,
           )

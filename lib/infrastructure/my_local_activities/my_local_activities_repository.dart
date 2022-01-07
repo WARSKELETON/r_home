@@ -3,7 +3,7 @@ import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/domain/my_local_activities/i_my_local_activities_repository.dart';
 import 'package:r_home/infrastructure/local_activities/local_activity_dto.dart';
-import 'package:r_home/infrastructure/my_local_activities/my_homes_extension.dart';
+import 'package:r_home/infrastructure/my_local_activities/my_local_activities_extension.dart';
 
 class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
   final FirebaseFirestore _firestore;

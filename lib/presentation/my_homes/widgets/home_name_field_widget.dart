@@ -4,14 +4,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
 
 class HomeNameField extends HookWidget {
-  final String? initialize;
-  
-  const HomeNameField({Key? key, this.initialize}) : super(key: key);
+  const HomeNameField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (initialize != null) context.read<MyHomesFormBloc>().add(MyHomesFormEvent.nameChanged(initialize!));
-    final textEditingController = useTextEditingController(text: initialize);
+    final textEditingController = useTextEditingController();
 
     return BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
