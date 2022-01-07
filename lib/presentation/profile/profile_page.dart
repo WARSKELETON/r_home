@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -83,7 +82,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   RoundedButtonWidget(
                     text: 'MY ACTIVITIES',
-                    onPressed: () {},
+                    onPressed: () => AutoRouter.of(context).push(const MyLocalActivitiesPageRoute()),
                     backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                     fontWeight: FontWeight.w400,
                     textColor: Colors.white,

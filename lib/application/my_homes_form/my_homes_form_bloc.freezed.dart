@@ -98,10 +98,8 @@ class _$MyHomesFormEventTearOff {
     return const Create();
   }
 
-  Update onUpdate(String docId) {
-    return Update(
-      docId,
-    );
+  Update onUpdate() {
+    return const Update();
   }
 }
 
@@ -126,7 +124,7 @@ mixin _$MyHomesFormEvent {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -145,7 +143,7 @@ mixin _$MyHomesFormEvent {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -164,7 +162,7 @@ mixin _$MyHomesFormEvent {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -299,7 +297,7 @@ class _$Initialize implements Initialize {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return initialize();
   }
@@ -321,7 +319,7 @@ class _$Initialize implements Initialize {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return initialize?.call();
   }
@@ -343,7 +341,7 @@ class _$Initialize implements Initialize {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -506,7 +504,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return nameChanged(name);
   }
@@ -528,7 +526,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return nameChanged?.call(name);
   }
@@ -550,7 +548,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -718,7 +716,7 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return locationChanged(location);
   }
@@ -740,7 +738,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return locationChanged?.call(location);
   }
@@ -762,7 +760,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (locationChanged != null) {
@@ -930,7 +928,7 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return priceChanged(price);
   }
@@ -952,7 +950,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return priceChanged?.call(price);
   }
@@ -974,7 +972,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (priceChanged != null) {
@@ -1143,7 +1141,7 @@ class _$AdultsChange implements AdultsChange {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return adultsChange(numberAdults);
   }
@@ -1165,7 +1163,7 @@ class _$AdultsChange implements AdultsChange {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return adultsChange?.call(numberAdults);
   }
@@ -1187,7 +1185,7 @@ class _$AdultsChange implements AdultsChange {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (adultsChange != null) {
@@ -1352,7 +1350,7 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return adultsAdd(increment);
   }
@@ -1374,7 +1372,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return adultsAdd?.call(increment);
   }
@@ -1396,7 +1394,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (adultsAdd != null) {
@@ -1564,7 +1562,7 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return adultsRemove(decrement);
   }
@@ -1586,7 +1584,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return adultsRemove?.call(decrement);
   }
@@ -1608,7 +1606,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (adultsRemove != null) {
@@ -1776,7 +1774,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return childrenAdd(increment);
   }
@@ -1798,7 +1796,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return childrenAdd?.call(increment);
   }
@@ -1820,7 +1818,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (childrenAdd != null) {
@@ -1989,7 +1987,7 @@ class _$ChildrenChange implements ChildrenChange {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return childrenChange(numberChilds);
   }
@@ -2011,7 +2009,7 @@ class _$ChildrenChange implements ChildrenChange {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return childrenChange?.call(numberChilds);
   }
@@ -2033,7 +2031,7 @@ class _$ChildrenChange implements ChildrenChange {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (childrenChange != null) {
@@ -2201,7 +2199,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return childrenRemove(decrement);
   }
@@ -2223,7 +2221,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return childrenRemove?.call(decrement);
   }
@@ -2245,7 +2243,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (childrenRemove != null) {
@@ -2413,7 +2411,7 @@ class _$PetsChange implements PetsChange {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return petsChange(numberPets);
   }
@@ -2435,7 +2433,7 @@ class _$PetsChange implements PetsChange {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return petsChange?.call(numberPets);
   }
@@ -2457,7 +2455,7 @@ class _$PetsChange implements PetsChange {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (petsChange != null) {
@@ -2622,7 +2620,7 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return petsAdd(increment);
   }
@@ -2644,7 +2642,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return petsAdd?.call(increment);
   }
@@ -2666,7 +2664,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (petsAdd != null) {
@@ -2832,7 +2830,7 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return petsRemove(decrement);
   }
@@ -2854,7 +2852,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return petsRemove?.call(decrement);
   }
@@ -2876,7 +2874,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (petsRemove != null) {
@@ -3017,7 +3015,7 @@ class _$Create implements Create {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
     return onCreate();
   }
@@ -3039,7 +3037,7 @@ class _$Create implements Create {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
     return onCreate?.call();
   }
@@ -3061,7 +3059,7 @@ class _$Create implements Create {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (onCreate != null) {
@@ -3149,7 +3147,6 @@ abstract class Create implements MyHomesFormEvent {
 abstract class $UpdateCopyWith<$Res> {
   factory $UpdateCopyWith(Update value, $Res Function(Update) then) =
       _$UpdateCopyWithImpl<$Res>;
-  $Res call({String docId});
 }
 
 /// @nodoc
@@ -3160,49 +3157,26 @@ class _$UpdateCopyWithImpl<$Res> extends _$MyHomesFormEventCopyWithImpl<$Res>
 
   @override
   Update get _value => super._value as Update;
-
-  @override
-  $Res call({
-    Object? docId = freezed,
-  }) {
-    return _then(Update(
-      docId == freezed
-          ? _value.docId
-          : docId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$Update implements Update {
-  const _$Update(this.docId);
-
-  @override
-  final String docId;
+  const _$Update();
 
   @override
   String toString() {
-    return 'MyHomesFormEvent.onUpdate(docId: $docId)';
+    return 'MyHomesFormEvent.onUpdate()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is Update &&
-            const DeepCollectionEquality().equals(other.docId, docId));
+        (other.runtimeType == runtimeType && other is Update);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(docId));
-
-  @JsonKey(ignore: true)
-  @override
-  $UpdateCopyWith<Update> get copyWith =>
-      _$UpdateCopyWithImpl<Update>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -3221,9 +3195,9 @@ class _$Update implements Update {
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() onCreate,
-    required TResult Function(String docId) onUpdate,
+    required TResult Function() onUpdate,
   }) {
-    return onUpdate(docId);
+    return onUpdate();
   }
 
   @override
@@ -3243,9 +3217,9 @@ class _$Update implements Update {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
   }) {
-    return onUpdate?.call(docId);
+    return onUpdate?.call();
   }
 
   @override
@@ -3265,11 +3239,11 @@ class _$Update implements Update {
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? onCreate,
-    TResult Function(String docId)? onUpdate,
+    TResult Function()? onUpdate,
     required TResult orElse(),
   }) {
     if (onUpdate != null) {
-      return onUpdate(docId);
+      return onUpdate();
     }
     return orElse();
   }
@@ -3346,11 +3320,7 @@ class _$Update implements Update {
 }
 
 abstract class Update implements MyHomesFormEvent {
-  const factory Update(String docId) = _$Update;
-
-  String get docId;
-  @JsonKey(ignore: true)
-  $UpdateCopyWith<Update> get copyWith => throw _privateConstructorUsedError;
+  const factory Update() = _$Update;
 }
 
 /// @nodoc

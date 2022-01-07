@@ -21,7 +21,6 @@ class _$LocalActivityTearOff {
   _LocalActivity call(
       {required String name,
       required String location,
-      required String description,
       required String producer,
       required String category,
       required double price,
@@ -29,7 +28,6 @@ class _$LocalActivityTearOff {
     return _LocalActivity(
       name: name,
       location: location,
-      description: description,
       producer: producer,
       category: category,
       price: price,
@@ -45,7 +43,6 @@ const $LocalActivity = _$LocalActivityTearOff();
 mixin _$LocalActivity {
   String get name => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   String get producer => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError; //enum?
   double get price => throw _privateConstructorUsedError;
@@ -64,7 +61,6 @@ abstract class $LocalActivityCopyWith<$Res> {
   $Res call(
       {String name,
       String location,
-      String description,
       String producer,
       String category,
       double price,
@@ -84,7 +80,6 @@ class _$LocalActivityCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? producer = freezed,
     Object? category = freezed,
     Object? price = freezed,
@@ -98,10 +93,6 @@ class _$LocalActivityCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       producer: producer == freezed
           ? _value.producer
@@ -133,7 +124,6 @@ abstract class _$LocalActivityCopyWith<$Res>
   $Res call(
       {String name,
       String location,
-      String description,
       String producer,
       String category,
       double price,
@@ -155,7 +145,6 @@ class __$LocalActivityCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? producer = freezed,
     Object? category = freezed,
     Object? price = freezed,
@@ -169,10 +158,6 @@ class __$LocalActivityCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       producer: producer == freezed
           ? _value.producer
@@ -200,7 +185,6 @@ class _$_LocalActivity extends _LocalActivity {
   const _$_LocalActivity(
       {required this.name,
       required this.location,
-      required this.description,
       required this.producer,
       required this.category,
       required this.price,
@@ -212,8 +196,6 @@ class _$_LocalActivity extends _LocalActivity {
   @override
   final String location;
   @override
-  final String description;
-  @override
   final String producer;
   @override
   final String category;
@@ -224,7 +206,7 @@ class _$_LocalActivity extends _LocalActivity {
 
   @override
   String toString() {
-    return 'LocalActivity(name: $name, location: $location, description: $description, producer: $producer, category: $category, price: $price, contact: $contact)';
+    return 'LocalActivity(name: $name, location: $location, producer: $producer, category: $category, price: $price, contact: $contact)';
   }
 
   @override
@@ -234,8 +216,6 @@ class _$_LocalActivity extends _LocalActivity {
             other is _LocalActivity &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.producer, producer) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.price, price) &&
@@ -247,7 +227,6 @@ class _$_LocalActivity extends _LocalActivity {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(producer),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(price),
@@ -263,7 +242,6 @@ abstract class _LocalActivity extends LocalActivity {
   const factory _LocalActivity(
       {required String name,
       required String location,
-      required String description,
       required String producer,
       required String category,
       required double price,
@@ -274,8 +252,6 @@ abstract class _LocalActivity extends LocalActivity {
   String get name;
   @override
   String get location;
-  @override
-  String get description;
   @override
   String get producer;
   @override

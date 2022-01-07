@@ -19,9 +19,9 @@ class _$HomeTearOff {
   const _$HomeTearOff();
 
   _Home call(
-      {required String name,
+      {required String uuid,
+      required String name,
       required String location,
-      required String description,
       required String host,
       required double price,
       required int maxAdults,
@@ -29,9 +29,9 @@ class _$HomeTearOff {
       required int maxPets,
       required List<String> localActivities}) {
     return _Home(
+      uuid: uuid,
       name: name,
       location: location,
-      description: description,
       host: host,
       price: price,
       maxAdults: maxAdults,
@@ -47,9 +47,9 @@ const $Home = _$HomeTearOff();
 
 /// @nodoc
 mixin _$Home {
+  String get uuid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   String get host => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   int get maxAdults => throw _privateConstructorUsedError;
@@ -66,9 +66,9 @@ abstract class $HomeCopyWith<$Res> {
   factory $HomeCopyWith(Home value, $Res Function(Home) then) =
       _$HomeCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {String uuid,
+      String name,
       String location,
-      String description,
       String host,
       double price,
       int maxAdults,
@@ -87,9 +87,9 @@ class _$HomeCopyWithImpl<$Res> implements $HomeCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? uuid = freezed,
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? host = freezed,
     Object? price = freezed,
     Object? maxAdults = freezed,
@@ -98,6 +98,10 @@ class _$HomeCopyWithImpl<$Res> implements $HomeCopyWith<$Res> {
     Object? localActivities = freezed,
   }) {
     return _then(_value.copyWith(
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -105,10 +109,6 @@ class _$HomeCopyWithImpl<$Res> implements $HomeCopyWith<$Res> {
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       host: host == freezed
           ? _value.host
@@ -144,9 +144,9 @@ abstract class _$HomeCopyWith<$Res> implements $HomeCopyWith<$Res> {
       __$HomeCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {String uuid,
+      String name,
       String location,
-      String description,
       String host,
       double price,
       int maxAdults,
@@ -166,9 +166,9 @@ class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? uuid = freezed,
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? host = freezed,
     Object? price = freezed,
     Object? maxAdults = freezed,
@@ -177,6 +177,10 @@ class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
     Object? localActivities = freezed,
   }) {
     return _then(_Home(
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -184,10 +188,6 @@ class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       host: host == freezed
           ? _value.host
@@ -221,9 +221,9 @@ class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
 
 class _$_Home extends _Home {
   const _$_Home(
-      {required this.name,
+      {required this.uuid,
+      required this.name,
       required this.location,
-      required this.description,
       required this.host,
       required this.price,
       required this.maxAdults,
@@ -233,11 +233,11 @@ class _$_Home extends _Home {
       : super._();
 
   @override
+  final String uuid;
+  @override
   final String name;
   @override
   final String location;
-  @override
-  final String description;
   @override
   final String host;
   @override
@@ -253,7 +253,7 @@ class _$_Home extends _Home {
 
   @override
   String toString() {
-    return 'Home(name: $name, location: $location, description: $description, host: $host, price: $price, maxAdults: $maxAdults, maxChildren: $maxChildren, maxPets: $maxPets, localActivities: $localActivities)';
+    return 'Home(uuid: $uuid, name: $name, location: $location, host: $host, price: $price, maxAdults: $maxAdults, maxChildren: $maxChildren, maxPets: $maxPets, localActivities: $localActivities)';
   }
 
   @override
@@ -261,10 +261,9 @@ class _$_Home extends _Home {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Home &&
+            const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.host, host) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.maxAdults, maxAdults) &&
@@ -278,9 +277,9 @@ class _$_Home extends _Home {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(uuid),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(host),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(maxAdults),
@@ -296,9 +295,9 @@ class _$_Home extends _Home {
 
 abstract class _Home extends Home {
   const factory _Home(
-      {required String name,
+      {required String uuid,
+      required String name,
       required String location,
-      required String description,
       required String host,
       required double price,
       required int maxAdults,
@@ -308,11 +307,11 @@ abstract class _Home extends Home {
   const _Home._() : super._();
 
   @override
+  String get uuid;
+  @override
   String get name;
   @override
   String get location;
-  @override
-  String get description;
   @override
   String get host;
   @override

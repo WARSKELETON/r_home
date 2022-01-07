@@ -9,7 +9,6 @@ abstract class LocalActivity implements _$LocalActivity {
   const factory LocalActivity(
       {required String name,
       required String location,
-      required String description,
       required String producer,
       required String category, //enum?
       required double price,
@@ -21,7 +20,6 @@ abstract class LocalActivity implements _$LocalActivity {
   factory LocalActivity.empty() => const LocalActivity(
       name: '',
       location: '',
-      description: '',
       producer: '',
       category: '',
       price: 0.0,

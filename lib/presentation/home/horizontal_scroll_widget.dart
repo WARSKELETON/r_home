@@ -20,8 +20,8 @@ class HorizontalScrollWidget extends StatelessWidget {
           title: "Serra de Sintra",
           subtitle: "50 Km",
           image: "assets/icons/home${index+1}.png",
-          width: 150,
-          height: 150,
+          width: 155,
+          height: 155,
           onPressed: () => {},
       ),
     );

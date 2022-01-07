@@ -123,28 +123,10 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
   }
 
   void _onCreate(Create event, Emitter<MyHomesFormState> emit) {
-    _homesRepository.create(Home(
-        name: state.home.name,
-        location: state.home.location,
-        description: state.home.description,
-        host: state.home.host,
-        price: state.home.price,
-        maxAdults: state.home.maxAdults,
-        maxChildren: state.home.maxChildren,
-        maxPets: state.home.maxPets,
-        localActivities: state.home.localActivities));
+    _homesRepository.create(state.home);
   }
 
   void _onUpdate(Update event, Emitter<MyHomesFormState> emit) {
-    _homesRepository.update(Home(
-        name: state.home.name,
-        location: state.home.location,
-        description: state.home.description,
-        host: state.home.host,
-        price: state.home.price,
-        maxAdults: state.home.maxAdults,
-        maxChildren: state.home.maxChildren,
-        maxPets: state.home.maxPets,
-        localActivities: state.home.localActivities), event.docId);
+    _homesRepository.update(state.home);
   }
 }

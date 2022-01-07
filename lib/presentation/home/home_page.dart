@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: const [
             SizedBox(
-              height: 270,
+              height: 275,
               child: HorizontalScrollWidget(
                   title: "Recommended for you",
                   items: [1, 2, 3, 4]),
@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
               color: Color(0xFFE5E5E5),
             ),
             SizedBox(
-              height: 270,
+              height: 275,
               child: HorizontalScrollWidget(
                   title: "My Stays",
                   items: [1, 2, 3, 4]),
@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               color: Color(0xFFE5E5E5),
             ),
             SizedBox(
-              height: 270,
+              height: 275,
               child: HorizontalScrollWidget(
                   title: "My Host Recommendations",
                   items: [1, 2, 3, 4]),

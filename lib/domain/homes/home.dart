@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'home.freezed.dart';
 
@@ -7,9 +8,9 @@ abstract class Home implements _$Home {
   const Home._();
 
   const factory Home({
+    required String uuid,
     required String name,
     required String location,
-    required String description,
     required String host,
     required double price,
     required int maxAdults,
@@ -20,14 +21,14 @@ abstract class Home implements _$Home {
     // Add list of activities
   }) = _Home;
 
-  factory Home.empty() => const Home(
-      name: '',
-      location: '',
-      description: '',
-      host: '',
-      price: 0.0,
-      maxAdults: 0,
-      maxChildren: 0,
-      maxPets: 0,
-      localActivities: []);
+  factory Home.empty() => Home(
+    uuid: const Uuid().v1().toString(),
+    name: '',
+    location: '',
+    host: '',
+    price: 0.0,
+    maxAdults: 0,
+    maxChildren: 0,
+    maxPets: 0,
+    localActivities: []);
 }

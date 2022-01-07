@@ -12,18 +12,16 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
   const factory LocalActivityDto(
       {required String name,
       required String location,
-      required String description,
       required String producer,
       required String category,
       required double price,
       required int contact}) = _LocalActivityDto;
 
-  factory LocalActivityDto.fromDomain(LocalActivity localActivity) {
+  factory LocalActivityDto.fromDomain(LocalActivity localActivity, String producerId) {
     return LocalActivityDto(
       name: localActivity.name,
       location: localActivity.location,
-      description: localActivity.description,
-      producer: localActivity.producer,
+      producer: producerId,
       category: localActivity.category,
       price: localActivity.price,
       contact: localActivity.contact,
@@ -34,7 +32,6 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
     return LocalActivity(
       name: name,
       location: location,
-      description: description,
       producer: producer,
       category: category,
       price: price,
@@ -43,6 +40,10 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
   }
 
   factory LocalActivityDto.fromFirestore(DocumentSnapshot doc) {
+    return LocalActivityDto.fromJson(doc.data() as Map<String, dynamic>);
+  }
+
+  factory LocalActivityDto.fromFirestoreQueryDoc(QueryDocumentSnapshot doc) {
     return LocalActivityDto.fromJson(doc.data() as Map<String, dynamic>);
   }
 

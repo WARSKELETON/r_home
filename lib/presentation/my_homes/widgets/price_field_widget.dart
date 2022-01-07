@@ -17,7 +17,7 @@ class PriceField extends HookWidget {
     return BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
-        textEditingController.text = state.home.location;
+        textEditingController.text = state.home.price.toString();
       },
       builder: (context, state) {
         return Padding(

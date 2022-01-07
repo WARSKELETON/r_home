@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/homes/home.dart';
 
@@ -9,23 +10,24 @@ part 'home_dto.g.dart';
 abstract class HomeDto implements _$HomeDto {
   const HomeDto._();
 
-  const factory HomeDto(
-      {required String name,
-      required String location,
-      required String description,
-      required String host,
-      required double price,
-      required int maxAdults,
-      required int maxChildren,
-      required int maxPets,
-      required List<String> localActivities}) = _HomeDto;
+  const factory HomeDto({
+    required String uuid,
+    required String name,
+    required String location,
+    required String host,
+    required double price,
+    required int maxAdults,
+    required int maxChildren,
+    required int maxPets,
+    required List<String> localActivities
+  }) = _HomeDto;
 
-  factory HomeDto.fromDomain(Home home, String hostId) {
+  factory HomeDto.fromDomain(Home home) {
     return HomeDto(
+        uuid: home.uuid,
         name: home.name,
         location: home.location,
-        description: home.description,
-        host: hostId,
+        host: home.host,
         price: home.price,
         maxAdults: home.maxAdults,
         maxChildren: home.maxChildren,
@@ -35,9 +37,9 @@ abstract class HomeDto implements _$HomeDto {
 
   Home toDomain() {
     return Home(
+        uuid: uuid,
         name: name,
         location: location,
-        description: description,
         host: host,
         price: price,
         maxAdults: maxAdults,

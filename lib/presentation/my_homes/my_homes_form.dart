@@ -38,7 +38,7 @@ class MyHomesForm extends StatelessWidget {
                 onPressed: () => {
                   formAction == FormAction.addition ? 
                   context.read<MyHomesFormBloc>().add(const MyHomesFormEvent.onCreate()) :
-                  context.read<MyHomesFormBloc>().add(MyHomesFormEvent.onUpdate(home!.name)),
+                  context.read<MyHomesFormBloc>().add(MyHomesFormEvent.onUpdate()),
 
                   AutoRouter.of(context).pop()
                 },

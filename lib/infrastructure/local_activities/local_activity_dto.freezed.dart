@@ -25,7 +25,6 @@ class _$LocalActivityDtoTearOff {
   _LocalActivityDto call(
       {required String name,
       required String location,
-      required String description,
       required String producer,
       required String category,
       required double price,
@@ -33,7 +32,6 @@ class _$LocalActivityDtoTearOff {
     return _LocalActivityDto(
       name: name,
       location: location,
-      description: description,
       producer: producer,
       category: category,
       price: price,
@@ -53,7 +51,6 @@ const $LocalActivityDto = _$LocalActivityDtoTearOff();
 mixin _$LocalActivityDto {
   String get name => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   String get producer => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
@@ -73,7 +70,6 @@ abstract class $LocalActivityDtoCopyWith<$Res> {
   $Res call(
       {String name,
       String location,
-      String description,
       String producer,
       String category,
       double price,
@@ -93,7 +89,6 @@ class _$LocalActivityDtoCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? producer = freezed,
     Object? category = freezed,
     Object? price = freezed,
@@ -107,10 +102,6 @@ class _$LocalActivityDtoCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       producer: producer == freezed
           ? _value.producer
@@ -142,7 +133,6 @@ abstract class _$LocalActivityDtoCopyWith<$Res>
   $Res call(
       {String name,
       String location,
-      String description,
       String producer,
       String category,
       double price,
@@ -164,7 +154,6 @@ class __$LocalActivityDtoCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? producer = freezed,
     Object? category = freezed,
     Object? price = freezed,
@@ -178,10 +167,6 @@ class __$LocalActivityDtoCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       producer: producer == freezed
           ? _value.producer
@@ -209,7 +194,6 @@ class _$_LocalActivityDto extends _LocalActivityDto {
   const _$_LocalActivityDto(
       {required this.name,
       required this.location,
-      required this.description,
       required this.producer,
       required this.category,
       required this.price,
@@ -224,8 +208,6 @@ class _$_LocalActivityDto extends _LocalActivityDto {
   @override
   final String location;
   @override
-  final String description;
-  @override
   final String producer;
   @override
   final String category;
@@ -236,7 +218,7 @@ class _$_LocalActivityDto extends _LocalActivityDto {
 
   @override
   String toString() {
-    return 'LocalActivityDto(name: $name, location: $location, description: $description, producer: $producer, category: $category, price: $price, contact: $contact)';
+    return 'LocalActivityDto(name: $name, location: $location, producer: $producer, category: $category, price: $price, contact: $contact)';
   }
 
   @override
@@ -246,8 +228,6 @@ class _$_LocalActivityDto extends _LocalActivityDto {
             other is _LocalActivityDto &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.producer, producer) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.price, price) &&
@@ -259,7 +239,6 @@ class _$_LocalActivityDto extends _LocalActivityDto {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(producer),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(price),
@@ -280,7 +259,6 @@ abstract class _LocalActivityDto extends LocalActivityDto {
   const factory _LocalActivityDto(
       {required String name,
       required String location,
-      required String description,
       required String producer,
       required String category,
       required double price,
@@ -294,8 +272,6 @@ abstract class _LocalActivityDto extends LocalActivityDto {
   String get name;
   @override
   String get location;
-  @override
-  String get description;
   @override
   String get producer;
   @override

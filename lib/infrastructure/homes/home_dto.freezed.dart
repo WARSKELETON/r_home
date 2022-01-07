@@ -23,9 +23,9 @@ class _$HomeDtoTearOff {
   const _$HomeDtoTearOff();
 
   _HomeDto call(
-      {required String name,
+      {required String uuid,
+      required String name,
       required String location,
-      required String description,
       required String host,
       required double price,
       required int maxAdults,
@@ -33,9 +33,9 @@ class _$HomeDtoTearOff {
       required int maxPets,
       required List<String> localActivities}) {
     return _HomeDto(
+      uuid: uuid,
       name: name,
       location: location,
-      description: description,
       host: host,
       price: price,
       maxAdults: maxAdults,
@@ -55,9 +55,9 @@ const $HomeDto = _$HomeDtoTearOff();
 
 /// @nodoc
 mixin _$HomeDto {
+  String get uuid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   String get host => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   int get maxAdults => throw _privateConstructorUsedError;
@@ -75,9 +75,9 @@ abstract class $HomeDtoCopyWith<$Res> {
   factory $HomeDtoCopyWith(HomeDto value, $Res Function(HomeDto) then) =
       _$HomeDtoCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {String uuid,
+      String name,
       String location,
-      String description,
       String host,
       double price,
       int maxAdults,
@@ -96,9 +96,9 @@ class _$HomeDtoCopyWithImpl<$Res> implements $HomeDtoCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? uuid = freezed,
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? host = freezed,
     Object? price = freezed,
     Object? maxAdults = freezed,
@@ -107,6 +107,10 @@ class _$HomeDtoCopyWithImpl<$Res> implements $HomeDtoCopyWith<$Res> {
     Object? localActivities = freezed,
   }) {
     return _then(_value.copyWith(
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -114,10 +118,6 @@ class _$HomeDtoCopyWithImpl<$Res> implements $HomeDtoCopyWith<$Res> {
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       host: host == freezed
           ? _value.host
@@ -153,9 +153,9 @@ abstract class _$HomeDtoCopyWith<$Res> implements $HomeDtoCopyWith<$Res> {
       __$HomeDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {String uuid,
+      String name,
       String location,
-      String description,
       String host,
       double price,
       int maxAdults,
@@ -175,9 +175,9 @@ class __$HomeDtoCopyWithImpl<$Res> extends _$HomeDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? uuid = freezed,
     Object? name = freezed,
     Object? location = freezed,
-    Object? description = freezed,
     Object? host = freezed,
     Object? price = freezed,
     Object? maxAdults = freezed,
@@ -186,6 +186,10 @@ class __$HomeDtoCopyWithImpl<$Res> extends _$HomeDtoCopyWithImpl<$Res>
     Object? localActivities = freezed,
   }) {
     return _then(_HomeDto(
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -193,10 +197,6 @@ class __$HomeDtoCopyWithImpl<$Res> extends _$HomeDtoCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       host: host == freezed
           ? _value.host
@@ -230,9 +230,9 @@ class __$HomeDtoCopyWithImpl<$Res> extends _$HomeDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HomeDto extends _HomeDto {
   const _$_HomeDto(
-      {required this.name,
+      {required this.uuid,
+      required this.name,
       required this.location,
-      required this.description,
       required this.host,
       required this.price,
       required this.maxAdults,
@@ -245,11 +245,11 @@ class _$_HomeDto extends _HomeDto {
       _$$_HomeDtoFromJson(json);
 
   @override
+  final String uuid;
+  @override
   final String name;
   @override
   final String location;
-  @override
-  final String description;
   @override
   final String host;
   @override
@@ -265,7 +265,7 @@ class _$_HomeDto extends _HomeDto {
 
   @override
   String toString() {
-    return 'HomeDto(name: $name, location: $location, description: $description, host: $host, price: $price, maxAdults: $maxAdults, maxChildren: $maxChildren, maxPets: $maxPets, localActivities: $localActivities)';
+    return 'HomeDto(uuid: $uuid, name: $name, location: $location, host: $host, price: $price, maxAdults: $maxAdults, maxChildren: $maxChildren, maxPets: $maxPets, localActivities: $localActivities)';
   }
 
   @override
@@ -273,10 +273,9 @@ class _$_HomeDto extends _HomeDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HomeDto &&
+            const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.location, location) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.host, host) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.maxAdults, maxAdults) &&
@@ -290,9 +289,9 @@ class _$_HomeDto extends _HomeDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(uuid),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(location),
-      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(host),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(maxAdults),
@@ -313,9 +312,9 @@ class _$_HomeDto extends _HomeDto {
 
 abstract class _HomeDto extends HomeDto {
   const factory _HomeDto(
-      {required String name,
+      {required String uuid,
+      required String name,
       required String location,
-      required String description,
       required String host,
       required double price,
       required int maxAdults,
@@ -327,11 +326,11 @@ abstract class _HomeDto extends HomeDto {
   factory _HomeDto.fromJson(Map<String, dynamic> json) = _$_HomeDto.fromJson;
 
   @override
+  String get uuid;
+  @override
   String get name;
   @override
   String get location;
-  @override
-  String get description;
   @override
   String get host;
   @override

@@ -16,5 +16,5 @@ class MyHomesFormEvent with _$MyHomesFormEvent {
   const factory MyHomesFormEvent.petsAdd(int increment) = PetsAdd;
   const factory MyHomesFormEvent.petsRemove(int decrement) = PetsRemove;
   const factory MyHomesFormEvent.onCreate() = Create;
-  const factory MyHomesFormEvent.onUpdate(String docId) = Update;
+  const factory MyHomesFormEvent.onUpdate() = Update;
 }
