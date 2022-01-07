@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:r_home/r_home_icon_icons.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class NumberTokensInfoWidget extends StatelessWidget {
   final String title;
@@ -17,9 +18,9 @@ class NumberTokensInfoWidget extends StatelessWidget {
     return Container(
       height: 55,
         decoration: BoxDecoration(
-        color: const Color.fromRGBO(28, 94, 139, 1),
+        color: Theme.of(context).colorScheme.primaryBlue,
         border: Border.all(
-          color: const Color.fromRGBO(28, 94, 139, 1),
+          color: Theme.of(context).colorScheme.primaryBlue,
         ),
         borderRadius: BorderRadius.circular(10.0),
       ),

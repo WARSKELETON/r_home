@@ -36,7 +36,7 @@ class OperationSuccessfulWidget extends StatelessWidget {
               textColor: Colors.white,
               fontWeight: FontWeight.w800,
               fontSize: 18,
-              width: 200,
+              width: 250,
               height: 50
             ),
           )

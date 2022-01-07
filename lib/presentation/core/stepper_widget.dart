@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class StepperWidget extends StatelessWidget {
   final String title;
@@ -30,15 +31,15 @@ class StepperWidget extends StatelessWidget {
         height: stepWidth,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: selectedIndex >= 1 ? Colors.transparent : const Color.fromRGBO(28, 94, 139, 1), width: 2),
-          color: selectedIndex >= 1 ? const Color.fromRGBO(28, 94, 139, 1) : Colors.white,
+          border: Border.all(color: selectedIndex >= 1 ? Colors.transparent : Theme.of(context).colorScheme.primaryBlue, width: 2),
+          color: selectedIndex >= 1 ? Theme.of(context).colorScheme.primaryBlue : Colors.white,
         ),
         child: Center(
           child: Text(
             "1",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: selectedIndex >= 1 ? Colors.white : const Color.fromRGBO(28, 94, 139, 1)
+              color: selectedIndex >= 1 ? Colors.white : Theme.of(context).colorScheme.primaryBlue
             ),
           )
         ),
@@ -51,22 +52,22 @@ class StepperWidget extends StatelessWidget {
         Container(
           height: selectedIndex >= i ? 3 : 1,
           width: separatorWidth,
-          color: const Color.fromRGBO(28, 94, 139, 1),
+          color: Theme.of(context).colorScheme.primaryBlue,
         ),
         Container(
           width: stepWidth,
           height: stepWidth,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: selectedIndex >= i ? Colors.transparent : const Color.fromRGBO(28, 94, 139, 1), width: 2),
-            color: selectedIndex >= i ? const Color.fromRGBO(28, 94, 139, 1) : Colors.white,
+            border: Border.all(color: selectedIndex >= i ? Colors.transparent : Theme.of(context).colorScheme.primaryBlue, width: 2),
+            color: selectedIndex >= i ? Theme.of(context).colorScheme.primaryBlue : Colors.white,
           ),
           child: Center(
             child: Text(
               i.toString(),
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: selectedIndex >= i ? Colors.white : const Color.fromRGBO(28, 94, 139, 1)
+                color: selectedIndex >= i ? Colors.white : Theme.of(context).colorScheme.primaryBlue
               ),
             ),
           )
