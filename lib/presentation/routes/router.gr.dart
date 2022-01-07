@@ -13,7 +13,6 @@
 import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:flutter/material.dart' as _i15;
 
-import '../../domain/homes/home.dart' as _i16;
 import '../home/home_page.dart' as _i4;
 import '../my_homes/my_home_page.dart' as _i8;
 import '../my_homes/my_homes_form.dart' as _i6;
@@ -77,7 +76,7 @@ class MyRouter extends _i14.RootStackRouter {
       final args = routeData.argsAs<MyHomePageRouteArgs>();
       return _i14.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i8.MyHomePage(key: args.key, home: args.home),
+          child: _i8.MyHomePage(key: args.key, homeUuid: args.homeUuid),
           transitionsBuilder: _i14.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -212,24 +211,24 @@ class ProfilePageRoute extends _i14.PageRouteInfo<void> {
 /// generated route for
 /// [_i8.MyHomePage]
 class MyHomePageRoute extends _i14.PageRouteInfo<MyHomePageRouteArgs> {
-  MyHomePageRoute({_i15.Key? key, required _i16.Home home})
+  MyHomePageRoute({_i15.Key? key, required String homeUuid})
       : super(MyHomePageRoute.name,
             path: '/my-home-page',
-            args: MyHomePageRouteArgs(key: key, home: home));
+            args: MyHomePageRouteArgs(key: key, homeUuid: homeUuid));
 
   static const String name = 'MyHomePageRoute';
 }
 
 class MyHomePageRouteArgs {
-  const MyHomePageRouteArgs({this.key, required this.home});
+  const MyHomePageRouteArgs({this.key, required this.homeUuid});
 
   final _i15.Key? key;
 
-  final _i16.Home home;
+  final String homeUuid;
 
   @override
   String toString() {
-    return 'MyHomePageRouteArgs{key: $key, home: $home}';
+    return 'MyHomePageRouteArgs{key: $key, homeUuid: $homeUuid}';
   }
 }
 

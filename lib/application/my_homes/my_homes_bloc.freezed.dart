@@ -27,6 +27,18 @@ class _$MyHomesEventTearOff {
       homes,
     );
   }
+
+  WatchHome watchHome(String homeUuid) {
+    return WatchHome(
+      homeUuid,
+    );
+  }
+
+  HomeReceived homeReceived(Home home) {
+    return HomeReceived(
+      home,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,18 +50,24 @@ mixin _$MyHomesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(Home home) homeReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,18 +75,24 @@ mixin _$MyHomesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(HomeReceived value) homeReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +155,8 @@ class _$Initialize implements Initialize {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(Home home) homeReceived,
   }) {
     return initialize();
   }
@@ -140,6 +166,8 @@ class _$Initialize implements Initialize {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
   }) {
     return initialize?.call();
   }
@@ -149,6 +177,8 @@ class _$Initialize implements Initialize {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -162,6 +192,8 @@ class _$Initialize implements Initialize {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(HomeReceived value) homeReceived,
   }) {
     return initialize(this);
   }
@@ -171,6 +203,8 @@ class _$Initialize implements Initialize {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
   }) {
     return initialize?.call(this);
   }
@@ -180,6 +214,8 @@ class _$Initialize implements Initialize {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -259,6 +295,8 @@ class _$HomesReceived implements HomesReceived {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(Home home) homeReceived,
   }) {
     return homesReceived(homes);
   }
@@ -268,6 +306,8 @@ class _$HomesReceived implements HomesReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
   }) {
     return homesReceived?.call(homes);
   }
@@ -277,6 +317,8 @@ class _$HomesReceived implements HomesReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
     required TResult orElse(),
   }) {
     if (homesReceived != null) {
@@ -290,6 +332,8 @@ class _$HomesReceived implements HomesReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(HomeReceived value) homeReceived,
   }) {
     return homesReceived(this);
   }
@@ -299,6 +343,8 @@ class _$HomesReceived implements HomesReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
   }) {
     return homesReceived?.call(this);
   }
@@ -308,6 +354,8 @@ class _$HomesReceived implements HomesReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
     required TResult orElse(),
   }) {
     if (homesReceived != null) {
@@ -327,13 +375,314 @@ abstract class HomesReceived implements MyHomesEvent {
 }
 
 /// @nodoc
+abstract class $WatchHomeCopyWith<$Res> {
+  factory $WatchHomeCopyWith(WatchHome value, $Res Function(WatchHome) then) =
+      _$WatchHomeCopyWithImpl<$Res>;
+  $Res call({String homeUuid});
+}
+
+/// @nodoc
+class _$WatchHomeCopyWithImpl<$Res> extends _$MyHomesEventCopyWithImpl<$Res>
+    implements $WatchHomeCopyWith<$Res> {
+  _$WatchHomeCopyWithImpl(WatchHome _value, $Res Function(WatchHome) _then)
+      : super(_value, (v) => _then(v as WatchHome));
+
+  @override
+  WatchHome get _value => super._value as WatchHome;
+
+  @override
+  $Res call({
+    Object? homeUuid = freezed,
+  }) {
+    return _then(WatchHome(
+      homeUuid == freezed
+          ? _value.homeUuid
+          : homeUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$WatchHome implements WatchHome {
+  const _$WatchHome(this.homeUuid);
+
+  @override
+  final String homeUuid;
+
+  @override
+  String toString() {
+    return 'MyHomesEvent.watchHome(homeUuid: $homeUuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WatchHome &&
+            const DeepCollectionEquality().equals(other.homeUuid, homeUuid));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(homeUuid));
+
+  @JsonKey(ignore: true)
+  @override
+  $WatchHomeCopyWith<WatchHome> get copyWith =>
+      _$WatchHomeCopyWithImpl<WatchHome>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(Home home) homeReceived,
+  }) {
+    return watchHome(homeUuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
+  }) {
+    return watchHome?.call(homeUuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
+    required TResult orElse(),
+  }) {
+    if (watchHome != null) {
+      return watchHome(homeUuid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(HomeReceived value) homeReceived,
+  }) {
+    return watchHome(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
+  }) {
+    return watchHome?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
+    required TResult orElse(),
+  }) {
+    if (watchHome != null) {
+      return watchHome(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WatchHome implements MyHomesEvent {
+  const factory WatchHome(String homeUuid) = _$WatchHome;
+
+  String get homeUuid;
+  @JsonKey(ignore: true)
+  $WatchHomeCopyWith<WatchHome> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HomeReceivedCopyWith<$Res> {
+  factory $HomeReceivedCopyWith(
+          HomeReceived value, $Res Function(HomeReceived) then) =
+      _$HomeReceivedCopyWithImpl<$Res>;
+  $Res call({Home home});
+
+  $HomeCopyWith<$Res> get home;
+}
+
+/// @nodoc
+class _$HomeReceivedCopyWithImpl<$Res> extends _$MyHomesEventCopyWithImpl<$Res>
+    implements $HomeReceivedCopyWith<$Res> {
+  _$HomeReceivedCopyWithImpl(
+      HomeReceived _value, $Res Function(HomeReceived) _then)
+      : super(_value, (v) => _then(v as HomeReceived));
+
+  @override
+  HomeReceived get _value => super._value as HomeReceived;
+
+  @override
+  $Res call({
+    Object? home = freezed,
+  }) {
+    return _then(HomeReceived(
+      home == freezed
+          ? _value.home
+          : home // ignore: cast_nullable_to_non_nullable
+              as Home,
+    ));
+  }
+
+  @override
+  $HomeCopyWith<$Res> get home {
+    return $HomeCopyWith<$Res>(_value.home, (value) {
+      return _then(_value.copyWith(home: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$HomeReceived implements HomeReceived {
+  const _$HomeReceived(this.home);
+
+  @override
+  final Home home;
+
+  @override
+  String toString() {
+    return 'MyHomesEvent.homeReceived(home: $home)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is HomeReceived &&
+            const DeepCollectionEquality().equals(other.home, home));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(home));
+
+  @JsonKey(ignore: true)
+  @override
+  $HomeReceivedCopyWith<HomeReceived> get copyWith =>
+      _$HomeReceivedCopyWithImpl<HomeReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(Home home) homeReceived,
+  }) {
+    return homeReceived(home);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
+  }) {
+    return homeReceived?.call(home);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(Home home)? homeReceived,
+    required TResult orElse(),
+  }) {
+    if (homeReceived != null) {
+      return homeReceived(home);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(HomeReceived value) homeReceived,
+  }) {
+    return homeReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
+  }) {
+    return homeReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(HomeReceived value)? homeReceived,
+    required TResult orElse(),
+  }) {
+    if (homeReceived != null) {
+      return homeReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeReceived implements MyHomesEvent {
+  const factory HomeReceived(Home home) = _$HomeReceived;
+
+  Home get home;
+  @JsonKey(ignore: true)
+  $HomeReceivedCopyWith<HomeReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$MyHomesStateTearOff {
   const _$MyHomesStateTearOff();
 
-  _MyHomesState call({required bool isLoading, required List<Home> homes}) {
+  _MyHomesState call(
+      {required bool isLoading,
+      required List<Home> homes,
+      required Home home}) {
     return _MyHomesState(
       isLoading: isLoading,
       homes: homes,
+      home: home,
     );
   }
 }
@@ -345,6 +694,7 @@ const $MyHomesState = _$MyHomesStateTearOff();
 mixin _$MyHomesState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<Home> get homes => throw _privateConstructorUsedError;
+  Home get home => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyHomesStateCopyWith<MyHomesState> get copyWith =>
@@ -356,7 +706,9 @@ abstract class $MyHomesStateCopyWith<$Res> {
   factory $MyHomesStateCopyWith(
           MyHomesState value, $Res Function(MyHomesState) then) =
       _$MyHomesStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, List<Home> homes});
+  $Res call({bool isLoading, List<Home> homes, Home home});
+
+  $HomeCopyWith<$Res> get home;
 }
 
 /// @nodoc
@@ -371,6 +723,7 @@ class _$MyHomesStateCopyWithImpl<$Res> implements $MyHomesStateCopyWith<$Res> {
   $Res call({
     Object? isLoading = freezed,
     Object? homes = freezed,
+    Object? home = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -381,7 +734,18 @@ class _$MyHomesStateCopyWithImpl<$Res> implements $MyHomesStateCopyWith<$Res> {
           ? _value.homes
           : homes // ignore: cast_nullable_to_non_nullable
               as List<Home>,
+      home: home == freezed
+          ? _value.home
+          : home // ignore: cast_nullable_to_non_nullable
+              as Home,
     ));
+  }
+
+  @override
+  $HomeCopyWith<$Res> get home {
+    return $HomeCopyWith<$Res>(_value.home, (value) {
+      return _then(_value.copyWith(home: value));
+    });
   }
 }
 
@@ -392,7 +756,10 @@ abstract class _$MyHomesStateCopyWith<$Res>
           _MyHomesState value, $Res Function(_MyHomesState) then) =
       __$MyHomesStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, List<Home> homes});
+  $Res call({bool isLoading, List<Home> homes, Home home});
+
+  @override
+  $HomeCopyWith<$Res> get home;
 }
 
 /// @nodoc
@@ -409,6 +776,7 @@ class __$MyHomesStateCopyWithImpl<$Res> extends _$MyHomesStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? homes = freezed,
+    Object? home = freezed,
   }) {
     return _then(_MyHomesState(
       isLoading: isLoading == freezed
@@ -419,6 +787,10 @@ class __$MyHomesStateCopyWithImpl<$Res> extends _$MyHomesStateCopyWithImpl<$Res>
           ? _value.homes
           : homes // ignore: cast_nullable_to_non_nullable
               as List<Home>,
+      home: home == freezed
+          ? _value.home
+          : home // ignore: cast_nullable_to_non_nullable
+              as Home,
     ));
   }
 }
@@ -426,16 +798,19 @@ class __$MyHomesStateCopyWithImpl<$Res> extends _$MyHomesStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MyHomesState implements _MyHomesState {
-  const _$_MyHomesState({required this.isLoading, required this.homes});
+  _$_MyHomesState(
+      {required this.isLoading, required this.homes, required this.home});
 
   @override
   final bool isLoading;
   @override
   final List<Home> homes;
+  @override
+  final Home home;
 
   @override
   String toString() {
-    return 'MyHomesState(isLoading: $isLoading, homes: $homes)';
+    return 'MyHomesState(isLoading: $isLoading, homes: $homes, home: $home)';
   }
 
   @override
@@ -444,14 +819,16 @@ class _$_MyHomesState implements _MyHomesState {
         (other.runtimeType == runtimeType &&
             other is _MyHomesState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.homes, homes));
+            const DeepCollectionEquality().equals(other.homes, homes) &&
+            const DeepCollectionEquality().equals(other.home, home));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(homes));
+      const DeepCollectionEquality().hash(homes),
+      const DeepCollectionEquality().hash(home));
 
   @JsonKey(ignore: true)
   @override
@@ -460,13 +837,17 @@ class _$_MyHomesState implements _MyHomesState {
 }
 
 abstract class _MyHomesState implements MyHomesState {
-  const factory _MyHomesState(
-      {required bool isLoading, required List<Home> homes}) = _$_MyHomesState;
+  factory _MyHomesState(
+      {required bool isLoading,
+      required List<Home> homes,
+      required Home home}) = _$_MyHomesState;
 
   @override
   bool get isLoading;
   @override
   List<Home> get homes;
+  @override
+  Home get home;
   @override
   @JsonKey(ignore: true)
   _$MyHomesStateCopyWith<_MyHomesState> get copyWith =>

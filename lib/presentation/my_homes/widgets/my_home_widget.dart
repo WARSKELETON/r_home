@@ -19,7 +19,7 @@ class MyHomeWidget extends StatelessWidget {
         image: "assets/icons/home3.png",
         width: MediaQuery.of(context).size.width,
         height: 200,
-        onPressed: () => AutoRouter.of(context).push(MyHomePageRoute(home: home)),
+        onPressed: () => AutoRouter.of(context).push(MyHomePageRoute(homeUuid: home.uuid)),
       ),
     );
   }

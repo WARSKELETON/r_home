@@ -39,6 +39,19 @@ class MyHomesRepository implements IMyHomesRepository {
   }
 
   @override
+  Stream<Home> watch(String homeUuid) async* {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    final docRef = _firestore
+        .collection(HOMES_COLLECTION)
+        .doc(userId)
+        .collection(HOMES_COLLECTION)
+        .doc(homeUuid);
+
+    yield* docRef.snapshots().map((doc) => doc.toHome());
+  }
+
+  @override
   Future<void> create(Home home) async {
     final userId = _authFacade.getSignedInUserId()!;
 
