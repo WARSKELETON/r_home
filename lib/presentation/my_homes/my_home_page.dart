@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/my_homes/my_homes_form.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyHomePage extends StatelessWidget {
   final Home home;
@@ -48,7 +51,7 @@ class MyHomePage extends StatelessWidget {
         title: home.name,
         actions: [
           IconButton(
-            onPressed: () => {},
+            onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute(formAction: FormAction.edition, home: home)),
             icon: const Icon(Icons.edit),
             splashRadius: 20,
           )

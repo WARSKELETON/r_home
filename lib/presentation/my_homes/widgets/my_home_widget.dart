@@ -14,10 +14,10 @@ class MyHomeWidget extends StatelessWidget {
     return SizedBox(
       height: 250,
       child: RoundedCardWidget(
-        title: home.name, 
-        subtitle: home.host, 
-        image: "assets/icons/home3.png", 
-        width: MediaQuery.of(context).size.width, 
+        title: home.name,
+        subtitle: home.host,
+        image: "assets/icons/home3.png",
+        width: MediaQuery.of(context).size.width,
         height: 200,
         onPressed: () => AutoRouter.of(context).push(MyHomePageRoute(home: home)),
       ),

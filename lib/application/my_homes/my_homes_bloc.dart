@@ -17,13 +17,13 @@ class MyHomesBloc extends Bloc<MyHomesEvent, MyHomesState> {
     on<HomesReceived>(_onHomesReceived);
   }
 
-  StreamSubscription<Home>? _myHomesStreamSubscription;
+  StreamSubscription<List<Home>>? _myHomesStreamSubscription;
 
   void _onInitialize(MyHomesEvent event, Emitter<MyHomesState> emit) {
       _myHomesStreamSubscription = _homesRepository.watchAll().listen(
         (homes) =>
             add(MyHomesEvent.homesReceived(homes)),
-      ) as StreamSubscription<Home>?;
+      );
       emit(state);
   }
 

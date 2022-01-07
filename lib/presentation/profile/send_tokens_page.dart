@@ -60,7 +60,6 @@ class SendTokensPage extends StatelessWidget {
                     const SelectAmountRewardWidget(),
                   ] else if (currentIndex == 2) ...[
                     OperationSuccessfulWidget(
-                      title: "You have rewarded the guest successfully!",
                       buttonText: "Back to My Wallet",
                       onPressed: () => AutoRouter.of(context).popUntilRouteWithName(WalletPageRoute.name)
                     ),
