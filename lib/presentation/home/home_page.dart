@@ -14,29 +14,29 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: const [
             SizedBox(
-              height: 280,
+              height: 270,
               child: HorizontalScrollWidget(
                   title: "Recommended for you",
                   items: [1, 2, 3, 4]),
             ),
             Divider(
-              thickness: 10,
+              thickness: 8,
               height: 40,
-              color: Color.fromRGBO(128,128,128, 0.3),
+              color: Color(0xFFE5E5E5),
             ),
             SizedBox(
-              height: 280,
+              height: 270,
               child: HorizontalScrollWidget(
                   title: "My Stays",
                   items: [1, 2, 3, 4]),
             ),
             Divider(
-              thickness: 10,
+              thickness: 8,
               height: 40,
-              color: Color.fromRGBO(128,128,128, 0.3),
+              color: Color(0xFFE5E5E5),
             ),
             SizedBox(
-              height: 280,
+              height: 270,
               child: HorizontalScrollWidget(
                   title: "My Host Recommendations",
                   items: [1, 2, 3, 4]),

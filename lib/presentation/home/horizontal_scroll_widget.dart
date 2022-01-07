@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/presentation/core/flat_rounded_button_widget.dart';
-import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_card_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
@@ -22,7 +21,9 @@ class HorizontalScrollWidget extends StatelessWidget {
           subtitle: "50 Km",
           image: "assets/icons/home${index+1}.png",
           width: 150,
-          height: 150),
+          height: 150,
+          onPressed: () => {},
+      ),
     );
   }
 

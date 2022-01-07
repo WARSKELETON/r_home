@@ -1,4 +1,3 @@
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
