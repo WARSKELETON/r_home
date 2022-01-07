@@ -55,10 +55,6 @@ abstract class HomeDto implements _$HomeDto {
     return HomeDto.fromJson(doc.data() as Map<String, dynamic>);
   }
 
-  factory HomeDto.fromFirestoreDocSnap(DocumentSnapshot doc) {
-    return HomeDto.fromJson(doc.data() as Map<String, dynamic>);
-  }
-
   factory HomeDto.fromJson(Map<String, dynamic> json) =>
       _$HomeDtoFromJson(json);
 }

@@ -24,7 +24,6 @@ class HomeNameField extends HookWidget {
               labelText: 'Home Name',
               counterText: '',
             ),
-            enabled: !state.isEditing,
             onChanged: (value) => context
                 .read<MyHomesFormBloc>()
                 .add(MyHomesFormEvent.nameChanged(value)),

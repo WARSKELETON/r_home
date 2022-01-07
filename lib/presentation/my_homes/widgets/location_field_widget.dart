@@ -25,7 +25,6 @@ class LocationField extends HookWidget {
               labelText: 'Location',
               counterText: '',
             ),
-            enabled: !state.isEditing,
             onChanged: (value) => context
                 .read<MyHomesFormBloc>()
                 .add(MyHomesFormEvent.locationChanged(value)),

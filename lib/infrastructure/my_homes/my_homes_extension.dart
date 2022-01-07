@@ -14,6 +14,6 @@ extension MyHomesExtensionQuerySnapshot on QuerySnapshot {
 
 extension MyHomesExtensionDocumentSnapshot on DocumentSnapshot {
   Home toHome() {
-    return HomeDto.fromFirestoreDocSnap(this).toDomain();
+    return HomeDto.fromFirestore(this).toDomain();
   }
 }

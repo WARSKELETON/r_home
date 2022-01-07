@@ -14,19 +14,19 @@ class PriceField extends HookWidget {
     return BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
-        textEditingController.text = state.home.location;
+        textEditingController.text = state.home.price.toString();
       },
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.all(10),
           child: TextFormField(
             controller: textEditingController,
+            keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               prefixIcon: Icon(RHomeIcon.token),
-              labelText: 'Price',
+              labelText: 'Price per Night',
               counterText: '',
             ),
-            enabled: !state.isEditing,
             onChanged: (value) => context
                 .read<MyHomesFormBloc>()
                 .add(MyHomesFormEvent.priceChanged(double.parse(value))),

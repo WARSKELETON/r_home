@@ -18,8 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$MyHomesFormEventTearOff {
   const _$MyHomesFormEventTearOff();
 
-  Initialize initialize() {
-    return const Initialize();
+  Initialize initialize(Option<Home> initialHomeOption) {
+    return Initialize(
+      initialHomeOption,
+    );
   }
 
   NameChanged nameChanged(String name) {
@@ -94,12 +96,8 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
-  Create onCreate() {
-    return const Create();
-  }
-
-  Update onUpdate() {
-    return const Update();
+  Submit submit() {
+    return const Submit();
   }
 }
 
@@ -110,7 +108,7 @@ const $MyHomesFormEvent = _$MyHomesFormEventTearOff();
 mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -123,13 +121,12 @@ mixin _$MyHomesFormEvent {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -142,13 +139,12 @@ mixin _$MyHomesFormEvent {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -161,8 +157,7 @@ mixin _$MyHomesFormEvent {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,8 +176,7 @@ mixin _$MyHomesFormEvent {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -200,8 +194,7 @@ mixin _$MyHomesFormEvent {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -219,8 +212,7 @@ mixin _$MyHomesFormEvent {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -248,6 +240,7 @@ abstract class $InitializeCopyWith<$Res> {
   factory $InitializeCopyWith(
           Initialize value, $Res Function(Initialize) then) =
       _$InitializeCopyWithImpl<$Res>;
+  $Res call({Option<Home> initialHomeOption});
 }
 
 /// @nodoc
@@ -259,31 +252,55 @@ class _$InitializeCopyWithImpl<$Res>
 
   @override
   Initialize get _value => super._value as Initialize;
+
+  @override
+  $Res call({
+    Object? initialHomeOption = freezed,
+  }) {
+    return _then(Initialize(
+      initialHomeOption == freezed
+          ? _value.initialHomeOption
+          : initialHomeOption // ignore: cast_nullable_to_non_nullable
+              as Option<Home>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Initialize implements Initialize {
-  const _$Initialize();
+  const _$Initialize(this.initialHomeOption);
+
+  @override
+  final Option<Home> initialHomeOption;
 
   @override
   String toString() {
-    return 'MyHomesFormEvent.initialize()';
+    return 'MyHomesFormEvent.initialize(initialHomeOption: $initialHomeOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Initialize);
+        (other.runtimeType == runtimeType &&
+            other is Initialize &&
+            const DeepCollectionEquality()
+                .equals(other.initialHomeOption, initialHomeOption));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(initialHomeOption));
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializeCopyWith<Initialize> get copyWith =>
+      _$InitializeCopyWithImpl<Initialize>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -296,16 +313,15 @@ class _$Initialize implements Initialize {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
-    return initialize();
+    return initialize(initialHomeOption);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -318,16 +334,15 @@ class _$Initialize implements Initialize {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
-    return initialize?.call();
+    return initialize?.call(initialHomeOption);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -340,12 +355,11 @@ class _$Initialize implements Initialize {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (initialize != null) {
-      return initialize();
+      return initialize(initialHomeOption);
     }
     return orElse();
   }
@@ -366,8 +380,7 @@ class _$Initialize implements Initialize {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return initialize(this);
   }
@@ -388,8 +401,7 @@ class _$Initialize implements Initialize {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return initialize?.call(this);
   }
@@ -410,8 +422,7 @@ class _$Initialize implements Initialize {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -422,7 +433,12 @@ class _$Initialize implements Initialize {
 }
 
 abstract class Initialize implements MyHomesFormEvent {
-  const factory Initialize() = _$Initialize;
+  const factory Initialize(Option<Home> initialHomeOption) = _$Initialize;
+
+  Option<Home> get initialHomeOption;
+  @JsonKey(ignore: true)
+  $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -490,7 +506,7 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -503,8 +519,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return nameChanged(name);
   }
@@ -512,7 +527,7 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -525,8 +540,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return nameChanged?.call(name);
   }
@@ -534,7 +548,7 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -547,8 +561,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -573,8 +586,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return nameChanged(this);
   }
@@ -595,8 +607,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return nameChanged?.call(this);
   }
@@ -617,8 +628,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -702,7 +712,7 @@ class _$LocationChanged implements LocationChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -715,8 +725,7 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return locationChanged(location);
   }
@@ -724,7 +733,7 @@ class _$LocationChanged implements LocationChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -737,8 +746,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return locationChanged?.call(location);
   }
@@ -746,7 +754,7 @@ class _$LocationChanged implements LocationChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -759,8 +767,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (locationChanged != null) {
@@ -785,8 +792,7 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return locationChanged(this);
   }
@@ -807,8 +813,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return locationChanged?.call(this);
   }
@@ -829,8 +834,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (locationChanged != null) {
@@ -914,7 +918,7 @@ class _$PriceChanged implements PriceChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -927,8 +931,7 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return priceChanged(price);
   }
@@ -936,7 +939,7 @@ class _$PriceChanged implements PriceChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -949,8 +952,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return priceChanged?.call(price);
   }
@@ -958,7 +960,7 @@ class _$PriceChanged implements PriceChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -971,8 +973,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (priceChanged != null) {
@@ -997,8 +998,7 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return priceChanged(this);
   }
@@ -1019,8 +1019,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return priceChanged?.call(this);
   }
@@ -1041,8 +1040,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (priceChanged != null) {
@@ -1127,7 +1125,7 @@ class _$AdultsChange implements AdultsChange {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1140,8 +1138,7 @@ class _$AdultsChange implements AdultsChange {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return adultsChange(numberAdults);
   }
@@ -1149,7 +1146,7 @@ class _$AdultsChange implements AdultsChange {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1162,8 +1159,7 @@ class _$AdultsChange implements AdultsChange {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return adultsChange?.call(numberAdults);
   }
@@ -1171,7 +1167,7 @@ class _$AdultsChange implements AdultsChange {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1184,8 +1180,7 @@ class _$AdultsChange implements AdultsChange {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (adultsChange != null) {
@@ -1210,8 +1205,7 @@ class _$AdultsChange implements AdultsChange {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return adultsChange(this);
   }
@@ -1232,8 +1226,7 @@ class _$AdultsChange implements AdultsChange {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return adultsChange?.call(this);
   }
@@ -1254,8 +1247,7 @@ class _$AdultsChange implements AdultsChange {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (adultsChange != null) {
@@ -1336,7 +1328,7 @@ class _$AdultsAdd implements AdultsAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1349,8 +1341,7 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return adultsAdd(increment);
   }
@@ -1358,7 +1349,7 @@ class _$AdultsAdd implements AdultsAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1371,8 +1362,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return adultsAdd?.call(increment);
   }
@@ -1380,7 +1370,7 @@ class _$AdultsAdd implements AdultsAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1393,8 +1383,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (adultsAdd != null) {
@@ -1419,8 +1408,7 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return adultsAdd(this);
   }
@@ -1441,8 +1429,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return adultsAdd?.call(this);
   }
@@ -1463,8 +1450,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (adultsAdd != null) {
@@ -1548,7 +1534,7 @@ class _$AdultsRemove implements AdultsRemove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1561,8 +1547,7 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return adultsRemove(decrement);
   }
@@ -1570,7 +1555,7 @@ class _$AdultsRemove implements AdultsRemove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1583,8 +1568,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return adultsRemove?.call(decrement);
   }
@@ -1592,7 +1576,7 @@ class _$AdultsRemove implements AdultsRemove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1605,8 +1589,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (adultsRemove != null) {
@@ -1631,8 +1614,7 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return adultsRemove(this);
   }
@@ -1653,8 +1635,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return adultsRemove?.call(this);
   }
@@ -1675,8 +1656,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (adultsRemove != null) {
@@ -1760,7 +1740,7 @@ class _$ChildrenAdd implements ChildrenAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1773,8 +1753,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return childrenAdd(increment);
   }
@@ -1782,7 +1761,7 @@ class _$ChildrenAdd implements ChildrenAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1795,8 +1774,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return childrenAdd?.call(increment);
   }
@@ -1804,7 +1782,7 @@ class _$ChildrenAdd implements ChildrenAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1817,8 +1795,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (childrenAdd != null) {
@@ -1843,8 +1820,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return childrenAdd(this);
   }
@@ -1865,8 +1841,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return childrenAdd?.call(this);
   }
@@ -1887,8 +1862,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (childrenAdd != null) {
@@ -1973,7 +1947,7 @@ class _$ChildrenChange implements ChildrenChange {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1986,8 +1960,7 @@ class _$ChildrenChange implements ChildrenChange {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return childrenChange(numberChilds);
   }
@@ -1995,7 +1968,7 @@ class _$ChildrenChange implements ChildrenChange {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2008,8 +1981,7 @@ class _$ChildrenChange implements ChildrenChange {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return childrenChange?.call(numberChilds);
   }
@@ -2017,7 +1989,7 @@ class _$ChildrenChange implements ChildrenChange {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2030,8 +2002,7 @@ class _$ChildrenChange implements ChildrenChange {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (childrenChange != null) {
@@ -2056,8 +2027,7 @@ class _$ChildrenChange implements ChildrenChange {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return childrenChange(this);
   }
@@ -2078,8 +2048,7 @@ class _$ChildrenChange implements ChildrenChange {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return childrenChange?.call(this);
   }
@@ -2100,8 +2069,7 @@ class _$ChildrenChange implements ChildrenChange {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (childrenChange != null) {
@@ -2185,7 +2153,7 @@ class _$ChildrenRemove implements ChildrenRemove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2198,8 +2166,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return childrenRemove(decrement);
   }
@@ -2207,7 +2174,7 @@ class _$ChildrenRemove implements ChildrenRemove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2220,8 +2187,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return childrenRemove?.call(decrement);
   }
@@ -2229,7 +2195,7 @@ class _$ChildrenRemove implements ChildrenRemove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2242,8 +2208,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (childrenRemove != null) {
@@ -2268,8 +2233,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return childrenRemove(this);
   }
@@ -2290,8 +2254,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return childrenRemove?.call(this);
   }
@@ -2312,8 +2275,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (childrenRemove != null) {
@@ -2397,7 +2359,7 @@ class _$PetsChange implements PetsChange {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2410,8 +2372,7 @@ class _$PetsChange implements PetsChange {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return petsChange(numberPets);
   }
@@ -2419,7 +2380,7 @@ class _$PetsChange implements PetsChange {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2432,8 +2393,7 @@ class _$PetsChange implements PetsChange {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return petsChange?.call(numberPets);
   }
@@ -2441,7 +2401,7 @@ class _$PetsChange implements PetsChange {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2454,8 +2414,7 @@ class _$PetsChange implements PetsChange {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (petsChange != null) {
@@ -2480,8 +2439,7 @@ class _$PetsChange implements PetsChange {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return petsChange(this);
   }
@@ -2502,8 +2460,7 @@ class _$PetsChange implements PetsChange {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return petsChange?.call(this);
   }
@@ -2524,8 +2481,7 @@ class _$PetsChange implements PetsChange {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (petsChange != null) {
@@ -2606,7 +2562,7 @@ class _$PetsAdd implements PetsAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2619,8 +2575,7 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return petsAdd(increment);
   }
@@ -2628,7 +2583,7 @@ class _$PetsAdd implements PetsAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2641,8 +2596,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return petsAdd?.call(increment);
   }
@@ -2650,7 +2604,7 @@ class _$PetsAdd implements PetsAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2663,8 +2617,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (petsAdd != null) {
@@ -2689,8 +2642,7 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return petsAdd(this);
   }
@@ -2711,8 +2663,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return petsAdd?.call(this);
   }
@@ -2733,8 +2684,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (petsAdd != null) {
@@ -2816,7 +2766,7 @@ class _$PetsRemove implements PetsRemove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2829,8 +2779,7 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
     return petsRemove(decrement);
   }
@@ -2838,7 +2787,7 @@ class _$PetsRemove implements PetsRemove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2851,8 +2800,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
     return petsRemove?.call(decrement);
   }
@@ -2860,7 +2808,7 @@ class _$PetsRemove implements PetsRemove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2873,8 +2821,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (petsRemove != null) {
@@ -2899,8 +2846,7 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
     return petsRemove(this);
   }
@@ -2921,8 +2867,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
     return petsRemove?.call(this);
   }
@@ -2943,8 +2888,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
     if (petsRemove != null) {
@@ -2964,35 +2908,35 @@ abstract class PetsRemove implements MyHomesFormEvent {
 }
 
 /// @nodoc
-abstract class $CreateCopyWith<$Res> {
-  factory $CreateCopyWith(Create value, $Res Function(Create) then) =
-      _$CreateCopyWithImpl<$Res>;
+abstract class $SubmitCopyWith<$Res> {
+  factory $SubmitCopyWith(Submit value, $Res Function(Submit) then) =
+      _$SubmitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CreateCopyWithImpl<$Res> extends _$MyHomesFormEventCopyWithImpl<$Res>
-    implements $CreateCopyWith<$Res> {
-  _$CreateCopyWithImpl(Create _value, $Res Function(Create) _then)
-      : super(_value, (v) => _then(v as Create));
+class _$SubmitCopyWithImpl<$Res> extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $SubmitCopyWith<$Res> {
+  _$SubmitCopyWithImpl(Submit _value, $Res Function(Submit) _then)
+      : super(_value, (v) => _then(v as Submit));
 
   @override
-  Create get _value => super._value as Create;
+  Submit get _value => super._value as Submit;
 }
 
 /// @nodoc
 
-class _$Create implements Create {
-  const _$Create();
+class _$Submit implements Submit {
+  const _$Submit();
 
   @override
   String toString() {
-    return 'MyHomesFormEvent.onCreate()';
+    return 'MyHomesFormEvent.submit()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Create);
+        (other.runtimeType == runtimeType && other is Submit);
   }
 
   @override
@@ -3001,7 +2945,7 @@ class _$Create implements Create {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(Option<Home> initialHomeOption) initialize,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -3014,16 +2958,15 @@ class _$Create implements Create {
     required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
+    required TResult Function() submit,
   }) {
-    return onCreate();
+    return submit();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3036,16 +2979,15 @@ class _$Create implements Create {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
   }) {
-    return onCreate?.call();
+    return submit?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(Option<Home> initialHomeOption)? initialize,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3058,12 +3000,11 @@ class _$Create implements Create {
     TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
+    TResult Function()? submit,
     required TResult orElse(),
   }) {
-    if (onCreate != null) {
-      return onCreate();
+    if (submit != null) {
+      return submit();
     }
     return orElse();
   }
@@ -3084,10 +3025,9 @@ class _$Create implements Create {
     required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
+    required TResult Function(Submit value) submit,
   }) {
-    return onCreate(this);
+    return submit(this);
   }
 
   @override
@@ -3106,10 +3046,9 @@ class _$Create implements Create {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
   }) {
-    return onCreate?.call(this);
+    return submit?.call(this);
   }
 
   @override
@@ -3128,199 +3067,18 @@ class _$Create implements Create {
     TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
+    TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
-    if (onCreate != null) {
-      return onCreate(this);
+    if (submit != null) {
+      return submit(this);
     }
     return orElse();
   }
 }
 
-abstract class Create implements MyHomesFormEvent {
-  const factory Create() = _$Create;
-}
-
-/// @nodoc
-abstract class $UpdateCopyWith<$Res> {
-  factory $UpdateCopyWith(Update value, $Res Function(Update) then) =
-      _$UpdateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$UpdateCopyWithImpl<$Res> extends _$MyHomesFormEventCopyWithImpl<$Res>
-    implements $UpdateCopyWith<$Res> {
-  _$UpdateCopyWithImpl(Update _value, $Res Function(Update) _then)
-      : super(_value, (v) => _then(v as Update));
-
-  @override
-  Update get _value => super._value as Update;
-}
-
-/// @nodoc
-
-class _$Update implements Update {
-  const _$Update();
-
-  @override
-  String toString() {
-    return 'MyHomesFormEvent.onUpdate()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Update);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
-    required TResult Function(String name) nameChanged,
-    required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
-    required TResult Function(int increment) adultsAdd,
-    required TResult Function(int decrement) adultsRemove,
-    required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
-    required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
-    required TResult Function(int increment) petsAdd,
-    required TResult Function(int decrement) petsRemove,
-    required TResult Function() onCreate,
-    required TResult Function() onUpdate,
-  }) {
-    return onUpdate();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
-  }) {
-    return onUpdate?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? onCreate,
-    TResult Function()? onUpdate,
-    required TResult orElse(),
-  }) {
-    if (onUpdate != null) {
-      return onUpdate();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
-    required TResult Function(AdultsAdd value) adultsAdd,
-    required TResult Function(AdultsRemove value) adultsRemove,
-    required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
-    required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
-    required TResult Function(PetsAdd value) petsAdd,
-    required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Create value) onCreate,
-    required TResult Function(Update value) onUpdate,
-  }) {
-    return onUpdate(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
-  }) {
-    return onUpdate?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Create value)? onCreate,
-    TResult Function(Update value)? onUpdate,
-    required TResult orElse(),
-  }) {
-    if (onUpdate != null) {
-      return onUpdate(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Update implements MyHomesFormEvent {
-  const factory Update() = _$Update;
+abstract class Submit implements MyHomesFormEvent {
+  const factory Submit() = _$Submit;
 }
 
 /// @nodoc

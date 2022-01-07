@@ -25,12 +25,17 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     on<PetsChange>(_onPetsChange);
     on<PetsAdd>(_onPetsAdd);
     on<PetsRemove>(_onPetsRemove);
-    on<Create>(_onCreate);
-    on<Update>(_onUpdate);
+    on<Submit>(_onSubmit);
   }
 
-  void _onInitialize(MyHomesFormEvent event, Emitter<MyHomesFormState> emit) {
-    emit(state);
+  void _onInitialize(Initialize event, Emitter<MyHomesFormState> emit) {
+    emit(event.initialHomeOption.fold(
+      () => state,
+      (initialHome) => state.copyWith(
+        home: initialHome,
+        isEditing: true
+      ),
+    ));
   }
 
   void _onNameChanged(NameChanged event, Emitter<MyHomesFormState> emit) {
@@ -122,11 +127,13 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     ));
   }
 
-  void _onCreate(Create event, Emitter<MyHomesFormState> emit) {
-    _homesRepository.create(state.home);
-  }
+  void _onSubmit(Submit event, Emitter<MyHomesFormState> emit) async {
+    emit(state.copyWith(isSaving: true));
 
-  void _onUpdate(Update event, Emitter<MyHomesFormState> emit) {
-    _homesRepository.update(state.home);
+    state.isEditing
+        ? await _homesRepository.update(state.home)
+        : await _homesRepository.create(state.home);
+
+    emit(state.copyWith(isSaving: false));
   }
 }

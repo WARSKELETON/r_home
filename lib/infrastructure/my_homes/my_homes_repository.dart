@@ -24,20 +24,6 @@ class MyHomesRepository implements IMyHomesRepository {
     yield* colRef.snapshots().map((query) => query.toListHome());
   }
 
-  Future<Home> get(String homeName) async {
-    final userId = _authFacade.getSignedInUserId()!;
-
-    final colRef = _firestore
-        .collection(HOMES_COLLECTION)
-        .doc(userId)
-        .collection(HOMES_COLLECTION);
-
-    QuerySnapshot<Map<String, dynamic>> snapshot =
-        await colRef.where('name', isEqualTo: homeName).get();
-
-    return HomeDto.fromFirestore(snapshot.docs.first).toDomain();
-  }
-
   @override
   Stream<Home> watch(String homeUuid) async* {
     final userId = _authFacade.getSignedInUserId()!;

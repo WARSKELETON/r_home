@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_homes/my_homes_bloc.dart';
-import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/my_homes/my_homes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
@@ -65,7 +64,7 @@ class MyHomePage extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: () =>
-                      AutoRouter.of(context).push(const MyHomesFormRoute()),
+                      AutoRouter.of(context).push(MyHomesFormRoute(editedHome: _home)),
                   icon: const Icon(Icons.edit),
                   splashRadius: 20,
                 )

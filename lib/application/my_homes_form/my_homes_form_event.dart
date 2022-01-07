@@ -2,7 +2,7 @@ part of 'my_homes_form_bloc.dart';
 
 @freezed
 class MyHomesFormEvent with _$MyHomesFormEvent {
-  const factory MyHomesFormEvent.initialize() = Initialize;
+  const factory MyHomesFormEvent.initialize(Option<Home> initialHomeOption) = Initialize;
   const factory MyHomesFormEvent.nameChanged(String name) = NameChanged;
   const factory MyHomesFormEvent.locationChanged(String location) = LocationChanged;
   const factory MyHomesFormEvent.priceChanged(double price) = PriceChanged;
@@ -15,6 +15,5 @@ class MyHomesFormEvent with _$MyHomesFormEvent {
   const factory MyHomesFormEvent.petsChange(int numberPets) = PetsChange;
   const factory MyHomesFormEvent.petsAdd(int increment) = PetsAdd;
   const factory MyHomesFormEvent.petsRemove(int decrement) = PetsRemove;
-  const factory MyHomesFormEvent.onCreate() = Create;
-  const factory MyHomesFormEvent.onUpdate() = Update;
+  const factory MyHomesFormEvent.submit() = Submit;
 }

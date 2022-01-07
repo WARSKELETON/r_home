@@ -13,6 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:flutter/material.dart' as _i15;
 
+import '../../domain/homes/home.dart' as _i16;
 import '../home/home_page.dart' as _i4;
 import '../my_homes/my_home_page.dart' as _i8;
 import '../my_homes/my_homes_form.dart' as _i6;
@@ -60,9 +61,11 @@ class MyRouter extends _i14.RootStackRouter {
           barrierDismissible: false);
     },
     MyHomesFormRoute.name: (routeData) {
+      final args = routeData.argsAs<MyHomesFormRouteArgs>(
+          orElse: () => const MyHomesFormRouteArgs());
       return _i14.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: const _i6.MyHomesForm(),
+          child: _i6.MyHomesForm(key: args.key, editedHome: args.editedHome),
           fullscreenDialog: true);
     },
     ProfilePageRoute.name: (routeData) {
@@ -192,11 +195,26 @@ class MyHomesPageRoute extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.MyHomesForm]
-class MyHomesFormRoute extends _i14.PageRouteInfo<void> {
-  const MyHomesFormRoute()
-      : super(MyHomesFormRoute.name, path: '/my-homes-form');
+class MyHomesFormRoute extends _i14.PageRouteInfo<MyHomesFormRouteArgs> {
+  MyHomesFormRoute({_i15.Key? key, _i16.Home? editedHome})
+      : super(MyHomesFormRoute.name,
+            path: '/my-homes-form',
+            args: MyHomesFormRouteArgs(key: key, editedHome: editedHome));
 
   static const String name = 'MyHomesFormRoute';
+}
+
+class MyHomesFormRouteArgs {
+  const MyHomesFormRouteArgs({this.key, this.editedHome});
+
+  final _i15.Key? key;
+
+  final _i16.Home? editedHome;
+
+  @override
+  String toString() {
+    return 'MyHomesFormRouteArgs{key: $key, editedHome: $editedHome}';
+  }
 }
 
 /// generated route for
