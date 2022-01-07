@@ -7,6 +7,7 @@ import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -53,11 +54,10 @@ class ProfilePage extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 8.0),
                               child: Text(
                                 state.user.numTokens.toString(),
-                                style: const TextStyle(fontSize: 20),
+                                style: const TextStyle(fontSize: 24),
                               ),
                             ),
-                            SvgPicture.asset('assets/icons/token.svg',
-                                width: 20)
+                            const Icon(RHomeIcon.token),
                           ],
                         ),
                       ],

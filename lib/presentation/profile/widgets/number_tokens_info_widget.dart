@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 
 class NumberTokensInfoWidget extends StatelessWidget {
   final String title;
@@ -43,15 +44,12 @@ class NumberTokensInfoWidget extends StatelessWidget {
                     tokens.toString(),
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 23,
+                      fontSize: 24,
                       fontWeight: FontWeight.w400,
                       ),
                   ),
                 ),
-                SvgPicture.asset('assets/icons/token.svg',
-                  color: Colors.white,
-                  width: 23,
-                )
+                const Icon(RHomeIcon.token, color: Colors.white,)
               ],
             ),
           ],

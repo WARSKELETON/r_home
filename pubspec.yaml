@@ -102,4 +102,7 @@ flutter:
         - asset: assets/fonts/Montserrat-BlackItalic.ttf
           weight: 900
           style: italic
+    - family: RHomeIcon
+      fonts:
+        - asset: assets/fonts/RHomeIcon.ttf
 

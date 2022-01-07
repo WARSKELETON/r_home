@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:r_home/application/reward_user/reward_user_bloc.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/r_home_icon_icons.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class SelectAmountRewardWidget extends StatelessWidget {
   const SelectAmountRewardWidget({
@@ -11,6 +13,8 @@ class SelectAmountRewardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double amount = context.watch<RewardUserBloc>().state.amount;
+
     return BlocBuilder<RewardUserBloc, RewardUserState>(
       builder: (context, state) {
         return Padding(
@@ -22,33 +26,31 @@ class SelectAmountRewardWidget extends StatelessWidget {
                   child: SizedBox(
                     child: Slider(
                       activeColor: Theme.of(context).colorScheme.primaryBlue,
-                      value: context.watch<RewardUserBloc>().state.amount,
+                      value: amount,
                       max: 100,
                       divisions: 100,
-                      label: context.watch<RewardUserBloc>().state.amount.round().toString(),
+                      label: amount.round().toString(),
                       onChanged: (double value) {
                         context.read<RewardUserBloc>().add(RewardUserEvent.changeRewardAmount(value));
                       },
                     ),
                   ),
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
-                        width: 20,
+                        width: 40,
                         child: Text(
-                          context.watch<RewardUserBloc>().state.amount.round().toString()
+                          amount.round().toString(),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontSize: 20),
                         ),
                       ),
                     ),
-                    SvgPicture.asset('assets/icons/token.svg',
-                        color: const Color.fromRGBO(28, 94, 139, 1),
-                        width: 23,
-                    )
+                    Icon(RHomeIcon.token, color: Theme.of(context).colorScheme.primaryBlue,)
                   ],
                 ),
               ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 
 class BottomBarWidget extends StatelessWidget {
   const BottomBarWidget({Key? key}) : super(key: key);
@@ -12,15 +13,15 @@ class BottomBarWidget extends StatelessWidget {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.question_answer),
+          icon: Icon(RHomeIcon.disputes),
           label: 'Disputes',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(RHomeIcon.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(RHomeIcon.profile),
           label: 'Profile',
         ),
       ],

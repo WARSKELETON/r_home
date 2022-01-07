@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:r_home/infrastructure/my_homes/my_homes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/my_homes/widgets/my_home_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyHomesPage extends StatelessWidget {
   const MyHomesPage({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class MyHomesPage extends StatelessWidget {
         title: "My Homes",
         actions: [
           IconButton(
-            onPressed: () => {}, 
+            onPressed: () => AutoRouter.of(context).push(const MyHomesFormRoute()), 
             icon: const Icon(Icons.add),
             splashRadius: 20,
           )

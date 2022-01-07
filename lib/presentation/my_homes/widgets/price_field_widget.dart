@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 
-class HomeNameField extends HookWidget {
-  const HomeNameField({Key? key}) : super(key: key);
+class PriceField extends HookWidget {
+  const PriceField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class HomeNameField extends HookWidget {
     return BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
       listener: (context, state) {
-        textEditingController.text = state.home.name;
+        textEditingController.text = state.home.location;
       },
       builder: (context, state) {
         return Padding(
@@ -21,19 +22,15 @@ class HomeNameField extends HookWidget {
           child: TextFormField(
             controller: textEditingController,
             decoration: const InputDecoration(
-              labelText: 'Home Name',
+              prefixIcon: Icon(RHomeIcon.token),
+              labelText: 'Price',
               counterText: '',
             ),
             enabled: !state.isEditing,
             onChanged: (value) => context
                 .read<MyHomesFormBloc>()
-                .add(MyHomesFormEvent.nameChanged(value)),
+                .add(MyHomesFormEvent.priceChanged(double.parse(value))),
             validator: (_) {
-              final name = context.read<MyHomesFormBloc>().state.home.name;
-              if (name.isEmpty) {
-                return "Please enter the home's name.";
-              }
-              return null;
             }
           ));
         },
