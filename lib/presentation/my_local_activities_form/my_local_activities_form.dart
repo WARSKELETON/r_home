@@ -23,24 +23,17 @@ class MyLocalActivitiesForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => MyLocalActivitiesFormBloc(LocalActivitiesRepository(
-          FirebaseFirestore.instance,
-          FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-              FirebaseFirestore.instance)))
-        ..add(MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
-      child: BlocConsumer<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
-        listenWhen: (p, c) =>
-            p.isSaving != c.isSaving,
-        listener: (context, state) {
-          if (!state.isSaving) {
-            AutoRouter.of(context).pop();
-          }
-        },
-        builder: (context, state) {
-          return Scaffold(
+    if (editedActivity != null) {
+      return BlocProvider(
+        create: (context) => MyLocalActivitiesFormBloc(
+            LocalActivitiesRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
+                    FirebaseFirestore.instance)))
+          ..add(MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
+          child: Scaffold(
             appBar: AppBarWidget(
-              title: context.read<MyLocalActivitiesFormBloc>().state.isEditing ? "Edit Activity" : "Add a new Activity",
+              title: "Edit Activity",
               actions: [
                 IconButton(
                   onPressed: () => context.read<MyLocalActivitiesFormBloc>().add(const MyLocalActivitiesFormEvent.submit()),
@@ -49,22 +42,38 @@ class MyLocalActivitiesForm extends StatelessWidget {
                 )
               ],
             ),
-            body: Form(
-                child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  ActivityNameField(),
-                  ActivityLocationField(),
-                  ActivityPriceField(),
-                  ActivityContactField()
-                ],
-              ),
-            )),
+            body: buildForm(),
             bottomNavigationBar: const BottomBarWidget(),
-          );
-        },
-      ),
+          ),
+        );
+    } else {
+      return buildForm();
+    }
+  }
+
+  Widget buildForm() {
+    return BlocConsumer<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
+      listenWhen: (p, c) =>
+          p.isSaving != c.isSaving,
+      listener: (context, state) {
+        if (!state.isSaving) {
+          AutoRouter.of(context).pop();
+        }
+      },
+      builder: (context, state) {
+        return Form(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                ActivityNameField(),
+                ActivityLocationField(),
+                ActivityPriceField(),
+                ActivityContactField()
+              ],
+            ),
+          ));
+      },
     );
   }
 }

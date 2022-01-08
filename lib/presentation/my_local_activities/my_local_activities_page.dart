@@ -22,7 +22,7 @@ class MyLocalActivitiesPage extends StatelessWidget {
         title: "My Activities",
         actions: [
           IconButton(
-            onPressed: () => AutoRouter.of(context).push(const CategorySelectionPageRoute()), 
+            onPressed: () => AutoRouter.of(context).push(const NewLocalAcitvityPageRoute()), 
             icon: const Icon(Icons.add),
             splashRadius: 20,
           )

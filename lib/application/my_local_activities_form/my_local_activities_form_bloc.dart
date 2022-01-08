@@ -13,6 +13,7 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
 
   MyLocalActivitiesFormBloc(this._localActivitiesRepository) : super(MyLocalActivitiesFormState.initial()) {
     on<Initialize>(_onInitialize);
+    on<CategoryChanged>(_onCategoryChanged);
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
     on<PriceChanged>(_onPriceChanged);
@@ -28,6 +29,13 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
         activity: initialActivity,
         isEditing: true
       ),
+    ));
+  }
+
+  void _onCategoryChanged(CategoryChanged event, Emitter<MyLocalActivitiesFormState> emit) {
+    emit(state.copyWith(
+      category: event.activityCategory,
+      saveFailureOrSuccessOption: none(),
     ));
   }
 
@@ -65,7 +73,9 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
 
     state.isEditing
         ? await _localActivitiesRepository.update(state.activity)
-        : await _localActivitiesRepository.create(state.activity);
+        : await _localActivitiesRepository.create(state.activity.copyWith(
+      category: state.category!.name
+    ));
 
     emit(state.copyWith(isSaving: false));
   }

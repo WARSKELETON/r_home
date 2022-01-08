@@ -3,6 +3,19 @@ import 'package:uuid/uuid.dart';
 
 part 'local_activity.freezed.dart';
 
+enum ActivityCategory {
+  restaurants_and_bars, 
+  culture, 
+  night_clubs, 
+  tour_guides,
+  coffee_shops,
+  sports
+}
+
+extension ActivityCategoryEnumEx on String {
+  ActivityCategory toActivityCategory() => ActivityCategory.values.firstWhere((d) => d.name == toLowerCase());
+}
+
 @freezed
 abstract class LocalActivity implements _$LocalActivity {
   const LocalActivity._();

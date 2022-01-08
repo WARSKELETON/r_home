@@ -3,6 +3,7 @@ part of 'my_local_activities_form_bloc.dart';
 @freezed
 abstract class MyLocalActivitiesFormState with _$MyLocalActivitiesFormState {
   const factory MyLocalActivitiesFormState({
+    required ActivityCategory? category,
     required LocalActivity activity,
     required bool showErrorMessages,
     required bool isEditing,
@@ -11,6 +12,7 @@ abstract class MyLocalActivitiesFormState with _$MyLocalActivitiesFormState {
   }) = _MyLocalActivitiesFormState;
 
   factory MyLocalActivitiesFormState.initial() => MyLocalActivitiesFormState(
+    category: null,
     activity: LocalActivity.empty(),
     showErrorMessages: false,
     isEditing: false,

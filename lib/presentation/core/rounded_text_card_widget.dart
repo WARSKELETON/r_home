@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class RoundedTextCardWidget extends StatelessWidget {
   final String text;
   final String image;
+  final bool? selected;
   final void Function()? onPressed;
 
   const RoundedTextCardWidget({
     Key? key,
     required this.text,
     required this.image,
-    required this.onPressed,
+    required this.onPressed, 
+    this.selected,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class RoundedTextCardWidget extends StatelessWidget {
                   child: Ink.image(
                     image: AssetImage(image),
                     fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
+                    colorFilter: ColorFilter.mode(Colors.black.withOpacity(selected == null ? 0.5 : (selected! ? 0.9 : 0.5)), BlendMode.darken),
                   ),
                 ),
               ),
@@ -45,7 +47,7 @@ class RoundedTextCardWidget extends StatelessWidget {
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 26
+                    fontSize: 26,
                   ),
                 ),
               )
