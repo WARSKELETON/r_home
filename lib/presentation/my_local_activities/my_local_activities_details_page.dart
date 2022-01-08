@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ import 'package:r_home/infrastructure/my_local_activities/my_local_activities_re
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/my_local_activities_form/my_local_activities_form.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyLocalActivityDetailsPage extends StatelessWidget {
   final String localActivityUuid;
@@ -61,7 +64,7 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
               title: _localActivity.name,
               actions: [
                 IconButton(
-                  onPressed: () => {},
+                  onPressed: () => AutoRouter.of(context).push(MyLocalActivitiesFormRoute(editedActivity: _localActivity)),
                   icon: const Icon(Icons.edit),
                   splashRadius: 20,
                 )

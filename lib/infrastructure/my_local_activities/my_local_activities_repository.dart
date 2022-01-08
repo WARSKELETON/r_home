@@ -53,12 +53,23 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
   }
 
   @override
-  void delete(LocalActivity home) {
+  void delete(LocalActivity localActivity) {
 
   }
 
   @override
-  Future<void> update(LocalActivity home) async {
-    
+  Future<void> update(LocalActivity localActivity) async {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    localActivity = localActivity.copyWith(producer: userId);
+
+    _firestore
+        .collection(PARENT_COLLECTION)
+        .doc(userId)
+        .collection(ACTIVITIES_COLLECTION)
+        .doc(localActivity.uuid)
+        .update(LocalActivityDto.fromDomain(localActivity).toJson())
+        .then((_) => print("Activity updated successfuly"))
+        .catchError((onError) => print(onError));
   }
 }
