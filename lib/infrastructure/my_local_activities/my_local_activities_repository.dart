@@ -7,6 +7,7 @@ import 'package:r_home/infrastructure/my_local_activities/my_local_activities_ex
 
 class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
   final FirebaseFirestore _firestore;
+  static const String PARENT_COLLECTION = "my-activities";
   static const String ACTIVITIES_COLLECTION = "my-activities";
   final IAuthFacade _authFacade;
 
@@ -17,13 +18,24 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
     final userId = _authFacade.getSignedInUserId()!;
 
     final colRef = _firestore
-    .collection("my-homes")
-    .doc(userId)
-    .collection(ACTIVITIES_COLLECTION);
+        .collection(PARENT_COLLECTION)
+        .doc(userId)
+        .collection(ACTIVITIES_COLLECTION);
 
-    yield* colRef
-        .snapshots()
-        .map((query) => query.toListLocalActivity());
+    yield* colRef.snapshots().map((query) => query.toListLocalActivity());
+  }
+
+  @override
+  Stream<LocalActivity> watch(String localActivityUuid) async* {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    final docRef = _firestore
+        .collection(PARENT_COLLECTION)
+        .doc(userId)
+        .collection(ACTIVITIES_COLLECTION)
+        .doc(localActivityUuid);
+
+    yield* docRef.snapshots().map((doc) => doc.toLocalActivity());
   }
 
   @override
@@ -31,18 +43,22 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
     final userId = _authFacade.getSignedInUserId()!;
 
     _firestore
-      .collection("my-homes")
+      .collection(PARENT_COLLECTION)
       .doc(userId)
       .collection(ACTIVITIES_COLLECTION)
-      .doc(localActivity.name)
-      .set(LocalActivityDto.fromDomain(localActivity, userId).toJson())
+      .doc(localActivity.uuid)
+      .set(LocalActivityDto.fromDomain(localActivity).toJson())
       .then((_) => print("Activity created successfuly"))
       .catchError((onError) => print(onError));
   }
 
   @override
-  void delete(LocalActivity home) {}
+  void delete(LocalActivity home) {
+
+  }
 
   @override
-  Future<void> update(LocalActivity home, String docId) async {}
+  Future<void> update(LocalActivity home, String docId) async {
+    
+  }
 }
