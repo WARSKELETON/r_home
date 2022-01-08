@@ -7,7 +7,7 @@ import 'package:r_home/infrastructure/my_local_activities/my_local_activities_ex
 
 class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
   final FirebaseFirestore _firestore;
-  static const String PARENT_COLLECTION = "my-activities";
+  static const String PARENT_COLLECTION = "my-homes";
   static const String ACTIVITIES_COLLECTION = "my-activities";
   final IAuthFacade _authFacade;
 

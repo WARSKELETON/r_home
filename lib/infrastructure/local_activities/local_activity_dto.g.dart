@@ -8,6 +8,7 @@ part of 'local_activity_dto.dart';
 
 _$_LocalActivityDto _$$_LocalActivityDtoFromJson(Map<String, dynamic> json) =>
     _$_LocalActivityDto(
+      uuid: json['uuid'] as String,
       name: json['name'] as String,
       location: json['location'] as String,
       producer: json['producer'] as String,
@@ -18,6 +19,7 @@ _$_LocalActivityDto _$$_LocalActivityDtoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_LocalActivityDtoToJson(_$_LocalActivityDto instance) =>
     <String, dynamic>{
+      'uuid': instance.uuid,
       'name': instance.name,
       'location': instance.location,
       'producer': instance.producer,
