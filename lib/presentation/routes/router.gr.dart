@@ -18,9 +18,14 @@ import '../home/home_page.dart' as _i4;
 import '../my_homes/my_home_details_page.dart' as _i8;
 import '../my_homes/my_homes_page.dart' as _i5;
 import '../my_homes_form/my_homes_form.dart' as _i6;
+import '../my_local_activities_form/category_selection_page.dart' as _i11;
+import '../profile/my_local_activities_page.dart' as _i10;
 import '../my_local_activities/my_local_activities_details_page.dart' as _i9;
 import '../my_local_activities/my_local_activities_page.dart' as _i11;
 import '../profile/profile_page.dart' as _i7;
+import '../profile/send_tokens_page.dart' as _i13;
+import '../profile/transaction_history_page.dart' as _i12;
+import '../profile/wallet_page.dart' as _i9;
 import '../profile/send_tokens_page.dart' as _i13;
 import '../profile/transaction_history_page.dart' as _i12;
 import '../profile/wallet_page.dart' as _i10;
@@ -76,10 +81,15 @@ class MyRouter extends _i15.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    MyHomePageRoute.name: (routeData) {
+      final args = routeData.argsAs<MyHomePageRouteArgs>();
+      return _i15.CustomPage<dynamic>(
     MyHomeDetailsPageRoute.name: (routeData) {
       final args = routeData.argsAs<MyHomeDetailsPageRouteArgs>();
       return _i15.CustomPage<dynamic>(
           routeData: routeData,
+          child: _i8.MyHomePage(key: args.key, homeUuid: args.homeUuid),
+          transitionsBuilder: _i15.TransitionsBuilders.slideLeft,
           child: _i8.MyHomeDetailsPage(key: args.key, homeUuid: args.homeUuid),
           transitionsBuilder: _i15.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
@@ -100,6 +110,8 @@ class MyRouter extends _i15.RootStackRouter {
     WalletPageRoute.name: (routeData) {
       return _i15.CustomPage<dynamic>(
           routeData: routeData,
+          child: const _i9.WalletPage(),
+          transitionsBuilder: _i15.TransitionsBuilders.slideLeft,
           child: const _i10.WalletPage(),
           transitionsBuilder: _i15.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
@@ -109,11 +121,19 @@ class MyRouter extends _i15.RootStackRouter {
     MyLocalActivitiesPageRoute.name: (routeData) {
       return _i15.CustomPage<dynamic>(
           routeData: routeData,
+          child: const _i10.MyLocalActivitiesPage(),
+          transitionsBuilder: _i15.TransitionsBuilders.slideLeft,
           child: const _i11.MyLocalActivitiesPage(),
           transitionsBuilder: _i15.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
+    },
+    CategorySelectionPageRoute.name: (routeData) {
+      return _i15.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: const _i11.CategorySelectionPage(),
+          fullscreenDialog: true);
     },
     TransactionHistoryPageRoute.name: (routeData) {
       final args = routeData.argsAs<TransactionHistoryPageRouteArgs>();
@@ -153,6 +173,17 @@ class MyRouter extends _i15.RootStackRouter {
         _i15.RouteConfig(MyHomesPageRoute.name, path: '/my-homes-page'),
         _i15.RouteConfig(MyHomesFormRoute.name, path: '/my-homes-form'),
         _i15.RouteConfig(ProfilePageRoute.name, path: '/profile-page'),
+        _i15.RouteConfig(MyHomePageRoute.name, path: '/my-home-page'),
+        _i15.RouteConfig(WalletPageRoute.name, path: '/wallet-page'),
+        _i15.RouteConfig(MyLocalActivitiesPageRoute.name,
+  List<_i15.RouteConfig> get routes => [
+        _i15.RouteConfig(SplashPageRoute.name, path: '/'),
+        _i15.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
+        _i15.RouteConfig(RolePageRoute.name, path: '/role-page'),
+        _i15.RouteConfig(HomePageRoute.name, path: '/home-page'),
+        _i15.RouteConfig(MyHomesPageRoute.name, path: '/my-homes-page'),
+        _i15.RouteConfig(MyHomesFormRoute.name, path: '/my-homes-form'),
+        _i15.RouteConfig(ProfilePageRoute.name, path: '/profile-page'),
         _i15.RouteConfig(MyHomeDetailsPageRoute.name,
             path: '/my-home-details-page'),
         _i15.RouteConfig(MyLocalActivityDetailsPageRoute.name,
@@ -160,6 +191,9 @@ class MyRouter extends _i15.RootStackRouter {
         _i15.RouteConfig(WalletPageRoute.name, path: '/wallet-page'),
         _i15.RouteConfig(MyLocalActivitiesPageRoute.name,
             path: '/my-local-activities-page'),
+        _i15.RouteConfig(CategorySelectionPageRoute.name,
+            path: '/category-selection-page'),
+        _i15.RouteConfig(TransactionHistoryPageRoute.name,
         _i15.RouteConfig(TransactionHistoryPageRoute.name,
             path: '/transaction-history-page'),
         _i15.RouteConfig(SendTokensPageRoute.name, path: '/send-tokens-page'),
@@ -242,6 +276,12 @@ class ProfilePageRoute extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [_i8.MyHomePage]
+class MyHomePageRoute extends _i15.PageRouteInfo<MyHomePageRouteArgs> {
+  MyHomePageRoute({_i16.Key? key, required String homeUuid})
+      : super(MyHomePageRoute.name,
+            path: '/my-home-page',
+            args: MyHomePageRouteArgs(key: key, homeUuid: homeUuid));
 /// [_i8.MyHomeDetailsPage]
 class MyHomeDetailsPageRoute
     extends _i15.PageRouteInfo<MyHomeDetailsPageRouteArgs> {
@@ -267,6 +307,8 @@ class MyHomeDetailsPageRouteArgs {
 }
 
 /// generated route for
+/// [_i9.WalletPage]
+class WalletPageRoute extends _i15.PageRouteInfo<void> {
 /// [_i9.MyLocalActivityDetailsPage]
 class MyLocalActivityDetailsPageRoute
     extends _i15.PageRouteInfo<MyLocalActivityDetailsPageRouteArgs> {
@@ -303,6 +345,8 @@ class WalletPageRoute extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [_i10.MyLocalActivitiesPage]
+class MyLocalActivitiesPageRoute extends _i15.PageRouteInfo<void> {
 /// [_i11.MyLocalActivitiesPage]
 class MyLocalActivitiesPageRoute extends _i15.PageRouteInfo<void> {
   const MyLocalActivitiesPageRoute()
@@ -313,6 +357,17 @@ class MyLocalActivitiesPageRoute extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [_i11.CategorySelectionPage]
+class CategorySelectionPageRoute extends _i15.PageRouteInfo<void> {
+  const CategorySelectionPageRoute()
+      : super(CategorySelectionPageRoute.name,
+            path: '/category-selection-page');
+
+  static const String name = 'CategorySelectionPageRoute';
+}
+
+/// generated route for
+/// [_i12.TransactionHistoryPage]
 /// [_i12.TransactionHistoryPage]
 class TransactionHistoryPageRoute
     extends _i15.PageRouteInfo<TransactionHistoryPageRouteArgs> {

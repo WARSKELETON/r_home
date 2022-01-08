@@ -16,13 +16,10 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
     on<PriceChanged>(_onPriceChanged);
-    on<AdultsChange>(_onAdultsChange);
     on<AdultsAdd>(_onAdultsAdd);
     on<AdultsRemove>(_onAdultsRemove);
-    on<ChildrenChange>(_onChildrenChange);
     on<ChildrenAdd>(_onChildrenAdd);
     on<ChildrenRemove>(_onChildrenRemove);
-    on<PetsChange>(_onPetsChange);
     on<PetsAdd>(_onPetsAdd);
     on<PetsRemove>(_onPetsRemove);
     on<Submit>(_onSubmit);
@@ -60,13 +57,6 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     ));
   }
 
-  void _onAdultsChange(AdultsChange event, Emitter<MyHomesFormState> emit) {
-    emit(state.copyWith(
-      home: state.home.copyWith(maxAdults: event.numberAdults),
-      saveFailureOrSuccessOption: none(),
-    ));
-  }
-
   void _onAdultsAdd(AdultsAdd event, Emitter<MyHomesFormState> emit) {
     emit(state.copyWith(
       home: state.home
@@ -83,13 +73,6 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     ));
   }
 
-  void _onChildrenChange(ChildrenChange event, Emitter<MyHomesFormState> emit) {
-    emit(state.copyWith(
-      home: state.home.copyWith(maxChildren: event.numberChilds),
-      saveFailureOrSuccessOption: none(),
-    ));
-  }
-
   void _onChildrenAdd(ChildrenAdd event, Emitter<MyHomesFormState> emit) {
     emit(state.copyWith(
       home: state.home
@@ -102,13 +85,6 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     emit(state.copyWith(
       home: state.home
           .copyWith(maxChildren: state.home.maxChildren - event.decrement),
-      saveFailureOrSuccessOption: none(),
-    ));
-  }
-
-  void _onPetsChange(PetsChange event, Emitter<MyHomesFormState> emit) {
-    emit(state.copyWith(
-      home: state.home.copyWith(maxPets: event.numberPets),
       saveFailureOrSuccessOption: none(),
     ));
   }
