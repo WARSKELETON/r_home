@@ -39,7 +39,6 @@ class MyHomesBloc extends Bloc<MyHomesEvent, MyHomesState> {
   }
 
   void _onWatchHome(WatchHome event, Emitter<MyHomesState> emit) {
-    print("Starting watching home " + event.homeUuid);
     _myHomeStreamSubscription = _homesRepository
       .watch(event.homeUuid)
       .listen((home) => add(MyHomesEvent.homeReceived(home))
