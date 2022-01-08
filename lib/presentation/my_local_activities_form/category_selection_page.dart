@@ -19,7 +19,7 @@ class CategorySelectionPage extends StatelessWidget {
         children: List.generate(ActivityCategory.values.length, (index) => 
           RoundedTextCardWidget(
             text: ActivityCategory.values[index].name.replaceAll("_", " ").capitalize(),            
-            image: "assets/icons/food${index%2}.png",
+            image: "assets/icons/${ActivityCategory.values[index].name}.png",
             selected: context.watch<MyLocalActivitiesFormBloc>().state.category == ActivityCategory.values[index],
             onPressed: () {
               if (context.read<MyLocalActivitiesFormBloc>().state.category != ActivityCategory.values[index]) {

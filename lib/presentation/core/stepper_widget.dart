@@ -5,6 +5,8 @@ import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class StepperWidget extends StatelessWidget {
   final String title;
+  final AlignmentGeometry titleAlignment;
+  final TextAlign titleTextAlignment;
   final int numberOfSteps;
   final double totalWidth;
   final double stepWidth;
@@ -16,7 +18,9 @@ class StepperWidget extends StatelessWidget {
     required this.totalWidth,
     required this.stepWidth,
     required this.separatorWidth,
-    required this.title
+    required this.title, 
+    required this.titleAlignment, 
+    required this.titleTextAlignment
   }) : super(key: key);
 
   List<Widget> _buildStepper(BuildContext context) {
@@ -96,9 +100,10 @@ class StepperWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: titleAlignment,
               child: Text(
                 title,
+                textAlign: titleTextAlignment,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold
                 ),

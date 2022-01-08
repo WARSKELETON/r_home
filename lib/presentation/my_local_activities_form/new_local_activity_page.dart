@@ -50,11 +50,11 @@ class NewLocalAcitvityPage extends StatelessWidget {
               String title = "";
               switch (currentIndex) {
                 case 0:
-                  title = "Choose the activity category:";
+                  title = "Choose the activity category";
                   break;
                 case 1:
                   title =
-                      "Slide to choose the amount of tokens you want to send:";
+                      "Please complete the form with your activity's details";
                   break;
                 case 2:
                   title = "Added new activity successfully!";
@@ -66,11 +66,14 @@ class NewLocalAcitvityPage extends StatelessWidget {
                 child: Column(
                   children: [
                     StepperWidget(
-                        numberOfSteps: 2,
-                        totalWidth: 320,
-                        stepWidth: 30,
-                        separatorWidth: 50,
-                        title: title),
+                      numberOfSteps: 2,
+                      totalWidth: 320,
+                      stepWidth: 30,
+                      separatorWidth: 50,
+                      title: title,
+                      titleAlignment: Alignment.center,
+                      titleTextAlignment: TextAlign.center,
+                    ),
                     if (currentIndex == 0) ...[
                       const CategorySelectionPage(),
                     ] else if (currentIndex == 1) ...[

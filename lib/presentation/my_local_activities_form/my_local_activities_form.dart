@@ -19,7 +19,8 @@ import 'package:r_home/presentation/my_local_activities_form/widgets/activity_pr
 class MyLocalActivitiesForm extends StatelessWidget {
   final LocalActivity? editedActivity;
 
-  const MyLocalActivitiesForm({Key? key, this.editedActivity}) : super(key: key);
+  const MyLocalActivitiesForm({Key? key, this.editedActivity})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,22 +31,29 @@ class MyLocalActivitiesForm extends StatelessWidget {
                 FirebaseFirestore.instance,
                 FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
                     FirebaseFirestore.instance)))
-          ..add(MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
-          child: Scaffold(
-            appBar: AppBarWidget(
-              title: "Edit Activity",
-              actions: [
-                IconButton(
-                  onPressed: () => context.read<MyLocalActivitiesFormBloc>().add(const MyLocalActivitiesFormEvent.submit()),
-                  icon: const Icon(Icons.check),
-                  splashRadius: 20,
-                )
-              ],
-            ),
-            body: buildForm(),
-            bottomNavigationBar: const BottomBarWidget(),
+          ..add(
+              MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
+        child: Scaffold(
+          appBar: AppBarWidget(
+            title: "Edit Activity",
+            actions: [
+              BlocBuilder<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
+                builder: (context, state) {
+                  return IconButton(
+                    onPressed: () => context
+                        .read<MyLocalActivitiesFormBloc>()
+                        .add(const MyLocalActivitiesFormEvent.submit()),
+                    icon: const Icon(Icons.check),
+                    splashRadius: 20,
+                  );
+                },
+              )
+            ],
           ),
-        );
+          body: buildForm(),
+          bottomNavigationBar: const BottomBarWidget(),
+        ),
+      );
     } else {
       return buildForm();
     }
@@ -53,8 +61,7 @@ class MyLocalActivitiesForm extends StatelessWidget {
 
   Widget buildForm() {
     return BlocConsumer<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
-      listenWhen: (p, c) =>
-          p.isSaving != c.isSaving,
+      listenWhen: (p, c) => p.isSaving != c.isSaving,
       listener: (context, state) {
         if (!state.isSaving) {
           AutoRouter.of(context).pop();
@@ -62,17 +69,17 @@ class MyLocalActivitiesForm extends StatelessWidget {
       },
       builder: (context, state) {
         return Form(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                ActivityNameField(),
-                ActivityLocationField(),
-                ActivityPriceField(),
-                ActivityContactField()
-              ],
-            ),
-          ));
+            child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              ActivityNameField(),
+              ActivityLocationField(),
+              ActivityPriceField(),
+              ActivityContactField()
+            ],
+          ),
+        ));
       },
     );
   }

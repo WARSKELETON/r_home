@@ -10,63 +10,66 @@
 //
 // ignore_for_file: type=lint
 
-import 'package:auto_route/auto_route.dart' as _i18;
-import 'package:flutter/material.dart' as _i19;
+import 'package:auto_route/auto_route.dart' as _i21;
+import 'package:flutter/material.dart' as _i22;
 
-import '../../domain/homes/home.dart' as _i20;
-import '../../domain/local_activities/local_activity.dart' as _i21;
+import '../../domain/homes/home.dart' as _i23;
+import '../../domain/local_activities/local_activity.dart' as _i24;
+import '../disputes/disputes_page.dart' as _i5;
+import '../disputes/problems_with_payments_page.dart' as _i10;
+import '../disputes/start_dispute_page.dart' as _i9;
 import '../home/home_page.dart' as _i4;
-import '../my_homes/my_home_details_page.dart' as _i8;
-import '../my_homes/my_homes_page.dart' as _i5;
-import '../my_homes_form/my_homes_form.dart' as _i6;
-import '../my_local_activities/my_local_activities_details_page.dart' as _i9;
-import '../my_local_activities/my_local_activities_page.dart' as _i11;
-import '../my_local_activities_form/category_selection_page.dart' as _i13;
-import '../my_local_activities_form/my_local_activities_form.dart' as _i14;
-import '../my_local_activities_form/new_local_activity_page.dart' as _i12;
-import '../profile/profile_page.dart' as _i7;
-import '../profile/send_tokens_page.dart' as _i16;
-import '../profile/transaction_history_page.dart' as _i15;
-import '../profile/wallet_page.dart' as _i10;
+import '../my_homes/my_home_details_page.dart' as _i11;
+import '../my_homes/my_homes_page.dart' as _i6;
+import '../my_homes_form/my_homes_form.dart' as _i7;
+import '../my_local_activities/my_local_activities_details_page.dart' as _i12;
+import '../my_local_activities/my_local_activities_page.dart' as _i14;
+import '../my_local_activities_form/category_selection_page.dart' as _i16;
+import '../my_local_activities_form/my_local_activities_form.dart' as _i17;
+import '../my_local_activities_form/new_local_activity_page.dart' as _i15;
+import '../profile/profile_page.dart' as _i8;
+import '../profile/send_tokens_page.dart' as _i19;
+import '../profile/transaction_history_page.dart' as _i18;
+import '../profile/wallet_page.dart' as _i13;
 import '../sign_in/role_page.dart' as _i3;
 import '../sign_in/sign_in_page.dart' as _i2;
 import '../splash/splash_page.dart' as _i1;
-import '../splash/test_page.dart' as _i17;
+import '../splash/test_page.dart' as _i20;
 
-class MyRouter extends _i18.RootStackRouter {
-  MyRouter([_i19.GlobalKey<_i19.NavigatorState>? navigatorKey])
+class MyRouter extends _i21.RootStackRouter {
+  MyRouter([_i22.GlobalKey<_i22.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i18.PageFactory> pagesMap = {
+  final Map<String, _i21.PageFactory> pagesMap = {
     SplashPageRoute.name: (routeData) {
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.SplashPage());
     },
     SignInPageRoute.name: (routeData) {
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.SignInPage());
     },
     RolePageRoute.name: (routeData) {
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i3.RolePage());
     },
     HomePageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i4.HomePage(),
           opaque: true,
           barrierDismissible: false);
     },
     DisputesPageRoute.name: (routeData) {
-      return _i20.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i5.DisputesPage(),
           opaque: true,
           barrierDismissible: false);
     },
     MyHomesPageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i6.MyHomesPage(),
           opaque: true,
@@ -75,157 +78,162 @@ class MyRouter extends _i18.RootStackRouter {
     MyHomesFormRoute.name: (routeData) {
       final args = routeData.argsAs<MyHomesFormRouteArgs>(
           orElse: () => const MyHomesFormRouteArgs());
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i7.MyHomesForm(key: args.key, editedHome: args.editedHome),
           fullscreenDialog: true);
     },
     ProfilePageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i8.ProfilePage(),
           opaque: true,
           barrierDismissible: false);
     },
     StartDisputesPageRoute.name: (routeData) {
-      return _i20.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i9.StartDisputesPage(),
-          transitionsBuilder: _i20.TransitionsBuilders.slideLeft,
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     ProblemsWithPaymentsPageRoute.name: (routeData) {
-      return _i20.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i10.ProblemsWithPaymentsPage(),
-          transitionsBuilder: _i20.TransitionsBuilders.slideLeft,
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     MyHomeDetailsPageRoute.name: (routeData) {
       final args = routeData.argsAs<MyHomeDetailsPageRouteArgs>();
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i8.MyHomeDetailsPage(key: args.key, homeUuid: args.homeUuid),
-          transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
+          child: _i11.MyHomeDetailsPage(key: args.key, homeUuid: args.homeUuid),
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     MyLocalActivityDetailsPageRoute.name: (routeData) {
       final args = routeData.argsAs<MyLocalActivityDetailsPageRouteArgs>();
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
           child: _i12.MyLocalActivityDetailsPage(
               key: args.key, localActivityUuid: args.localActivityUuid),
-          transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     WalletPageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i10.WalletPage(),
-          transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
+          child: const _i13.WalletPage(),
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     MyLocalActivitiesPageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i11.MyLocalActivitiesPage(),
-          transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
+          child: const _i14.MyLocalActivitiesPage(),
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     NewLocalAcitvityPageRoute.name: (routeData) {
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: const _i12.NewLocalAcitvityPage(),
+          child: const _i15.NewLocalAcitvityPage(),
           fullscreenDialog: true);
     },
     CategorySelectionPageRoute.name: (routeData) {
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: const _i13.CategorySelectionPage(),
+          child: const _i16.CategorySelectionPage(),
           fullscreenDialog: true);
     },
     MyLocalActivitiesFormRoute.name: (routeData) {
       final args = routeData.argsAs<MyLocalActivitiesFormRouteArgs>(
           orElse: () => const MyLocalActivitiesFormRouteArgs());
-      return _i18.MaterialPageX<dynamic>(
+      return _i21.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i14.MyLocalActivitiesForm(
+          child: _i17.MyLocalActivitiesForm(
               key: args.key, editedActivity: args.editedActivity),
           fullscreenDialog: true);
     },
     TransactionHistoryPageRoute.name: (routeData) {
       final args = routeData.argsAs<TransactionHistoryPageRouteArgs>();
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i15.TransactionHistoryPage(
+          child: _i18.TransactionHistoryPage(
               key: args.key, transactions: args.transactions),
-          transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     SendTokensPageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i16.SendTokensPage(),
-          transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
+          child: const _i19.SendTokensPage(),
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
     TestPageRoute.name: (routeData) {
-      return _i18.CustomPage<dynamic>(
+      return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i17.TestPage(),
+          child: const _i20.TestPage(),
           opaque: true,
           barrierDismissible: false);
     }
   };
 
   @override
-  List<_i18.RouteConfig> get routes => [
-        _i18.RouteConfig(SplashPageRoute.name, path: '/'),
-        _i18.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
-        _i18.RouteConfig(RolePageRoute.name, path: '/role-page'),
-        _i18.RouteConfig(HomePageRoute.name, path: '/home-page'),
-        _i18.RouteConfig(MyHomesPageRoute.name, path: '/my-homes-page'),
-        _i18.RouteConfig(MyHomesFormRoute.name, path: '/my-homes-form'),
-        _i18.RouteConfig(ProfilePageRoute.name, path: '/profile-page'),
-        _i18.RouteConfig(MyHomeDetailsPageRoute.name,
+  List<_i21.RouteConfig> get routes => [
+        _i21.RouteConfig(SplashPageRoute.name, path: '/'),
+        _i21.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
+        _i21.RouteConfig(RolePageRoute.name, path: '/role-page'),
+        _i21.RouteConfig(HomePageRoute.name, path: '/home-page'),
+        _i21.RouteConfig(DisputesPageRoute.name, path: '/disputes-page'),
+        _i21.RouteConfig(MyHomesPageRoute.name, path: '/my-homes-page'),
+        _i21.RouteConfig(MyHomesFormRoute.name, path: '/my-homes-form'),
+        _i21.RouteConfig(ProfilePageRoute.name, path: '/profile-page'),
+        _i21.RouteConfig(StartDisputesPageRoute.name,
+            path: '/start-disputes-page'),
+        _i21.RouteConfig(ProblemsWithPaymentsPageRoute.name,
+            path: '/problems-with-payments-page'),
+        _i21.RouteConfig(MyHomeDetailsPageRoute.name,
             path: '/my-home-details-page'),
-        _i18.RouteConfig(MyLocalActivityDetailsPageRoute.name,
+        _i21.RouteConfig(MyLocalActivityDetailsPageRoute.name,
             path: '/my-local-activity-details-page'),
-        _i18.RouteConfig(WalletPageRoute.name, path: '/wallet-page'),
-        _i18.RouteConfig(MyLocalActivitiesPageRoute.name,
+        _i21.RouteConfig(WalletPageRoute.name, path: '/wallet-page'),
+        _i21.RouteConfig(MyLocalActivitiesPageRoute.name,
             path: '/my-local-activities-page'),
-        _i18.RouteConfig(NewLocalAcitvityPageRoute.name,
+        _i21.RouteConfig(NewLocalAcitvityPageRoute.name,
             path: '/new-local-acitvity-page'),
-        _i18.RouteConfig(CategorySelectionPageRoute.name,
+        _i21.RouteConfig(CategorySelectionPageRoute.name,
             path: '/category-selection-page'),
-        _i18.RouteConfig(MyLocalActivitiesFormRoute.name,
+        _i21.RouteConfig(MyLocalActivitiesFormRoute.name,
             path: '/my-local-activities-form'),
-        _i18.RouteConfig(TransactionHistoryPageRoute.name,
+        _i21.RouteConfig(TransactionHistoryPageRoute.name,
             path: '/transaction-history-page'),
-        _i18.RouteConfig(SendTokensPageRoute.name, path: '/send-tokens-page'),
-        _i18.RouteConfig(TestPageRoute.name, path: '/test-page')
+        _i21.RouteConfig(SendTokensPageRoute.name, path: '/send-tokens-page'),
+        _i21.RouteConfig(TestPageRoute.name, path: '/test-page')
       ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
-class SplashPageRoute extends _i18.PageRouteInfo<void> {
+class SplashPageRoute extends _i21.PageRouteInfo<void> {
   const SplashPageRoute() : super(SplashPageRoute.name, path: '/');
 
   static const String name = 'SplashPageRoute';
@@ -233,7 +241,7 @@ class SplashPageRoute extends _i18.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.SignInPage]
-class SignInPageRoute extends _i18.PageRouteInfo<void> {
+class SignInPageRoute extends _i21.PageRouteInfo<void> {
   const SignInPageRoute() : super(SignInPageRoute.name, path: '/sign-in-page');
 
   static const String name = 'SignInPageRoute';
@@ -241,7 +249,7 @@ class SignInPageRoute extends _i18.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.RolePage]
-class RolePageRoute extends _i18.PageRouteInfo<void> {
+class RolePageRoute extends _i21.PageRouteInfo<void> {
   const RolePageRoute() : super(RolePageRoute.name, path: '/role-page');
 
   static const String name = 'RolePageRoute';
@@ -249,15 +257,24 @@ class RolePageRoute extends _i18.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.HomePage]
-class HomePageRoute extends _i18.PageRouteInfo<void> {
+class HomePageRoute extends _i21.PageRouteInfo<void> {
   const HomePageRoute() : super(HomePageRoute.name, path: '/home-page');
 
   static const String name = 'HomePageRoute';
 }
 
 /// generated route for
-/// [_i5.MyHomesPage]
-class MyHomesPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i5.DisputesPage]
+class DisputesPageRoute extends _i21.PageRouteInfo<void> {
+  const DisputesPageRoute()
+      : super(DisputesPageRoute.name, path: '/disputes-page');
+
+  static const String name = 'DisputesPageRoute';
+}
+
+/// generated route for
+/// [_i6.MyHomesPage]
+class MyHomesPageRoute extends _i21.PageRouteInfo<void> {
   const MyHomesPageRoute()
       : super(MyHomesPageRoute.name, path: '/my-homes-page');
 
@@ -265,9 +282,9 @@ class MyHomesPageRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.MyHomesForm]
-class MyHomesFormRoute extends _i18.PageRouteInfo<MyHomesFormRouteArgs> {
-  MyHomesFormRoute({_i19.Key? key, _i20.Home? editedHome})
+/// [_i7.MyHomesForm]
+class MyHomesFormRoute extends _i21.PageRouteInfo<MyHomesFormRouteArgs> {
+  MyHomesFormRoute({_i22.Key? key, _i23.Home? editedHome})
       : super(MyHomesFormRoute.name,
             path: '/my-homes-form',
             args: MyHomesFormRouteArgs(key: key, editedHome: editedHome));
@@ -278,9 +295,9 @@ class MyHomesFormRoute extends _i18.PageRouteInfo<MyHomesFormRouteArgs> {
 class MyHomesFormRouteArgs {
   const MyHomesFormRouteArgs({this.key, this.editedHome});
 
-  final _i19.Key? key;
+  final _i22.Key? key;
 
-  final _i20.Home? editedHome;
+  final _i23.Home? editedHome;
 
   @override
   String toString() {
@@ -289,8 +306,8 @@ class MyHomesFormRouteArgs {
 }
 
 /// generated route for
-/// [_i7.ProfilePage]
-class ProfilePageRoute extends _i18.PageRouteInfo<void> {
+/// [_i8.ProfilePage]
+class ProfilePageRoute extends _i21.PageRouteInfo<void> {
   const ProfilePageRoute()
       : super(ProfilePageRoute.name, path: '/profile-page');
 
@@ -299,7 +316,7 @@ class ProfilePageRoute extends _i18.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.StartDisputesPage]
-class StartDisputesPageRoute extends _i20.PageRouteInfo<void> {
+class StartDisputesPageRoute extends _i21.PageRouteInfo<void> {
   const StartDisputesPageRoute()
       : super(StartDisputesPageRoute.name, path: '/start-disputes-page');
 
@@ -308,7 +325,7 @@ class StartDisputesPageRoute extends _i20.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.ProblemsWithPaymentsPage]
-class ProblemsWithPaymentsPageRoute extends _i20.PageRouteInfo<void> {
+class ProblemsWithPaymentsPageRoute extends _i21.PageRouteInfo<void> {
   const ProblemsWithPaymentsPageRoute()
       : super(ProblemsWithPaymentsPageRoute.name,
             path: '/problems-with-payments-page');
@@ -319,8 +336,8 @@ class ProblemsWithPaymentsPageRoute extends _i20.PageRouteInfo<void> {
 /// generated route for
 /// [_i11.MyHomeDetailsPage]
 class MyHomeDetailsPageRoute
-    extends _i18.PageRouteInfo<MyHomeDetailsPageRouteArgs> {
-  MyHomeDetailsPageRoute({_i19.Key? key, required String homeUuid})
+    extends _i21.PageRouteInfo<MyHomeDetailsPageRouteArgs> {
+  MyHomeDetailsPageRoute({_i22.Key? key, required String homeUuid})
       : super(MyHomeDetailsPageRoute.name,
             path: '/my-home-details-page',
             args: MyHomeDetailsPageRouteArgs(key: key, homeUuid: homeUuid));
@@ -331,7 +348,7 @@ class MyHomeDetailsPageRoute
 class MyHomeDetailsPageRouteArgs {
   const MyHomeDetailsPageRouteArgs({this.key, required this.homeUuid});
 
-  final _i19.Key? key;
+  final _i22.Key? key;
 
   final String homeUuid;
 
@@ -344,9 +361,9 @@ class MyHomeDetailsPageRouteArgs {
 /// generated route for
 /// [_i12.MyLocalActivityDetailsPage]
 class MyLocalActivityDetailsPageRoute
-    extends _i18.PageRouteInfo<MyLocalActivityDetailsPageRouteArgs> {
+    extends _i21.PageRouteInfo<MyLocalActivityDetailsPageRouteArgs> {
   MyLocalActivityDetailsPageRoute(
-      {_i19.Key? key, required String localActivityUuid})
+      {_i22.Key? key, required String localActivityUuid})
       : super(MyLocalActivityDetailsPageRoute.name,
             path: '/my-local-activity-details-page',
             args: MyLocalActivityDetailsPageRouteArgs(
@@ -359,7 +376,7 @@ class MyLocalActivityDetailsPageRouteArgs {
   const MyLocalActivityDetailsPageRouteArgs(
       {this.key, required this.localActivityUuid});
 
-  final _i19.Key? key;
+  final _i22.Key? key;
 
   final String localActivityUuid;
 
@@ -370,16 +387,16 @@ class MyLocalActivityDetailsPageRouteArgs {
 }
 
 /// generated route for
-/// [_i10.WalletPage]
-class WalletPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i13.WalletPage]
+class WalletPageRoute extends _i21.PageRouteInfo<void> {
   const WalletPageRoute() : super(WalletPageRoute.name, path: '/wallet-page');
 
   static const String name = 'WalletPageRoute';
 }
 
 /// generated route for
-/// [_i11.MyLocalActivitiesPage]
-class MyLocalActivitiesPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i14.MyLocalActivitiesPage]
+class MyLocalActivitiesPageRoute extends _i21.PageRouteInfo<void> {
   const MyLocalActivitiesPageRoute()
       : super(MyLocalActivitiesPageRoute.name,
             path: '/my-local-activities-page');
@@ -388,8 +405,8 @@ class MyLocalActivitiesPageRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.NewLocalAcitvityPage]
-class NewLocalAcitvityPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i15.NewLocalAcitvityPage]
+class NewLocalAcitvityPageRoute extends _i21.PageRouteInfo<void> {
   const NewLocalAcitvityPageRoute()
       : super(NewLocalAcitvityPageRoute.name, path: '/new-local-acitvity-page');
 
@@ -397,8 +414,8 @@ class NewLocalAcitvityPageRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.CategorySelectionPage]
-class CategorySelectionPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i16.CategorySelectionPage]
+class CategorySelectionPageRoute extends _i21.PageRouteInfo<void> {
   const CategorySelectionPageRoute()
       : super(CategorySelectionPageRoute.name,
             path: '/category-selection-page');
@@ -407,11 +424,11 @@ class CategorySelectionPageRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.MyLocalActivitiesForm]
+/// [_i17.MyLocalActivitiesForm]
 class MyLocalActivitiesFormRoute
-    extends _i18.PageRouteInfo<MyLocalActivitiesFormRouteArgs> {
+    extends _i21.PageRouteInfo<MyLocalActivitiesFormRouteArgs> {
   MyLocalActivitiesFormRoute(
-      {_i19.Key? key, _i21.LocalActivity? editedActivity})
+      {_i22.Key? key, _i24.LocalActivity? editedActivity})
       : super(MyLocalActivitiesFormRoute.name,
             path: '/my-local-activities-form',
             args: MyLocalActivitiesFormRouteArgs(
@@ -423,9 +440,9 @@ class MyLocalActivitiesFormRoute
 class MyLocalActivitiesFormRouteArgs {
   const MyLocalActivitiesFormRouteArgs({this.key, this.editedActivity});
 
-  final _i19.Key? key;
+  final _i22.Key? key;
 
-  final _i21.LocalActivity? editedActivity;
+  final _i24.LocalActivity? editedActivity;
 
   @override
   String toString() {
@@ -434,10 +451,10 @@ class MyLocalActivitiesFormRouteArgs {
 }
 
 /// generated route for
-/// [_i15.TransactionHistoryPage]
+/// [_i18.TransactionHistoryPage]
 class TransactionHistoryPageRoute
-    extends _i18.PageRouteInfo<TransactionHistoryPageRouteArgs> {
-  TransactionHistoryPageRoute({_i19.Key? key, required List<int> transactions})
+    extends _i21.PageRouteInfo<TransactionHistoryPageRouteArgs> {
+  TransactionHistoryPageRoute({_i22.Key? key, required List<int> transactions})
       : super(TransactionHistoryPageRoute.name,
             path: '/transaction-history-page',
             args: TransactionHistoryPageRouteArgs(
@@ -449,7 +466,7 @@ class TransactionHistoryPageRoute
 class TransactionHistoryPageRouteArgs {
   const TransactionHistoryPageRouteArgs({this.key, required this.transactions});
 
-  final _i19.Key? key;
+  final _i22.Key? key;
 
   final List<int> transactions;
 
@@ -460,8 +477,8 @@ class TransactionHistoryPageRouteArgs {
 }
 
 /// generated route for
-/// [_i16.SendTokensPage]
-class SendTokensPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i19.SendTokensPage]
+class SendTokensPageRoute extends _i21.PageRouteInfo<void> {
   const SendTokensPageRoute()
       : super(SendTokensPageRoute.name, path: '/send-tokens-page');
 
@@ -469,8 +486,8 @@ class SendTokensPageRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i17.TestPage]
-class TestPageRoute extends _i18.PageRouteInfo<void> {
+/// [_i20.TestPage]
+class TestPageRoute extends _i21.PageRouteInfo<void> {
   const TestPageRoute() : super(TestPageRoute.name, path: '/test-page');
 
   static const String name = 'TestPageRoute';

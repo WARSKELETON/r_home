@@ -53,7 +53,7 @@ class SendTokensPage extends StatelessWidget {
             return Center(
               child: Column(
                 children: [
-                  StepperWidget(numberOfSteps: 2, totalWidth: 320, stepWidth: 30, separatorWidth: 50, title: title),
+                  StepperWidget(numberOfSteps: 2, totalWidth: 320, stepWidth: 30, separatorWidth: 50, title: title, titleAlignment: Alignment.centerLeft, titleTextAlignment: TextAlign.left,),
                   if (currentIndex == 0) ...[
                     const SelectGuestRewardWidget(guests: ["Maria", "Jose", "Alberto", "Maria2", "Jose2", "Alberto2", "Maria3", "Jose3", "Alberto3"]),
                   ] else if (currentIndex == 1) ...[
