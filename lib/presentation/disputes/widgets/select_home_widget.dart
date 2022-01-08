@@ -26,8 +26,9 @@ class SelectHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        padding: const EdgeInsets.only(left: 8),
-        itemCount: 4,
-        itemBuilder: _itemBuilder);
+      padding: const EdgeInsets.only(left: 8),
+      itemCount: 4,
+      itemBuilder: _itemBuilder
+    );
   }
 }
