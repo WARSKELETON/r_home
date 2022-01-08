@@ -7,11 +7,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_local_activities/my_local_activities_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
-import 'package:r_home/infrastructure/my_local_activities/my_local_activities_repository.dart';
+import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/my_local_activities_form/my_local_activities_form.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyLocalActivityDetailsPage extends StatelessWidget {
@@ -54,7 +53,7 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MyLocalActivitiesBloc(MyLocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))..add(MyLocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
+      create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))..add(MyLocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
       child: Builder(
         builder: (context) {
           final _localActivity = context.watch<MyLocalActivitiesBloc>().state.localActivity;

@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_homes/my_homes_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
+import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -53,7 +54,8 @@ class MyHomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MyHomesBloc(RentalsRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))..add(MyHomesEvent.watchHome(homeUuid)),
+      create: (context) => MyHomesBloc(RentalsRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)), HomesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
+        ..add(MyHomesEvent.watchHome(homeUuid)),
       child: Builder(
         builder: (context) {
           final _home = context.watch<MyHomesBloc>().state.home;

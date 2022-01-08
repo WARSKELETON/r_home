@@ -8,7 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
-import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
+import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/guests_field_widget.dart';
@@ -24,7 +24,7 @@ class MyHomesForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MyHomesFormBloc(RentalsRepository(
+      create: (context) => MyHomesFormBloc(HomesRepository(
           FirebaseFirestore.instance,
           FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
               FirebaseFirestore.instance)))

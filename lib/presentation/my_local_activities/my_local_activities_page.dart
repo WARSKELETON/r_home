@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_local_activities/my_local_activities_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
-import 'package:r_home/infrastructure/my_local_activities/my_local_activities_repository.dart';
+import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_card_widget.dart';
@@ -29,7 +29,8 @@ class MyLocalActivitiesPage extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => MyLocalActivitiesBloc(MyLocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))..add(const MyLocalActivitiesEvent.initialize()),
+        create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
+        ..add(const MyLocalActivitiesEvent.initialize()),
         child: BlocBuilder<MyLocalActivitiesBloc, MyLocalActivitiesState>(
           builder: (context, state) {
             final _localActivities = context.watch<MyLocalActivitiesBloc>().state.localActivities;
@@ -37,7 +38,7 @@ class MyLocalActivitiesPage extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
               child: GridView.count(
-                childAspectRatio: MediaQuery.of(context).size.width * 1.7 / (MediaQuery.of(context).size.height),
+                childAspectRatio: MediaQuery.of(context).size.width * 1.5 / (MediaQuery.of(context).size.height),
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 children: List.generate(_localActivities.length, (index) => 

@@ -1,17 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
-import 'package:r_home/domain/my_local_activities/i_my_local_activities_repository.dart';
 
 part 'my_local_activities_form_event.dart';
 part 'my_local_activities_form_state.dart';
 part 'my_local_activities_form_bloc.freezed.dart';
 
 class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocalActivitiesFormState> {
-  final IMyLocalActivitiesRepository _activitiesRepository;
+  final ILocalActivitiesRepository _localActivitiesRepository;
 
-  MyLocalActivitiesFormBloc(this._activitiesRepository) : super(MyLocalActivitiesFormState.initial()) {
+  MyLocalActivitiesFormBloc(this._localActivitiesRepository) : super(MyLocalActivitiesFormState.initial()) {
     on<Initialize>(_onInitialize);
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
@@ -64,8 +64,8 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
     emit(state.copyWith(isSaving: true));
 
     state.isEditing
-        ? await _activitiesRepository.update(state.activity)
-        : await _activitiesRepository.create(state.activity);
+        ? await _localActivitiesRepository.update(state.activity)
+        : await _localActivitiesRepository.create(state.activity);
 
     emit(state.copyWith(isSaving: false));
   }

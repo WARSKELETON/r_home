@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/infrastructure/local_activities/local_activity_dto.dart';
 
-extension MyLocalActivitiesExtension on QuerySnapshot {
+extension LocalActivitiesExtension on QuerySnapshot {
   List<LocalActivity> toListLocalActivity() {
     List<LocalActivity> localActivities = [];
     for (var doc in docs) {
@@ -12,7 +12,7 @@ extension MyLocalActivitiesExtension on QuerySnapshot {
   }
 }
 
-extension MyLocalActivitiesExtensionDocumentSnapshot on DocumentSnapshot {
+extension LocalActivitiesExtensionDocumentSnapshot on DocumentSnapshot {
   LocalActivity toLocalActivity() {
     return LocalActivityDto.fromFirestore(this).toDomain();
   }

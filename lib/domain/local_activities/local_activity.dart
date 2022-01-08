@@ -26,5 +26,6 @@ abstract class LocalActivity implements _$LocalActivity {
     producer: '',
     category: '',
     price: 0.0,
-    contact: 0);
+    contact: 0
+  );
 }

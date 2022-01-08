@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
-import 'package:r_home/domain/my_local_activities/i_my_local_activities_repository.dart';
 
 part 'my_local_activities_event.dart';
 part 'my_local_activities_state.dart';
@@ -11,9 +11,9 @@ part 'my_local_activities_bloc.freezed.dart';
 
 class MyLocalActivitiesBloc
     extends Bloc<MyLocalActivitiesEvent, MyLocalActivitiesState> {
-  final IMyLocalActivitiesRepository _myLocalActivitiesRepository;
+  final ILocalActivitiesRepository _localActivitiesRepository;
 
-  MyLocalActivitiesBloc(this._myLocalActivitiesRepository)
+  MyLocalActivitiesBloc(this._localActivitiesRepository)
       : super(MyLocalActivitiesState.initial()) {
     on<Initialize>(_onInitialize);
     on<WatchLocalActivity>(_onWatchLocalActivity);
@@ -21,12 +21,12 @@ class MyLocalActivitiesBloc
     on<LocalActivityReceived>(_onLocalActivityReceived);
   }
 
-  StreamSubscription<List<LocalActivity>>? _myLocalActivitiesStreamSubscription;
-  StreamSubscription<LocalActivity>? _myLocalActivityStreamSubscription;
+  StreamSubscription<List<LocalActivity>>? _localActivitiesStreamSubscription;
+  StreamSubscription<LocalActivity>? _localActivityStreamSubscription;
 
   void _onInitialize(
       MyLocalActivitiesEvent event, Emitter<MyLocalActivitiesState> emit) {
-    _myLocalActivitiesStreamSubscription = _myLocalActivitiesRepository
+    _localActivitiesStreamSubscription = _localActivitiesRepository
         .watchAll()
         .listen(
           (localActivities) => add(MyLocalActivitiesEvent.localActivitiesReceived(localActivities)),
@@ -37,7 +37,7 @@ class MyLocalActivitiesBloc
   void _onWatchLocalActivity(
       WatchLocalActivity event, Emitter<MyLocalActivitiesState> emit) {
     print("Starting watching home " + event.localActivityUuid);
-    _myLocalActivityStreamSubscription = _myLocalActivitiesRepository
+    _localActivityStreamSubscription = _localActivitiesRepository
         .watch(event.localActivityUuid)
         .listen((localActivity) => add(MyLocalActivitiesEvent.localActivityReceivedReceived(localActivity)));
     emit(state);
