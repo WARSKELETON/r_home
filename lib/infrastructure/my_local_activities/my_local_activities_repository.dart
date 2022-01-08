@@ -58,7 +58,7 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
   }
 
   @override
-  Future<void> update(LocalActivity home, String docId) async {
+  Future<void> update(LocalActivity home) async {
     
   }
 }

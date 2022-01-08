@@ -4,6 +4,6 @@ abstract class IMyLocalActivitiesRepository {
   Stream<List<LocalActivity>> watchAll();
   Stream<LocalActivity> watch(String localActivityUuid);
   Future<void> create(LocalActivity localActivity);
-  Future<void> update(LocalActivity localActivity, String docId);
+  Future<void> update(LocalActivity localActivity);
   void delete(LocalActivity localActivity);
 }

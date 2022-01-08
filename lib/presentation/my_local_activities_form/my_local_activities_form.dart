@@ -11,8 +11,9 @@ import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/my_local_activities/my_local_activities_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/my_homes_form/widgets/location_field_widget.dart';
-import 'package:r_home/presentation/my_homes_form/widgets/price_field_widget.dart';
+import 'package:r_home/presentation/my_local_activities_form/widgets/activity_location_field_widget.dart';
+import 'package:r_home/presentation/my_local_activities_form/widgets/activity_name_field_widget.dart';
+import 'package:r_home/presentation/my_local_activities_form/widgets/activity_price_field_widget.dart';
 
 class MyLocalActivitiesForm extends StatelessWidget {
   final LocalActivity? editedActivity;
@@ -53,8 +54,9 @@ class MyLocalActivitiesForm extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   ActivityNameField(),
-                  LocationField(),
-                  PriceField()
+                  ActivityLocationField(),
+                  ActivityPriceField(),
+                  ActivityLocationField()
                 ],
               ),
             )),

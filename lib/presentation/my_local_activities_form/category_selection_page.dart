@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/rounded_text_card_widget.dart';
+import 'package:r_home/presentation/my_local_activities_form/my_local_activities_form.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class CategorySelectionPage extends StatelessWidget {
   const CategorySelectionPage({Key? key}) : super(key: key);
@@ -23,7 +26,7 @@ class CategorySelectionPage extends StatelessWidget {
             RoundedTextCardWidget(
               text: "Culture",
               image: "assets/icons/food${index%2}.png",
-              onPressed: () => {},
+              onPressed: () => AutoRouter.of(context).push(MyLocalActivitiesFormRoute()),
             )
           ),
         ),
