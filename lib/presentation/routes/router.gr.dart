@@ -58,10 +58,17 @@ class MyRouter extends _i18.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    DisputesPageRoute.name: (routeData) {
+      return _i20.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i5.DisputesPage(),
+          opaque: true,
+          barrierDismissible: false);
+    },
     MyHomesPageRoute.name: (routeData) {
       return _i18.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i5.MyHomesPage(),
+          child: const _i6.MyHomesPage(),
           opaque: true,
           barrierDismissible: false);
     },
@@ -70,13 +77,31 @@ class MyRouter extends _i18.RootStackRouter {
           orElse: () => const MyHomesFormRouteArgs());
       return _i18.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i6.MyHomesForm(key: args.key, editedHome: args.editedHome),
+          child: _i7.MyHomesForm(key: args.key, editedHome: args.editedHome),
           fullscreenDialog: true);
     },
     ProfilePageRoute.name: (routeData) {
       return _i18.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i7.ProfilePage(),
+          child: const _i8.ProfilePage(),
+          opaque: true,
+          barrierDismissible: false);
+    },
+    StartDisputesPageRoute.name: (routeData) {
+      return _i20.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i9.StartDisputesPage(),
+          transitionsBuilder: _i20.TransitionsBuilders.slideLeft,
+          durationInMilliseconds: 150,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    ProblemsWithPaymentsPageRoute.name: (routeData) {
+      return _i20.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i10.ProblemsWithPaymentsPage(),
+          transitionsBuilder: _i20.TransitionsBuilders.slideLeft,
+          durationInMilliseconds: 150,
           opaque: true,
           barrierDismissible: false);
     },
@@ -94,7 +119,7 @@ class MyRouter extends _i18.RootStackRouter {
       final args = routeData.argsAs<MyLocalActivityDetailsPageRouteArgs>();
       return _i18.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i9.MyLocalActivityDetailsPage(
+          child: _i12.MyLocalActivityDetailsPage(
               key: args.key, localActivityUuid: args.localActivityUuid),
           transitionsBuilder: _i18.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
@@ -273,7 +298,26 @@ class ProfilePageRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.MyHomeDetailsPage]
+/// [_i9.StartDisputesPage]
+class StartDisputesPageRoute extends _i20.PageRouteInfo<void> {
+  const StartDisputesPageRoute()
+      : super(StartDisputesPageRoute.name, path: '/start-disputes-page');
+
+  static const String name = 'StartDisputesPageRoute';
+}
+
+/// generated route for
+/// [_i10.ProblemsWithPaymentsPage]
+class ProblemsWithPaymentsPageRoute extends _i20.PageRouteInfo<void> {
+  const ProblemsWithPaymentsPageRoute()
+      : super(ProblemsWithPaymentsPageRoute.name,
+            path: '/problems-with-payments-page');
+
+  static const String name = 'ProblemsWithPaymentsPageRoute';
+}
+
+/// generated route for
+/// [_i11.MyHomeDetailsPage]
 class MyHomeDetailsPageRoute
     extends _i18.PageRouteInfo<MyHomeDetailsPageRouteArgs> {
   MyHomeDetailsPageRoute({_i19.Key? key, required String homeUuid})
@@ -298,7 +342,7 @@ class MyHomeDetailsPageRouteArgs {
 }
 
 /// generated route for
-/// [_i9.MyLocalActivityDetailsPage]
+/// [_i12.MyLocalActivityDetailsPage]
 class MyLocalActivityDetailsPageRoute
     extends _i18.PageRouteInfo<MyLocalActivityDetailsPageRouteArgs> {
   MyLocalActivityDetailsPageRoute(

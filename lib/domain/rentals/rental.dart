@@ -20,7 +20,7 @@ abstract class Rental implements _$Rental {
   }) = _Rental;
 
   factory Rental.empty() => Rental(
-    uuid: Uuid().v1().toString(),
+    uuid: const Uuid().v1().toString(),
     homeId: '',
     hostId: '',
     guestId: '',
