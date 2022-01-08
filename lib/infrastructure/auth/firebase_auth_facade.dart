@@ -13,7 +13,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
   final FirebaseFirestore _firestore;
-  static const String USERS_COLLECTION = "users";
+  static const String USERS_COLLECTION = "user-data";
 
   FirebaseAuthFacade(
     this._firebaseAuth,

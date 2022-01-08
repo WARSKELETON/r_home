@@ -53,7 +53,8 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))..add(MyLocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
+      create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
+      ..add(MyLocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
       child: Builder(
         builder: (context) {
           final _localActivity = context.watch<MyLocalActivitiesBloc>().state.localActivity;
