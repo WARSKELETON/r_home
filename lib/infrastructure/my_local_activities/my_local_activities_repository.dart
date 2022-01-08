@@ -7,8 +7,9 @@ import 'package:r_home/infrastructure/my_local_activities/my_local_activities_ex
 
 class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
   final FirebaseFirestore _firestore;
-  static const String PARENT_COLLECTION = "my-homes";
-  static const String ACTIVITIES_COLLECTION = "my-activities";
+  static const String PARENT_COLLECTION = "user-content";
+  static const String ACTIVITIES_COLLECTION = "local-activities";
+  static const String MY_ACTIVITIES_COLLECTION = "my-local-activities";
   final IAuthFacade _authFacade;
 
   MyLocalActivitiesRepository(this._firestore, this._authFacade);
@@ -20,7 +21,7 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
     final colRef = _firestore
         .collection(PARENT_COLLECTION)
         .doc(userId)
-        .collection(ACTIVITIES_COLLECTION);
+        .collection(MY_ACTIVITIES_COLLECTION);
 
     yield* colRef.snapshots().map((query) => query.toListLocalActivity());
   }
@@ -32,7 +33,7 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
     final docRef = _firestore
         .collection(PARENT_COLLECTION)
         .doc(userId)
-        .collection(ACTIVITIES_COLLECTION)
+        .collection(MY_ACTIVITIES_COLLECTION)
         .doc(localActivityUuid);
 
     yield* docRef.snapshots().map((doc) => doc.toLocalActivity());
@@ -45,7 +46,7 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
     _firestore
       .collection(PARENT_COLLECTION)
       .doc(userId)
-      .collection(ACTIVITIES_COLLECTION)
+      .collection(MY_ACTIVITIES_COLLECTION)
       .doc(localActivity.uuid)
       .set(LocalActivityDto.fromDomain(localActivity).toJson())
       .then((_) => print("Activity created successfuly"))
@@ -66,7 +67,7 @@ class MyLocalActivitiesRepository implements IMyLocalActivitiesRepository {
     _firestore
         .collection(PARENT_COLLECTION)
         .doc(userId)
-        .collection(ACTIVITIES_COLLECTION)
+        .collection(MY_ACTIVITIES_COLLECTION)
         .doc(localActivity.uuid)
         .update(LocalActivityDto.fromDomain(localActivity).toJson())
         .then((_) => print("Activity updated successfuly"))

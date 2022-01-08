@@ -2,14 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/homes/home.dart';
-import 'package:r_home/domain/my_homes/i_my_homes_repository.dart';
+import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 
 part 'my_homes_form_event.dart';
 part 'my_homes_form_state.dart';
 part 'my_homes_form_bloc.freezed.dart';
 
 class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
-  final IMyHomesRepository _homesRepository;
+  final IRentalsRepository _homesRepository;
 
   MyHomesFormBloc(this._homesRepository) : super(MyHomesFormState.initial()) {
     on<Initialize>(_onInitialize);

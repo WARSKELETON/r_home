@@ -18,7 +18,7 @@ abstract class Home implements _$Home {
     required int maxPets,
     required List<String> localActivities,
     // Add image
-    // Add list of activities
+    // Add date
   }) = _Home;
 
   factory Home.empty() => Home(
@@ -30,5 +30,6 @@ abstract class Home implements _$Home {
     maxAdults: 0,
     maxChildren: 0,
     maxPets: 0,
-    localActivities: []);
+    localActivities: [],
+  );
 }

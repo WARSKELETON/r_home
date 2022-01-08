@@ -35,22 +35,22 @@ class MyLocalActivitiesPage extends StatelessWidget {
             final _localActivities = context.watch<MyLocalActivitiesBloc>().state.localActivities;
 
             return Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
-                  child: GridView.count(
-                    childAspectRatio: MediaQuery.of(context).size.width * 1.7 / (MediaQuery.of(context).size.height),
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    children: List.generate(_localActivities.length, (index) => 
-                      RoundedCardWidget(
-                        title: _localActivities[index].name,
-                        subtitle: _localActivities[index].location,
-                        image: "assets/icons/food${index % 2}.png",
-                        width: 160,
-                        height: 160,
-                        onPressed: () => AutoRouter.of(context).push(MyLocalActivityDetailsPageRoute(localActivityUuid: _localActivities[index].uuid)),
-                      )),
-                  ),
-                );
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
+              child: GridView.count(
+                childAspectRatio: MediaQuery.of(context).size.width * 1.7 / (MediaQuery.of(context).size.height),
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                children: List.generate(_localActivities.length, (index) => 
+                  RoundedCardWidget(
+                    title: _localActivities[index].name,
+                    subtitle: _localActivities[index].location,
+                    image: "assets/icons/food${index % 2}.png",
+                    width: 160,
+                    height: 160,
+                    onPressed: () => AutoRouter.of(context).push(MyLocalActivityDetailsPageRoute(localActivityUuid: _localActivities[index].uuid)),
+                  )),
+              ),
+            );
           },
         ),
       ),
