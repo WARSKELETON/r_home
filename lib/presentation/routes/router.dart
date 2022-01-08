@@ -4,7 +4,6 @@ import 'package:r_home/presentation/my_homes/my_home_details_page.dart';
 import 'package:r_home/presentation/my_homes_form/my_homes_form.dart';
 import 'package:r_home/presentation/my_homes/my_homes_page.dart';
 import 'package:r_home/presentation/my_local_activities_form/category_selection_page.dart';
-import 'package:r_home/presentation/profile/my_local_activities_page.dart';
 import 'package:r_home/presentation/my_local_activities/my_local_activities_details_page.dart';
 import 'package:r_home/presentation/my_local_activities/my_local_activities_page.dart';
 import 'package:r_home/presentation/profile/profile_page.dart';
