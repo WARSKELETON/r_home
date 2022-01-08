@@ -9,19 +9,22 @@ part 'local_activity_dto.g.dart';
 abstract class LocalActivityDto implements _$LocalActivityDto {
   const LocalActivityDto._();
 
-  const factory LocalActivityDto(
-      {required String name,
-      required String location,
-      required String producer,
-      required String category,
-      required double price,
-      required int contact}) = _LocalActivityDto;
+  const factory LocalActivityDto({
+    required String uuid,
+    required String name,
+    required String location,
+    required String producer,
+    required String category,
+    required double price,
+    required int contact
+  }) = _LocalActivityDto;
 
-  factory LocalActivityDto.fromDomain(LocalActivity localActivity, String producerId) {
+  factory LocalActivityDto.fromDomain(LocalActivity localActivity) {
     return LocalActivityDto(
+      uuid: localActivity.uuid,
       name: localActivity.name,
       location: localActivity.location,
-      producer: producerId,
+      producer: localActivity.producer,
       category: localActivity.category,
       price: localActivity.price,
       contact: localActivity.contact,
@@ -30,6 +33,7 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
 
   LocalActivity toDomain() {
     return LocalActivity(
+      uuid: uuid,
       name: name,
       location: location,
       producer: producer,

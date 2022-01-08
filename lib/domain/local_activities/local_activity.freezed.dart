@@ -19,13 +19,15 @@ class _$LocalActivityTearOff {
   const _$LocalActivityTearOff();
 
   _LocalActivity call(
-      {required String name,
+      {required String uuid,
+      required String name,
       required String location,
       required String producer,
       required String category,
       required double price,
       required int contact}) {
     return _LocalActivity(
+      uuid: uuid,
       name: name,
       location: location,
       producer: producer,
@@ -41,6 +43,7 @@ const $LocalActivity = _$LocalActivityTearOff();
 
 /// @nodoc
 mixin _$LocalActivity {
+  String get uuid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   String get producer => throw _privateConstructorUsedError;
@@ -59,7 +62,8 @@ abstract class $LocalActivityCopyWith<$Res> {
           LocalActivity value, $Res Function(LocalActivity) then) =
       _$LocalActivityCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {String uuid,
+      String name,
       String location,
       String producer,
       String category,
@@ -78,6 +82,7 @@ class _$LocalActivityCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? uuid = freezed,
     Object? name = freezed,
     Object? location = freezed,
     Object? producer = freezed,
@@ -86,6 +91,10 @@ class _$LocalActivityCopyWithImpl<$Res>
     Object? contact = freezed,
   }) {
     return _then(_value.copyWith(
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -122,7 +131,8 @@ abstract class _$LocalActivityCopyWith<$Res>
       __$LocalActivityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {String uuid,
+      String name,
       String location,
       String producer,
       String category,
@@ -143,6 +153,7 @@ class __$LocalActivityCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? uuid = freezed,
     Object? name = freezed,
     Object? location = freezed,
     Object? producer = freezed,
@@ -151,6 +162,10 @@ class __$LocalActivityCopyWithImpl<$Res>
     Object? contact = freezed,
   }) {
     return _then(_LocalActivity(
+      uuid: uuid == freezed
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -183,7 +198,8 @@ class __$LocalActivityCopyWithImpl<$Res>
 
 class _$_LocalActivity extends _LocalActivity {
   const _$_LocalActivity(
-      {required this.name,
+      {required this.uuid,
+      required this.name,
       required this.location,
       required this.producer,
       required this.category,
@@ -191,6 +207,8 @@ class _$_LocalActivity extends _LocalActivity {
       required this.contact})
       : super._();
 
+  @override
+  final String uuid;
   @override
   final String name;
   @override
@@ -206,7 +224,7 @@ class _$_LocalActivity extends _LocalActivity {
 
   @override
   String toString() {
-    return 'LocalActivity(name: $name, location: $location, producer: $producer, category: $category, price: $price, contact: $contact)';
+    return 'LocalActivity(uuid: $uuid, name: $name, location: $location, producer: $producer, category: $category, price: $price, contact: $contact)';
   }
 
   @override
@@ -214,6 +232,7 @@ class _$_LocalActivity extends _LocalActivity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LocalActivity &&
+            const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality().equals(other.producer, producer) &&
@@ -225,6 +244,7 @@ class _$_LocalActivity extends _LocalActivity {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(uuid),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(producer),
@@ -240,7 +260,8 @@ class _$_LocalActivity extends _LocalActivity {
 
 abstract class _LocalActivity extends LocalActivity {
   const factory _LocalActivity(
-      {required String name,
+      {required String uuid,
+      required String name,
       required String location,
       required String producer,
       required String category,
@@ -248,6 +269,8 @@ abstract class _LocalActivity extends LocalActivity {
       required int contact}) = _$_LocalActivity;
   const _LocalActivity._() : super._();
 
+  @override
+  String get uuid;
   @override
   String get name;
   @override

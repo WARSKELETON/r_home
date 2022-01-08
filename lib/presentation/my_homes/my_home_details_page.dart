@@ -13,10 +13,10 @@ import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomeDetailsPage extends StatelessWidget {
   final String homeUuid;
 
-  const MyHomePage({Key? key, required this.homeUuid}) : super(key: key);
+  const MyHomeDetailsPage({Key? key, required this.homeUuid}) : super(key: key);
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
