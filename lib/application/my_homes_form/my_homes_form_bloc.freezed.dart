@@ -42,12 +42,6 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
-  AdultsChange adultsChange(int numberAdults) {
-    return AdultsChange(
-      numberAdults,
-    );
-  }
-
   AdultsAdd adultsAdd(int increment) {
     return AdultsAdd(
       increment,
@@ -66,21 +60,9 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
-  ChildrenChange childrenChange(int numberChilds) {
-    return ChildrenChange(
-      numberChilds,
-    );
-  }
-
   ChildrenRemove childrenRemove(int decrement) {
     return ChildrenRemove(
       decrement,
-    );
-  }
-
-  PetsChange petsChange(int numberPets) {
-    return PetsChange(
-      numberPets,
     );
   }
 
@@ -112,13 +94,10 @@ mixin _$MyHomesFormEvent {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -130,13 +109,10 @@ mixin _$MyHomesFormEvent {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -148,13 +124,10 @@ mixin _$MyHomesFormEvent {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -167,13 +140,10 @@ mixin _$MyHomesFormEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -185,13 +155,10 @@ mixin _$MyHomesFormEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -203,13 +170,10 @@ mixin _$MyHomesFormEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -304,13 +268,10 @@ class _$Initialize implements Initialize {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -325,13 +286,10 @@ class _$Initialize implements Initialize {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -346,13 +304,10 @@ class _$Initialize implements Initialize {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -371,13 +326,10 @@ class _$Initialize implements Initialize {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -392,13 +344,10 @@ class _$Initialize implements Initialize {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -413,13 +362,10 @@ class _$Initialize implements Initialize {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -510,13 +456,10 @@ class _$NameChanged implements NameChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -531,13 +474,10 @@ class _$NameChanged implements NameChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -552,13 +492,10 @@ class _$NameChanged implements NameChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -577,13 +514,10 @@ class _$NameChanged implements NameChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -598,13 +532,10 @@ class _$NameChanged implements NameChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -619,13 +550,10 @@ class _$NameChanged implements NameChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -716,13 +644,10 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -737,13 +662,10 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -758,13 +680,10 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -783,13 +702,10 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -804,13 +720,10 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -825,13 +738,10 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -922,13 +832,10 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -943,13 +850,10 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -964,13 +868,10 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -989,13 +890,10 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -1010,13 +908,10 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1031,13 +926,10 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1056,213 +948,6 @@ abstract class PriceChanged implements MyHomesFormEvent {
   double get price;
   @JsonKey(ignore: true)
   $PriceChangedCopyWith<PriceChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AdultsChangeCopyWith<$Res> {
-  factory $AdultsChangeCopyWith(
-          AdultsChange value, $Res Function(AdultsChange) then) =
-      _$AdultsChangeCopyWithImpl<$Res>;
-  $Res call({int numberAdults});
-}
-
-/// @nodoc
-class _$AdultsChangeCopyWithImpl<$Res>
-    extends _$MyHomesFormEventCopyWithImpl<$Res>
-    implements $AdultsChangeCopyWith<$Res> {
-  _$AdultsChangeCopyWithImpl(
-      AdultsChange _value, $Res Function(AdultsChange) _then)
-      : super(_value, (v) => _then(v as AdultsChange));
-
-  @override
-  AdultsChange get _value => super._value as AdultsChange;
-
-  @override
-  $Res call({
-    Object? numberAdults = freezed,
-  }) {
-    return _then(AdultsChange(
-      numberAdults == freezed
-          ? _value.numberAdults
-          : numberAdults // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AdultsChange implements AdultsChange {
-  const _$AdultsChange(this.numberAdults);
-
-  @override
-  final int numberAdults;
-
-  @override
-  String toString() {
-    return 'MyHomesFormEvent.adultsChange(numberAdults: $numberAdults)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is AdultsChange &&
-            const DeepCollectionEquality()
-                .equals(other.numberAdults, numberAdults));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(numberAdults));
-
-  @JsonKey(ignore: true)
-  @override
-  $AdultsChangeCopyWith<AdultsChange> get copyWith =>
-      _$AdultsChangeCopyWithImpl<AdultsChange>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Option<Home> initialHomeOption) initialize,
-    required TResult Function(String name) nameChanged,
-    required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
-    required TResult Function(int increment) adultsAdd,
-    required TResult Function(int decrement) adultsRemove,
-    required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
-    required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
-    required TResult Function(int increment) petsAdd,
-    required TResult Function(int decrement) petsRemove,
-    required TResult Function() submit,
-  }) {
-    return adultsChange(numberAdults);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Home> initialHomeOption)? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? submit,
-  }) {
-    return adultsChange?.call(numberAdults);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Home> initialHomeOption)? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (adultsChange != null) {
-      return adultsChange(numberAdults);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
-    required TResult Function(AdultsAdd value) adultsAdd,
-    required TResult Function(AdultsRemove value) adultsRemove,
-    required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
-    required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
-    required TResult Function(PetsAdd value) petsAdd,
-    required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Submit value) submit,
-  }) {
-    return adultsChange(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Submit value)? submit,
-  }) {
-    return adultsChange?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Submit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (adultsChange != null) {
-      return adultsChange(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AdultsChange implements MyHomesFormEvent {
-  const factory AdultsChange(int numberAdults) = _$AdultsChange;
-
-  int get numberAdults;
-  @JsonKey(ignore: true)
-  $AdultsChangeCopyWith<AdultsChange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1332,13 +1017,10 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -1353,13 +1035,10 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -1374,13 +1053,10 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -1399,13 +1075,10 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -1420,13 +1093,10 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1441,13 +1111,10 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1538,13 +1205,10 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -1559,13 +1223,10 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -1580,13 +1241,10 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -1605,13 +1263,10 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -1626,13 +1281,10 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1647,13 +1299,10 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1744,13 +1393,10 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -1765,13 +1411,10 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -1786,13 +1429,10 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -1811,13 +1451,10 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -1832,13 +1469,10 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1853,13 +1487,10 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -1878,213 +1509,6 @@ abstract class ChildrenAdd implements MyHomesFormEvent {
   int get increment;
   @JsonKey(ignore: true)
   $ChildrenAddCopyWith<ChildrenAdd> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ChildrenChangeCopyWith<$Res> {
-  factory $ChildrenChangeCopyWith(
-          ChildrenChange value, $Res Function(ChildrenChange) then) =
-      _$ChildrenChangeCopyWithImpl<$Res>;
-  $Res call({int numberChilds});
-}
-
-/// @nodoc
-class _$ChildrenChangeCopyWithImpl<$Res>
-    extends _$MyHomesFormEventCopyWithImpl<$Res>
-    implements $ChildrenChangeCopyWith<$Res> {
-  _$ChildrenChangeCopyWithImpl(
-      ChildrenChange _value, $Res Function(ChildrenChange) _then)
-      : super(_value, (v) => _then(v as ChildrenChange));
-
-  @override
-  ChildrenChange get _value => super._value as ChildrenChange;
-
-  @override
-  $Res call({
-    Object? numberChilds = freezed,
-  }) {
-    return _then(ChildrenChange(
-      numberChilds == freezed
-          ? _value.numberChilds
-          : numberChilds // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChildrenChange implements ChildrenChange {
-  const _$ChildrenChange(this.numberChilds);
-
-  @override
-  final int numberChilds;
-
-  @override
-  String toString() {
-    return 'MyHomesFormEvent.childrenChange(numberChilds: $numberChilds)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ChildrenChange &&
-            const DeepCollectionEquality()
-                .equals(other.numberChilds, numberChilds));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(numberChilds));
-
-  @JsonKey(ignore: true)
-  @override
-  $ChildrenChangeCopyWith<ChildrenChange> get copyWith =>
-      _$ChildrenChangeCopyWithImpl<ChildrenChange>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Option<Home> initialHomeOption) initialize,
-    required TResult Function(String name) nameChanged,
-    required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
-    required TResult Function(int increment) adultsAdd,
-    required TResult Function(int decrement) adultsRemove,
-    required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
-    required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
-    required TResult Function(int increment) petsAdd,
-    required TResult Function(int decrement) petsRemove,
-    required TResult Function() submit,
-  }) {
-    return childrenChange(numberChilds);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Home> initialHomeOption)? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? submit,
-  }) {
-    return childrenChange?.call(numberChilds);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Home> initialHomeOption)? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (childrenChange != null) {
-      return childrenChange(numberChilds);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
-    required TResult Function(AdultsAdd value) adultsAdd,
-    required TResult Function(AdultsRemove value) adultsRemove,
-    required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
-    required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
-    required TResult Function(PetsAdd value) petsAdd,
-    required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Submit value) submit,
-  }) {
-    return childrenChange(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Submit value)? submit,
-  }) {
-    return childrenChange?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Submit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (childrenChange != null) {
-      return childrenChange(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChildrenChange implements MyHomesFormEvent {
-  const factory ChildrenChange(int numberChilds) = _$ChildrenChange;
-
-  int get numberChilds;
-  @JsonKey(ignore: true)
-  $ChildrenChangeCopyWith<ChildrenChange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2157,13 +1581,10 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -2178,13 +1599,10 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2199,13 +1617,10 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2224,13 +1639,10 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -2245,13 +1657,10 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -2266,13 +1675,10 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -2291,212 +1697,6 @@ abstract class ChildrenRemove implements MyHomesFormEvent {
   int get decrement;
   @JsonKey(ignore: true)
   $ChildrenRemoveCopyWith<ChildrenRemove> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PetsChangeCopyWith<$Res> {
-  factory $PetsChangeCopyWith(
-          PetsChange value, $Res Function(PetsChange) then) =
-      _$PetsChangeCopyWithImpl<$Res>;
-  $Res call({int numberPets});
-}
-
-/// @nodoc
-class _$PetsChangeCopyWithImpl<$Res>
-    extends _$MyHomesFormEventCopyWithImpl<$Res>
-    implements $PetsChangeCopyWith<$Res> {
-  _$PetsChangeCopyWithImpl(PetsChange _value, $Res Function(PetsChange) _then)
-      : super(_value, (v) => _then(v as PetsChange));
-
-  @override
-  PetsChange get _value => super._value as PetsChange;
-
-  @override
-  $Res call({
-    Object? numberPets = freezed,
-  }) {
-    return _then(PetsChange(
-      numberPets == freezed
-          ? _value.numberPets
-          : numberPets // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$PetsChange implements PetsChange {
-  const _$PetsChange(this.numberPets);
-
-  @override
-  final int numberPets;
-
-  @override
-  String toString() {
-    return 'MyHomesFormEvent.petsChange(numberPets: $numberPets)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is PetsChange &&
-            const DeepCollectionEquality()
-                .equals(other.numberPets, numberPets));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(numberPets));
-
-  @JsonKey(ignore: true)
-  @override
-  $PetsChangeCopyWith<PetsChange> get copyWith =>
-      _$PetsChangeCopyWithImpl<PetsChange>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Option<Home> initialHomeOption) initialize,
-    required TResult Function(String name) nameChanged,
-    required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
-    required TResult Function(int increment) adultsAdd,
-    required TResult Function(int decrement) adultsRemove,
-    required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
-    required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
-    required TResult Function(int increment) petsAdd,
-    required TResult Function(int decrement) petsRemove,
-    required TResult Function() submit,
-  }) {
-    return petsChange(numberPets);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Home> initialHomeOption)? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? submit,
-  }) {
-    return petsChange?.call(numberPets);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Home> initialHomeOption)? initialize,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
-    TResult Function(int increment)? adultsAdd,
-    TResult Function(int decrement)? adultsRemove,
-    TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
-    TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
-    TResult Function(int increment)? petsAdd,
-    TResult Function(int decrement)? petsRemove,
-    TResult Function()? submit,
-    required TResult orElse(),
-  }) {
-    if (petsChange != null) {
-      return petsChange(numberPets);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
-    required TResult Function(AdultsAdd value) adultsAdd,
-    required TResult Function(AdultsRemove value) adultsRemove,
-    required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
-    required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
-    required TResult Function(PetsAdd value) petsAdd,
-    required TResult Function(PetsRemove value) petsRemove,
-    required TResult Function(Submit value) submit,
-  }) {
-    return petsChange(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Submit value)? submit,
-  }) {
-    return petsChange?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
-    TResult Function(AdultsAdd value)? adultsAdd,
-    TResult Function(AdultsRemove value)? adultsRemove,
-    TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
-    TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
-    TResult Function(PetsAdd value)? petsAdd,
-    TResult Function(PetsRemove value)? petsRemove,
-    TResult Function(Submit value)? submit,
-    required TResult orElse(),
-  }) {
-    if (petsChange != null) {
-      return petsChange(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class PetsChange implements MyHomesFormEvent {
-  const factory PetsChange(int numberPets) = _$PetsChange;
-
-  int get numberPets;
-  @JsonKey(ignore: true)
-  $PetsChangeCopyWith<PetsChange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2566,13 +1766,10 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -2587,13 +1784,10 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2608,13 +1802,10 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2633,13 +1824,10 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -2654,13 +1842,10 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -2675,13 +1860,10 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -2770,13 +1952,10 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -2791,13 +1970,10 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2812,13 +1988,10 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2837,13 +2010,10 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -2858,13 +2028,10 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -2879,13 +2046,10 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -2949,13 +2113,10 @@ class _$Submit implements Submit {
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
-    required TResult Function(int numberAdults) adultsChange,
     required TResult Function(int increment) adultsAdd,
     required TResult Function(int decrement) adultsRemove,
     required TResult Function(int increment) childrenAdd,
-    required TResult Function(int numberChilds) childrenChange,
     required TResult Function(int decrement) childrenRemove,
-    required TResult Function(int numberPets) petsChange,
     required TResult Function(int increment) petsAdd,
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
@@ -2970,13 +2131,10 @@ class _$Submit implements Submit {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -2991,13 +2149,10 @@ class _$Submit implements Submit {
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
-    TResult Function(int numberAdults)? adultsChange,
     TResult Function(int increment)? adultsAdd,
     TResult Function(int decrement)? adultsRemove,
     TResult Function(int increment)? childrenAdd,
-    TResult Function(int numberChilds)? childrenChange,
     TResult Function(int decrement)? childrenRemove,
-    TResult Function(int numberPets)? petsChange,
     TResult Function(int increment)? petsAdd,
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
@@ -3016,13 +2171,10 @@ class _$Submit implements Submit {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
-    required TResult Function(AdultsChange value) adultsChange,
     required TResult Function(AdultsAdd value) adultsAdd,
     required TResult Function(AdultsRemove value) adultsRemove,
     required TResult Function(ChildrenAdd value) childrenAdd,
-    required TResult Function(ChildrenChange value) childrenChange,
     required TResult Function(ChildrenRemove value) childrenRemove,
-    required TResult Function(PetsChange value) petsChange,
     required TResult Function(PetsAdd value) petsAdd,
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
@@ -3037,13 +2189,10 @@ class _$Submit implements Submit {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
@@ -3058,13 +2207,10 @@ class _$Submit implements Submit {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
-    TResult Function(AdultsChange value)? adultsChange,
     TResult Function(AdultsAdd value)? adultsAdd,
     TResult Function(AdultsRemove value)? adultsRemove,
     TResult Function(ChildrenAdd value)? childrenAdd,
-    TResult Function(ChildrenChange value)? childrenChange,
     TResult Function(ChildrenRemove value)? childrenRemove,
-    TResult Function(PetsChange value)? petsChange,
     TResult Function(PetsAdd value)? petsAdd,
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
