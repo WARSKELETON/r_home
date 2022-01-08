@@ -108,6 +108,15 @@ class MyRouter extends _i21.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    GeneralDisputesPageRoute.name: (routeData) {
+      return _i21.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i11.GeneralDisputesPage(),
+          transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
+          durationInMilliseconds: 150,
+          opaque: true,
+          barrierDismissible: false);
+    },
     MyHomeDetailsPageRoute.name: (routeData) {
       final args = routeData.argsAs<MyHomeDetailsPageRouteArgs>();
       return _i21.CustomPage<dynamic>(
@@ -122,7 +131,7 @@ class MyRouter extends _i21.RootStackRouter {
       final args = routeData.argsAs<MyLocalActivityDetailsPageRouteArgs>();
       return _i21.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i12.MyLocalActivityDetailsPage(
+          child: _i13.MyLocalActivityDetailsPage(
               key: args.key, localActivityUuid: args.localActivityUuid),
           transitionsBuilder: _i21.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
@@ -334,7 +343,16 @@ class ProblemsWithPaymentsPageRoute extends _i21.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.MyHomeDetailsPage]
+/// [_i11.GeneralDisputesPage]
+class GeneralDisputesPageRoute extends _i21.PageRouteInfo<void> {
+  const GeneralDisputesPageRoute()
+      : super(GeneralDisputesPageRoute.name, path: '/general-disputes-page');
+
+  static const String name = 'GeneralDisputesPageRoute';
+}
+
+/// generated route for
+/// [_i12.MyHomeDetailsPage]
 class MyHomeDetailsPageRoute
     extends _i21.PageRouteInfo<MyHomeDetailsPageRouteArgs> {
   MyHomeDetailsPageRoute({_i22.Key? key, required String homeUuid})
@@ -359,7 +377,7 @@ class MyHomeDetailsPageRouteArgs {
 }
 
 /// generated route for
-/// [_i12.MyLocalActivityDetailsPage]
+/// [_i13.MyLocalActivityDetailsPage]
 class MyLocalActivityDetailsPageRoute
     extends _i21.PageRouteInfo<MyLocalActivityDetailsPageRouteArgs> {
   MyLocalActivityDetailsPageRoute(
