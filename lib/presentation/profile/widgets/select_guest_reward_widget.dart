@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/reward_user/reward_user_bloc.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class SelectGuestRewardWidget extends StatelessWidget {
   final List<String> guests;
@@ -14,6 +15,7 @@ class SelectGuestRewardWidget extends StatelessWidget {
     return ListTile(
       title: Text(guests[index]),
       leading: Radio<String>(
+        activeColor: Theme.of(context).colorScheme.primaryBlue,
         value: guests[index],
         groupValue: context.watch<RewardUserBloc>().state.guestName,
         onChanged: (String? value) {

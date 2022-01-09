@@ -16,6 +16,7 @@ import 'package:r_home/presentation/profile/profile_page.dart';
 import 'package:r_home/presentation/profile/send_tokens_page.dart';
 import 'package:r_home/presentation/profile/transaction_history_page.dart';
 import 'package:r_home/presentation/profile/wallet_page.dart';
+import 'package:r_home/presentation/rent_a_home/rent_a_home_page.dart';
 import 'package:r_home/presentation/sign_in/role_page.dart';
 import 'package:r_home/presentation/sign_in/sign_in_page.dart';
 import 'package:r_home/presentation/splash/splash_page.dart';
@@ -30,6 +31,7 @@ import 'package:r_home/presentation/splash/test_page.dart';
     CustomRoute(page: DisputesPage),
     CustomRoute(page: MyHomesPage),
     MaterialRoute(page: MyHomesForm, fullscreenDialog: true),
+    CustomRoute(page: RentAHomePage),
     CustomRoute(page: ProfilePage),
     CustomRoute(page: StartDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: ProblemsWithPaymentsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),

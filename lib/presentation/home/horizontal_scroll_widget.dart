@@ -8,9 +8,10 @@ import 'package:r_home/presentation/routes/router.gr.dart';
 class HorizontalScrollWidget extends StatelessWidget {
   final String title;
   final List<int> items;
+  final void Function()? onPressed;
 
   const HorizontalScrollWidget(
-      {Key? key, required this.title, required this.items})
+      {Key? key, required this.title, required this.items, this.onPressed})
       : super(key: key);
 
   Widget _itemBuilder(BuildContext context, int index) {
@@ -50,7 +51,7 @@ class HorizontalScrollWidget extends StatelessWidget {
                   ),
                   FlatRoundedButtonWidget(
                     text: "see all",
-                    onPressed: () => AutoRouter.of(context).push(const MyHomesPageRoute()),
+                    onPressed: onPressed,
                     backgroundColor: Color.fromRGBO(Theme.of(context).colorScheme.primaryBlue.red, Theme.of(context).colorScheme.primaryBlue.green, Theme.of(context).colorScheme.primaryBlue.blue, 0.13),
                     textColor: Theme.of(context).colorScheme.primaryBlue,
                     fontWeight: FontWeight.w400,
