@@ -12,13 +12,13 @@ class DisputeTypeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Color.fromRGBO(Theme.of(context).colorScheme.primaryBlue.red,Theme.of(context).colorScheme.primaryBlue.green,Theme.of(context).colorScheme.primaryBlue.blue, 0.1),
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(15.0),
-      child: Material(
-        elevation: 10,
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+    return Material(
+      elevation: 10,
+      borderRadius: const BorderRadius.all(Radius.circular(20)),
+      child: InkWell(
+        splashColor: Color.fromRGBO(Theme.of(context).colorScheme.primaryBlue.red,Theme.of(context).colorScheme.primaryBlue.green,Theme.of(context).colorScheme.primaryBlue.blue, 0.1),
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(15.0),
         child: Container(
           height: 100,
           width: MediaQuery.of(context).size.width - 70,
@@ -47,7 +47,9 @@ class DisputeTypeWidget extends StatelessWidget {
                       title,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primaryBlue,
-                        fontSize: 20),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
                 )

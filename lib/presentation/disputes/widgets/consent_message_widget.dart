@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:r_home/domain/homes/home.dart';
-import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/core/rounded_button_widget.dart';
 
 class ConsentMessageWidget extends StatelessWidget {
   const ConsentMessageWidget({
