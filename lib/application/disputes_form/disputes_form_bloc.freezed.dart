@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'start_disputes_form_bloc.dart';
+part of 'disputes_form_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,11 +15,19 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$StartDisputesFormEventTearOff {
-  const _$StartDisputesFormEventTearOff();
+class _$DisputesFormEventTearOff {
+  const _$DisputesFormEventTearOff();
 
-  Initialize initialize() {
-    return const Initialize();
+  Initialize initialize(DisputeCategory disputeCategory) {
+    return Initialize(
+      disputeCategory,
+    );
+  }
+
+  CategoryChanged categoryChanged(DisputeCategory category) {
+    return CategoryChanged(
+      category,
+    );
   }
 
   HomeChanged homeChanged(String homeUuid) {
@@ -40,7 +48,7 @@ class _$StartDisputesFormEventTearOff {
     );
   }
 
-  InitialStakeChanged initialStakeChanged(int tokens) {
+  InitialStakeChanged initialStakeChanged(double tokens) {
     return InitialStakeChanged(
       tokens,
     );
@@ -52,37 +60,40 @@ class _$StartDisputesFormEventTearOff {
 }
 
 /// @nodoc
-const $StartDisputesFormEvent = _$StartDisputesFormEventTearOff();
+const $DisputesFormEvent = _$DisputesFormEventTearOff();
 
 /// @nodoc
-mixin _$StartDisputesFormEvent {
+mixin _$DisputesFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) =>
@@ -90,6 +101,7 @@ mixin _$StartDisputesFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -100,6 +112,7 @@ mixin _$StartDisputesFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -110,6 +123,7 @@ mixin _$StartDisputesFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -121,20 +135,20 @@ mixin _$StartDisputesFormEvent {
 }
 
 /// @nodoc
-abstract class $StartDisputesFormEventCopyWith<$Res> {
-  factory $StartDisputesFormEventCopyWith(StartDisputesFormEvent value,
-          $Res Function(StartDisputesFormEvent) then) =
-      _$StartDisputesFormEventCopyWithImpl<$Res>;
+abstract class $DisputesFormEventCopyWith<$Res> {
+  factory $DisputesFormEventCopyWith(
+          DisputesFormEvent value, $Res Function(DisputesFormEvent) then) =
+      _$DisputesFormEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$StartDisputesFormEventCopyWithImpl<$Res>
-    implements $StartDisputesFormEventCopyWith<$Res> {
-  _$StartDisputesFormEventCopyWithImpl(this._value, this._then);
+class _$DisputesFormEventCopyWithImpl<$Res>
+    implements $DisputesFormEventCopyWith<$Res> {
+  _$DisputesFormEventCopyWithImpl(this._value, this._then);
 
-  final StartDisputesFormEvent _value;
+  final DisputesFormEvent _value;
   // ignore: unused_field
-  final $Res Function(StartDisputesFormEvent) _then;
+  final $Res Function(DisputesFormEvent) _then;
 }
 
 /// @nodoc
@@ -142,77 +156,105 @@ abstract class $InitializeCopyWith<$Res> {
   factory $InitializeCopyWith(
           Initialize value, $Res Function(Initialize) then) =
       _$InitializeCopyWithImpl<$Res>;
+  $Res call({DisputeCategory disputeCategory});
 }
 
 /// @nodoc
 class _$InitializeCopyWithImpl<$Res>
-    extends _$StartDisputesFormEventCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
     implements $InitializeCopyWith<$Res> {
   _$InitializeCopyWithImpl(Initialize _value, $Res Function(Initialize) _then)
       : super(_value, (v) => _then(v as Initialize));
 
   @override
   Initialize get _value => super._value as Initialize;
+
+  @override
+  $Res call({
+    Object? disputeCategory = freezed,
+  }) {
+    return _then(Initialize(
+      disputeCategory == freezed
+          ? _value.disputeCategory
+          : disputeCategory // ignore: cast_nullable_to_non_nullable
+              as DisputeCategory,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Initialize implements Initialize {
-  const _$Initialize();
+  const _$Initialize(this.disputeCategory);
+
+  @override
+  final DisputeCategory disputeCategory;
 
   @override
   String toString() {
-    return 'StartDisputesFormEvent.initialize()';
+    return 'DisputesFormEvent.initialize(disputeCategory: $disputeCategory)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Initialize);
+        (other.runtimeType == runtimeType &&
+            other is Initialize &&
+            const DeepCollectionEquality()
+                .equals(other.disputeCategory, disputeCategory));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(disputeCategory));
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializeCopyWith<Initialize> get copyWith =>
+      _$InitializeCopyWithImpl<Initialize>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
-    return initialize();
+    return initialize(disputeCategory);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
-    return initialize?.call();
+    return initialize?.call(disputeCategory);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
     if (initialize != null) {
-      return initialize();
+      return initialize(disputeCategory);
     }
     return orElse();
   }
@@ -221,6 +263,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -234,6 +277,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -247,6 +291,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -261,8 +306,177 @@ class _$Initialize implements Initialize {
   }
 }
 
-abstract class Initialize implements StartDisputesFormEvent {
-  const factory Initialize() = _$Initialize;
+abstract class Initialize implements DisputesFormEvent {
+  const factory Initialize(DisputeCategory disputeCategory) = _$Initialize;
+
+  DisputeCategory get disputeCategory;
+  @JsonKey(ignore: true)
+  $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CategoryChangedCopyWith<$Res> {
+  factory $CategoryChangedCopyWith(
+          CategoryChanged value, $Res Function(CategoryChanged) then) =
+      _$CategoryChangedCopyWithImpl<$Res>;
+  $Res call({DisputeCategory category});
+}
+
+/// @nodoc
+class _$CategoryChangedCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
+    implements $CategoryChangedCopyWith<$Res> {
+  _$CategoryChangedCopyWithImpl(
+      CategoryChanged _value, $Res Function(CategoryChanged) _then)
+      : super(_value, (v) => _then(v as CategoryChanged));
+
+  @override
+  CategoryChanged get _value => super._value as CategoryChanged;
+
+  @override
+  $Res call({
+    Object? category = freezed,
+  }) {
+    return _then(CategoryChanged(
+      category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as DisputeCategory,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CategoryChanged implements CategoryChanged {
+  const _$CategoryChanged(this.category);
+
+  @override
+  final DisputeCategory category;
+
+  @override
+  String toString() {
+    return 'DisputesFormEvent.categoryChanged(category: $category)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CategoryChanged &&
+            const DeepCollectionEquality().equals(other.category, category));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(category));
+
+  @JsonKey(ignore: true)
+  @override
+  $CategoryChangedCopyWith<CategoryChanged> get copyWith =>
+      _$CategoryChangedCopyWithImpl<CategoryChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
+    required TResult Function(String homeUuid) homeChanged,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function(double tokens) initialStakeChanged,
+    required TResult Function() submit,
+  }) {
+    return categoryChanged(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
+    TResult Function(String homeUuid)? homeChanged,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(double tokens)? initialStakeChanged,
+    TResult Function()? submit,
+  }) {
+    return categoryChanged?.call(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
+    TResult Function(String homeUuid)? homeChanged,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(double tokens)? initialStakeChanged,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (categoryChanged != null) {
+      return categoryChanged(category);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(HomeChanged value) homeChanged,
+    required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(DescriptionChanged value) descriptionChanged,
+    required TResult Function(InitialStakeChanged value) initialStakeChanged,
+    required TResult Function(Submit value) submit,
+  }) {
+    return categoryChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(InitialStakeChanged value)? initialStakeChanged,
+    TResult Function(Submit value)? submit,
+  }) {
+    return categoryChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(InitialStakeChanged value)? initialStakeChanged,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (categoryChanged != null) {
+      return categoryChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategoryChanged implements DisputesFormEvent {
+  const factory CategoryChanged(DisputeCategory category) = _$CategoryChanged;
+
+  DisputeCategory get category;
+  @JsonKey(ignore: true)
+  $CategoryChangedCopyWith<CategoryChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -275,7 +489,7 @@ abstract class $HomeChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$HomeChangedCopyWithImpl<$Res>
-    extends _$StartDisputesFormEventCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
     implements $HomeChangedCopyWith<$Res> {
   _$HomeChangedCopyWithImpl(
       HomeChanged _value, $Res Function(HomeChanged) _then)
@@ -307,7 +521,7 @@ class _$HomeChanged implements HomeChanged {
 
   @override
   String toString() {
-    return 'StartDisputesFormEvent.homeChanged(homeUuid: $homeUuid)';
+    return 'DisputesFormEvent.homeChanged(homeUuid: $homeUuid)';
   }
 
   @override
@@ -330,11 +544,12 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
     return homeChanged(homeUuid);
@@ -343,11 +558,12 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
     return homeChanged?.call(homeUuid);
@@ -356,11 +572,12 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -374,6 +591,7 @@ class _$HomeChanged implements HomeChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -387,6 +605,7 @@ class _$HomeChanged implements HomeChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -400,6 +619,7 @@ class _$HomeChanged implements HomeChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -414,7 +634,7 @@ class _$HomeChanged implements HomeChanged {
   }
 }
 
-abstract class HomeChanged implements StartDisputesFormEvent {
+abstract class HomeChanged implements DisputesFormEvent {
   const factory HomeChanged(String homeUuid) = _$HomeChanged;
 
   String get homeUuid;
@@ -433,7 +653,7 @@ abstract class $TitleChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$TitleChangedCopyWithImpl<$Res>
-    extends _$StartDisputesFormEventCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
     implements $TitleChangedCopyWith<$Res> {
   _$TitleChangedCopyWithImpl(
       TitleChanged _value, $Res Function(TitleChanged) _then)
@@ -465,7 +685,7 @@ class _$TitleChanged implements TitleChanged {
 
   @override
   String toString() {
-    return 'StartDisputesFormEvent.titleChanged(title: $title)';
+    return 'DisputesFormEvent.titleChanged(title: $title)';
   }
 
   @override
@@ -488,11 +708,12 @@ class _$TitleChanged implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
     return titleChanged(title);
@@ -501,11 +722,12 @@ class _$TitleChanged implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
     return titleChanged?.call(title);
@@ -514,11 +736,12 @@ class _$TitleChanged implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -532,6 +755,7 @@ class _$TitleChanged implements TitleChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -545,6 +769,7 @@ class _$TitleChanged implements TitleChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -558,6 +783,7 @@ class _$TitleChanged implements TitleChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -572,7 +798,7 @@ class _$TitleChanged implements TitleChanged {
   }
 }
 
-abstract class TitleChanged implements StartDisputesFormEvent {
+abstract class TitleChanged implements DisputesFormEvent {
   const factory TitleChanged(String title) = _$TitleChanged;
 
   String get title;
@@ -591,7 +817,7 @@ abstract class $DescriptionChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$DescriptionChangedCopyWithImpl<$Res>
-    extends _$StartDisputesFormEventCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
     implements $DescriptionChangedCopyWith<$Res> {
   _$DescriptionChangedCopyWithImpl(
       DescriptionChanged _value, $Res Function(DescriptionChanged) _then)
@@ -623,7 +849,7 @@ class _$DescriptionChanged implements DescriptionChanged {
 
   @override
   String toString() {
-    return 'StartDisputesFormEvent.descriptionChanged(description: $description)';
+    return 'DisputesFormEvent.descriptionChanged(description: $description)';
   }
 
   @override
@@ -647,11 +873,12 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
     return descriptionChanged(description);
@@ -660,11 +887,12 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
     return descriptionChanged?.call(description);
@@ -673,11 +901,12 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -691,6 +920,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -704,6 +934,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -717,6 +948,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -731,7 +963,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   }
 }
 
-abstract class DescriptionChanged implements StartDisputesFormEvent {
+abstract class DescriptionChanged implements DisputesFormEvent {
   const factory DescriptionChanged(String description) = _$DescriptionChanged;
 
   String get description;
@@ -745,12 +977,12 @@ abstract class $InitialStakeChangedCopyWith<$Res> {
   factory $InitialStakeChangedCopyWith(
           InitialStakeChanged value, $Res Function(InitialStakeChanged) then) =
       _$InitialStakeChangedCopyWithImpl<$Res>;
-  $Res call({int tokens});
+  $Res call({double tokens});
 }
 
 /// @nodoc
 class _$InitialStakeChangedCopyWithImpl<$Res>
-    extends _$StartDisputesFormEventCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
     implements $InitialStakeChangedCopyWith<$Res> {
   _$InitialStakeChangedCopyWithImpl(
       InitialStakeChanged _value, $Res Function(InitialStakeChanged) _then)
@@ -767,7 +999,7 @@ class _$InitialStakeChangedCopyWithImpl<$Res>
       tokens == freezed
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -778,11 +1010,11 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   const _$InitialStakeChanged(this.tokens);
 
   @override
-  final int tokens;
+  final double tokens;
 
   @override
   String toString() {
-    return 'StartDisputesFormEvent.initialStakeChanged(tokens: $tokens)';
+    return 'DisputesFormEvent.initialStakeChanged(tokens: $tokens)';
   }
 
   @override
@@ -805,11 +1037,12 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
     return initialStakeChanged(tokens);
@@ -818,11 +1051,12 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
     return initialStakeChanged?.call(tokens);
@@ -831,11 +1065,12 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -849,6 +1084,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -862,6 +1098,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -875,6 +1112,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -889,10 +1127,10 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   }
 }
 
-abstract class InitialStakeChanged implements StartDisputesFormEvent {
-  const factory InitialStakeChanged(int tokens) = _$InitialStakeChanged;
+abstract class InitialStakeChanged implements DisputesFormEvent {
+  const factory InitialStakeChanged(double tokens) = _$InitialStakeChanged;
 
-  int get tokens;
+  double get tokens;
   @JsonKey(ignore: true)
   $InitialStakeChangedCopyWith<InitialStakeChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -905,8 +1143,7 @@ abstract class $SubmitCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SubmitCopyWithImpl<$Res>
-    extends _$StartDisputesFormEventCopyWithImpl<$Res>
+class _$SubmitCopyWithImpl<$Res> extends _$DisputesFormEventCopyWithImpl<$Res>
     implements $SubmitCopyWith<$Res> {
   _$SubmitCopyWithImpl(Submit _value, $Res Function(Submit) _then)
       : super(_value, (v) => _then(v as Submit));
@@ -922,7 +1159,7 @@ class _$Submit implements Submit {
 
   @override
   String toString() {
-    return 'StartDisputesFormEvent.submit()';
+    return 'DisputesFormEvent.submit()';
   }
 
   @override
@@ -937,11 +1174,12 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(DisputeCategory category) categoryChanged,
     required TResult Function(String homeUuid) homeChanged,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
-    required TResult Function(int tokens) initialStakeChanged,
+    required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
     return submit();
@@ -950,11 +1188,12 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
     return submit?.call();
@@ -963,11 +1202,12 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(DisputeCategory category)? categoryChanged,
     TResult Function(String homeUuid)? homeChanged,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
-    TResult Function(int tokens)? initialStakeChanged,
+    TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -981,6 +1221,7 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(TitleChanged value) titleChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
@@ -994,6 +1235,7 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -1007,6 +1249,7 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(TitleChanged value)? titleChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
@@ -1021,21 +1264,21 @@ class _$Submit implements Submit {
   }
 }
 
-abstract class Submit implements StartDisputesFormEvent {
+abstract class Submit implements DisputesFormEvent {
   const factory Submit() = _$Submit;
 }
 
 /// @nodoc
-class _$StartDisputesFormStateTearOff {
-  const _$StartDisputesFormStateTearOff();
+class _$DisputesFormStateTearOff {
+  const _$DisputesFormStateTearOff();
 
-  _StartDisputesFormState call(
+  tDisputesFormState call(
       {required Dispute dispute,
       required bool showErrorMessages,
       required bool isEditing,
       required bool isSaving,
       required Option<Either<Dispute, Unit>> saveFailureOrSuccessOption}) {
-    return _StartDisputesFormState(
+    return tDisputesFormState(
       dispute: dispute,
       showErrorMessages: showErrorMessages,
       isEditing: isEditing,
@@ -1046,10 +1289,10 @@ class _$StartDisputesFormStateTearOff {
 }
 
 /// @nodoc
-const $StartDisputesFormState = _$StartDisputesFormStateTearOff();
+const $DisputesFormState = _$DisputesFormStateTearOff();
 
 /// @nodoc
-mixin _$StartDisputesFormState {
+mixin _$DisputesFormState {
   Dispute get dispute => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
@@ -1058,15 +1301,15 @@ mixin _$StartDisputesFormState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $StartDisputesFormStateCopyWith<StartDisputesFormState> get copyWith =>
+  $DisputesFormStateCopyWith<DisputesFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StartDisputesFormStateCopyWith<$Res> {
-  factory $StartDisputesFormStateCopyWith(StartDisputesFormState value,
-          $Res Function(StartDisputesFormState) then) =
-      _$StartDisputesFormStateCopyWithImpl<$Res>;
+abstract class $DisputesFormStateCopyWith<$Res> {
+  factory $DisputesFormStateCopyWith(
+          DisputesFormState value, $Res Function(DisputesFormState) then) =
+      _$DisputesFormStateCopyWithImpl<$Res>;
   $Res call(
       {Dispute dispute,
       bool showErrorMessages,
@@ -1078,13 +1321,13 @@ abstract class $StartDisputesFormStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StartDisputesFormStateCopyWithImpl<$Res>
-    implements $StartDisputesFormStateCopyWith<$Res> {
-  _$StartDisputesFormStateCopyWithImpl(this._value, this._then);
+class _$DisputesFormStateCopyWithImpl<$Res>
+    implements $DisputesFormStateCopyWith<$Res> {
+  _$DisputesFormStateCopyWithImpl(this._value, this._then);
 
-  final StartDisputesFormState _value;
+  final DisputesFormState _value;
   // ignore: unused_field
-  final $Res Function(StartDisputesFormState) _then;
+  final $Res Function(DisputesFormState) _then;
 
   @override
   $Res call({
@@ -1127,11 +1370,11 @@ class _$StartDisputesFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StartDisputesFormStateCopyWith<$Res>
-    implements $StartDisputesFormStateCopyWith<$Res> {
-  factory _$StartDisputesFormStateCopyWith(_StartDisputesFormState value,
-          $Res Function(_StartDisputesFormState) then) =
-      __$StartDisputesFormStateCopyWithImpl<$Res>;
+abstract class $tDisputesFormStateCopyWith<$Res>
+    implements $DisputesFormStateCopyWith<$Res> {
+  factory $tDisputesFormStateCopyWith(
+          tDisputesFormState value, $Res Function(tDisputesFormState) then) =
+      _$tDisputesFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {Dispute dispute,
@@ -1145,15 +1388,15 @@ abstract class _$StartDisputesFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StartDisputesFormStateCopyWithImpl<$Res>
-    extends _$StartDisputesFormStateCopyWithImpl<$Res>
-    implements _$StartDisputesFormStateCopyWith<$Res> {
-  __$StartDisputesFormStateCopyWithImpl(_StartDisputesFormState _value,
-      $Res Function(_StartDisputesFormState) _then)
-      : super(_value, (v) => _then(v as _StartDisputesFormState));
+class _$tDisputesFormStateCopyWithImpl<$Res>
+    extends _$DisputesFormStateCopyWithImpl<$Res>
+    implements $tDisputesFormStateCopyWith<$Res> {
+  _$tDisputesFormStateCopyWithImpl(
+      tDisputesFormState _value, $Res Function(tDisputesFormState) _then)
+      : super(_value, (v) => _then(v as tDisputesFormState));
 
   @override
-  _StartDisputesFormState get _value => super._value as _StartDisputesFormState;
+  tDisputesFormState get _value => super._value as tDisputesFormState;
 
   @override
   $Res call({
@@ -1163,7 +1406,7 @@ class __$StartDisputesFormStateCopyWithImpl<$Res>
     Object? isSaving = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
-    return _then(_StartDisputesFormState(
+    return _then(tDisputesFormState(
       dispute: dispute == freezed
           ? _value.dispute
           : dispute // ignore: cast_nullable_to_non_nullable
@@ -1190,8 +1433,8 @@ class __$StartDisputesFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StartDisputesFormState implements _StartDisputesFormState {
-  const _$_StartDisputesFormState(
+class _$tDisputesFormState implements tDisputesFormState {
+  const _$tDisputesFormState(
       {required this.dispute,
       required this.showErrorMessages,
       required this.isEditing,
@@ -1211,14 +1454,14 @@ class _$_StartDisputesFormState implements _StartDisputesFormState {
 
   @override
   String toString() {
-    return 'StartDisputesFormState(dispute: $dispute, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'DisputesFormState(dispute: $dispute, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StartDisputesFormState &&
+            other is tDisputesFormState &&
             const DeepCollectionEquality().equals(other.dispute, dispute) &&
             const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
@@ -1239,19 +1482,18 @@ class _$_StartDisputesFormState implements _StartDisputesFormState {
 
   @JsonKey(ignore: true)
   @override
-  _$StartDisputesFormStateCopyWith<_StartDisputesFormState> get copyWith =>
-      __$StartDisputesFormStateCopyWithImpl<_StartDisputesFormState>(
-          this, _$identity);
+  $tDisputesFormStateCopyWith<tDisputesFormState> get copyWith =>
+      _$tDisputesFormStateCopyWithImpl<tDisputesFormState>(this, _$identity);
 }
 
-abstract class _StartDisputesFormState implements StartDisputesFormState {
-  const factory _StartDisputesFormState(
+abstract class tDisputesFormState implements DisputesFormState {
+  const factory tDisputesFormState(
           {required Dispute dispute,
           required bool showErrorMessages,
           required bool isEditing,
           required bool isSaving,
           required Option<Either<Dispute, Unit>> saveFailureOrSuccessOption}) =
-      _$_StartDisputesFormState;
+      _$tDisputesFormState;
 
   @override
   Dispute get dispute;
@@ -1265,6 +1507,6 @@ abstract class _StartDisputesFormState implements StartDisputesFormState {
   Option<Either<Dispute, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$StartDisputesFormStateCopyWith<_StartDisputesFormState> get copyWith =>
+  $tDisputesFormStateCopyWith<tDisputesFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }

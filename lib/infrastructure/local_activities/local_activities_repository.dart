@@ -22,8 +22,6 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
 
   @override
   Stream<LocalActivity> watch(String localActivityUuid) async* {
-    final userId = _authFacade.getSignedInUserId()!;
-
     final docRef = _firestore
         .collection(ACTIVITIES_COLLECTION)
         .doc(localActivityUuid);

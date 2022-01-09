@@ -4,9 +4,9 @@ import 'package:uuid/uuid.dart';
 part 'dispute.freezed.dart';
 
 enum DisputeCategory {
-  payments, 
-  damages, 
-  ads
+  problems_with_payments, 
+  damages_in_properties, 
+  false_advertisement
 }
 
 @freezed
@@ -23,19 +23,19 @@ abstract class Dispute implements _$Dispute {
     required int votesAgainst,
     required int votesInsignificant,
     required int votesInFavour,
-    required int initialStake,
-    required int stake,
+    required double initialStake,
+    required double stake,
     required String category,
     // Add image
   }) = _Dispute;
 
-  factory Dispute.empty() => const Dispute(
+  factory Dispute.empty() => Dispute(
     issuerUuid: '',
-    uuid: '',
+    uuid: const Uuid().v1().toString(),
     title: '',
     descritption: '',
     homeUuid: '',
-    isOpened: false,
+    isOpened: true,
     votesAgainst: 0,
     votesInsignificant: 0,
     votesInFavour: 0,

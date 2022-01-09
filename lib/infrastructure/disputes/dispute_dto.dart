@@ -19,8 +19,8 @@ abstract class DisputeDto implements _$DisputeDto {
     required int votesAgainst,
     required int votesInsignificant,
     required int votesInFavour,
-    required int initialStake,
-    required int stake,
+    required double initialStake,
+    required double stake,
     required String category,
   }) = _DisputeDto;
 

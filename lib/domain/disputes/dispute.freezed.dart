@@ -28,8 +28,8 @@ class _$DisputeTearOff {
       required int votesAgainst,
       required int votesInsignificant,
       required int votesInFavour,
-      required int initialStake,
-      required int stake,
+      required double initialStake,
+      required double stake,
       required String category}) {
     return _Dispute(
       uuid: uuid,
@@ -62,8 +62,8 @@ mixin _$Dispute {
   int get votesAgainst => throw _privateConstructorUsedError;
   int get votesInsignificant => throw _privateConstructorUsedError;
   int get votesInFavour => throw _privateConstructorUsedError;
-  int get initialStake => throw _privateConstructorUsedError;
-  int get stake => throw _privateConstructorUsedError;
+  double get initialStake => throw _privateConstructorUsedError;
+  double get stake => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -84,8 +84,8 @@ abstract class $DisputeCopyWith<$Res> {
       int votesAgainst,
       int votesInsignificant,
       int votesInFavour,
-      int initialStake,
-      int stake,
+      double initialStake,
+      double stake,
       String category});
 }
 
@@ -152,11 +152,11 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
       initialStake: initialStake == freezed
           ? _value.initialStake
           : initialStake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       stake: stake == freezed
           ? _value.stake
           : stake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -180,8 +180,8 @@ abstract class _$DisputeCopyWith<$Res> implements $DisputeCopyWith<$Res> {
       int votesAgainst,
       int votesInsignificant,
       int votesInFavour,
-      int initialStake,
-      int stake,
+      double initialStake,
+      double stake,
       String category});
 }
 
@@ -249,11 +249,11 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
       initialStake: initialStake == freezed
           ? _value.initialStake
           : initialStake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       stake: stake == freezed
           ? _value.stake
           : stake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -299,9 +299,9 @@ class _$_Dispute extends _Dispute {
   @override
   final int votesInFavour;
   @override
-  final int initialStake;
+  final double initialStake;
   @override
-  final int stake;
+  final double stake;
   @override
   final String category;
 
@@ -368,8 +368,8 @@ abstract class _Dispute extends Dispute {
       required int votesAgainst,
       required int votesInsignificant,
       required int votesInFavour,
-      required int initialStake,
-      required int stake,
+      required double initialStake,
+      required double stake,
       required String category}) = _$_Dispute;
   const _Dispute._() : super._();
 
@@ -392,9 +392,9 @@ abstract class _Dispute extends Dispute {
   @override
   int get votesInFavour;
   @override
-  int get initialStake;
+  double get initialStake;
   @override
-  int get stake;
+  double get stake;
   @override
   String get category;
   @override

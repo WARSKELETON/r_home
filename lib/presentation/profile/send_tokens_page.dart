@@ -8,8 +8,8 @@ import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/operation_successful_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
+import 'package:r_home/presentation/core/slider_tokens_widget.dart';
 import 'package:r_home/presentation/core/stepper_widget.dart';
-import 'package:r_home/presentation/profile/widgets/select_amout_reward_widget.dart';
 import 'package:r_home/presentation/profile/widgets/select_guest_reward_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
@@ -57,7 +57,7 @@ class SendTokensPage extends StatelessWidget {
                   if (currentIndex == 0) ...[
                     const SelectGuestRewardWidget(guests: ["Maria", "Jose", "Alberto", "Maria2", "Jose2", "Alberto2", "Maria3", "Jose3", "Alberto3"]),
                   ] else if (currentIndex == 1) ...[
-                    const SelectAmountRewardWidget(),
+                    SliderTokensWidget(value: context.watch<RewardUserBloc>().state.amount, onChanged: (value) => context.read<RewardUserBloc>().add(RewardUserEvent.changeRewardAmount(value)),),
                   ] else if (currentIndex == 2) ...[
                     OperationSuccessfulWidget(
                       buttonText: "Back to My Wallet",
