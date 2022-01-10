@@ -24,15 +24,31 @@ class _$RentAHomeEventTearOff {
     );
   }
 
+  WatchAvailableHomes watchAvailableHomes() {
+    return const WatchAvailableHomes();
+  }
+
+  AvailableHomesReceived availableHomesReceived(List<Home> homes) {
+    return AvailableHomesReceived(
+      homes,
+    );
+  }
+
   LocationChanged locationChanged(String location) {
     return LocationChanged(
       location,
     );
   }
 
-  PriceChanged priceChanged(double price) {
-    return PriceChanged(
-      price,
+  PaymentMethodChanged paymentMethodChanged(String paymentMethod) {
+    return PaymentMethodChanged(
+      paymentMethod,
+    );
+  }
+
+  HomeChanged homeChanged(Home home) {
+    return HomeChanged(
+      home,
     );
   }
 
@@ -97,8 +113,11 @@ mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -113,8 +132,11 @@ mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -129,8 +151,11 @@ mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -146,8 +171,12 @@ mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -162,8 +191,11 @@ mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -178,8 +210,11 @@ mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -275,8 +310,11 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -294,8 +332,11 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -313,8 +354,11 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -336,8 +380,12 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -355,8 +403,11 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -374,8 +425,11 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -400,6 +454,405 @@ abstract class Initialize implements RentAHomeEvent {
   Option<Rental> get optionOf;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WatchAvailableHomesCopyWith<$Res> {
+  factory $WatchAvailableHomesCopyWith(
+          WatchAvailableHomes value, $Res Function(WatchAvailableHomes) then) =
+      _$WatchAvailableHomesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$WatchAvailableHomesCopyWithImpl<$Res>
+    extends _$RentAHomeEventCopyWithImpl<$Res>
+    implements $WatchAvailableHomesCopyWith<$Res> {
+  _$WatchAvailableHomesCopyWithImpl(
+      WatchAvailableHomes _value, $Res Function(WatchAvailableHomes) _then)
+      : super(_value, (v) => _then(v as WatchAvailableHomes));
+
+  @override
+  WatchAvailableHomes get _value => super._value as WatchAvailableHomes;
+}
+
+/// @nodoc
+
+class _$WatchAvailableHomes implements WatchAvailableHomes {
+  const _$WatchAvailableHomes();
+
+  @override
+  String toString() {
+    return 'RentAHomeEvent.watchAvailableHomes()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is WatchAvailableHomes);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
+    required TResult Function(DateTime? checkIn) checkInChanged,
+    required TResult Function(DateTime? checkOut) checkOutChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return watchAvailableHomes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return watchAvailableHomes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (watchAvailableHomes != null) {
+      return watchAvailableHomes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
+    required TResult Function(CheckInChanged value) checkInChanged,
+    required TResult Function(CheckOutChanged value) checkOutChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return watchAvailableHomes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return watchAvailableHomes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (watchAvailableHomes != null) {
+      return watchAvailableHomes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WatchAvailableHomes implements RentAHomeEvent {
+  const factory WatchAvailableHomes() = _$WatchAvailableHomes;
+}
+
+/// @nodoc
+abstract class $AvailableHomesReceivedCopyWith<$Res> {
+  factory $AvailableHomesReceivedCopyWith(AvailableHomesReceived value,
+          $Res Function(AvailableHomesReceived) then) =
+      _$AvailableHomesReceivedCopyWithImpl<$Res>;
+  $Res call({List<Home> homes});
+}
+
+/// @nodoc
+class _$AvailableHomesReceivedCopyWithImpl<$Res>
+    extends _$RentAHomeEventCopyWithImpl<$Res>
+    implements $AvailableHomesReceivedCopyWith<$Res> {
+  _$AvailableHomesReceivedCopyWithImpl(AvailableHomesReceived _value,
+      $Res Function(AvailableHomesReceived) _then)
+      : super(_value, (v) => _then(v as AvailableHomesReceived));
+
+  @override
+  AvailableHomesReceived get _value => super._value as AvailableHomesReceived;
+
+  @override
+  $Res call({
+    Object? homes = freezed,
+  }) {
+    return _then(AvailableHomesReceived(
+      homes == freezed
+          ? _value.homes
+          : homes // ignore: cast_nullable_to_non_nullable
+              as List<Home>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AvailableHomesReceived implements AvailableHomesReceived {
+  const _$AvailableHomesReceived(this.homes);
+
+  @override
+  final List<Home> homes;
+
+  @override
+  String toString() {
+    return 'RentAHomeEvent.availableHomesReceived(homes: $homes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AvailableHomesReceived &&
+            const DeepCollectionEquality().equals(other.homes, homes));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(homes));
+
+  @JsonKey(ignore: true)
+  @override
+  $AvailableHomesReceivedCopyWith<AvailableHomesReceived> get copyWith =>
+      _$AvailableHomesReceivedCopyWithImpl<AvailableHomesReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
+    required TResult Function(DateTime? checkIn) checkInChanged,
+    required TResult Function(DateTime? checkOut) checkOutChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return availableHomesReceived(homes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return availableHomesReceived?.call(homes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (availableHomesReceived != null) {
+      return availableHomesReceived(homes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
+    required TResult Function(CheckInChanged value) checkInChanged,
+    required TResult Function(CheckOutChanged value) checkOutChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return availableHomesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return availableHomesReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (availableHomesReceived != null) {
+      return availableHomesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AvailableHomesReceived implements RentAHomeEvent {
+  const factory AvailableHomesReceived(List<Home> homes) =
+      _$AvailableHomesReceived;
+
+  List<Home> get homes;
+  @JsonKey(ignore: true)
+  $AvailableHomesReceivedCopyWith<AvailableHomesReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -469,8 +922,11 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -488,8 +944,11 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -507,8 +966,11 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -530,8 +992,12 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -549,8 +1015,11 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -568,8 +1037,11 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -598,73 +1070,78 @@ abstract class LocationChanged implements RentAHomeEvent {
 }
 
 /// @nodoc
-abstract class $PriceChangedCopyWith<$Res> {
-  factory $PriceChangedCopyWith(
-          PriceChanged value, $Res Function(PriceChanged) then) =
-      _$PriceChangedCopyWithImpl<$Res>;
-  $Res call({double price});
+abstract class $PaymentMethodChangedCopyWith<$Res> {
+  factory $PaymentMethodChangedCopyWith(PaymentMethodChanged value,
+          $Res Function(PaymentMethodChanged) then) =
+      _$PaymentMethodChangedCopyWithImpl<$Res>;
+  $Res call({String paymentMethod});
 }
 
 /// @nodoc
-class _$PriceChangedCopyWithImpl<$Res>
+class _$PaymentMethodChangedCopyWithImpl<$Res>
     extends _$RentAHomeEventCopyWithImpl<$Res>
-    implements $PriceChangedCopyWith<$Res> {
-  _$PriceChangedCopyWithImpl(
-      PriceChanged _value, $Res Function(PriceChanged) _then)
-      : super(_value, (v) => _then(v as PriceChanged));
+    implements $PaymentMethodChangedCopyWith<$Res> {
+  _$PaymentMethodChangedCopyWithImpl(
+      PaymentMethodChanged _value, $Res Function(PaymentMethodChanged) _then)
+      : super(_value, (v) => _then(v as PaymentMethodChanged));
 
   @override
-  PriceChanged get _value => super._value as PriceChanged;
+  PaymentMethodChanged get _value => super._value as PaymentMethodChanged;
 
   @override
   $Res call({
-    Object? price = freezed,
+    Object? paymentMethod = freezed,
   }) {
-    return _then(PriceChanged(
-      price == freezed
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
+    return _then(PaymentMethodChanged(
+      paymentMethod == freezed
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$PriceChanged implements PriceChanged {
-  const _$PriceChanged(this.price);
+class _$PaymentMethodChanged implements PaymentMethodChanged {
+  const _$PaymentMethodChanged(this.paymentMethod);
 
   @override
-  final double price;
+  final String paymentMethod;
 
   @override
   String toString() {
-    return 'RentAHomeEvent.priceChanged(price: $price)';
+    return 'RentAHomeEvent.paymentMethodChanged(paymentMethod: $paymentMethod)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is PriceChanged &&
-            const DeepCollectionEquality().equals(other.price, price));
+            other is PaymentMethodChanged &&
+            const DeepCollectionEquality()
+                .equals(other.paymentMethod, paymentMethod));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(price));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(paymentMethod));
 
   @JsonKey(ignore: true)
   @override
-  $PriceChangedCopyWith<PriceChanged> get copyWith =>
-      _$PriceChangedCopyWithImpl<PriceChanged>(this, _$identity);
+  $PaymentMethodChangedCopyWith<PaymentMethodChanged> get copyWith =>
+      _$PaymentMethodChangedCopyWithImpl<PaymentMethodChanged>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -675,15 +1152,18 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
   }) {
-    return priceChanged(price);
+    return paymentMethodChanged(paymentMethod);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -694,15 +1174,18 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
   }) {
-    return priceChanged?.call(price);
+    return paymentMethodChanged?.call(paymentMethod);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -714,8 +1197,8 @@ class _$PriceChanged implements PriceChanged {
     TResult Function()? submit,
     required TResult orElse(),
   }) {
-    if (priceChanged != null) {
-      return priceChanged(price);
+    if (paymentMethodChanged != null) {
+      return paymentMethodChanged(paymentMethod);
     }
     return orElse();
   }
@@ -724,8 +1207,12 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -736,15 +1223,18 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(PetsRemove value) petsRemove,
     required TResult Function(Submit value) submit,
   }) {
-    return priceChanged(this);
+    return paymentMethodChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -755,15 +1245,18 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(PetsRemove value)? petsRemove,
     TResult Function(Submit value)? submit,
   }) {
-    return priceChanged?.call(this);
+    return paymentMethodChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -775,19 +1268,241 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(Submit value)? submit,
     required TResult orElse(),
   }) {
-    if (priceChanged != null) {
-      return priceChanged(this);
+    if (paymentMethodChanged != null) {
+      return paymentMethodChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class PriceChanged implements RentAHomeEvent {
-  const factory PriceChanged(double price) = _$PriceChanged;
+abstract class PaymentMethodChanged implements RentAHomeEvent {
+  const factory PaymentMethodChanged(String paymentMethod) =
+      _$PaymentMethodChanged;
 
-  double get price;
+  String get paymentMethod;
   @JsonKey(ignore: true)
-  $PriceChangedCopyWith<PriceChanged> get copyWith =>
+  $PaymentMethodChangedCopyWith<PaymentMethodChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HomeChangedCopyWith<$Res> {
+  factory $HomeChangedCopyWith(
+          HomeChanged value, $Res Function(HomeChanged) then) =
+      _$HomeChangedCopyWithImpl<$Res>;
+  $Res call({Home home});
+
+  $HomeCopyWith<$Res> get home;
+}
+
+/// @nodoc
+class _$HomeChangedCopyWithImpl<$Res> extends _$RentAHomeEventCopyWithImpl<$Res>
+    implements $HomeChangedCopyWith<$Res> {
+  _$HomeChangedCopyWithImpl(
+      HomeChanged _value, $Res Function(HomeChanged) _then)
+      : super(_value, (v) => _then(v as HomeChanged));
+
+  @override
+  HomeChanged get _value => super._value as HomeChanged;
+
+  @override
+  $Res call({
+    Object? home = freezed,
+  }) {
+    return _then(HomeChanged(
+      home == freezed
+          ? _value.home
+          : home // ignore: cast_nullable_to_non_nullable
+              as Home,
+    ));
+  }
+
+  @override
+  $HomeCopyWith<$Res> get home {
+    return $HomeCopyWith<$Res>(_value.home, (value) {
+      return _then(_value.copyWith(home: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$HomeChanged implements HomeChanged {
+  const _$HomeChanged(this.home);
+
+  @override
+  final Home home;
+
+  @override
+  String toString() {
+    return 'RentAHomeEvent.homeChanged(home: $home)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is HomeChanged &&
+            const DeepCollectionEquality().equals(other.home, home));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(home));
+
+  @JsonKey(ignore: true)
+  @override
+  $HomeChangedCopyWith<HomeChanged> get copyWith =>
+      _$HomeChangedCopyWithImpl<HomeChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
+    required TResult Function(DateTime? checkIn) checkInChanged,
+    required TResult Function(DateTime? checkOut) checkOutChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return homeChanged(home);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return homeChanged?.call(home);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (homeChanged != null) {
+      return homeChanged(home);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
+    required TResult Function(CheckInChanged value) checkInChanged,
+    required TResult Function(CheckOutChanged value) checkOutChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return homeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return homeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (homeChanged != null) {
+      return homeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeChanged implements RentAHomeEvent {
+  const factory HomeChanged(Home home) = _$HomeChanged;
+
+  Home get home;
+  @JsonKey(ignore: true)
+  $HomeChangedCopyWith<HomeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -857,8 +1572,11 @@ class _$CheckInChanged implements CheckInChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -876,8 +1594,11 @@ class _$CheckInChanged implements CheckInChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -895,8 +1616,11 @@ class _$CheckInChanged implements CheckInChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -918,8 +1642,12 @@ class _$CheckInChanged implements CheckInChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -937,8 +1665,11 @@ class _$CheckInChanged implements CheckInChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -956,8 +1687,11 @@ class _$CheckInChanged implements CheckInChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1051,8 +1785,11 @@ class _$CheckOutChanged implements CheckOutChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -1070,8 +1807,11 @@ class _$CheckOutChanged implements CheckOutChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1089,8 +1829,11 @@ class _$CheckOutChanged implements CheckOutChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1112,8 +1855,12 @@ class _$CheckOutChanged implements CheckOutChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -1131,8 +1878,11 @@ class _$CheckOutChanged implements CheckOutChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1150,8 +1900,11 @@ class _$CheckOutChanged implements CheckOutChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1242,8 +1995,11 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -1261,8 +2017,11 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1280,8 +2039,11 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1303,8 +2065,12 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -1322,8 +2088,11 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1341,8 +2110,11 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1436,8 +2208,11 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -1455,8 +2230,11 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1474,8 +2252,11 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1497,8 +2278,12 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -1516,8 +2301,11 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1535,8 +2323,11 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1629,8 +2420,11 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -1648,8 +2442,11 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1667,8 +2464,11 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1690,8 +2490,12 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -1709,8 +2513,11 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1728,8 +2535,11 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1823,8 +2633,11 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -1842,8 +2655,11 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1861,8 +2677,11 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -1884,8 +2703,12 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -1903,8 +2726,11 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -1922,8 +2748,11 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2014,8 +2843,11 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -2033,8 +2865,11 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -2052,8 +2887,11 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -2075,8 +2913,12 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -2094,8 +2936,11 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2113,8 +2958,11 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2205,8 +3053,11 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -2224,8 +3075,11 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -2243,8 +3097,11 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -2266,8 +3123,12 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -2285,8 +3146,11 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2304,8 +3168,11 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2372,8 +3239,11 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
-    required TResult Function(double price) priceChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
     required TResult Function(int increment) adultsAdd,
@@ -2391,8 +3261,11 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -2410,8 +3283,11 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
-    TResult Function(double price)? priceChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
     TResult Function(int increment)? adultsAdd,
@@ -2433,8 +3309,12 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
-    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
     required TResult Function(AdultsAdd value) adultsAdd,
@@ -2452,8 +3332,11 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2471,8 +3354,11 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
-    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
     TResult Function(AdultsAdd value)? adultsAdd,
@@ -2502,18 +3388,22 @@ class _$RentAHomeStateTearOff {
   _RentAHomeState call(
       {required DateTime? checkIn,
       required DateTime? checkOut,
+      required String paymentMethod,
       required Home selectedHome,
       required Rental idealRental,
       required Rental selectedRental,
+      required List<Home> homes,
       required bool showErrorMessages,
       required bool isSaving,
       required Option<Either<Home, Unit>> saveFailureOrSuccessOption}) {
     return _RentAHomeState(
       checkIn: checkIn,
       checkOut: checkOut,
+      paymentMethod: paymentMethod,
       selectedHome: selectedHome,
       idealRental: idealRental,
       selectedRental: selectedRental,
+      homes: homes,
       showErrorMessages: showErrorMessages,
       isSaving: isSaving,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption,
@@ -2528,9 +3418,11 @@ const $RentAHomeState = _$RentAHomeStateTearOff();
 mixin _$RentAHomeState {
   DateTime? get checkIn => throw _privateConstructorUsedError;
   DateTime? get checkOut => throw _privateConstructorUsedError;
+  String get paymentMethod => throw _privateConstructorUsedError;
   Home get selectedHome => throw _privateConstructorUsedError;
   Rental get idealRental => throw _privateConstructorUsedError;
   Rental get selectedRental => throw _privateConstructorUsedError;
+  List<Home> get homes => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   Option<Either<Home, Unit>> get saveFailureOrSuccessOption =>
@@ -2549,9 +3441,11 @@ abstract class $RentAHomeStateCopyWith<$Res> {
   $Res call(
       {DateTime? checkIn,
       DateTime? checkOut,
+      String paymentMethod,
       Home selectedHome,
       Rental idealRental,
       Rental selectedRental,
+      List<Home> homes,
       bool showErrorMessages,
       bool isSaving,
       Option<Either<Home, Unit>> saveFailureOrSuccessOption});
@@ -2574,9 +3468,11 @@ class _$RentAHomeStateCopyWithImpl<$Res>
   $Res call({
     Object? checkIn = freezed,
     Object? checkOut = freezed,
+    Object? paymentMethod = freezed,
     Object? selectedHome = freezed,
     Object? idealRental = freezed,
     Object? selectedRental = freezed,
+    Object? homes = freezed,
     Object? showErrorMessages = freezed,
     Object? isSaving = freezed,
     Object? saveFailureOrSuccessOption = freezed,
@@ -2590,6 +3486,10 @@ class _$RentAHomeStateCopyWithImpl<$Res>
           ? _value.checkOut
           : checkOut // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      paymentMethod: paymentMethod == freezed
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedHome: selectedHome == freezed
           ? _value.selectedHome
           : selectedHome // ignore: cast_nullable_to_non_nullable
@@ -2602,6 +3502,10 @@ class _$RentAHomeStateCopyWithImpl<$Res>
           ? _value.selectedRental
           : selectedRental // ignore: cast_nullable_to_non_nullable
               as Rental,
+      homes: homes == freezed
+          ? _value.homes
+          : homes // ignore: cast_nullable_to_non_nullable
+              as List<Home>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -2649,9 +3553,11 @@ abstract class _$RentAHomeStateCopyWith<$Res>
   $Res call(
       {DateTime? checkIn,
       DateTime? checkOut,
+      String paymentMethod,
       Home selectedHome,
       Rental idealRental,
       Rental selectedRental,
+      List<Home> homes,
       bool showErrorMessages,
       bool isSaving,
       Option<Either<Home, Unit>> saveFailureOrSuccessOption});
@@ -2679,9 +3585,11 @@ class __$RentAHomeStateCopyWithImpl<$Res>
   $Res call({
     Object? checkIn = freezed,
     Object? checkOut = freezed,
+    Object? paymentMethod = freezed,
     Object? selectedHome = freezed,
     Object? idealRental = freezed,
     Object? selectedRental = freezed,
+    Object? homes = freezed,
     Object? showErrorMessages = freezed,
     Object? isSaving = freezed,
     Object? saveFailureOrSuccessOption = freezed,
@@ -2695,6 +3603,10 @@ class __$RentAHomeStateCopyWithImpl<$Res>
           ? _value.checkOut
           : checkOut // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      paymentMethod: paymentMethod == freezed
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedHome: selectedHome == freezed
           ? _value.selectedHome
           : selectedHome // ignore: cast_nullable_to_non_nullable
@@ -2707,6 +3619,10 @@ class __$RentAHomeStateCopyWithImpl<$Res>
           ? _value.selectedRental
           : selectedRental // ignore: cast_nullable_to_non_nullable
               as Rental,
+      homes: homes == freezed
+          ? _value.homes
+          : homes // ignore: cast_nullable_to_non_nullable
+              as List<Home>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -2729,9 +3645,11 @@ class _$_RentAHomeState implements _RentAHomeState {
   const _$_RentAHomeState(
       {required this.checkIn,
       required this.checkOut,
+      required this.paymentMethod,
       required this.selectedHome,
       required this.idealRental,
       required this.selectedRental,
+      required this.homes,
       required this.showErrorMessages,
       required this.isSaving,
       required this.saveFailureOrSuccessOption});
@@ -2741,11 +3659,15 @@ class _$_RentAHomeState implements _RentAHomeState {
   @override
   final DateTime? checkOut;
   @override
+  final String paymentMethod;
+  @override
   final Home selectedHome;
   @override
   final Rental idealRental;
   @override
   final Rental selectedRental;
+  @override
+  final List<Home> homes;
   @override
   final bool showErrorMessages;
   @override
@@ -2755,7 +3677,7 @@ class _$_RentAHomeState implements _RentAHomeState {
 
   @override
   String toString() {
-    return 'RentAHomeState(checkIn: $checkIn, checkOut: $checkOut, selectedHome: $selectedHome, idealRental: $idealRental, selectedRental: $selectedRental, showErrorMessages: $showErrorMessages, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'RentAHomeState(checkIn: $checkIn, checkOut: $checkOut, paymentMethod: $paymentMethod, selectedHome: $selectedHome, idealRental: $idealRental, selectedRental: $selectedRental, homes: $homes, showErrorMessages: $showErrorMessages, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -2766,11 +3688,14 @@ class _$_RentAHomeState implements _RentAHomeState {
             const DeepCollectionEquality().equals(other.checkIn, checkIn) &&
             const DeepCollectionEquality().equals(other.checkOut, checkOut) &&
             const DeepCollectionEquality()
+                .equals(other.paymentMethod, paymentMethod) &&
+            const DeepCollectionEquality()
                 .equals(other.selectedHome, selectedHome) &&
             const DeepCollectionEquality()
                 .equals(other.idealRental, idealRental) &&
             const DeepCollectionEquality()
                 .equals(other.selectedRental, selectedRental) &&
+            const DeepCollectionEquality().equals(other.homes, homes) &&
             const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality().equals(other.isSaving, isSaving) &&
@@ -2783,9 +3708,11 @@ class _$_RentAHomeState implements _RentAHomeState {
       runtimeType,
       const DeepCollectionEquality().hash(checkIn),
       const DeepCollectionEquality().hash(checkOut),
+      const DeepCollectionEquality().hash(paymentMethod),
       const DeepCollectionEquality().hash(selectedHome),
       const DeepCollectionEquality().hash(idealRental),
       const DeepCollectionEquality().hash(selectedRental),
+      const DeepCollectionEquality().hash(homes),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSaving),
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption));
@@ -2800,9 +3727,11 @@ abstract class _RentAHomeState implements RentAHomeState {
   const factory _RentAHomeState(
           {required DateTime? checkIn,
           required DateTime? checkOut,
+          required String paymentMethod,
           required Home selectedHome,
           required Rental idealRental,
           required Rental selectedRental,
+          required List<Home> homes,
           required bool showErrorMessages,
           required bool isSaving,
           required Option<Either<Home, Unit>> saveFailureOrSuccessOption}) =
@@ -2813,11 +3742,15 @@ abstract class _RentAHomeState implements RentAHomeState {
   @override
   DateTime? get checkOut;
   @override
+  String get paymentMethod;
+  @override
   Home get selectedHome;
   @override
   Rental get idealRental;
   @override
   Rental get selectedRental;
+  @override
+  List<Home> get homes;
   @override
   bool get showErrorMessages;
   @override

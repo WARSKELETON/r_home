@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/homes/home.dart';
+import 'package:r_home/domain/homes/i_homes_repository.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 
@@ -11,11 +14,15 @@ part 'rent_a_home_bloc.freezed.dart';
 
 class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
   final IRentalsRepository _rentalsRepository;
+  final IHomesRepository _homesRepository;
 
-  RentAHomeBloc(this._rentalsRepository) : super(RentAHomeState.initial()) {
+  RentAHomeBloc(this._rentalsRepository, this._homesRepository) : super(RentAHomeState.initial()) {
     on<Initialize>(_onInitialize);
+    on<WatchAvailableHomes>(_onWatchAvailableHomes);
+    on<AvailableHomesReceived>(_onAvailableHomesReceived);
     on<LocationChanged>(_onLocationChanged);
-    on<PriceChanged>(_onPriceChanged);
+    on<PaymentMethodChanged>(_onPaymentMethodChanged);
+    on<HomeChanged>(_onHomeChanged);
     on<CheckInChanged>(_onCheckInChanged);
     on<CheckOutChanged>(_onCheckOutChanged);
     on<AdultsAdd>(_onAdultsAdd);
@@ -27,17 +34,43 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
     on<Submit>(_onSubmit);
   }
 
+  StreamSubscription<List<Home>>? _homesStreamSubscription;
+
   void _onInitialize(Initialize event, Emitter<RentAHomeState> emit) {
     emit(state);
   }
 
-  void _onLocationChanged(
-      LocationChanged event, Emitter<RentAHomeState> emit) {
+  void _onWatchAvailableHomes(WatchAvailableHomes event, Emitter<RentAHomeState> emit) {
+    _homesStreamSubscription = _homesRepository
+        .watchAll()
+        .listen(
+          (homes) => add(RentAHomeEvent.availableHomesReceived(homes)),
+        );
+    emit(state);
+  }
+
+  void _onAvailableHomesReceived(AvailableHomesReceived event, Emitter<RentAHomeState> emit) {
+    emit(state.copyWith(homes: event.homes));
+  }
+
+  void _onLocationChanged(LocationChanged event, Emitter<RentAHomeState> emit) {
     // TODO
   }
 
-  void _onPriceChanged(PriceChanged event, Emitter<RentAHomeState> emit) {
-    // TODO
+  void _onPaymentMethodChanged(PaymentMethodChanged event, Emitter<RentAHomeState> emit) {
+    emit(
+      state.copyWith(
+        paymentMethod: event.paymentMethod
+      )
+    );
+  }
+
+  void _onHomeChanged(HomeChanged event, Emitter<RentAHomeState> emit) {
+    emit(
+      state.copyWith(
+        selectedHome: event.home
+      )
+    );
   }
 
   void _onCheckInChanged(CheckInChanged event, Emitter<RentAHomeState> emit) {

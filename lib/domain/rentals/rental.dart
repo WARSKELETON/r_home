@@ -3,6 +3,13 @@ import 'package:uuid/uuid.dart';
 
 part 'rental.freezed.dart';
 
+enum PaymentMethod {
+  bitcoin, 
+  ether, 
+  token, 
+  eurs
+}
+
 @freezed
 abstract class Rental implements _$Rental {
   const Rental._();
