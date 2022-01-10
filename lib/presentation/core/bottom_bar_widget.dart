@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class BottomBarWidget extends StatelessWidget {
   const BottomBarWidget({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class BottomBarWidget extends StatelessWidget {
         ),
       ],
       currentIndex: context.watch<BottomBarBloc>().state.selectedIndex,
-      selectedItemColor: Colors.red,
+      selectedItemColor: Theme.of(context).colorScheme.primaryBlue,
       onTap: (index) {
         context.read<BottomBarBloc>().add(BottomBarEvent.changeIndex(index));
         switch (index) {

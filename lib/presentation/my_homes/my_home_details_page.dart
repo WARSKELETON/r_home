@@ -11,6 +11,8 @@ import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/home_details_image_widget.dart';
+import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
@@ -56,8 +58,8 @@ class MyHomeDetailsPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => MyHomesBloc(RentalsRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)), HomesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
         ..add(MyHomesEvent.watchHome(homeUuid)),
-      child: Builder(
-        builder: (context) {
+      child: BlocBuilder<MyHomesBloc, MyHomesState>(
+        builder: (context, state) {
           final _home = context.watch<MyHomesBloc>().state.home;
 
           return Scaffold(
@@ -81,38 +83,8 @@ class MyHomeDetailsPage extends StatelessWidget {
                     ),
                     child: Column(
                       children: <Widget>[
-                        Material(
-                          shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15))),
-                          clipBehavior: Clip.hardEdge,
-                          color: Colors.transparent,
-                          child: Ink.image(
-                            image: const AssetImage("assets/icons/home3.png"),
-                            fit: BoxFit.cover,
-                            width: MediaQuery.of(context).size.width,
-                            height: 230,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            child: Column(
-                              children: [
-                                _buildRow(context, "Location:", _home.location),
-                                _buildRow(context, "Max Number of Adults:",
-                                    _home.maxAdults),
-                                _buildRow(context, "Max Number of Childs:",
-                                    _home.maxChildren),
-                                _buildRow(
-                                    context, "Max Number of Pets:", _home.maxPets),
-                                _buildRow(context, "Price:", _home.price),
-                              ],
-                            ),
-                          ),
-                        ),
+                        const HomeDetailsImageWidget(),
+                        HomeDetailsTextWidget(home: _home),
                         const Divider(
                           thickness: 8,
                           height: 40,

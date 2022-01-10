@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
@@ -53,12 +54,16 @@ class StepperWidget extends StatelessWidget {
     for (var i = 2; i < numberOfSteps + 1; i++) {
       finalList = [
         ...finalList,
-        Container(
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeIn,
           height: selectedIndex >= i ? 3 : 1,
           width: separatorWidth,
           color: Theme.of(context).colorScheme.primaryBlue,
         ),
-        Container(
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeIn,
           width: stepWidth,
           height: stepWidth,
           decoration: BoxDecoration(

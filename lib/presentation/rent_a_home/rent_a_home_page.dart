@@ -8,8 +8,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_local_activities_form/my_local_activities_form_bloc.dart';
 import 'package:r_home/application/rent_a_home/rent_a_home_bloc.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
+import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
+import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
@@ -21,7 +23,9 @@ import 'package:r_home/presentation/core/stepper_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/category_selection_page.dart';
 import 'package:r_home/presentation/my_local_activities_form/my_local_activities_form.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/date_field_widget.dart';
+import 'package:r_home/presentation/rent_a_home/widgets/payment_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/rental_guests_field_widget.dart';
+import 'package:r_home/presentation/rent_a_home/widgets/select_home_field_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class RentAHomePage extends StatelessWidget {
@@ -41,6 +45,9 @@ class RentAHomePage extends StatelessWidget {
                   RentalsRepository(
                       FirebaseFirestore.instance,
                       FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
+                          FirebaseFirestore.instance)), HomesRepository(
+                      FirebaseFirestore.instance,
+                      FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
                           FirebaseFirestore.instance)))
                 ..add(RentAHomeEvent.initialize(optionOf(null))),
             ),
@@ -52,6 +59,10 @@ class RentAHomePage extends StatelessWidget {
                   context.read<StepperBloc>().state.selectedIndex;
               DateTime? checkIn = context.watch<RentAHomeBloc>().state.checkIn;
               DateTime? checkOut = context.watch<RentAHomeBloc>().state.checkOut;
+              int numAdults = context.watch<RentAHomeBloc>().state.idealRental.numAdults;
+              int numChildren = context.watch<RentAHomeBloc>().state.idealRental.numChildren;
+              int numPets = context.watch<RentAHomeBloc>().state.idealRental.numPets;
+              Home selectedHome = context.watch<RentAHomeBloc>().state.selectedHome;
 
               String title = "";
               switch (currentIndex) {
@@ -63,6 +74,12 @@ class RentAHomePage extends StatelessWidget {
                       "How many guests?";
                   break;
                 case 2:
+                  title = selectedHome.name != "" ? selectedHome.name : "Select a home";
+                  break;
+                case 3:
+                  title = "Confirm payment";
+                  break;
+                case 4:
                   title = "Added new activity successfully!";
                   break;
                 default:
@@ -72,7 +89,7 @@ class RentAHomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     StepperWidget(
-                      numberOfSteps: 2,
+                      numberOfSteps: 4,
                       totalWidth: 320,
                       stepWidth: 30,
                       separatorWidth: 50,
@@ -85,12 +102,16 @@ class RentAHomePage extends StatelessWidget {
                     ] else if (currentIndex == 1) ...[
                       const RentalGuestsField(),
                     ] else if (currentIndex == 2) ...[
+                      const SelectHomeField(),
+                    ] else if (currentIndex == 3) ...[
+                      const PaymentField(),
+                    ] else if (currentIndex == 4) ...[
                       OperationSuccessfulWidget(
                           buttonText: "Back to My Activities",
                           onPressed: () => AutoRouter.of(context)
                               .pop()),
                     ],
-                    if (currentIndex != 2) ...[
+                    if (currentIndex != 4) ...[
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Padding(
@@ -101,9 +122,17 @@ class RentAHomePage extends StatelessWidget {
                               RoundedButtonWidget(
                                 text: 'Previous',
                                 disabled: currentIndex == 0,
-                                onPressed: () => context
-                                    .read<StepperBloc>()
-                                    .add(const StepperEvent.decrementIndex()),
+                                onPressed: () {
+                                    if (currentIndex == 2 && selectedHome.name != "") {
+                                      context
+                                      .read<RentAHomeBloc>()
+                                      .add(RentAHomeEvent.homeChanged(Home.empty()));
+                                    } else {
+                                      context
+                                      .read<StepperBloc>()
+                                      .add(const StepperEvent.decrementIndex());
+                                    }
+                                  },
                                 backgroundColor: currentIndex == 0
                                     ? Colors.grey
                                     : Colors.white,
@@ -121,14 +150,14 @@ class RentAHomePage extends StatelessWidget {
                                     text: 'Next',
                                     onPressed: () {
                                       if (currentIndex == 1) {
-                                        context.read<RentAHomeBloc>().add(const RentAHomeEvent.submit());
+                                        context.read<RentAHomeBloc>().add(const RentAHomeEvent.watchAvailableHomes());
                                       }
                                       context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
                                     },
                                     backgroundColor: Theme.of(context)
                                         .colorScheme
                                         .primaryBlue,
-                                    disabled: (currentIndex == 0 && (checkIn == null || checkOut == null)),
+                                    disabled: (currentIndex == 0 && (checkIn == null || checkOut == null)) || (currentIndex == 1 && (numAdults == 0 && numChildren == 0 && numPets == 0)) || (currentIndex == 2 && selectedHome.name == ""),
                                     fontWeight: FontWeight.w400,
                                     textColor: Colors.white,
                                     fontSize: 16,

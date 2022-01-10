@@ -3,8 +3,11 @@ part of 'rent_a_home_bloc.dart';
 @freezed
 class RentAHomeEvent with _$RentAHomeEvent {
   const factory  RentAHomeEvent.initialize(Option<Rental> optionOf) = Initialize;
+  const factory  RentAHomeEvent.watchAvailableHomes() = WatchAvailableHomes;
+  const factory  RentAHomeEvent.availableHomesReceived(List<Home> homes) = AvailableHomesReceived;
   const factory  RentAHomeEvent.locationChanged(String location) = LocationChanged;
-  const factory  RentAHomeEvent.priceChanged(double price) = PriceChanged;
+  const factory  RentAHomeEvent.paymentMethodChanged(String paymentMethod) = PaymentMethodChanged;
+  const factory  RentAHomeEvent.homeChanged(Home home) = HomeChanged;
   const factory  RentAHomeEvent.checkInChanged(DateTime? checkIn) = CheckInChanged;
   const factory  RentAHomeEvent.checkOutChanged(DateTime? checkOut) = CheckOutChanged;  
   const factory  RentAHomeEvent.adultsAdd(int increment) = AdultsAdd;

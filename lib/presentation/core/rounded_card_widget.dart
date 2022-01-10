@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class RoundedCardWidget extends StatelessWidget {
   final String title;
@@ -7,6 +8,7 @@ class RoundedCardWidget extends StatelessWidget {
   final double width;
   final double height;
   final void Function()? onPressed;
+  final bool? selected;
 
   const RoundedCardWidget({
     Key? key,
@@ -15,7 +17,7 @@ class RoundedCardWidget extends StatelessWidget {
     required this.image,
     required this.width,
     required this.height,
-    required this.onPressed,
+    required this.onPressed, this.selected,
   }) : super(key: key);
 
   @override
@@ -37,11 +39,31 @@ class RoundedCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15.0)),
                 clipBehavior: Clip.hardEdge,
                 color: Colors.transparent,
-                child: Ink.image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  width: width,
-                  height: height,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                      if (selected != null && selected!) ...[
+                        Container(
+                          margin: const EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primaryBlue,
+                              borderRadius: BorderRadius.circular(100),
+                              border: Border.all(width: 1, color: Colors.white)),
+                          child: const Icon(
+                            Icons.check,
+                            color: Colors.white,
+                            size: 50,
+                        )),
+                      ],
+                      Ink.image(
+                        image: AssetImage(image),
+                        fit: BoxFit.cover,
+                        colorFilter: selected == null ? null : (selected! ? ColorFilter.mode(Theme.of(context).colorScheme.primaryBlue.withOpacity(0.5), BlendMode.darken) : null),
+                        width: width,
+                        height: height,
+                    ),
+                  ]
                 ),
               ),
               // When retrieving from the network use Image.network(...),
