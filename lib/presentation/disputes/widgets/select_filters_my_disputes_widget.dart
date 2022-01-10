@@ -4,8 +4,7 @@ import 'package:r_home/application/list_filter/list_filter_bloc.dart';
 import 'package:r_home/presentation/disputes/widgets/chip_widget.dart';
 
 class SelectFiltersMyDisputesWidget extends StatelessWidget {
-  const SelectFiltersMyDisputesWidget({Key? key})
-      : super(key: key);
+  const SelectFiltersMyDisputesWidget({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +14,18 @@ class SelectFiltersMyDisputesWidget extends StatelessWidget {
       alignment: WrapAlignment.center,
       children: <Widget>[
         ChipWidget(
-          width: 100,
-          title: "VOTED",
+          width: 110,
+          title: "OPENED",
           isClickable: true,
-          isChecked: context.watch<ListFilterBloc>().state.isVotedActive,
-          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleVoted()),
+          isChecked: context.watch<ListFilterBloc>().state.isOpened,
+          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleOpened()),
         ),
         ChipWidget(
-          width: 140,
-          title: "NOT VOTED",
+          width: 120,
+          title: "CLOSED",
           isClickable: true,
-          isChecked: context.watch<ListFilterBloc>().state.isNotVotedActive,
-          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleNotVoted()),
+          isChecked: context.watch<ListFilterBloc>().state.isClosed,
+          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleClosed()),
         ),
         ChipWidget(
           width: 230,
