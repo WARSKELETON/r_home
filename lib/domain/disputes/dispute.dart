@@ -16,6 +16,7 @@ abstract class Dispute implements _$Dispute {
   const factory Dispute({
     required String uuid,
     required String issuerUuid,
+    required String issuerUsername,
     required String title,
     required String descritption,
     required String homeUuid,
@@ -30,8 +31,9 @@ abstract class Dispute implements _$Dispute {
   }) = _Dispute;
 
   factory Dispute.empty() => Dispute(
-    issuerUuid: '',
     uuid: const Uuid().v1().toString(),
+    issuerUuid: '',
+    issuerUsername: '',
     title: '',
     descritption: '',
     homeUuid: '',

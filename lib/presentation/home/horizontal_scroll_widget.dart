@@ -1,9 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/presentation/core/flat_rounded_button_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_card_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class HorizontalScrollWidget extends StatelessWidget {
   final String title;
@@ -52,7 +50,7 @@ class HorizontalScrollWidget extends StatelessWidget {
                   FlatRoundedButtonWidget(
                     text: "see all",
                     onPressed: onPressed,
-                    backgroundColor: Color.fromRGBO(Theme.of(context).colorScheme.primaryBlue.red, Theme.of(context).colorScheme.primaryBlue.green, Theme.of(context).colorScheme.primaryBlue.blue, 0.13),
+                    backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.13),
                     textColor: Theme.of(context).colorScheme.primaryBlue,
                     fontWeight: FontWeight.w400,
                     fontSize: 14,

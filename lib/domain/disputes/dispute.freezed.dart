@@ -21,6 +21,7 @@ class _$DisputeTearOff {
   _Dispute call(
       {required String uuid,
       required String issuerUuid,
+      required String issuerUsername,
       required String title,
       required String descritption,
       required String homeUuid,
@@ -34,6 +35,7 @@ class _$DisputeTearOff {
     return _Dispute(
       uuid: uuid,
       issuerUuid: issuerUuid,
+      issuerUsername: issuerUsername,
       title: title,
       descritption: descritption,
       homeUuid: homeUuid,
@@ -55,6 +57,7 @@ const $Dispute = _$DisputeTearOff();
 mixin _$Dispute {
   String get uuid => throw _privateConstructorUsedError;
   String get issuerUuid => throw _privateConstructorUsedError;
+  String get issuerUsername => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get descritption => throw _privateConstructorUsedError;
   String get homeUuid => throw _privateConstructorUsedError;
@@ -77,6 +80,7 @@ abstract class $DisputeCopyWith<$Res> {
   $Res call(
       {String uuid,
       String issuerUuid,
+      String issuerUsername,
       String title,
       String descritption,
       String homeUuid,
@@ -101,6 +105,7 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
   $Res call({
     Object? uuid = freezed,
     Object? issuerUuid = freezed,
+    Object? issuerUsername = freezed,
     Object? title = freezed,
     Object? descritption = freezed,
     Object? homeUuid = freezed,
@@ -120,6 +125,10 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
       issuerUuid: issuerUuid == freezed
           ? _value.issuerUuid
           : issuerUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      issuerUsername: issuerUsername == freezed
+          ? _value.issuerUsername
+          : issuerUsername // ignore: cast_nullable_to_non_nullable
               as String,
       title: title == freezed
           ? _value.title
@@ -173,6 +182,7 @@ abstract class _$DisputeCopyWith<$Res> implements $DisputeCopyWith<$Res> {
   $Res call(
       {String uuid,
       String issuerUuid,
+      String issuerUsername,
       String title,
       String descritption,
       String homeUuid,
@@ -198,6 +208,7 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
   $Res call({
     Object? uuid = freezed,
     Object? issuerUuid = freezed,
+    Object? issuerUsername = freezed,
     Object? title = freezed,
     Object? descritption = freezed,
     Object? homeUuid = freezed,
@@ -217,6 +228,10 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
       issuerUuid: issuerUuid == freezed
           ? _value.issuerUuid
           : issuerUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      issuerUsername: issuerUsername == freezed
+          ? _value.issuerUsername
+          : issuerUsername // ignore: cast_nullable_to_non_nullable
               as String,
       title: title == freezed
           ? _value.title
@@ -268,6 +283,7 @@ class _$_Dispute extends _Dispute {
   const _$_Dispute(
       {required this.uuid,
       required this.issuerUuid,
+      required this.issuerUsername,
       required this.title,
       required this.descritption,
       required this.homeUuid,
@@ -284,6 +300,8 @@ class _$_Dispute extends _Dispute {
   final String uuid;
   @override
   final String issuerUuid;
+  @override
+  final String issuerUsername;
   @override
   final String title;
   @override
@@ -307,7 +325,7 @@ class _$_Dispute extends _Dispute {
 
   @override
   String toString() {
-    return 'Dispute(uuid: $uuid, issuerUuid: $issuerUuid, title: $title, descritption: $descritption, homeUuid: $homeUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesInsignificant: $votesInsignificant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
+    return 'Dispute(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesInsignificant: $votesInsignificant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
   }
 
   @override
@@ -318,6 +336,8 @@ class _$_Dispute extends _Dispute {
             const DeepCollectionEquality().equals(other.uuid, uuid) &&
             const DeepCollectionEquality()
                 .equals(other.issuerUuid, issuerUuid) &&
+            const DeepCollectionEquality()
+                .equals(other.issuerUsername, issuerUsername) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality()
                 .equals(other.descritption, descritption) &&
@@ -340,6 +360,7 @@ class _$_Dispute extends _Dispute {
       runtimeType,
       const DeepCollectionEquality().hash(uuid),
       const DeepCollectionEquality().hash(issuerUuid),
+      const DeepCollectionEquality().hash(issuerUsername),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(descritption),
       const DeepCollectionEquality().hash(homeUuid),
@@ -361,6 +382,7 @@ abstract class _Dispute extends Dispute {
   const factory _Dispute(
       {required String uuid,
       required String issuerUuid,
+      required String issuerUsername,
       required String title,
       required String descritption,
       required String homeUuid,
@@ -377,6 +399,8 @@ abstract class _Dispute extends Dispute {
   String get uuid;
   @override
   String get issuerUuid;
+  @override
+  String get issuerUsername;
   @override
   String get title;
   @override
