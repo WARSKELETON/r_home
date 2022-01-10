@@ -11,7 +11,7 @@ import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/core/home_details_image_widget.dart';
+import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
@@ -83,7 +83,7 @@ class MyHomeDetailsPage extends StatelessWidget {
                     ),
                     child: Column(
                       children: <Widget>[
-                        const HomeDetailsImageWidget(),
+                        const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
                         HomeDetailsTextWidget(home: _home),
                         const Divider(
                           thickness: 8,

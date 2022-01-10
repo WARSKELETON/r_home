@@ -12,8 +12,9 @@ class RoundedButtonWidget extends StatelessWidget {
   final Icon? leadingIcon;
   final Icon? trailingIcon;
   final bool? disabled;
+  final TextAlign? textAlign;
 
-  const RoundedButtonWidget({Key? key, required this.text, required this.onPressed, required this.backgroundColor, required this.textColor, required this.fontWeight, required this.fontSize, required this.width, required this.height, this.leadingIcon, this.trailingIcon, this.disabled}) : super(key: key);
+  const RoundedButtonWidget({Key? key, required this.text, required this.onPressed, required this.backgroundColor, required this.textColor, required this.fontWeight, required this.fontSize, required this.width, required this.height, this.leadingIcon, this.trailingIcon, this.disabled, this.textAlign}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,7 @@ class RoundedButtonWidget extends StatelessWidget {
           const Spacer(),
           Text(
             text,
+            textAlign: textAlign,
             style: TextStyle(
               fontSize: fontSize,
               color: textColor,

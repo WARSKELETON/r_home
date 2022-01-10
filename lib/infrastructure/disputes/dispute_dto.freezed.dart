@@ -31,7 +31,7 @@ class _$DisputeDtoTearOff {
       required String homeUuid,
       required bool isOpened,
       required int votesAgainst,
-      required int votesInsignificant,
+      required int votesIndiferent,
       required int votesInFavour,
       required double initialStake,
       required double stake,
@@ -45,7 +45,7 @@ class _$DisputeDtoTearOff {
       homeUuid: homeUuid,
       isOpened: isOpened,
       votesAgainst: votesAgainst,
-      votesInsignificant: votesInsignificant,
+      votesIndiferent: votesIndiferent,
       votesInFavour: votesInFavour,
       initialStake: initialStake,
       stake: stake,
@@ -71,7 +71,7 @@ mixin _$DisputeDto {
   String get homeUuid => throw _privateConstructorUsedError;
   bool get isOpened => throw _privateConstructorUsedError;
   int get votesAgainst => throw _privateConstructorUsedError;
-  int get votesInsignificant => throw _privateConstructorUsedError;
+  int get votesIndiferent => throw _privateConstructorUsedError;
   int get votesInFavour => throw _privateConstructorUsedError;
   double get initialStake => throw _privateConstructorUsedError;
   double get stake => throw _privateConstructorUsedError;
@@ -97,7 +97,7 @@ abstract class $DisputeDtoCopyWith<$Res> {
       String homeUuid,
       bool isOpened,
       int votesAgainst,
-      int votesInsignificant,
+      int votesIndiferent,
       int votesInFavour,
       double initialStake,
       double stake,
@@ -122,7 +122,7 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
     Object? homeUuid = freezed,
     Object? isOpened = freezed,
     Object? votesAgainst = freezed,
-    Object? votesInsignificant = freezed,
+    Object? votesIndiferent = freezed,
     Object? votesInFavour = freezed,
     Object? initialStake = freezed,
     Object? stake = freezed,
@@ -161,9 +161,9 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
           ? _value.votesAgainst
           : votesAgainst // ignore: cast_nullable_to_non_nullable
               as int,
-      votesInsignificant: votesInsignificant == freezed
-          ? _value.votesInsignificant
-          : votesInsignificant // ignore: cast_nullable_to_non_nullable
+      votesIndiferent: votesIndiferent == freezed
+          ? _value.votesIndiferent
+          : votesIndiferent // ignore: cast_nullable_to_non_nullable
               as int,
       votesInFavour: votesInFavour == freezed
           ? _value.votesInFavour
@@ -200,7 +200,7 @@ abstract class _$DisputeDtoCopyWith<$Res> implements $DisputeDtoCopyWith<$Res> {
       String homeUuid,
       bool isOpened,
       int votesAgainst,
-      int votesInsignificant,
+      int votesIndiferent,
       int votesInFavour,
       double initialStake,
       double stake,
@@ -227,7 +227,7 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
     Object? homeUuid = freezed,
     Object? isOpened = freezed,
     Object? votesAgainst = freezed,
-    Object? votesInsignificant = freezed,
+    Object? votesIndiferent = freezed,
     Object? votesInFavour = freezed,
     Object? initialStake = freezed,
     Object? stake = freezed,
@@ -266,9 +266,9 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
           ? _value.votesAgainst
           : votesAgainst // ignore: cast_nullable_to_non_nullable
               as int,
-      votesInsignificant: votesInsignificant == freezed
-          ? _value.votesInsignificant
-          : votesInsignificant // ignore: cast_nullable_to_non_nullable
+      votesIndiferent: votesIndiferent == freezed
+          ? _value.votesIndiferent
+          : votesIndiferent // ignore: cast_nullable_to_non_nullable
               as int,
       votesInFavour: votesInFavour == freezed
           ? _value.votesInFavour
@@ -302,7 +302,7 @@ class _$_DisputeDto extends _DisputeDto {
       required this.homeUuid,
       required this.isOpened,
       required this.votesAgainst,
-      required this.votesInsignificant,
+      required this.votesIndiferent,
       required this.votesInFavour,
       required this.initialStake,
       required this.stake,
@@ -329,7 +329,7 @@ class _$_DisputeDto extends _DisputeDto {
   @override
   final int votesAgainst;
   @override
-  final int votesInsignificant;
+  final int votesIndiferent;
   @override
   final int votesInFavour;
   @override
@@ -341,7 +341,7 @@ class _$_DisputeDto extends _DisputeDto {
 
   @override
   String toString() {
-    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesInsignificant: $votesInsignificant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
+    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIndiferent: $votesIndiferent, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
   }
 
   @override
@@ -362,7 +362,7 @@ class _$_DisputeDto extends _DisputeDto {
             const DeepCollectionEquality()
                 .equals(other.votesAgainst, votesAgainst) &&
             const DeepCollectionEquality()
-                .equals(other.votesInsignificant, votesInsignificant) &&
+                .equals(other.votesIndiferent, votesIndiferent) &&
             const DeepCollectionEquality()
                 .equals(other.votesInFavour, votesInFavour) &&
             const DeepCollectionEquality()
@@ -382,7 +382,7 @@ class _$_DisputeDto extends _DisputeDto {
       const DeepCollectionEquality().hash(homeUuid),
       const DeepCollectionEquality().hash(isOpened),
       const DeepCollectionEquality().hash(votesAgainst),
-      const DeepCollectionEquality().hash(votesInsignificant),
+      const DeepCollectionEquality().hash(votesIndiferent),
       const DeepCollectionEquality().hash(votesInFavour),
       const DeepCollectionEquality().hash(initialStake),
       const DeepCollectionEquality().hash(stake),
@@ -409,7 +409,7 @@ abstract class _DisputeDto extends DisputeDto {
       required String homeUuid,
       required bool isOpened,
       required int votesAgainst,
-      required int votesInsignificant,
+      required int votesIndiferent,
       required int votesInFavour,
       required double initialStake,
       required double stake,
@@ -436,7 +436,7 @@ abstract class _DisputeDto extends DisputeDto {
   @override
   int get votesAgainst;
   @override
-  int get votesInsignificant;
+  int get votesIndiferent;
   @override
   int get votesInFavour;
   @override

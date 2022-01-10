@@ -42,8 +42,7 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     ));
   }
 
-  void _onLocationChanged(
-      LocationChanged event, Emitter<MyHomesFormState> emit) {
+  void _onLocationChanged(LocationChanged event, Emitter<MyHomesFormState> emit) {
     emit(state.copyWith(
       home: state.home.copyWith(location: event.location),
       saveFailureOrSuccessOption: none(),

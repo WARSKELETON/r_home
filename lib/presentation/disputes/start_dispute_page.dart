@@ -34,7 +34,12 @@ class StartDisputesPage extends StatelessWidget {
                 height: 50,
               ),
               DisputeTypeWidget(
+                elevation: 10,
                 title: "Problems with Payments",
+                height: 100,
+                fontSize: 20,
+                svgSize: 75,
+                paddingText: const EdgeInsets.only(left: 40.0, top: 5),
                 svgPath: "assets/icons/problemsPayments.svg",
                 onPressed: () => AutoRouter.of(context).push(ProblemsWithPaymentsPageRoute(disputeCategory: DisputeCategory.problems_with_payments))
               ),
@@ -42,7 +47,12 @@ class StartDisputesPage extends StatelessWidget {
                 height: 50,
               ),
               DisputeTypeWidget(
+                elevation: 10,
                 title: "Damages in Properties",
+                height: 100,
+                fontSize: 20,
+                svgSize: 75,
+                paddingText: const EdgeInsets.only(left: 40.0, top: 5),
                 svgPath: "assets/icons/damagesInProperty.svg",
                 onPressed: () => AutoRouter.of(context).push(GeneralDisputesPageRoute(disputeCategory: DisputeCategory.damages_in_properties))
               ),
@@ -50,7 +60,12 @@ class StartDisputesPage extends StatelessWidget {
                 height: 50,
               ),
               DisputeTypeWidget(
+                elevation: 10,
                 title: "False Advertisement",
+                height: 100,
+                fontSize: 20,
+                svgSize: 75,
+                paddingText: const EdgeInsets.only(left: 40.0, top: 5),
                 svgPath: "assets/icons/falseAdvertisement.svg",
                 onPressed: () => AutoRouter.of(context).push(GeneralDisputesPageRoute(disputeCategory: DisputeCategory.false_advertisement))
               ),

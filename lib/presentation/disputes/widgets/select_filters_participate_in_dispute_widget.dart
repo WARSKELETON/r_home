@@ -22,7 +22,7 @@ class SelectFiltersParticipateInDisputeWidget extends StatelessWidget {
           onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleVoted()),
         ),
         ChipWidget(
-          width: 140,
+          width: 135,
           title: "NOT VOTED",
           isClickable: true,
           isChecked: context.watch<ListFilterBloc>().state.isNotVotedActive,

@@ -14,14 +14,14 @@ class SelectFiltersMyDisputesWidget extends StatelessWidget {
       alignment: WrapAlignment.center,
       children: <Widget>[
         ChipWidget(
-          width: 110,
+          width: 115,
           title: "OPENED",
           isClickable: true,
           isChecked: context.watch<ListFilterBloc>().state.isOpened,
           onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleOpened()),
         ),
         ChipWidget(
-          width: 120,
+          width: 115,
           title: "CLOSED",
           isClickable: true,
           isChecked: context.watch<ListFilterBloc>().state.isClosed,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/rent_a_home/rent_a_home_bloc.dart';
-import 'package:r_home/presentation/core/home_details_image_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
+import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/select_home_card_widget.dart';
 
 class SelectHomeField extends StatelessWidget {
@@ -38,7 +38,7 @@ class SelectHomeField extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const HomeDetailsImageWidget(),
+                  const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
                   HomeDetailsTextWidget(home: _home)
                 ],
               ),
