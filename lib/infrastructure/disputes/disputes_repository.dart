@@ -14,19 +14,21 @@ class DisputesRepository implements IDisputesRepository {
 
   @override
   Stream<List<Dispute>> watchAll() async* {
+    // Watch all that are not problems with payments
     final colRef = _firestore
-        .collection(DISPUTES_COLLECTION);
+        .collection(DISPUTES_COLLECTION)
+        .where("category", isNotEqualTo: DisputeCategory.problems_with_payments.name);
 
     yield* colRef.snapshots().map((query) => query.toListDispute());
   }
 
   @override
   Stream<List<Dispute>> watchAllFromUser() async* {
-    final hostId = _authFacade.getSignedInUserId()!;
+    final userId = _authFacade.getSignedInUserId()!;
 
     final colRef = _firestore
         .collection(DISPUTES_COLLECTION)
-        .where("host", isEqualTo: hostId);
+        .where("issuerUuid", isEqualTo: userId);
 
     yield* colRef.snapshots().map((query) => query.toListDispute());
   }
@@ -43,15 +45,19 @@ class DisputesRepository implements IDisputesRepository {
   @override
   Future<void> create(Dispute dispute) async {
     final userId = _authFacade.getSignedInUserId()!;
+    final username = _authFacade.getSignedInUsername()!;
 
-    dispute = dispute.copyWith(issuerUuid: userId);
+    dispute = dispute.copyWith(
+      issuerUuid: userId,
+      issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase())
+    );
 
     _firestore
-        .collection(DISPUTES_COLLECTION)
-        .doc(dispute.uuid)
-        .set(DisputeDto.fromDomain(dispute).toJson())
-        .then((_) => print("Dispute created successfuly"))
-        .catchError((onError) => print(onError));
+      .collection(DISPUTES_COLLECTION)
+      .doc(dispute.uuid)
+      .set(DisputeDto.fromDomain(dispute).toJson())
+      .then((_) => print("Dispute created successfuly"))
+      .catchError((onError) => print(onError));
   }
 
   @override

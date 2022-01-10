@@ -10,6 +10,7 @@ _$_DisputeDto _$$_DisputeDtoFromJson(Map<String, dynamic> json) =>
     _$_DisputeDto(
       uuid: json['uuid'] as String,
       issuerUuid: json['issuerUuid'] as String,
+      issuerUsername: json['issuerUsername'] as String,
       title: json['title'] as String,
       descritption: json['descritption'] as String,
       homeUuid: json['homeUuid'] as String,
@@ -26,6 +27,7 @@ Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'issuerUuid': instance.issuerUuid,
+      'issuerUsername': instance.issuerUsername,
       'title': instance.title,
       'descritption': instance.descritption,
       'homeUuid': instance.homeUuid,

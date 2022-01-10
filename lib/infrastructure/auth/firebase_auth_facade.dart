@@ -38,6 +38,11 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
+  String? getSignedInUsername() {
+    return _firebaseAuth.currentUser?.displayName;
+  }
+
+  @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
     try {
       final googleUser = await _googleSignIn.signIn();

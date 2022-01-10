@@ -12,6 +12,7 @@ abstract class DisputeDto implements _$DisputeDto {
   const factory DisputeDto({
     required String uuid,
     required String issuerUuid,
+    required String issuerUsername,
     required String title,
     required String descritption,
     required String homeUuid,
@@ -28,6 +29,7 @@ abstract class DisputeDto implements _$DisputeDto {
     return DisputeDto(
       uuid: dispute.uuid,
       issuerUuid: dispute.issuerUuid,
+      issuerUsername: dispute.issuerUsername,
       title: dispute.title,
       descritption: dispute.descritption,
       homeUuid: dispute.homeUuid,
@@ -45,6 +47,7 @@ abstract class DisputeDto implements _$DisputeDto {
     return Dispute(
       uuid: uuid,
       issuerUuid: issuerUuid,
+      issuerUsername: issuerUsername,
       title: title,
       descritption: descritption,
       homeUuid: homeUuid,

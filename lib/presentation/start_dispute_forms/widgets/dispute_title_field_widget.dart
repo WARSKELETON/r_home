@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
-import 'package:r_home/application/my_local_activities_form/my_local_activities_form_bloc.dart';
 
 class DisputeTitleField extends HookWidget {
   const DisputeTitleField({Key? key}) : super(key: key);
