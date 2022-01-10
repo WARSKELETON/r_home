@@ -27,6 +27,7 @@ class _$RentalDtoTearOff {
       required String homeId,
       required String hostId,
       required String guestId,
+      required String paymentMethod,
       required DateTime checkIn,
       required DateTime checkOut,
       required int numAdults,
@@ -37,6 +38,7 @@ class _$RentalDtoTearOff {
       homeId: homeId,
       hostId: hostId,
       guestId: guestId,
+      paymentMethod: paymentMethod,
       checkIn: checkIn,
       checkOut: checkOut,
       numAdults: numAdults,
@@ -59,6 +61,7 @@ mixin _$RentalDto {
   String get homeId => throw _privateConstructorUsedError;
   String get hostId => throw _privateConstructorUsedError;
   String get guestId => throw _privateConstructorUsedError;
+  String get paymentMethod => throw _privateConstructorUsedError;
   DateTime get checkIn => throw _privateConstructorUsedError;
   DateTime get checkOut => throw _privateConstructorUsedError;
   int get numAdults => throw _privateConstructorUsedError;
@@ -80,6 +83,7 @@ abstract class $RentalDtoCopyWith<$Res> {
       String homeId,
       String hostId,
       String guestId,
+      String paymentMethod,
       DateTime checkIn,
       DateTime checkOut,
       int numAdults,
@@ -101,6 +105,7 @@ class _$RentalDtoCopyWithImpl<$Res> implements $RentalDtoCopyWith<$Res> {
     Object? homeId = freezed,
     Object? hostId = freezed,
     Object? guestId = freezed,
+    Object? paymentMethod = freezed,
     Object? checkIn = freezed,
     Object? checkOut = freezed,
     Object? numAdults = freezed,
@@ -123,6 +128,10 @@ class _$RentalDtoCopyWithImpl<$Res> implements $RentalDtoCopyWith<$Res> {
       guestId: guestId == freezed
           ? _value.guestId
           : guestId // ignore: cast_nullable_to_non_nullable
+              as String,
+      paymentMethod: paymentMethod == freezed
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
       checkIn: checkIn == freezed
           ? _value.checkIn
@@ -159,6 +168,7 @@ abstract class _$RentalDtoCopyWith<$Res> implements $RentalDtoCopyWith<$Res> {
       String homeId,
       String hostId,
       String guestId,
+      String paymentMethod,
       DateTime checkIn,
       DateTime checkOut,
       int numAdults,
@@ -181,6 +191,7 @@ class __$RentalDtoCopyWithImpl<$Res> extends _$RentalDtoCopyWithImpl<$Res>
     Object? homeId = freezed,
     Object? hostId = freezed,
     Object? guestId = freezed,
+    Object? paymentMethod = freezed,
     Object? checkIn = freezed,
     Object? checkOut = freezed,
     Object? numAdults = freezed,
@@ -203,6 +214,10 @@ class __$RentalDtoCopyWithImpl<$Res> extends _$RentalDtoCopyWithImpl<$Res>
       guestId: guestId == freezed
           ? _value.guestId
           : guestId // ignore: cast_nullable_to_non_nullable
+              as String,
+      paymentMethod: paymentMethod == freezed
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
       checkIn: checkIn == freezed
           ? _value.checkIn
@@ -236,6 +251,7 @@ class _$_RentalDto extends _RentalDto {
       required this.homeId,
       required this.hostId,
       required this.guestId,
+      required this.paymentMethod,
       required this.checkIn,
       required this.checkOut,
       required this.numAdults,
@@ -255,6 +271,8 @@ class _$_RentalDto extends _RentalDto {
   @override
   final String guestId;
   @override
+  final String paymentMethod;
+  @override
   final DateTime checkIn;
   @override
   final DateTime checkOut;
@@ -267,7 +285,7 @@ class _$_RentalDto extends _RentalDto {
 
   @override
   String toString() {
-    return 'RentalDto(uuid: $uuid, homeId: $homeId, hostId: $hostId, guestId: $guestId, checkIn: $checkIn, checkOut: $checkOut, numAdults: $numAdults, numChildren: $numChildren, numPets: $numPets)';
+    return 'RentalDto(uuid: $uuid, homeId: $homeId, hostId: $hostId, guestId: $guestId, paymentMethod: $paymentMethod, checkIn: $checkIn, checkOut: $checkOut, numAdults: $numAdults, numChildren: $numChildren, numPets: $numPets)';
   }
 
   @override
@@ -279,6 +297,8 @@ class _$_RentalDto extends _RentalDto {
             const DeepCollectionEquality().equals(other.homeId, homeId) &&
             const DeepCollectionEquality().equals(other.hostId, hostId) &&
             const DeepCollectionEquality().equals(other.guestId, guestId) &&
+            const DeepCollectionEquality()
+                .equals(other.paymentMethod, paymentMethod) &&
             const DeepCollectionEquality().equals(other.checkIn, checkIn) &&
             const DeepCollectionEquality().equals(other.checkOut, checkOut) &&
             const DeepCollectionEquality().equals(other.numAdults, numAdults) &&
@@ -294,6 +314,7 @@ class _$_RentalDto extends _RentalDto {
       const DeepCollectionEquality().hash(homeId),
       const DeepCollectionEquality().hash(hostId),
       const DeepCollectionEquality().hash(guestId),
+      const DeepCollectionEquality().hash(paymentMethod),
       const DeepCollectionEquality().hash(checkIn),
       const DeepCollectionEquality().hash(checkOut),
       const DeepCollectionEquality().hash(numAdults),
@@ -317,6 +338,7 @@ abstract class _RentalDto extends RentalDto {
       required String homeId,
       required String hostId,
       required String guestId,
+      required String paymentMethod,
       required DateTime checkIn,
       required DateTime checkOut,
       required int numAdults,
@@ -335,6 +357,8 @@ abstract class _RentalDto extends RentalDto {
   String get hostId;
   @override
   String get guestId;
+  @override
+  String get paymentMethod;
   @override
   DateTime get checkIn;
   @override

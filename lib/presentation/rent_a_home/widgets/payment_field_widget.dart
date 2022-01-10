@@ -164,7 +164,7 @@ class PaymentField extends StatelessWidget {
       leading: Radio<String>(
         activeColor: Theme.of(context).colorScheme.primaryBlue,
         value: PaymentMethod.values[index].name,
-        groupValue: context.watch<RentAHomeBloc>().state.paymentMethod,
+        groupValue: context.watch<RentAHomeBloc>().state.idealRental.paymentMethod,
         onChanged: (String? value) {
           context.read<RentAHomeBloc>().add(RentAHomeEvent.paymentMethodChanged(value!));
         },

@@ -5,10 +5,8 @@ abstract class RentAHomeState with _$RentAHomeState {
   const factory RentAHomeState({
     required DateTime? checkIn,
     required DateTime? checkOut,
-    required String paymentMethod,
-    required Home selectedHome,
     required Rental idealRental,
-    required Rental selectedRental,
+    required Home selectedHome,
     required List<Home> homes,
     required bool showErrorMessages,
     required bool isSaving,
@@ -18,9 +16,7 @@ abstract class RentAHomeState with _$RentAHomeState {
   factory RentAHomeState.initial() => RentAHomeState(
     checkIn: null,
     checkOut: null,
-    paymentMethod: "",
     idealRental: Rental.empty(),
-    selectedRental: Rental.empty(),
     selectedHome: Home.empty(),
     homes: [],
     showErrorMessages: false,

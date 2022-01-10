@@ -58,11 +58,11 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
   }
 
   void _onPaymentMethodChanged(PaymentMethodChanged event, Emitter<RentAHomeState> emit) {
-    emit(
-      state.copyWith(
-        paymentMethod: event.paymentMethod
-      )
-    );
+    emit(state.copyWith(
+      idealRental: state.idealRental
+          .copyWith(paymentMethod: event.paymentMethod),
+      saveFailureOrSuccessOption: none(),
+    ));
   }
 
   void _onHomeChanged(HomeChanged event, Emitter<RentAHomeState> emit) {
@@ -136,9 +136,15 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
   void _onSubmit(Submit event, Emitter<RentAHomeState> emit) async {
     emit(state.copyWith(isSaving: true));
 
-    // TODO state.selectedRental = idealRental + home
+    Home selectedHome = state.selectedHome;
+    Rental finalRental = state.idealRental.copyWith(
+      homeId: selectedHome.uuid,
+      hostId: selectedHome.host,
+      checkIn: state.checkIn!,
+      checkOut: state.checkOut!
+    );
 
-    await _rentalsRepository.create(state.selectedRental);
+    await _rentalsRepository.create(finalRental);
 
     emit(state.copyWith(isSaving: false));
   }

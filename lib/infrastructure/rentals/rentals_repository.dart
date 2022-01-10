@@ -42,14 +42,27 @@ class RentalsRepository implements IRentalsRepository {
   Future<void> create(Rental rental) async {
     final userId = _authFacade.getSignedInUserId()!;
 
+    Rental finalRental = rental.copyWith(
+      guestId: userId
+    );
+
     _firestore
         .collection(PARENT_COLLECTION)
-        .doc(userId)
+        .doc(finalRental.guestId)
         .collection(RENTALS_COLLECTION)
-        .doc(rental.uuid)
-        .set(RentalDto.fromDomain(rental).toJson())
+        .doc(finalRental.uuid)
+        .set(RentalDto.fromDomain(finalRental).toJson())
         .then((_) => print("Rental created successfuly"))
         .catchError((onError) => print(onError));
+
+    _firestore
+      .collection(PARENT_COLLECTION)
+      .doc(finalRental.hostId)
+      .collection(RENTALS_COLLECTION)
+      .doc(finalRental.uuid)
+      .set(RentalDto.fromDomain(finalRental).toJson())
+      .then((_) => print("Rental created successfuly"))
+      .catchError((onError) => print(onError));
   }
 
   @override

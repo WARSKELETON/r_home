@@ -80,7 +80,7 @@ class RentAHomePage extends StatelessWidget {
                   title = "Confirm payment";
                   break;
                 case 4:
-                  title = "Added new activity successfully!";
+                  title = "Booked home successfully!";
                   break;
                 default:
               }
@@ -107,7 +107,7 @@ class RentAHomePage extends StatelessWidget {
                       const PaymentField(),
                     ] else if (currentIndex == 4) ...[
                       OperationSuccessfulWidget(
-                          buttonText: "Back to My Activities",
+                          buttonText: "Back to My Stays",
                           onPressed: () => AutoRouter.of(context)
                               .pop()),
                     ],
@@ -151,6 +151,8 @@ class RentAHomePage extends StatelessWidget {
                                     onPressed: () {
                                       if (currentIndex == 1) {
                                         context.read<RentAHomeBloc>().add(const RentAHomeEvent.watchAvailableHomes());
+                                      } else if (currentIndex == 3) {
+                                        context.read<RentAHomeBloc>().add(const RentAHomeEvent.submit());
                                       }
                                       context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
                                     },
