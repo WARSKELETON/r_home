@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/dispute_type_widget.dart';
@@ -34,7 +35,7 @@ class StartDisputesPage extends StatelessWidget {
             DisputeTypeWidget(
               title: "Problems with Payments",
               svgPath: "assets/icons/problemsPayments.svg",
-              onPressed: () => AutoRouter.of(context).push(const ProblemsWithPaymentsPageRoute())
+              onPressed: () => AutoRouter.of(context).push(ProblemsWithPaymentsPageRoute(disputeCategory: DisputeCategory.problems_with_payments))
             ),
             const SizedBox(
               height: 50,
@@ -42,7 +43,7 @@ class StartDisputesPage extends StatelessWidget {
             DisputeTypeWidget(
               title: "Damages in Properties",
               svgPath: "assets/icons/damagesInProperty.svg",
-              onPressed: () => AutoRouter.of(context).push(const GeneralDisputesPageRoute())
+              onPressed: () => AutoRouter.of(context).push(GeneralDisputesPageRoute(disputeCategory: DisputeCategory.damages_in_properties))
             ),
             const SizedBox(
               height: 50,
@@ -50,7 +51,7 @@ class StartDisputesPage extends StatelessWidget {
             DisputeTypeWidget(
               title: "False Advertisement",
               svgPath: "assets/icons/falseAdvertisement.svg",
-              onPressed: () => AutoRouter.of(context).push(const GeneralDisputesPageRoute())
+              onPressed: () => AutoRouter.of(context).push(GeneralDisputesPageRoute(disputeCategory: DisputeCategory.false_advertisement))
             ),
             const SizedBox(
               height: 50,

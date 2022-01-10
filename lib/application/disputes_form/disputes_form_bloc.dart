@@ -4,16 +4,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_homes_repository.dart';
 
-part 'start_disputes_form_event.dart';
-part 'start_disputes_form_state.dart';
-part 'start_disputes_form_bloc.freezed.dart';
+part 'disputes_form_event.dart';
+part 'disputes_form_state.dart';
+part 'disputes_form_bloc.freezed.dart';
 
-class StartDisputesFormBloc
-    extends Bloc<StartDisputesFormEvent, StartDisputesFormState> {
+class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
   final IDisputesRepository _disputesRepository;
 
-  StartDisputesFormBloc(this._disputesRepository): super(StartDisputesFormState.initial()) {
+  DisputesFormBloc(this._disputesRepository): super(DisputesFormState.initial()) {
     on<Initialize>(_onInitialize);
+    on<CategoryChanged>(_onCategoryChanged);
     on<HomeChanged>(_onHomeChanged);
     on<TitleChanged>(_onTitleChanged);
     on<DescriptionChanged>(_onDescriptionChanged);
@@ -21,36 +21,44 @@ class StartDisputesFormBloc
     on<Submit>(_onSubmit);
   }
 
-  void _onInitialize(Initialize event, Emitter<StartDisputesFormState> emit) {
-    emit(state);
+  void _onInitialize(Initialize event, Emitter<DisputesFormState> emit) {
+    emit(state.copyWith(dispute: state.dispute.copyWith(category: event.disputeCategory.name)));
   }
 
-  void _onHomeChanged(HomeChanged event, Emitter<StartDisputesFormState> emit) {
+  void _onCategoryChanged(CategoryChanged event, Emitter<DisputesFormState> emit) {
+    emit(state.copyWith(dispute: state.dispute.copyWith(category: event.category.name),
+      saveFailureOrSuccessOption: none(),
+    ));
+  }
+
+  void _onHomeChanged(HomeChanged event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(dispute: state.dispute.copyWith(homeUuid: event.homeUuid),
       saveFailureOrSuccessOption: none(),
     ));
   }
 
-  void _onTitleChanged(TitleChanged event, Emitter<StartDisputesFormState> emit) {
+  void _onTitleChanged(TitleChanged event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(dispute: state.dispute.copyWith(title: event.title),
       saveFailureOrSuccessOption: none(),
     ));
   }
 
-  void _onDescriptionChanged(DescriptionChanged event, Emitter<StartDisputesFormState> emit) {
+  void _onDescriptionChanged(DescriptionChanged event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(dispute: state.dispute.copyWith(descritption: event.description),
       saveFailureOrSuccessOption: none(),
     ));
   }
 
-  void _onInitialStakeChanged(InitialStakeChanged event, Emitter<StartDisputesFormState> emit) {
+  void _onInitialStakeChanged(InitialStakeChanged event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(dispute: state.dispute.copyWith(initialStake: event.tokens),
       saveFailureOrSuccessOption: none(),
     ));
   }
 
-  void _onSubmit(Submit event, Emitter<StartDisputesFormState> emit) async {
+  void _onSubmit(Submit event, Emitter<DisputesFormState> emit) async {
     emit(state.copyWith(isSaving: true));
+
+    await _disputesRepository.create(state.dispute);
 
     emit(state.copyWith(isSaving: false));
   }

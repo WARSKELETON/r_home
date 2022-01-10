@@ -32,8 +32,8 @@ class _$DisputeDtoTearOff {
       required int votesAgainst,
       required int votesInsignificant,
       required int votesInFavour,
-      required int initialStake,
-      required int stake,
+      required double initialStake,
+      required double stake,
       required String category}) {
     return _DisputeDto(
       uuid: uuid,
@@ -70,8 +70,8 @@ mixin _$DisputeDto {
   int get votesAgainst => throw _privateConstructorUsedError;
   int get votesInsignificant => throw _privateConstructorUsedError;
   int get votesInFavour => throw _privateConstructorUsedError;
-  int get initialStake => throw _privateConstructorUsedError;
-  int get stake => throw _privateConstructorUsedError;
+  double get initialStake => throw _privateConstructorUsedError;
+  double get stake => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -95,8 +95,8 @@ abstract class $DisputeDtoCopyWith<$Res> {
       int votesAgainst,
       int votesInsignificant,
       int votesInFavour,
-      int initialStake,
-      int stake,
+      double initialStake,
+      double stake,
       String category});
 }
 
@@ -163,11 +163,11 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
       initialStake: initialStake == freezed
           ? _value.initialStake
           : initialStake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       stake: stake == freezed
           ? _value.stake
           : stake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -192,8 +192,8 @@ abstract class _$DisputeDtoCopyWith<$Res> implements $DisputeDtoCopyWith<$Res> {
       int votesAgainst,
       int votesInsignificant,
       int votesInFavour,
-      int initialStake,
-      int stake,
+      double initialStake,
+      double stake,
       String category});
 }
 
@@ -262,11 +262,11 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
       initialStake: initialStake == freezed
           ? _value.initialStake
           : initialStake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       stake: stake == freezed
           ? _value.stake
           : stake // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -315,9 +315,9 @@ class _$_DisputeDto extends _DisputeDto {
   @override
   final int votesInFavour;
   @override
-  final int initialStake;
+  final double initialStake;
   @override
-  final int stake;
+  final double stake;
   @override
   final String category;
 
@@ -389,8 +389,8 @@ abstract class _DisputeDto extends DisputeDto {
       required int votesAgainst,
       required int votesInsignificant,
       required int votesInFavour,
-      required int initialStake,
-      required int stake,
+      required double initialStake,
+      required double stake,
       required String category}) = _$_DisputeDto;
   const _DisputeDto._() : super._();
 
@@ -416,9 +416,9 @@ abstract class _DisputeDto extends DisputeDto {
   @override
   int get votesInFavour;
   @override
-  int get initialStake;
+  double get initialStake;
   @override
-  int get stake;
+  double get stake;
   @override
   String get category;
   @override

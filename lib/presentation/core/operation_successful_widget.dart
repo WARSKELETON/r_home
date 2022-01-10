@@ -31,7 +31,7 @@ class OperationSuccessfulWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20.0),
             child: RoundedButtonWidget(
               text: buttonText!,
-              onPressed: () => onPressed,
+              onPressed: onPressed,
               backgroundColor: Theme.of(context).colorScheme.primaryBlue,
               textColor: Colors.white,
               fontWeight: FontWeight.w800,

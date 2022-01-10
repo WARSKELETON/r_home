@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/homes/home.dart';
-import 'package:r_home/domain/local_activities/local_activity.dart';
 
 part 'home_dto.freezed.dart';
 part 'home_dto.g.dart';

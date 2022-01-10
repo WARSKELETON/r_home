@@ -18,7 +18,6 @@ import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/core/stepper_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/category_selection_page.dart';
 import 'package:r_home/presentation/my_local_activities_form/my_local_activities_form.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class NewLocalAcitvityPage extends StatelessWidget {
   const NewLocalAcitvityPage({Key? key}) : super(key: key);
@@ -143,7 +142,8 @@ class NewLocalAcitvityPage extends StatelessWidget {
                 ),
               );
             },
-          )),
+          )
+        ),
       bottomNavigationBar: const BottomBarWidget(),
     );
   }

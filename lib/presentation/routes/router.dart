@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:r_home/presentation/disputes/disputes_page.dart';
-import 'package:r_home/presentation/disputes/general_disputes_page.dart';
-import 'package:r_home/presentation/disputes/problems_with_payments_page.dart';
+import 'package:r_home/presentation/start_dispute_forms/general_disputes_page.dart';
+import 'package:r_home/presentation/start_dispute_forms/problems_with_payments_page.dart';
 import 'package:r_home/presentation/disputes/start_dispute_page.dart';
 import 'package:r_home/presentation/home/home_page.dart';
 import 'package:r_home/presentation/my_homes/my_home_details_page.dart';
@@ -34,7 +34,7 @@ import 'package:r_home/presentation/splash/test_page.dart';
     CustomRoute(page: RentAHomePage),
     CustomRoute(page: ProfilePage),
     CustomRoute(page: StartDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
-    CustomRoute(page: ProblemsWithPaymentsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
+    CustomRoute(page: ProblemsWithPaymentsPage, fullscreenDialog: true),
     CustomRoute(page: GeneralDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyHomeDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyLocalActivityDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),

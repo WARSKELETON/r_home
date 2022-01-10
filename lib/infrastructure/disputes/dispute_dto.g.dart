@@ -17,8 +17,8 @@ _$_DisputeDto _$$_DisputeDtoFromJson(Map<String, dynamic> json) =>
       votesAgainst: json['votesAgainst'] as int,
       votesInsignificant: json['votesInsignificant'] as int,
       votesInFavour: json['votesInFavour'] as int,
-      initialStake: json['initialStake'] as int,
-      stake: json['stake'] as int,
+      initialStake: (json['initialStake'] as num).toDouble(),
+      stake: (json['stake'] as num).toDouble(),
       category: json['category'] as String,
     );
 

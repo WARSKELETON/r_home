@@ -13,11 +13,10 @@
 import 'package:auto_route/auto_route.dart' as _i23;
 import 'package:flutter/material.dart' as _i24;
 
+import '../../domain/disputes/dispute.dart' as _i26;
 import '../../domain/homes/home.dart' as _i25;
-import '../../domain/local_activities/local_activity.dart' as _i26;
+import '../../domain/local_activities/local_activity.dart' as _i27;
 import '../disputes/disputes_page.dart' as _i5;
-import '../disputes/general_disputes_page.dart' as _i12;
-import '../disputes/problems_with_payments_page.dart' as _i11;
 import '../disputes/start_dispute_page.dart' as _i10;
 import '../home/home_page.dart' as _i4;
 import '../my_homes/my_home_details_page.dart' as _i13;
@@ -37,6 +36,8 @@ import '../sign_in/role_page.dart' as _i3;
 import '../sign_in/sign_in_page.dart' as _i2;
 import '../splash/splash_page.dart' as _i1;
 import '../splash/test_page.dart' as _i22;
+import '../start_dispute_forms/general_disputes_page.dart' as _i12;
+import '../start_dispute_forms/problems_with_payments_page.dart' as _i11;
 
 class MyRouter extends _i23.RootStackRouter {
   MyRouter([_i24.GlobalKey<_i24.NavigatorState>? navigatorKey])
@@ -109,18 +110,21 @@ class MyRouter extends _i23.RootStackRouter {
           barrierDismissible: false);
     },
     ProblemsWithPaymentsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<ProblemsWithPaymentsPageRouteArgs>();
       return _i23.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i11.ProblemsWithPaymentsPage(),
-          transitionsBuilder: _i23.TransitionsBuilders.slideLeft,
-          durationInMilliseconds: 150,
+          child: _i11.ProblemsWithPaymentsPage(
+              key: args.key, disputeCategory: args.disputeCategory),
+          fullscreenDialog: true,
           opaque: true,
           barrierDismissible: false);
     },
     GeneralDisputesPageRoute.name: (routeData) {
+      final args = routeData.argsAs<GeneralDisputesPageRouteArgs>();
       return _i23.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i12.GeneralDisputesPage(),
+          child: _i12.GeneralDisputesPage(
+              key: args.key, disputeCategory: args.disputeCategory),
           transitionsBuilder: _i23.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -355,21 +359,57 @@ class StartDisputesPageRoute extends _i23.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i11.ProblemsWithPaymentsPage]
-class ProblemsWithPaymentsPageRoute extends _i23.PageRouteInfo<void> {
-  const ProblemsWithPaymentsPageRoute()
+class ProblemsWithPaymentsPageRoute
+    extends _i23.PageRouteInfo<ProblemsWithPaymentsPageRouteArgs> {
+  ProblemsWithPaymentsPageRoute(
+      {_i24.Key? key, required _i26.DisputeCategory disputeCategory})
       : super(ProblemsWithPaymentsPageRoute.name,
-            path: '/problems-with-payments-page');
+            path: '/problems-with-payments-page',
+            args: ProblemsWithPaymentsPageRouteArgs(
+                key: key, disputeCategory: disputeCategory));
 
   static const String name = 'ProblemsWithPaymentsPageRoute';
 }
 
+class ProblemsWithPaymentsPageRouteArgs {
+  const ProblemsWithPaymentsPageRouteArgs(
+      {this.key, required this.disputeCategory});
+
+  final _i24.Key? key;
+
+  final _i26.DisputeCategory disputeCategory;
+
+  @override
+  String toString() {
+    return 'ProblemsWithPaymentsPageRouteArgs{key: $key, disputeCategory: $disputeCategory}';
+  }
+}
+
 /// generated route for
 /// [_i12.GeneralDisputesPage]
-class GeneralDisputesPageRoute extends _i23.PageRouteInfo<void> {
-  const GeneralDisputesPageRoute()
-      : super(GeneralDisputesPageRoute.name, path: '/general-disputes-page');
+class GeneralDisputesPageRoute
+    extends _i23.PageRouteInfo<GeneralDisputesPageRouteArgs> {
+  GeneralDisputesPageRoute(
+      {_i24.Key? key, required _i26.DisputeCategory disputeCategory})
+      : super(GeneralDisputesPageRoute.name,
+            path: '/general-disputes-page',
+            args: GeneralDisputesPageRouteArgs(
+                key: key, disputeCategory: disputeCategory));
 
   static const String name = 'GeneralDisputesPageRoute';
+}
+
+class GeneralDisputesPageRouteArgs {
+  const GeneralDisputesPageRouteArgs({this.key, required this.disputeCategory});
+
+  final _i24.Key? key;
+
+  final _i26.DisputeCategory disputeCategory;
+
+  @override
+  String toString() {
+    return 'GeneralDisputesPageRouteArgs{key: $key, disputeCategory: $disputeCategory}';
+  }
 }
 
 /// generated route for
@@ -467,7 +507,7 @@ class CategorySelectionPageRoute extends _i23.PageRouteInfo<void> {
 class MyLocalActivitiesFormRoute
     extends _i23.PageRouteInfo<MyLocalActivitiesFormRouteArgs> {
   MyLocalActivitiesFormRoute(
-      {_i24.Key? key, _i26.LocalActivity? editedActivity})
+      {_i24.Key? key, _i27.LocalActivity? editedActivity})
       : super(MyLocalActivitiesFormRoute.name,
             path: '/my-local-activities-form',
             args: MyLocalActivitiesFormRouteArgs(
@@ -481,7 +521,7 @@ class MyLocalActivitiesFormRouteArgs {
 
   final _i24.Key? key;
 
-  final _i26.LocalActivity? editedActivity;
+  final _i27.LocalActivity? editedActivity;
 
   @override
   String toString() {
