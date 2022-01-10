@@ -11,6 +11,7 @@ import 'package:r_home/infrastructure/disputes/disputes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/disputes_list_widget.dart';
+import 'package:r_home/presentation/disputes/widgets/select_filters_my_disputes_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/select_filters_participate_in_dispute_widget.dart';
 
 class MyDisputesPage extends StatelessWidget {
@@ -57,7 +58,7 @@ class MyDisputesPage extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 10.0, bottom: 5.0, right: 10.0),
-                  child: SelectFiltersParticipateInDisputeWidget(),
+                  child: SelectFiltersMyDisputesWidget(),
                 ),
                 const Divider(
                   thickness: 2,

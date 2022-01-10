@@ -4,7 +4,8 @@ import 'package:r_home/application/list_filter/list_filter_bloc.dart';
 import 'package:r_home/presentation/disputes/widgets/chip_widget.dart';
 
 class SelectFiltersParticipateInDisputeWidget extends StatelessWidget {
-  const SelectFiltersParticipateInDisputeWidget({Key? key}): super(key: key);
+  const SelectFiltersParticipateInDisputeWidget({Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +16,17 @@ class SelectFiltersParticipateInDisputeWidget extends StatelessWidget {
       children: <Widget>[
         ChipWidget(
           width: 100,
-          title: "OPENED",
+          title: "VOTED",
           isClickable: true,
-          isChecked: context.watch<ListFilterBloc>().state.isOpened,
-          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleOpened()),
+          isChecked: context.watch<ListFilterBloc>().state.isVotedActive,
+          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleVoted()),
         ),
         ChipWidget(
           width: 140,
-          title: "CLOSED",
+          title: "NOT VOTED",
           isClickable: true,
-          isChecked: context.watch<ListFilterBloc>().state.isClosed,
-          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleClosed()),
+          isChecked: context.watch<ListFilterBloc>().state.isNotVotedActive,
+          onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleNotVoted()),
         ),
         ChipWidget(
           width: 230,
