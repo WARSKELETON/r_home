@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:r_home/presentation/disputes/dispute_details_page.dart';
 import 'package:r_home/presentation/disputes/disputes_page.dart';
 import 'package:r_home/presentation/disputes/my_disputes_page.dart';
 import 'package:r_home/presentation/disputes/participate_in_dispute_page.dart';
@@ -40,6 +41,7 @@ import 'package:r_home/presentation/splash/test_page.dart';
     CustomRoute(page: ProfilePage),
     CustomRoute(page: StartDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
+    CustomRoute(page: DisputeDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: ParticipateInDisputePage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: ProblemsWithPaymentsPage, fullscreenDialog: true),
     CustomRoute(page: GeneralDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),

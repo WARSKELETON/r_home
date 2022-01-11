@@ -1,21 +1,24 @@
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/disputes/widgets/chip_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/dispute_row_detail_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 
-class DisputeRowInfoWidget extends StatelessWidget {
+class DisputeListRowWidget extends StatelessWidget {
   final Dispute dispute;
+  final void Function()? onPressed;
 
-  const DisputeRowInfoWidget({Key? key, required this.dispute}) : super(key: key);
+  const DisputeListRowWidget({Key? key, required this.dispute, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
-      onTap: () {},
+      onTap: onPressed,
       borderRadius: BorderRadius.circular(15.0),
       child: Padding(
         padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 1.0, right: 1.0),

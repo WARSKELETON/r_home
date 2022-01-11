@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,9 @@ import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/disputes/disputes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/disputes/widgets/disputes_list_widget.dart';
+import 'package:r_home/presentation/disputes/widgets/dispute_row_info_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/select_filters_participate_in_dispute_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class ParticipateInDisputePage extends StatelessWidget {
   const ParticipateInDisputePage({Key? key}) : super(key: key);
@@ -64,7 +66,16 @@ class ParticipateInDisputePage extends StatelessWidget {
                   height: 30,
                   color: Color(0xFFE5E5E5),
                 ),
-                DisputesListWidget(disputes: _disputes),
+                Expanded(
+                  child: ListView.separated(
+                    padding: const EdgeInsets.all(5),
+                    itemCount: _disputes.length,
+                    itemBuilder: (BuildContext ctxt, int index) {
+                      return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid, privateMode: false)));
+                    },
+                    separatorBuilder: (BuildContext context, int index) => const Divider(),
+                  ),
+                )
               ],
             );
           },

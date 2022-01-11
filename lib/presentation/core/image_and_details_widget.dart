@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HomeDetailsImageWidget extends StatelessWidget {
-  const HomeDetailsImageWidget({Key? key}) : super(key: key);
+class ImageAndDetailsWidget extends StatelessWidget {
+  final AssetImage image;
+
+  const ImageAndDetailsWidget({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class HomeDetailsImageWidget extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       color: Colors.transparent,
       child: Ink.image(
-        image: const AssetImage("assets/icons/home3.png"),
+        image: image,
         fit: BoxFit.cover,
         width: MediaQuery.of(context).size.width,
         height: 230,

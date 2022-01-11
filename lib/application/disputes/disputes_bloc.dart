@@ -17,6 +17,9 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
     on<DisputesReceived>(_onDisputesReceived);
     on<DisputeReceived>(_onDisputeReceived);
     on<WatchDispute>(_onWatchDispute);
+    on<VoteAgainst>(_onVoteAgainst);
+    on<VoteIndiferent>(_onVoteIndiferent);
+    on<VoteFavour>(_onVoteFavour);
   }
 
   StreamSubscription<List<Dispute>>? _myDisputesStreamSubscription;
@@ -49,5 +52,25 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
 
   void _onDisputeReceived(DisputeReceived event, Emitter<DisputesState> emit) {
     emit(state.copyWith(dispute: event.dispute));
+  }
+
+  void _onVoteAgainst(VoteAgainst event, Emitter<DisputesState> emit) {
+    emit(state.copyWith(dispute: state.dispute.copyWith(votesAgainst: state.dispute.votesAgainst + 1)));
+    _onUpdate();
+  }
+
+  void _onVoteIndiferent(VoteIndiferent event, Emitter<DisputesState> emit) {
+    emit(state.copyWith(dispute: state.dispute.copyWith(votesIndiferent: state.dispute.votesIndiferent + 1)));
+    _onUpdate();
+  }
+
+  void _onVoteFavour(VoteFavour event, Emitter<DisputesState> emit) {
+    emit(state.copyWith(dispute: state.dispute.copyWith(votesInFavour: state.dispute.votesAgainst + 1)));
+    _onUpdate();
+  }
+
+  void _onUpdate() {
+    _disputesRepository.update(state.dispute);
+    emit(state);
   }
 }
