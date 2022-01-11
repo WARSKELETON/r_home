@@ -8,5 +8,6 @@ abstract class IAuthFacade {
   String? getSignedInUsername();
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
   Future<Either<AuthFailure, Unit>> registerUserWithRole(String role);
+  Future<DomainUser> getUserById(String userId);
   Future<void> signOut();
 }

@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
-import 'package:r_home/domain/disputes/i_homes_repository.dart';
+import 'package:r_home/domain/disputes/i_disputes_repository.dart';
+import 'package:r_home/domain/homes/home.dart';
 
 part 'disputes_event.dart';
 part 'disputes_state.dart';
@@ -16,6 +18,7 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
     on<Initialize>(_onInitialize);
     on<DisputesReceived>(_onDisputesReceived);
     on<DisputeReceived>(_onDisputeReceived);
+    on<HomeReceived>(_onHomeReceived);
     on<WatchDispute>(_onWatchDispute);
     on<VoteAgainst>(_onVoteAgainst);
     on<VoteIndiferent>(_onVoteIndiferent);
@@ -25,6 +28,7 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
   StreamSubscription<List<Dispute>>? _myDisputesStreamSubscription;
   StreamSubscription<List<Dispute>>? _disputesStreamSubscription;
   StreamSubscription<Dispute>? _disputeStreamSubscription;
+  StreamSubscription<Home>? _homeStreamSubscription;
 
   void _onInitialize(Initialize event, Emitter<DisputesState> emit) {
     event.allDisputes ?
@@ -52,6 +56,17 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
 
   void _onDisputeReceived(DisputeReceived event, Emitter<DisputesState> emit) {
     emit(state.copyWith(dispute: event.dispute));
+
+    _homeStreamSubscription = _disputesRepository
+      .watchHomeFromDispute(event.dispute.homeUuid)
+      .listen((home) => add(DisputesEvent.homeReceived(home))
+    );
+    emit(state);
+  }
+  
+  void _onHomeReceived(HomeReceived event, Emitter<DisputesState> emit) async {
+    final host = await _disputesRepository.getHost(event.home.host);
+    emit(state.copyWith(home: event.home, host: host));
   }
 
   void _onVoteAgainst(VoteAgainst event, Emitter<DisputesState> emit) {

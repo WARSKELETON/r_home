@@ -7,8 +7,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
+import 'package:r_home/domain/rentals/rental.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/disputes/disputes_repository.dart';
+import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/operation_successful_widget.dart';
@@ -43,6 +45,14 @@ class GeneralDisputesPage extends StatelessWidget {
                       GoogleSignIn(),
                       FirebaseFirestore.instance
                     )
+                  ),
+                  RentalsRepository(
+                    FirebaseFirestore.instance,
+                    FirebaseAuthFacade(
+                      FirebaseAuth.instance,
+                      GoogleSignIn(),
+                      FirebaseFirestore.instance
+                    )
                   )
               )
               ..add(DisputesFormEvent.initialize(disputeCategory)),
@@ -51,13 +61,14 @@ class GeneralDisputesPage extends StatelessWidget {
           child: BlocBuilder<StepperBloc, StepperState>(
             buildWhen: (p, c) => p.selectedIndex != c.selectedIndex,
             builder: (context, state) {
-              int currentIndex = context.read<StepperBloc>().state.selectedIndex;
+              int _currentIndex = context.read<StepperBloc>().state.selectedIndex;
 
-              String homeUuid = context.watch<DisputesFormBloc>().state.dispute.homeUuid;
-              double initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
+              List<Rental> _rentals = context.watch<DisputesFormBloc>().state.rentals;
+              String _rentalUuid = context.watch<DisputesFormBloc>().state.dispute.rentalUuid;
+              double _initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
 
               String title = "";
-              switch (currentIndex) {
+              switch (_currentIndex) {
                 case 0:
                   title = "Consent form";
                   break;
@@ -90,28 +101,28 @@ class GeneralDisputesPage extends StatelessWidget {
                         titleAlignment: Alignment.center,
                         titleTextAlignment: TextAlign.center,
                       ),
-                      if (currentIndex == 0) ...[
+                      if (_currentIndex == 0) ...[
                         const ConsentMessageWidget(),
-                      ] else if (currentIndex == 1) ...[
-                        const SelectHomeWidget(rentals: ["Rental 1", "Rental 2", "Rental 3", "Rental 4", "Rental 5"],),
-                      ] else if (currentIndex == 2) ...[
+                      ] else if (_currentIndex == 1) ...[
+                        SelectHomeWidget(rentals: _rentals),
+                      ] else if (_currentIndex == 2) ...[
                         const StartDisputesForm(),
-                      ] else if (currentIndex == 3) ...[
+                      ] else if (_currentIndex == 3) ...[
                         SliderTokensWidget(value: context.watch<DisputesFormBloc>().state.dispute.initialStake, onChanged: (value) => context.read<DisputesFormBloc>().add(DisputesFormEvent.initialStakeChanged(value))),
-                      ] else if (currentIndex == 4) ...[
+                      ] else if (_currentIndex == 4) ...[
                         OperationSuccessfulWidget(
                           buttonText: "Back to Disputes",
                           onPressed: () => AutoRouter.of(context).pop()
                         ),
                       ],
-                      if (currentIndex != 4) ...[
+                      if (_currentIndex != 4) ...[
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 15.0),
                             child: Column(
                               children: [
-                                if (currentIndex == 3) ...[
+                                if (_currentIndex == 3) ...[
                                   const InfoMessageWidget(),
                                 ],
                                 Row(
@@ -119,15 +130,15 @@ class GeneralDisputesPage extends StatelessWidget {
                                   children: [
                                     RoundedButtonWidget(
                                       text: 'Previous',
-                                      disabled: currentIndex == 0,
+                                      disabled: _currentIndex == 0,
                                       onPressed: () => context
                                           .read<StepperBloc>()
                                           .add(const StepperEvent.decrementIndex()),
-                                      backgroundColor: currentIndex == 0
+                                      backgroundColor: _currentIndex == 0
                                           ? Colors.grey
                                           : Colors.white,
                                       fontWeight: FontWeight.w400,
-                                      textColor: currentIndex == 0
+                                      textColor: _currentIndex == 0
                                           ? Colors.white
                                           : Theme.of(context).colorScheme.primaryBlue,
                                       fontSize: 16,
@@ -136,9 +147,9 @@ class GeneralDisputesPage extends StatelessWidget {
                                     ),
                                     RoundedButtonWidget(
                                       text: 'Next',
-                                      disabled: (homeUuid.isEmpty && currentIndex == 1) | (initialStake == 0 && currentIndex == 3),
+                                      disabled: (_rentalUuid.isEmpty && _currentIndex == 1) | (_initialStake == 0 && _currentIndex == 3),
                                       onPressed: () {
-                                        if (currentIndex == 3) {
+                                        if (_currentIndex == 3) {
                                           context.read<DisputesFormBloc>().add(const DisputesFormEvent.submit());
                                         }
                                         context.read<StepperBloc>().add(const StepperEvent.incrementIndex());

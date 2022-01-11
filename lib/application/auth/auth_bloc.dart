@@ -32,11 +32,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _onGetDomainUser(AuthEvent event, Emitter<AuthState> emit) async {
+    emit(state.copyWith(isLoading: true));
     final userOption = await _authFacade.getSignedInUser();
 
     userOption.fold(
       () => emit(state),
       (user) => emit(state.copyWith(user: user)),
     );
+    emit(state.copyWith(isLoading: false));
   }
 }

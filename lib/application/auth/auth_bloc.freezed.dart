@@ -429,10 +429,14 @@ abstract class GetDomainUser implements AuthEvent {
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  _AuthState call({required bool authenticated, required DomainUser user}) {
+  _AuthState call(
+      {required bool authenticated,
+      required DomainUser user,
+      required bool isLoading}) {
     return _AuthState(
       authenticated: authenticated,
       user: user,
+      isLoading: isLoading,
     );
   }
 }
@@ -444,6 +448,7 @@ const $AuthState = _$AuthStateTearOff();
 mixin _$AuthState {
   bool get authenticated => throw _privateConstructorUsedError;
   DomainUser get user => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -454,7 +459,7 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
-  $Res call({bool authenticated, DomainUser user});
+  $Res call({bool authenticated, DomainUser user, bool isLoading});
 
   $DomainUserCopyWith<$Res> get user;
 }
@@ -471,6 +476,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   $Res call({
     Object? authenticated = freezed,
     Object? user = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
       authenticated: authenticated == freezed
@@ -481,6 +487,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as DomainUser,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -498,7 +508,7 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
           _AuthState value, $Res Function(_AuthState) then) =
       __$AuthStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool authenticated, DomainUser user});
+  $Res call({bool authenticated, DomainUser user, bool isLoading});
 
   @override
   $DomainUserCopyWith<$Res> get user;
@@ -517,6 +527,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   $Res call({
     Object? authenticated = freezed,
     Object? user = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_AuthState(
       authenticated: authenticated == freezed
@@ -527,6 +538,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as DomainUser,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -534,16 +549,21 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AuthState implements _AuthState {
-  const _$_AuthState({required this.authenticated, required this.user});
+  const _$_AuthState(
+      {required this.authenticated,
+      required this.user,
+      required this.isLoading});
 
   @override
   final bool authenticated;
   @override
   final DomainUser user;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'AuthState(authenticated: $authenticated, user: $user)';
+    return 'AuthState(authenticated: $authenticated, user: $user, isLoading: $isLoading)';
   }
 
   @override
@@ -553,14 +573,16 @@ class _$_AuthState implements _AuthState {
             other is _AuthState &&
             const DeepCollectionEquality()
                 .equals(other.authenticated, authenticated) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            const DeepCollectionEquality().equals(other.user, user) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(authenticated),
-      const DeepCollectionEquality().hash(user));
+      const DeepCollectionEquality().hash(user),
+      const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
@@ -570,12 +592,16 @@ class _$_AuthState implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
-      {required bool authenticated, required DomainUser user}) = _$_AuthState;
+      {required bool authenticated,
+      required DomainUser user,
+      required bool isLoading}) = _$_AuthState;
 
   @override
   bool get authenticated;
   @override
   DomainUser get user;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$AuthStateCopyWith<_AuthState> get copyWith =>

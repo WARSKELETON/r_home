@@ -17,9 +17,6 @@ class StartDisputesPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 20,
-              ),
               const Padding(
                 padding: EdgeInsets.only(left: 50.0, right: 50.0),
                 child: Text(

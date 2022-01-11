@@ -141,4 +141,15 @@ class FirebaseAuthFacade implements IAuthFacade {
       return null;
     }
   }
+
+  @override
+  Future<DomainUser> getUserById(String userId) async {
+    final docRef = _firestore
+        .collection(USERS_COLLECTION)
+        .doc(userId);
+
+    final doc = await docRef.get();
+
+    return UserDto.fromFirestore(doc).toDomain();
+  }
 }

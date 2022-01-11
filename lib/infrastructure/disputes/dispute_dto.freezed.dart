@@ -29,6 +29,7 @@ class _$DisputeDtoTearOff {
       required String title,
       required String descritption,
       required String homeUuid,
+      required String rentalUuid,
       required bool isOpened,
       required int votesAgainst,
       required int votesIndiferent,
@@ -43,6 +44,7 @@ class _$DisputeDtoTearOff {
       title: title,
       descritption: descritption,
       homeUuid: homeUuid,
+      rentalUuid: rentalUuid,
       isOpened: isOpened,
       votesAgainst: votesAgainst,
       votesIndiferent: votesIndiferent,
@@ -69,6 +71,7 @@ mixin _$DisputeDto {
   String get title => throw _privateConstructorUsedError;
   String get descritption => throw _privateConstructorUsedError;
   String get homeUuid => throw _privateConstructorUsedError;
+  String get rentalUuid => throw _privateConstructorUsedError;
   bool get isOpened => throw _privateConstructorUsedError;
   int get votesAgainst => throw _privateConstructorUsedError;
   int get votesIndiferent => throw _privateConstructorUsedError;
@@ -95,6 +98,7 @@ abstract class $DisputeDtoCopyWith<$Res> {
       String title,
       String descritption,
       String homeUuid,
+      String rentalUuid,
       bool isOpened,
       int votesAgainst,
       int votesIndiferent,
@@ -120,6 +124,7 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
     Object? title = freezed,
     Object? descritption = freezed,
     Object? homeUuid = freezed,
+    Object? rentalUuid = freezed,
     Object? isOpened = freezed,
     Object? votesAgainst = freezed,
     Object? votesIndiferent = freezed,
@@ -152,6 +157,10 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
       homeUuid: homeUuid == freezed
           ? _value.homeUuid
           : homeUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      rentalUuid: rentalUuid == freezed
+          ? _value.rentalUuid
+          : rentalUuid // ignore: cast_nullable_to_non_nullable
               as String,
       isOpened: isOpened == freezed
           ? _value.isOpened
@@ -198,6 +207,7 @@ abstract class _$DisputeDtoCopyWith<$Res> implements $DisputeDtoCopyWith<$Res> {
       String title,
       String descritption,
       String homeUuid,
+      String rentalUuid,
       bool isOpened,
       int votesAgainst,
       int votesIndiferent,
@@ -225,6 +235,7 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
     Object? title = freezed,
     Object? descritption = freezed,
     Object? homeUuid = freezed,
+    Object? rentalUuid = freezed,
     Object? isOpened = freezed,
     Object? votesAgainst = freezed,
     Object? votesIndiferent = freezed,
@@ -257,6 +268,10 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
       homeUuid: homeUuid == freezed
           ? _value.homeUuid
           : homeUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      rentalUuid: rentalUuid == freezed
+          ? _value.rentalUuid
+          : rentalUuid // ignore: cast_nullable_to_non_nullable
               as String,
       isOpened: isOpened == freezed
           ? _value.isOpened
@@ -300,6 +315,7 @@ class _$_DisputeDto extends _DisputeDto {
       required this.title,
       required this.descritption,
       required this.homeUuid,
+      required this.rentalUuid,
       required this.isOpened,
       required this.votesAgainst,
       required this.votesIndiferent,
@@ -325,6 +341,8 @@ class _$_DisputeDto extends _DisputeDto {
   @override
   final String homeUuid;
   @override
+  final String rentalUuid;
+  @override
   final bool isOpened;
   @override
   final int votesAgainst;
@@ -341,7 +359,7 @@ class _$_DisputeDto extends _DisputeDto {
 
   @override
   String toString() {
-    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIndiferent: $votesIndiferent, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
+    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIndiferent: $votesIndiferent, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
   }
 
   @override
@@ -358,6 +376,8 @@ class _$_DisputeDto extends _DisputeDto {
             const DeepCollectionEquality()
                 .equals(other.descritption, descritption) &&
             const DeepCollectionEquality().equals(other.homeUuid, homeUuid) &&
+            const DeepCollectionEquality()
+                .equals(other.rentalUuid, rentalUuid) &&
             const DeepCollectionEquality().equals(other.isOpened, isOpened) &&
             const DeepCollectionEquality()
                 .equals(other.votesAgainst, votesAgainst) &&
@@ -380,6 +400,7 @@ class _$_DisputeDto extends _DisputeDto {
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(descritption),
       const DeepCollectionEquality().hash(homeUuid),
+      const DeepCollectionEquality().hash(rentalUuid),
       const DeepCollectionEquality().hash(isOpened),
       const DeepCollectionEquality().hash(votesAgainst),
       const DeepCollectionEquality().hash(votesIndiferent),
@@ -407,6 +428,7 @@ abstract class _DisputeDto extends DisputeDto {
       required String title,
       required String descritption,
       required String homeUuid,
+      required String rentalUuid,
       required bool isOpened,
       required int votesAgainst,
       required int votesIndiferent,
@@ -431,6 +453,8 @@ abstract class _DisputeDto extends DisputeDto {
   String get descritption;
   @override
   String get homeUuid;
+  @override
+  String get rentalUuid;
   @override
   bool get isOpened;
   @override
