@@ -25,8 +25,8 @@ class PaymentField extends StatelessWidget {
     double price = context.read<RentAHomeBloc>().state.selectedHome.price;
 
     return [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 2.0),
+      const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 2.0),
         child: Text(
           "Total Price",
           style: TextStyle(
@@ -40,14 +40,14 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Number of Nights",
               style: TextStyle(
               fontSize: 16
             )),
             Text(
               nights.toString(),
-              style: TextStyle(
+              style: const TextStyle(
               fontSize: 16
           ))
           ],
@@ -58,7 +58,7 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Price per Night",
               style: TextStyle(
               fontSize: 16
@@ -69,12 +69,12 @@ class PaymentField extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Text(
                     price.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 16
                     )
                   ),
                 ),
-                Icon(RHomeIcon.token)
+                const Icon(RHomeIcon.token)
               ],
             )
           ],
@@ -85,15 +85,15 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Single Fee",
               style: TextStyle(
               fontSize: 16
             )),
             Row(
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                  padding: EdgeInsets.only(right: 8.0),
                   child: Text(
                     "3",
                     style: TextStyle(
@@ -112,7 +112,7 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Total",
               style: TextStyle(
               fontSize: 16
@@ -123,7 +123,7 @@ class PaymentField extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Text(
                     totalPrice(nights, price, 3).toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 16
                     )
                   ),
@@ -139,8 +139,8 @@ class PaymentField extends StatelessWidget {
 
   List<Widget> paymentMethodsWidgets() {
     return [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: Text(
           "Payment Method",
           style: TextStyle(

@@ -8,7 +8,7 @@ extension FirebaseUserDomainX on User {
       id: uid,
       email: email,
       name: displayName,
-      photo: photoURL,
+      photo: user.photo,
       walletAddress: user.walletAddress,
       role: user.role,
       numTokens: user.numTokens

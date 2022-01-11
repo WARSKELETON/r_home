@@ -39,11 +39,12 @@ class HomePage extends StatelessWidget {
               height: 40,
               color: Color(0xFFE5E5E5),
             ),
-            const SizedBox(
+            SizedBox(
               height: 275,
               child: HorizontalScrollWidget(
                   title: "My Host Recommendations",
-                  items: [1, 2, 3, 4]),
+                  items: const [1, 2, 3, 4],
+                  onPressed: () => AutoRouter.of(context).push(const MyStaysPageRoute())),
             ),
           ],
         ),
