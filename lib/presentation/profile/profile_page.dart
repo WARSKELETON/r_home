@@ -25,7 +25,7 @@ class ProfilePage extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         left: 10.0, right: 10.0, bottom: 10.0, top: 30.0),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(100.0),
                       child: Image.network(
                           state.user.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" : state.user.photo!),
                     ),

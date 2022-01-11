@@ -21,6 +21,15 @@ class HomesRepository implements IHomesRepository {
   }
 
   @override
+  Stream<List<Home>> watchAllFromHomeIds(List<String> homeIds) async* {
+    final colRef = _firestore
+        .collection(HOMES_COLLECTION)
+        .where("uuid", whereIn: homeIds);
+
+    yield* colRef.snapshots().map((query) => query.toListHome());
+  }
+
+  @override
   Stream<List<Home>> watchAllFromHost() async* {
     final hostId = _authFacade.getSignedInUserId()!;
 
