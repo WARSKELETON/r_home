@@ -1289,13 +1289,17 @@ class _$MyStaysStateTearOff {
       required List<Rental> rentals,
       required Rental rental,
       required List<Home> homes,
-      required Home home}) {
+      required Home home,
+      required DomainUser host,
+      required DomainUser guest}) {
     return _MyStaysState(
       isLoading: isLoading,
       rentals: rentals,
       rental: rental,
       homes: homes,
       home: home,
+      host: host,
+      guest: guest,
     );
   }
 }
@@ -1310,6 +1314,8 @@ mixin _$MyStaysState {
   Rental get rental => throw _privateConstructorUsedError;
   List<Home> get homes => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
+  DomainUser get host => throw _privateConstructorUsedError;
+  DomainUser get guest => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyStaysStateCopyWith<MyStaysState> get copyWith =>
@@ -1326,10 +1332,14 @@ abstract class $MyStaysStateCopyWith<$Res> {
       List<Rental> rentals,
       Rental rental,
       List<Home> homes,
-      Home home});
+      Home home,
+      DomainUser host,
+      DomainUser guest});
 
   $RentalCopyWith<$Res> get rental;
   $HomeCopyWith<$Res> get home;
+  $DomainUserCopyWith<$Res> get host;
+  $DomainUserCopyWith<$Res> get guest;
 }
 
 /// @nodoc
@@ -1347,6 +1357,8 @@ class _$MyStaysStateCopyWithImpl<$Res> implements $MyStaysStateCopyWith<$Res> {
     Object? rental = freezed,
     Object? homes = freezed,
     Object? home = freezed,
+    Object? host = freezed,
+    Object? guest = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -1369,6 +1381,14 @@ class _$MyStaysStateCopyWithImpl<$Res> implements $MyStaysStateCopyWith<$Res> {
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
+      host: host == freezed
+          ? _value.host
+          : host // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
+      guest: guest == freezed
+          ? _value.guest
+          : guest // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
     ));
   }
 
@@ -1385,6 +1405,20 @@ class _$MyStaysStateCopyWithImpl<$Res> implements $MyStaysStateCopyWith<$Res> {
       return _then(_value.copyWith(home: value));
     });
   }
+
+  @override
+  $DomainUserCopyWith<$Res> get host {
+    return $DomainUserCopyWith<$Res>(_value.host, (value) {
+      return _then(_value.copyWith(host: value));
+    });
+  }
+
+  @override
+  $DomainUserCopyWith<$Res> get guest {
+    return $DomainUserCopyWith<$Res>(_value.guest, (value) {
+      return _then(_value.copyWith(guest: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1399,12 +1433,18 @@ abstract class _$MyStaysStateCopyWith<$Res>
       List<Rental> rentals,
       Rental rental,
       List<Home> homes,
-      Home home});
+      Home home,
+      DomainUser host,
+      DomainUser guest});
 
   @override
   $RentalCopyWith<$Res> get rental;
   @override
   $HomeCopyWith<$Res> get home;
+  @override
+  $DomainUserCopyWith<$Res> get host;
+  @override
+  $DomainUserCopyWith<$Res> get guest;
 }
 
 /// @nodoc
@@ -1424,6 +1464,8 @@ class __$MyStaysStateCopyWithImpl<$Res> extends _$MyStaysStateCopyWithImpl<$Res>
     Object? rental = freezed,
     Object? homes = freezed,
     Object? home = freezed,
+    Object? host = freezed,
+    Object? guest = freezed,
   }) {
     return _then(_MyStaysState(
       isLoading: isLoading == freezed
@@ -1446,6 +1488,14 @@ class __$MyStaysStateCopyWithImpl<$Res> extends _$MyStaysStateCopyWithImpl<$Res>
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
+      host: host == freezed
+          ? _value.host
+          : host // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
+      guest: guest == freezed
+          ? _value.guest
+          : guest // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
     ));
   }
 }
@@ -1458,7 +1508,9 @@ class _$_MyStaysState implements _MyStaysState {
       required this.rentals,
       required this.rental,
       required this.homes,
-      required this.home});
+      required this.home,
+      required this.host,
+      required this.guest});
 
   @override
   final bool isLoading;
@@ -1470,10 +1522,14 @@ class _$_MyStaysState implements _MyStaysState {
   final List<Home> homes;
   @override
   final Home home;
+  @override
+  final DomainUser host;
+  @override
+  final DomainUser guest;
 
   @override
   String toString() {
-    return 'MyStaysState(isLoading: $isLoading, rentals: $rentals, rental: $rental, homes: $homes, home: $home)';
+    return 'MyStaysState(isLoading: $isLoading, rentals: $rentals, rental: $rental, homes: $homes, home: $home, host: $host, guest: $guest)';
   }
 
   @override
@@ -1485,7 +1541,9 @@ class _$_MyStaysState implements _MyStaysState {
             const DeepCollectionEquality().equals(other.rentals, rentals) &&
             const DeepCollectionEquality().equals(other.rental, rental) &&
             const DeepCollectionEquality().equals(other.homes, homes) &&
-            const DeepCollectionEquality().equals(other.home, home));
+            const DeepCollectionEquality().equals(other.home, home) &&
+            const DeepCollectionEquality().equals(other.host, host) &&
+            const DeepCollectionEquality().equals(other.guest, guest));
   }
 
   @override
@@ -1495,7 +1553,9 @@ class _$_MyStaysState implements _MyStaysState {
       const DeepCollectionEquality().hash(rentals),
       const DeepCollectionEquality().hash(rental),
       const DeepCollectionEquality().hash(homes),
-      const DeepCollectionEquality().hash(home));
+      const DeepCollectionEquality().hash(home),
+      const DeepCollectionEquality().hash(host),
+      const DeepCollectionEquality().hash(guest));
 
   @JsonKey(ignore: true)
   @override
@@ -1509,7 +1569,9 @@ abstract class _MyStaysState implements MyStaysState {
       required List<Rental> rentals,
       required Rental rental,
       required List<Home> homes,
-      required Home home}) = _$_MyStaysState;
+      required Home home,
+      required DomainUser host,
+      required DomainUser guest}) = _$_MyStaysState;
 
   @override
   bool get isLoading;
@@ -1521,6 +1583,10 @@ abstract class _MyStaysState implements MyStaysState {
   List<Home> get homes;
   @override
   Home get home;
+  @override
+  DomainUser get host;
+  @override
+  DomainUser get guest;
   @override
   @JsonKey(ignore: true)
   _$MyStaysStateCopyWith<_MyStaysState> get copyWith =>

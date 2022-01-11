@@ -11,10 +11,12 @@ import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
 import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 
 class MyHomeDetailsPage extends StatelessWidget {
   final String homeUuid;
@@ -23,15 +25,15 @@ class MyHomeDetailsPage extends StatelessWidget {
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
+      padding: const EdgeInsets.only(top: 5.0, bottom: 10.0, left: 15.0, right: 15.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             left,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
-          if (left.toString() == "Price:") ...[
+          if (left.toString() == "Price per Night:") ...[
             Row(
               children: [
                 Padding(
@@ -48,6 +50,25 @@ class MyHomeDetailsPage extends StatelessWidget {
           ] else ...[
             Text(right.toString()),
           ]
+        ],
+      ),
+    );
+  }
+
+  Widget _buildGuestRow(BuildContext context, IconData icon, String text) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 2.0),
+            child: Icon(icon, size: 16,),
+          ),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 16),
+          ),
         ],
       ),
     );
@@ -74,42 +95,37 @@ class MyHomeDetailsPage extends StatelessWidget {
                 )
               ],
             ),
-            body: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints viewportConstraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: viewportConstraints.maxHeight,
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
-                        HomeDetailsTextWidget(home: _home),
-                        const Divider(
-                          thickness: 8,
-                          height: 40,
-                          color: Color(0xFFE5E5E5),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 20.0),
-                                  child: Text(
-                                    "Currently Renting To:",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+            body: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
+                      HomeDetailsTextWidget(home: _home),
+                      const Divider(
+                        thickness: 8,
+                        height: 40,
+                        color: Color(0xFFE5E5E5),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: SizedBox(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 20.0, right: 15.0, left: 15.0),
+                                child: Text(
+                                  "Guest Info",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -117,31 +133,63 @@ class MyHomeDetailsPage extends StatelessWidget {
                                         child: ClipRRect(
                                           borderRadius: BorderRadius.circular(50.0),
                                           child: Image.network(
-                                            "https://lh3.googleusercontent.com/a/AATXAJx1R3Mz9BM_w6j4Oo9ugq8B-7yePvc3TsByifi3=s96-c",
-                                            width: 30,
+                                            "https://static.wixstatic.com/media/6f3bc4_c69a145099ba4376b3d429fcc61a8c1d~mv2.jpg/v1/crop/x_23,y_0,w_465,h_465/fill/w_220,h_220,al_c,q_80,usm_0.66_1.00_0.01/AndreAugusto.webp",
+                                            width: 80,
                                           ),
                                         ),
                                       ),
-                                      _buildRow(context, "Guest: ", "@freddie"),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          _buildGuestRow(context, RHomeIcon.profile, "@freddie"),
+                                          _buildGuestRow(context, Icons.phone, "918 678 009"),
+                                        ]
+                                      ),
+                                      const Spacer(),
+                                      CircleIconButtonWidget(
+                                        onPressed: () => {},
+                                        size: 15,
+                                        backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                                        icon: const Icon(
+                                          RHomeIcon.reward, 
+                                          color: Colors.white,
+                                          size: 38,
+                                        ),
+                                        splashColor: Colors.black
+                                      )
                                     ]),
-                                _buildRow(
-                                    context, "Date: ", "12/01/2022  -  17/01/2022"),
-                                _buildRow(context, "Price:", "5 nights x 22.0"),
-                                const Divider(
-                                  thickness: 3,
-                                  height: 10,
-                                  color: Color(0xFFE5E5E5),
+                              ),
+                              const Divider(
+                                thickness: 8,
+                                height: 40,
+                                color: Color(0xFFE5E5E5),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 5.0, right: 15.0, left: 15.0),
+                                child: Text(
+                                  "Rental Info",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                                _buildRow(context, "Total Tokens: ", "110.0"),
-                              ],
-                            ),
+                              ),
+                              _buildRow(
+                                  context, "Date: ", "12/01/2022  -  17/01/2022"),
+                              _buildRow(context, "Price per Night:", _home.price),
+                              const Divider(
+                                thickness: 3,
+                                height: 10,
+                                color: Color(0xFFE5E5E5),
+                              ),
+                              _buildRow(context, "Total Tokens: ", "110.0"),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                );
-              },
             ),
             bottomNavigationBar: const BottomBarWidget(),
           );

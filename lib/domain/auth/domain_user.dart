@@ -3,7 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'domain_user.freezed.dart';
 
 @freezed
-abstract class DomainUser with _$DomainUser {
+abstract class DomainUser implements _$DomainUser {
+  const DomainUser._();
+
   const factory DomainUser({
     required String id,
     String? email,
@@ -20,4 +22,8 @@ abstract class DomainUser with _$DomainUser {
     walletAddress: "0x",
     numTokens: 0,
   );
+
+  String getUsername() {
+    return "@" + (name == null ? "username" : name!.replaceAll(" ", "").toLowerCase());
+  }
 }

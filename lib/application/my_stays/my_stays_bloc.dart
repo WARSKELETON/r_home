@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
@@ -34,7 +35,7 @@ class MyStaysBloc extends Bloc<MyStaysEvent, MyStaysState> {
     _rentalsStreamSubscription?.cancel();
 
     _rentalsStreamSubscription = _rentalsRepository
-        .watchAll()
+        .watchAllAsGuest()
         .listen(
           (rentals) => add(MyStaysEvent.rentalsReceived(rentals)),
         );
@@ -42,7 +43,6 @@ class MyStaysBloc extends Bloc<MyStaysEvent, MyStaysState> {
   }
 
   void _onWatchRental(WatchRental event, Emitter<MyStaysState> emit) {
-    print("Starting watching home " + event.rentalUuid);
     _rentalStreamSubscription = _rentalsRepository
         .watch(event.rentalUuid)
         .listen((rental) => add(MyStaysEvent.rentalReceivedReceived(rental)));
@@ -63,12 +63,17 @@ class MyStaysBloc extends Bloc<MyStaysEvent, MyStaysState> {
     emit(state.copyWith(rentals: event.rentals));
   }
 
-  void _onRentalReceived(RentalReceived event, Emitter<MyStaysState> emit) {
-    emit(state.copyWith(rental: event.rental));
+  void _onRentalReceived(RentalReceived event, Emitter<MyStaysState> emit) async {
+    final host = await _rentalsRepository.getHost(event.rental.hostId);
+    final guest = await _rentalsRepository.getGuest(event.rental.guestId);
+    emit(state.copyWith(
+      rental: event.rental,
+      host: host,
+      guest: guest,
+    ));
   }
 
   void _onWatchHome(WatchHome event, Emitter<MyStaysState> emit) {
-    print("Starting watching home " + event.homeUuid);
     _homeStreamSubscription = _homesRepository
         .watch(event.homeUuid)
         .listen((home) => add(MyStaysEvent.homeReceivedReceived(home)));

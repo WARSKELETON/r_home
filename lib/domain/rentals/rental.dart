@@ -39,4 +39,8 @@ abstract class Rental implements _$Rental {
     numChildren: 0,
     numPets: 0,
   );
+
+  String getDateString() {
+    return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
+  }
 }

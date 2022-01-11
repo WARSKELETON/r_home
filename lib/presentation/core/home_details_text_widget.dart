@@ -16,7 +16,7 @@ class HomeDetailsTextWidget extends StatelessWidget {
         children: [
           Text(
             left,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           if (left.toString() == "Price:") ...[
             Row(
@@ -44,19 +44,17 @@ class HomeDetailsTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
-      child: SizedBox(
-        child: Column(
-          children: [
-            _buildRow(context, "Location:", home.location),
-            _buildRow(context, "Max Number of Adults:",
-                home.maxAdults),
-            _buildRow(context, "Max Number of Children:",
-                home.maxChildren),
-            _buildRow(
-                context, "Max Number of Pets:", home.maxPets),
-            _buildRow(context, "Price:", home.price),
-          ],
-        ),
+      child: Column(
+        children: [
+          _buildRow(context, "Location:", home.location),
+          _buildRow(context, "Max Number of Adults:",
+              home.maxAdults),
+          _buildRow(context, "Max Number of Children:",
+              home.maxChildren),
+          _buildRow(
+              context, "Max Number of Pets:", home.maxPets),
+          _buildRow(context, "Price:", home.price),
+        ],
       ),
     );
   }

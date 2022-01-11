@@ -10,6 +10,7 @@ import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
@@ -33,13 +34,13 @@ class MyStayDetailsPage extends StatelessWidget {
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
+      padding: const EdgeInsets.only(top: 5.0, bottom: 10.0, left: 15.0, right: 15.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             left,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           if (left.toString() == "Price per Night:") ...[
             Row(
@@ -92,86 +93,109 @@ class MyStayDetailsPage extends StatelessWidget {
         builder: (context, state) {
           final _home = context.watch<MyStaysBloc>().state.home;
           final _rental = context.watch<MyStaysBloc>().state.rental;
+          final _host = context.watch<MyStaysBloc>().state.host;
           final nights = nightsBetween(_rental.checkIn, _rental.checkOut);
 
           return Scaffold(
             appBar: AppBarWidget(
               title: _home.name
             ),
-            body: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints viewportConstraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: viewportConstraints.maxHeight,
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
-                        HomeDetailsTextWidget(home: _home),
-                        const Divider(
-                          thickness: 8,
-                          height: 40,
-                          color: Color(0xFFE5E5E5),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 5.0),
-                                  child: Text(
-                                    "Rental Info:",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+            body: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
+                      HomeDetailsTextWidget(home: _home),
+                      const Divider(
+                        thickness: 8,
+                        height: 40,
+                        color: Color(0xFFE5E5E5),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 5.0, right: 15.0, left: 15.0),
+                              child: Text(
+                                "Host Info",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 10.0, bottom: 15.0, top: 10.0),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(50.0),
-                                          child: Image.network(
-                                            "https://static.wixstatic.com/media/6f3bc4_013c4e7818c345f2b68ae5ab521e8ff0~mv2.jpg/v1/fill/w_220,h_220,al_c,q_80,usm_0.66_1.00_0.01/smiley_edited_edited_edited.webp",
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 10.0, bottom: 15.0, top: 10.0),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(50.0),
+                                        child: _host.photo == null ?
+                                          Container(decoration: const BoxDecoration(shape: BoxShape.rectangle), width: 80, height: 80) 
+                                          : 
+                                          Image.network(
+                                            _host.photo!,
                                             width: 80,
                                           ),
-                                        ),
                                       ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          _buildHostRow(context, RHomeIcon.profile, "@amalia999"),
-                                          _buildHostRow(context, Icons.phone, "918 678 009"),
-                                        ]
-                                      )
-                                    ]),
-                                _buildRow(
-                                    context, "Date: ", "12/01/2022  -  17/01/2022"),
-                                _buildRow(context, "Price per Night:", _home.price),
-                                const Divider(
-                                  thickness: 3,
-                                  height: 10,
-                                  color: Color(0xFFE5E5E5),
-                                ),
-                                _buildRow(context, "Total Tokens: ", totalPrice(nights, _home.price, 3)),
-                              ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        _buildHostRow(context, RHomeIcon.profile, _host.getUsername()),
+                                        _buildHostRow(context, Icons.phone, "918 678 009"),
+                                      ]
+                                    ),
+                                    const Spacer(),
+                                    CircleIconButtonWidget(
+                                      onPressed: () => {},
+                                      size: 15,
+                                      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                                      icon: const Icon(
+                                        RHomeIcon.reward, 
+                                        color: Colors.white,
+                                        size: 38,
+                                      ),
+                                      splashColor: Colors.black
+                                    )
+                                  ]),
                             ),
-                          ),
+                            const Divider(
+                              thickness: 8,
+                              height: 40,
+                              color: Color(0xFFE5E5E5),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 5.0, right: 15.0, left: 15.0),
+                              child: Text(
+                                "Rental Info",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            _buildRow(
+                                context, "Date: ", _rental.getDateString()),
+                            _buildRow(context, "Price per Night:", _home.price),
+                            const Divider(
+                              thickness: 3,
+                              height: 10,
+                              color: Color(0xFFE5E5E5),
+                            ),
+                            _buildRow(context, "Total Tokens: ", totalPrice(nights, _home.price, 3)),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                );
-              },
             ),
             bottomNavigationBar: const BottomBarWidget(),
           );

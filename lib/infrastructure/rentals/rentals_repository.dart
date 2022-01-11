@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 import 'package:r_home/domain/rentals/rental.dart';
@@ -26,6 +27,19 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   @override
+  Stream<List<Rental>> watchAllAsGuest() async* {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    final colRef = _firestore
+        .collection(PARENT_COLLECTION)
+        .doc(userId)
+        .collection(RENTALS_COLLECTION)
+        .where("guestId", isEqualTo: userId);
+
+    yield* colRef.snapshots().map((query) => query.toListRental());
+  }
+
+  @override
   Stream<Rental> watch(String homeUuid) async* {
     final userId = _authFacade.getSignedInUserId()!;
 
@@ -36,6 +50,16 @@ class RentalsRepository implements IRentalsRepository {
         .doc(homeUuid);
 
     yield* docRef.snapshots().map((doc) => doc.toRental());
+  }
+
+  @override
+  Future<DomainUser> getGuest(String guestUuid) {
+    return _authFacade.getUserById(guestUuid);
+  }
+
+  @override
+  Future<DomainUser> getHost(String hostUuid) {
+    return _authFacade.getUserById(hostUuid);
   }
 
   @override

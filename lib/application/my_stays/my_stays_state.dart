@@ -8,6 +8,8 @@ class MyStaysState with _$MyStaysState {
     required Rental rental,
     required List<Home> homes,
     required Home home,
+    required DomainUser host,
+    required DomainUser guest,
   }) = _MyStaysState;
 
   factory MyStaysState.initial() => MyStaysState(
@@ -15,6 +17,8 @@ class MyStaysState with _$MyStaysState {
     rentals: [],
     rental: Rental.empty(),
     homes: [],
-    home: Home.empty()    
+    home: Home.empty(),
+    host: DomainUser.empty(),
+    guest: DomainUser.empty()
   );
 }

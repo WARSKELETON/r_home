@@ -10,7 +10,6 @@ import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/my_homes/widgets/my_home_widget.dart';
 import 'package:r_home/presentation/my_stays/widgets/my_stay_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 

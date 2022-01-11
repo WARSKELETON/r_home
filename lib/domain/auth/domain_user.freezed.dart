@@ -193,7 +193,7 @@ class __$DomainUserCopyWithImpl<$Res> extends _$DomainUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DomainUser implements _DomainUser {
+class _$_DomainUser extends _DomainUser {
   const _$_DomainUser(
       {required this.id,
       this.email,
@@ -201,7 +201,8 @@ class _$_DomainUser implements _DomainUser {
       this.photo,
       required this.role,
       required this.walletAddress,
-      required this.numTokens});
+      required this.numTokens})
+      : super._();
 
   @override
   final String id;
@@ -255,7 +256,7 @@ class _$_DomainUser implements _DomainUser {
       __$DomainUserCopyWithImpl<_DomainUser>(this, _$identity);
 }
 
-abstract class _DomainUser implements DomainUser {
+abstract class _DomainUser extends DomainUser {
   const factory _DomainUser(
       {required String id,
       String? email,
@@ -264,6 +265,7 @@ abstract class _DomainUser implements DomainUser {
       required String role,
       required String walletAddress,
       required int numTokens}) = _$_DomainUser;
+  const _DomainUser._() : super._();
 
   @override
   String get id;

@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 50.0),
                     child: Text(
-                      "@" + (state.user.name == null ? "name" : state.user.name!.replaceAll(" ", "").toLowerCase()),
+                      state.user.getUsername(),
                       style: const TextStyle(fontSize: 16),
                     ),
                   ),
