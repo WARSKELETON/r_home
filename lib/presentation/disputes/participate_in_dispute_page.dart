@@ -48,16 +48,6 @@ class ParticipateInDisputePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(left: 10.0, bottom: 15.0),
-                  child: Text(
-                    "Select the filters you want to apply:",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                  ),
-                ),
-                const Padding(
                   padding: EdgeInsets.only(left: 10.0, bottom: 5.0, right: 10.0),
                   child: SelectFiltersParticipateInDisputeWidget(),
                 ),
@@ -71,7 +61,7 @@ class ParticipateInDisputePage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     itemCount: _disputes.length,
                     itemBuilder: (BuildContext ctxt, int index) {
-                      return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid, privateMode: false)));
+                      return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid)));
                     },
                     separatorBuilder: (BuildContext context, int index) => const Divider(),
                   ),

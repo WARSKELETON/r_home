@@ -26,8 +26,9 @@ class ChipWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 4.0),
-      child: Container(
-        height: 25,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 500),
+        height: 30,
         width: width,
         decoration: BoxDecoration(
           border: Border.all(

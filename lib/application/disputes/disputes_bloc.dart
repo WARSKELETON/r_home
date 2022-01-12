@@ -6,6 +6,7 @@ import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
 import 'package:r_home/domain/homes/home.dart';
+import 'package:r_home/domain/rentals/rental.dart';
 
 part 'disputes_event.dart';
 part 'disputes_state.dart';
@@ -19,16 +20,17 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
     on<DisputesReceived>(_onDisputesReceived);
     on<DisputeReceived>(_onDisputeReceived);
     on<HomeReceived>(_onHomeReceived);
+    on<RentalReceived>(_onRentalReceived);
     on<WatchDispute>(_onWatchDispute);
-    on<VoteAgainst>(_onVoteAgainst);
-    on<VoteIndiferent>(_onVoteIndiferent);
-    on<VoteFavour>(_onVoteFavour);
+    on<VoteReceived>(_onVoteReceived);
+    on<VoteSubmit>(_onVoteSubmit);
   }
 
   StreamSubscription<List<Dispute>>? _myDisputesStreamSubscription;
   StreamSubscription<List<Dispute>>? _disputesStreamSubscription;
   StreamSubscription<Dispute>? _disputeStreamSubscription;
   StreamSubscription<Home>? _homeStreamSubscription;
+  StreamSubscription<Rental>? _rentalStreamSubscription;
 
   void _onInitialize(Initialize event, Emitter<DisputesState> emit) {
     event.allDisputes ?
@@ -61,31 +63,52 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
       .watchHomeFromDispute(event.dispute.homeUuid)
       .listen((home) => add(DisputesEvent.homeReceived(home))
     );
+
+    _rentalStreamSubscription = _disputesRepository
+      .watchRentalFromDispute(event.dispute.rentalUuid)
+      .listen((rental) => add(DisputesEvent.rentalReceived(rental))
+    );
     emit(state);
   }
-  
+
   void _onHomeReceived(HomeReceived event, Emitter<DisputesState> emit) async {
     final host = await _disputesRepository.getHost(event.home.host);
     emit(state.copyWith(home: event.home, host: host));
   }
-
-  void _onVoteAgainst(VoteAgainst event, Emitter<DisputesState> emit) {
-    emit(state.copyWith(dispute: state.dispute.copyWith(votesAgainst: state.dispute.votesAgainst + 1)));
-    _onUpdate();
+  
+  void _onRentalReceived(RentalReceived event, Emitter<DisputesState> emit) async {
+    emit(state.copyWith(rental: event.rental));
   }
 
-  void _onVoteIndiferent(VoteIndiferent event, Emitter<DisputesState> emit) {
-    emit(state.copyWith(dispute: state.dispute.copyWith(votesIndiferent: state.dispute.votesIndiferent + 1)));
-    _onUpdate();
+  void _onVoteReceived(VoteReceived event, Emitter<DisputesState> emit) {
+      if (event.vote == state.currentVote) {
+        emit(state.copyWith(currentVote: DisputeVote.none));
+      } else {
+        print("DDD");
+        emit(state.copyWith(currentVote: event.vote));
+      }
   }
 
-  void _onVoteFavour(VoteFavour event, Emitter<DisputesState> emit) {
-    emit(state.copyWith(dispute: state.dispute.copyWith(votesInFavour: state.dispute.votesAgainst + 1)));
-    _onUpdate();
-  }
-
-  void _onUpdate() {
+  void _onVoteSubmit(VoteSubmit event, Emitter<DisputesState> emit) {
+    if (state.currentVote == DisputeVote.against) {
+      emit(state.copyWith(dispute: state.dispute.copyWith(votesAgainst: state.dispute.votesAgainst + 1)));
+    } else if (state.currentVote == DisputeVote.irrelevant) {
+      emit(state.copyWith(dispute: state.dispute.copyWith(votesIrrelevant: state.dispute.votesIrrelevant + 1)));
+    } else if (state.currentVote == DisputeVote.favour) {
+      emit(state.copyWith(dispute: state.dispute.copyWith(votesInFavour: state.dispute.votesInFavour + 1)));
+    }
+    emit(state.copyWith(dispute: state.dispute.copyWith(usersVoted: [...state.dispute.usersVoted, event.userUuid])));
     _disputesRepository.update(state.dispute);
     emit(state);
+  }
+
+  @override
+  Future<void> close() {
+    _myDisputesStreamSubscription?.cancel();
+    _disputesStreamSubscription?.cancel();
+    _disputeStreamSubscription?.cancel();
+    _homeStreamSubscription?.cancel();
+    _rentalStreamSubscription?.cancel();
+    return super.close();
   }
 }

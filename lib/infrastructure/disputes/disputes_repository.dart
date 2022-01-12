@@ -4,13 +4,16 @@ import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
 import 'package:r_home/domain/homes/home.dart';
+import 'package:r_home/domain/rentals/rental.dart';
 import 'package:r_home/infrastructure/disputes/dispute_dto.dart';
 import 'package:r_home/infrastructure/disputes/disputes_extension.dart';
 import 'package:r_home/infrastructure/homes/homes_extension.dart';
-import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
+import 'package:r_home/infrastructure/rentals/rentals_extension.dart';
 
 class DisputesRepository implements IDisputesRepository {
   final FirebaseFirestore _firestore;
+  static const String PARENT_COLLECTION = "user-data";
+  static const String RENTALS_COLLECTION = "rentals";
   static const String HOMES_COLLECTION = "homes";
   static const String DISPUTES_COLLECTION = "disputes";
   final IAuthFacade _authFacade;
@@ -54,6 +57,19 @@ class DisputesRepository implements IDisputesRepository {
         .doc(homeUuid);
 
     yield* docRef.snapshots().map((doc) => doc.toHome());
+  }
+
+  @override
+  Stream<Rental> watchRentalFromDispute(String rentalUuid) async* {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    final docRef = _firestore
+        .collection(PARENT_COLLECTION)
+        .doc(userId)
+        .collection(RENTALS_COLLECTION)
+        .doc(rentalUuid);
+
+    yield* docRef.snapshots().map((doc) => doc.toRental());
   }
 
   @override

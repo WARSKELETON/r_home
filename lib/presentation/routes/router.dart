@@ -3,6 +3,7 @@ import 'package:r_home/presentation/disputes/dispute_details_page.dart';
 import 'package:r_home/presentation/disputes/disputes_page.dart';
 import 'package:r_home/presentation/disputes/my_disputes_page.dart';
 import 'package:r_home/presentation/disputes/participate_in_dispute_page.dart';
+import 'package:r_home/presentation/disputes/widgets/dialog_widget.dart';
 import 'package:r_home/presentation/my_stays/my_stays_details_page.dart';
 import 'package:r_home/presentation/my_stays/my_stays_page.dart';
 import 'package:r_home/presentation/start_dispute_forms/general_disputes_page.dart';
@@ -38,6 +39,7 @@ import 'package:r_home/presentation/splash/test_page.dart';
     CustomRoute(page: MyStaysPage),
     MaterialRoute(page: MyHomesForm, fullscreenDialog: true),
     CustomRoute(page: RentAHomePage),
+    CustomRoute(page: DialogWidget),
     CustomRoute(page: ProfilePage),
     CustomRoute(page: StartDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),

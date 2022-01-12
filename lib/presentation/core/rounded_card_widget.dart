@@ -54,7 +54,8 @@ class RoundedCardWidget extends StatelessWidget {
                             Icons.check,
                             color: Colors.white,
                             size: 50,
-                        )),
+                          )
+                        ),
                       ],
                       Ink.image(
                         image: AssetImage(image),

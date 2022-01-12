@@ -8,6 +8,8 @@ class DisputesState with _$DisputesState {
     required Dispute dispute,
     required Home home,
     required DomainUser host,
+    required DisputeVote currentVote,
+    required Rental rental,
   }) = _DisputesState;
 
   factory DisputesState.initial() => DisputesState(
@@ -16,5 +18,7 @@ class DisputesState with _$DisputesState {
     dispute: Dispute.empty(),
     home: Home.empty(),
     host: DomainUser.empty(),
+    currentVote: DisputeVote.none,
+    rental: Rental.empty()
   );
 }
