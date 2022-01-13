@@ -125,7 +125,9 @@ class MyRouter extends _i27.RootStackRouter {
       return _i27.CustomPage<dynamic>(
           routeData: routeData,
           child: _i12.DisputeDetailsPage(
-              key: args.key, disputeUuid: args.disputeUuid),
+              key: args.key,
+              disputeUuid: args.disputeUuid,
+              creationDate: args.creationDate),
           transitionsBuilder: _i27.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -423,25 +425,33 @@ class StartDisputesPageRoute extends _i27.PageRouteInfo<void> {
 /// [_i12.DisputeDetailsPage]
 class DisputeDetailsPageRoute
     extends _i27.PageRouteInfo<DisputeDetailsPageRouteArgs> {
-  DisputeDetailsPageRoute({_i28.Key? key, required String disputeUuid})
+  DisputeDetailsPageRoute(
+      {_i28.Key? key,
+      required String disputeUuid,
+      required DateTime creationDate})
       : super(DisputeDetailsPageRoute.name,
             path: '/dispute-details-page',
             args: DisputeDetailsPageRouteArgs(
-                key: key, disputeUuid: disputeUuid));
+                key: key,
+                disputeUuid: disputeUuid,
+                creationDate: creationDate));
 
   static const String name = 'DisputeDetailsPageRoute';
 }
 
 class DisputeDetailsPageRouteArgs {
-  const DisputeDetailsPageRouteArgs({this.key, required this.disputeUuid});
+  const DisputeDetailsPageRouteArgs(
+      {this.key, required this.disputeUuid, required this.creationDate});
 
   final _i28.Key? key;
 
   final String disputeUuid;
 
+  final DateTime creationDate;
+
   @override
   String toString() {
-    return 'DisputeDetailsPageRouteArgs{key: $key, disputeUuid: $disputeUuid}';
+    return 'DisputeDetailsPageRouteArgs{key: $key, disputeUuid: $disputeUuid, creationDate: $creationDate}';
   }
 }
 

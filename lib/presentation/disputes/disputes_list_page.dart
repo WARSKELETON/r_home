@@ -83,7 +83,7 @@ class DisputesListPage extends StatelessWidget {
                     itemBuilder: (BuildContext ctxt, int index) {
                       return DisputeListRowWidget(
                         dispute: _disputes[index],
-                        onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid)),
+                        onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid, creationDate: _disputes[index].creationDate)),
                         opened: privateMode,
                         voted: !privateMode,
                       );
