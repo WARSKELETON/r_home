@@ -5,6 +5,12 @@ import 'package:r_home/domain/rentals/rental.dart';
 part 'rental_dto.freezed.dart';
 part 'rental_dto.g.dart';
 
+Timestamp firestoreTimestampFromJson(dynamic value) {
+  return value;
+}
+
+dynamic firestoreTimestampToJson(dynamic value) => value;
+
 @freezed
 abstract class RentalDto implements _$RentalDto {
   const RentalDto._();
@@ -15,8 +21,16 @@ abstract class RentalDto implements _$RentalDto {
     required String hostId,
     required String guestId,
     required String paymentMethod,
-    required DateTime checkIn,
-    required DateTime checkOut,
+    @JsonKey(
+      fromJson: firestoreTimestampFromJson,
+      toJson: firestoreTimestampToJson,
+    )
+    required Timestamp checkIn,
+    @JsonKey(
+      fromJson: firestoreTimestampFromJson,
+      toJson: firestoreTimestampToJson,
+    )
+    required Timestamp checkOut,
     required int numAdults,
     required int numChildren,
     required int numPets,
@@ -29,8 +43,8 @@ abstract class RentalDto implements _$RentalDto {
       hostId: rental.hostId,
       guestId: rental.guestId,
       paymentMethod: rental.paymentMethod,
-      checkIn: rental.checkIn,
-      checkOut: rental.checkOut,
+      checkIn: Timestamp.fromDate(rental.checkIn),
+      checkOut: Timestamp.fromDate(rental.checkOut),
       numAdults: rental.numAdults,
       numChildren: rental.numChildren,
       numPets: rental.numPets,
@@ -44,8 +58,8 @@ abstract class RentalDto implements _$RentalDto {
       hostId: hostId,
       guestId: guestId,
       paymentMethod: paymentMethod,
-      checkIn: checkIn,
-      checkOut: checkOut,
+      checkIn: checkIn.toDate(),
+      checkOut: checkOut.toDate(),
       numAdults: numAdults,
       numChildren: numChildren,
       numPets: numPets,

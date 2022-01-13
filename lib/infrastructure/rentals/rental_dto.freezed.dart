@@ -28,8 +28,10 @@ class _$RentalDtoTearOff {
       required String hostId,
       required String guestId,
       required String paymentMethod,
-      required DateTime checkIn,
-      required DateTime checkOut,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp checkIn,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp checkOut,
       required int numAdults,
       required int numChildren,
       required int numPets}) {
@@ -62,8 +64,12 @@ mixin _$RentalDto {
   String get hostId => throw _privateConstructorUsedError;
   String get guestId => throw _privateConstructorUsedError;
   String get paymentMethod => throw _privateConstructorUsedError;
-  DateTime get checkIn => throw _privateConstructorUsedError;
-  DateTime get checkOut => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get checkIn => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get checkOut => throw _privateConstructorUsedError;
   int get numAdults => throw _privateConstructorUsedError;
   int get numChildren => throw _privateConstructorUsedError;
   int get numPets => throw _privateConstructorUsedError;
@@ -84,8 +90,10 @@ abstract class $RentalDtoCopyWith<$Res> {
       String hostId,
       String guestId,
       String paymentMethod,
-      DateTime checkIn,
-      DateTime checkOut,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp checkIn,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp checkOut,
       int numAdults,
       int numChildren,
       int numPets});
@@ -136,11 +144,11 @@ class _$RentalDtoCopyWithImpl<$Res> implements $RentalDtoCopyWith<$Res> {
       checkIn: checkIn == freezed
           ? _value.checkIn
           : checkIn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Timestamp,
       checkOut: checkOut == freezed
           ? _value.checkOut
           : checkOut // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Timestamp,
       numAdults: numAdults == freezed
           ? _value.numAdults
           : numAdults // ignore: cast_nullable_to_non_nullable
@@ -169,8 +177,10 @@ abstract class _$RentalDtoCopyWith<$Res> implements $RentalDtoCopyWith<$Res> {
       String hostId,
       String guestId,
       String paymentMethod,
-      DateTime checkIn,
-      DateTime checkOut,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp checkIn,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp checkOut,
       int numAdults,
       int numChildren,
       int numPets});
@@ -222,11 +232,11 @@ class __$RentalDtoCopyWithImpl<$Res> extends _$RentalDtoCopyWithImpl<$Res>
       checkIn: checkIn == freezed
           ? _value.checkIn
           : checkIn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Timestamp,
       checkOut: checkOut == freezed
           ? _value.checkOut
           : checkOut // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as Timestamp,
       numAdults: numAdults == freezed
           ? _value.numAdults
           : numAdults // ignore: cast_nullable_to_non_nullable
@@ -252,8 +262,10 @@ class _$_RentalDto extends _RentalDto {
       required this.hostId,
       required this.guestId,
       required this.paymentMethod,
-      required this.checkIn,
-      required this.checkOut,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required this.checkIn,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required this.checkOut,
       required this.numAdults,
       required this.numChildren,
       required this.numPets})
@@ -273,9 +285,13 @@ class _$_RentalDto extends _RentalDto {
   @override
   final String paymentMethod;
   @override
-  final DateTime checkIn;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  final Timestamp checkIn;
   @override
-  final DateTime checkOut;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  final Timestamp checkOut;
   @override
   final int numAdults;
   @override
@@ -339,8 +355,10 @@ abstract class _RentalDto extends RentalDto {
       required String hostId,
       required String guestId,
       required String paymentMethod,
-      required DateTime checkIn,
-      required DateTime checkOut,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp checkIn,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp checkOut,
       required int numAdults,
       required int numChildren,
       required int numPets}) = _$_RentalDto;
@@ -360,9 +378,13 @@ abstract class _RentalDto extends RentalDto {
   @override
   String get paymentMethod;
   @override
-  DateTime get checkIn;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get checkIn;
   @override
-  DateTime get checkOut;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get checkOut;
   @override
   int get numAdults;
   @override

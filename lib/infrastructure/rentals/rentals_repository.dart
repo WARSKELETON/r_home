@@ -40,6 +40,19 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   @override
+  Stream<List<Rental>> watchAllAsHost() async* {
+    final userId = _authFacade.getSignedInUserId()!;
+
+    final colRef = _firestore
+        .collection(PARENT_COLLECTION)
+        .doc(userId)
+        .collection(RENTALS_COLLECTION)
+        .where("hostId", isEqualTo: userId);
+
+    yield* colRef.snapshots().map((query) => query.toListRental());
+  }
+
+  @override
   Stream<Rental> watch(String homeUuid) async* {
     final userId = _authFacade.getSignedInUserId()!;
 
