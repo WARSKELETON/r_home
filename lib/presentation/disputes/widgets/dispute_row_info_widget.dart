@@ -9,9 +9,16 @@ import 'package:r_home/r_home_icon_icons.dart';
 
 class DisputeListRowWidget extends StatelessWidget {
   final Dispute dispute;
+  final bool opened;
+  final bool voted;
   final void Function()? onPressed;
 
-  const DisputeListRowWidget({Key? key, required this.dispute, required this.onPressed}) : super(key: key);
+  const DisputeListRowWidget({Key? key,
+  required this.dispute,
+  required this.onPressed,
+  required this.opened,
+  required this.voted
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class DisputeListRowWidget extends StatelessWidget {
       onTap: onPressed,
       borderRadius: BorderRadius.circular(15.0),
       child: Padding(
-        padding: const EdgeInsets.only(top: 3.0, bottom: 3.0, left: 1.0, right: 1.0),
+        padding: const EdgeInsets.only(top: 5.0, bottom: 3.0, left: 1.0, right: 1.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -63,28 +70,32 @@ class DisputeListRowWidget extends StatelessWidget {
                     description: dispute.issuerUsername,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.only(top: 10.0, right: 5.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        ChipWidget(
-                          width: 100,
-                          title: "OPEN",
-                          isClickable: false,
-                          isChecked: false,
-                          borderColor: Theme.of(context).colorScheme.primaryBlue,
-                          backgroundColor: const Color(0xFFD2E4A9),
-                          textColor: Theme.of(context).colorScheme.primaryBlue,
-                        ),
-                        ChipWidget(
-                          width: 120,
-                          title: dispute.usersVoted.contains(context.watch<AuthBloc>().state.user.id) ? "VOTED" : "NOT VOTED",
-                          isClickable: false,
-                          isChecked: false,
-                          borderColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
-                          backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
-                          textColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
-                        ),
+                        if (opened) ...[
+                          ChipWidget(
+                            width: 100,
+                            title: "OPEN",
+                            isClickable: false,
+                            isChecked: false,
+                            borderColor: Theme.of(context).colorScheme.primaryBlue,
+                            backgroundColor: const Color(0xFFD2E4A9),
+                            textColor: Theme.of(context).colorScheme.primaryBlue,
+                          ),
+                        ],
+                        if (voted) ...[
+                          ChipWidget(
+                            width: 120,
+                            title: dispute.usersVoted.contains(context.watch<AuthBloc>().state.user.id) ? "VOTED" : "NOT VOTED",
+                            isClickable: false,
+                            isChecked: false,
+                            borderColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
+                            backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
+                            textColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
+                          ),
+                        ],
                       ],
                     ),
                   )

@@ -13,21 +13,22 @@ import 'package:r_home/infrastructure/disputes/disputes_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/dispute_row_info_widget.dart';
-import 'package:r_home/presentation/disputes/widgets/select_filters_my_disputes_widget.dart';
+import 'package:r_home/presentation/disputes/widgets/filters_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
-class MyDisputesPage extends StatelessWidget {
-  const MyDisputesPage({Key? key}) : super(key: key);
+class DisputesListPage extends StatelessWidget {
+  final bool privateMode;
+  const DisputesListPage({Key? key, required this.privateMode}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "My Disputes"),
+      appBar: AppBarWidget(title: privateMode ? "My Disputes" : "Participate in Dispute"),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => DisputesBloc(DisputesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
-              ..add(const DisputesEvent.initialize(false))),
+              ..add(const DisputesEvent.initialize(true))),
           BlocProvider(
             create: (BuildContext context) => ListFilterBloc(),
           ),
@@ -43,26 +44,32 @@ class MyDisputesPage extends StatelessWidget {
           builder: (context, state) {
             final _user = context.watch<AuthBloc>().state.user;
 
-            bool isOpenActive = context.watch<ListFilterBloc>().state.isVotedActive;
-            bool isClosedActive = context.watch<ListFilterBloc>().state.isNotVotedActive;
+            bool isOpenedActive = context.watch<ListFilterBloc>().state.isOpenedActive;
+            bool isClosedActive = context.watch<ListFilterBloc>().state.isClosedActive;
+            bool isVotedActive = context.watch<ListFilterBloc>().state.isVotedActive;
+            bool isNotVotedActive = context.watch<ListFilterBloc>().state.isNotVotedActive;
             bool isDamagesActive = context.watch<ListFilterBloc>().state.isDamagesActive;
             bool isFalseAdsActive = context.watch<ListFilterBloc>().state.isFalseAdsActive;
 
+            // TODO: sort list by creation date. Show latest first
             final _disputes = context.watch<DisputesBloc>().state.disputes.where((dispute) =>
-              (!isOpenActive && !isClosedActive && !isDamagesActive && !isFalseAdsActive) ? true :
+              (!isVotedActive && !isNotVotedActive && !isDamagesActive && !isFalseAdsActive) ? true :
               (isDamagesActive == (dispute.category == DisputeCategory.damages_in_properties.name) ||
               isFalseAdsActive == (dispute.category == DisputeCategory.false_advertisement.name))
-            ).where((dispute) => 
-              dispute.usersVoted.contains(_user.id) == isOpenActive || 
-              !dispute.usersVoted.contains(_user.id) == isClosedActive
+            ).where((dispute) =>
+              dispute.usersVoted.contains(_user.id) == isVotedActive ||
+              !dispute.usersVoted.contains(_user.id) == isNotVotedActive 
+            ).where((dispute) =>
+              dispute.isOpened == isOpenedActive ||
+              !dispute.isOpened == isClosedActive 
             ).toList();
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 10.0, bottom: 5.0, right: 10.0),
-                  child: SelectFiltersMyDisputesWidget(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0, bottom: 5.0, right: 10.0),
+                  child: FiltersWidget(opened: privateMode),
                 ),
                 const Divider(
                   thickness: 2,
@@ -71,14 +78,17 @@ class MyDisputesPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView.separated(
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.only(left: 5, right: 5),
                     itemCount: _disputes.length,
                     itemBuilder: (BuildContext ctxt, int index) {
-                      return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid)));
+                      return DisputeListRowWidget(
+                        dispute: _disputes[index],
+                        onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid)),
+                        opened: privateMode,
+                        voted: !privateMode,
+                      );
                     },
-                    separatorBuilder: (BuildContext context, int index) => const Padding(
-                      padding: EdgeInsets.only(bottom: 4.0),
-                    ),
+                    separatorBuilder: (BuildContext context, int index) => const Divider(),
                   ),
                 )
               ],

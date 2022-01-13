@@ -10,7 +10,7 @@ class SelectRentalWidget extends StatelessWidget {
 
   Widget _itemBuilder(BuildContext context, int index) {
     return ListTile(
-      title: Text("Rental ${index}"),
+      title: Text("Rental $index"),
       subtitle: Text(rentals[index].getDateString()),
       leading: Radio<String>(
         value: rentals[index].uuid,
