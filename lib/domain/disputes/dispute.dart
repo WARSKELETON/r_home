@@ -36,6 +36,7 @@ abstract class Dispute implements _$Dispute {
     required double stake,
     required String category,
     required List<String> usersVoted,
+    required DateTime creationDate,
     // Add image
   }) = _Dispute;
 
@@ -54,6 +55,11 @@ abstract class Dispute implements _$Dispute {
     initialStake: 0,
     stake: 0,
     category: '',
-    usersVoted: []
+    usersVoted: [],
+    creationDate: DateTime.now(),
   );
+
+  // String getDateString() {
+  //   return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
+  // }
 }

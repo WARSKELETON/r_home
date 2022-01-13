@@ -22,7 +22,7 @@ import 'package:r_home/presentation/core/string_extension.dart';
 import 'package:r_home/presentation/start_dispute_forms/start_dispute_form.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/consent_message_widget.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/info_message_widget.dart';
-import 'package:r_home/presentation/start_dispute_forms/widgets/select_home_widget.dart';
+import 'package:r_home/presentation/start_dispute_forms/widgets/select_rental_widget.dart';
 
 class GeneralDisputesPage extends StatelessWidget {
   final DisputeCategory disputeCategory;
@@ -104,7 +104,7 @@ class GeneralDisputesPage extends StatelessWidget {
                       if (_currentIndex == 0) ...[
                         const ConsentMessageWidget(),
                       ] else if (_currentIndex == 1) ...[
-                        SelectHomeWidget(rentals: _rentals),
+                        SelectRentalWidget(rentals: _rentals),
                       ] else if (_currentIndex == 2) ...[
                         const StartDisputesForm(),
                       ] else if (_currentIndex == 3) ...[

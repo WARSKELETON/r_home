@@ -87,4 +87,13 @@ class MyStaysBloc extends Bloc<MyStaysEvent, MyStaysState> {
   void _onHomeReceived(HomeReceived event, Emitter<MyStaysState> emit) {
     emit(state.copyWith(home: event.home));
   }
+
+  @override
+  Future<void> close() {
+    _rentalsStreamSubscription?.cancel();
+    _rentalStreamSubscription?.cancel();
+    _homesStreamSubscription?.cancel();
+    _homeStreamSubscription?.cancel();
+    return super.close();
+  }
 }

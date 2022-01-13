@@ -71,7 +71,7 @@ class ParticipateInDisputePage extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView.separated(
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.only(left: 5, right: 5),
                     itemCount: _disputes.length,
                     itemBuilder: (BuildContext ctxt, int index) {
                       return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid)));

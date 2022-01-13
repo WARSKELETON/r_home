@@ -3,19 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 
-class SelectHomeWidget extends StatelessWidget {
+class SelectRentalWidget extends StatelessWidget {
   final List<Rental> rentals; // List<Rental>
 
-  const SelectHomeWidget({
-    Key? key,
-    required this.rentals,
-  }) : super(key: key);
+  const SelectRentalWidget({Key? key, required this.rentals}) : super(key: key);
 
   Widget _itemBuilder(BuildContext context, int index) {
     return ListTile(
-      title: Text("Rental ${rentals[index].uuid}"),
-      subtitle: const Text("12/01/2022 to 17/01/2022\nHost X"),
-      isThreeLine: true,
+      title: Text("Rental ${index}"),
+      subtitle: Text(rentals[index].getDateString()),
       leading: Radio<String>(
         value: rentals[index].uuid,
         groupValue: context.watch<DisputesFormBloc>().state.dispute.rentalUuid,

@@ -37,7 +37,9 @@ class _$DisputeDtoTearOff {
       required double initialStake,
       required double stake,
       required String category,
-      required List<String> usersVoted}) {
+      required List<String> usersVoted,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp creationDate}) {
     return _DisputeDto(
       uuid: uuid,
       issuerUuid: issuerUuid,
@@ -54,6 +56,7 @@ class _$DisputeDtoTearOff {
       stake: stake,
       category: category,
       usersVoted: usersVoted,
+      creationDate: creationDate,
     );
   }
 
@@ -82,6 +85,9 @@ mixin _$DisputeDto {
   double get stake => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   List<String> get usersVoted => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get creationDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -109,7 +115,9 @@ abstract class $DisputeDtoCopyWith<$Res> {
       double initialStake,
       double stake,
       String category,
-      List<String> usersVoted});
+      List<String> usersVoted,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp creationDate});
 }
 
 /// @nodoc
@@ -137,6 +145,7 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
     Object? stake = freezed,
     Object? category = freezed,
     Object? usersVoted = freezed,
+    Object? creationDate = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -199,6 +208,10 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
           ? _value.usersVoted
           : usersVoted // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      creationDate: creationDate == freezed
+          ? _value.creationDate
+          : creationDate // ignore: cast_nullable_to_non_nullable
+              as Timestamp,
     ));
   }
 }
@@ -224,7 +237,9 @@ abstract class _$DisputeDtoCopyWith<$Res> implements $DisputeDtoCopyWith<$Res> {
       double initialStake,
       double stake,
       String category,
-      List<String> usersVoted});
+      List<String> usersVoted,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp creationDate});
 }
 
 /// @nodoc
@@ -254,6 +269,7 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
     Object? stake = freezed,
     Object? category = freezed,
     Object? usersVoted = freezed,
+    Object? creationDate = freezed,
   }) {
     return _then(_DisputeDto(
       uuid: uuid == freezed
@@ -316,6 +332,10 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
           ? _value.usersVoted
           : usersVoted // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      creationDate: creationDate == freezed
+          ? _value.creationDate
+          : creationDate // ignore: cast_nullable_to_non_nullable
+              as Timestamp,
     ));
   }
 }
@@ -338,7 +358,9 @@ class _$_DisputeDto extends _DisputeDto {
       required this.initialStake,
       required this.stake,
       required this.category,
-      required this.usersVoted})
+      required this.usersVoted,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required this.creationDate})
       : super._();
 
   factory _$_DisputeDto.fromJson(Map<String, dynamic> json) =>
@@ -374,10 +396,14 @@ class _$_DisputeDto extends _DisputeDto {
   final String category;
   @override
   final List<String> usersVoted;
+  @override
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  final Timestamp creationDate;
 
   @override
   String toString() {
-    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted)';
+    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted, creationDate: $creationDate)';
   }
 
   @override
@@ -408,7 +434,9 @@ class _$_DisputeDto extends _DisputeDto {
             const DeepCollectionEquality().equals(other.stake, stake) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality()
-                .equals(other.usersVoted, usersVoted));
+                .equals(other.usersVoted, usersVoted) &&
+            const DeepCollectionEquality()
+                .equals(other.creationDate, creationDate));
   }
 
   @override
@@ -428,7 +456,8 @@ class _$_DisputeDto extends _DisputeDto {
       const DeepCollectionEquality().hash(initialStake),
       const DeepCollectionEquality().hash(stake),
       const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(usersVoted));
+      const DeepCollectionEquality().hash(usersVoted),
+      const DeepCollectionEquality().hash(creationDate));
 
   @JsonKey(ignore: true)
   @override
@@ -457,7 +486,9 @@ abstract class _DisputeDto extends DisputeDto {
       required double initialStake,
       required double stake,
       required String category,
-      required List<String> usersVoted}) = _$_DisputeDto;
+      required List<String> usersVoted,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp creationDate}) = _$_DisputeDto;
   const _DisputeDto._() : super._();
 
   factory _DisputeDto.fromJson(Map<String, dynamic> json) =
@@ -493,6 +524,10 @@ abstract class _DisputeDto extends DisputeDto {
   String get category;
   @override
   List<String> get usersVoted;
+  @override
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get creationDate;
   @override
   @JsonKey(ignore: true)
   _$DisputeDtoCopyWith<_DisputeDto> get copyWith =>

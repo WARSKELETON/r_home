@@ -278,10 +278,18 @@ class DisputeDetailsPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10.0),
-                            child: ChartLegendWidget(colors: [Theme.of(context).colorScheme.primaryBlue, const Color(0xFFF9A53C), const Color(0xFFF7554C)]),
-                          ),
+                          if (_dispute.usersVoted.isNotEmpty) ...[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: ChartLegendWidget(
+                                colors: [
+                                  Theme.of(context).colorScheme.primaryBlue,
+                                  const Color(0xFFF9A53C),
+                                  const Color(0xFFF7554C)
+                                ]
+                              ),
+                            ),
+                          ],
                           Center(
                             child: Stack(
                               alignment: Alignment.center,

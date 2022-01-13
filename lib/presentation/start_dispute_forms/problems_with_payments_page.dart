@@ -21,7 +21,7 @@ import 'package:r_home/presentation/core/stepper_widget.dart';
 import 'package:r_home/presentation/core/string_extension.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/consent_message_widget.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/info_message_widget.dart';
-import 'package:r_home/presentation/start_dispute_forms/widgets/select_home_widget.dart';
+import 'package:r_home/presentation/start_dispute_forms/widgets/select_rental_widget.dart';
 
 class ProblemsWithPaymentsPage extends StatelessWidget {
   final DisputeCategory disputeCategory;
@@ -100,7 +100,7 @@ class ProblemsWithPaymentsPage extends StatelessWidget {
                   if (_currentIndex == 0) ...[
                     const ConsentMessageWidget(),
                   ] else if (_currentIndex == 1) ...[
-                    SelectHomeWidget(rentals: _rentals),
+                    SelectRentalWidget(rentals: _rentals),
                   ] else if (_currentIndex == 2) ...[
                     SliderTokensWidget(value: context.watch<DisputesFormBloc>().state.dispute.initialStake, onChanged: (value) => context.read<DisputesFormBloc>().add(DisputesFormEvent.initialStakeChanged(value))),
                   ] else if (_currentIndex == 3) ...[
