@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/disputes/widgets/chip_widget.dart';
@@ -76,7 +78,7 @@ class DisputeListRowWidget extends StatelessWidget {
                         ),
                         ChipWidget(
                           width: 120,
-                          title: "NOT VOTED",
+                          title: dispute.usersVoted.contains(context.watch<AuthBloc>().state.user.id) ? "VOTED" : "NOT VOTED",
                           isClickable: false,
                           isChecked: false,
                           borderColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),

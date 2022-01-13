@@ -16,11 +16,11 @@ class ListFilterBloc extends Bloc<ListFilterEvent, ListFilterState> {
   }
 
   void _onToggleOpened(ToggleOpened event, Emitter<ListFilterState> emit) {
-    emit(state.copyWith(isOpened: !state.isOpened));
+    emit(state.copyWith(isOpenedActive: !state.isOpenedActive));
   }
 
   void _onToggleClosed(ToggleClosed event, Emitter<ListFilterState> emit) {
-    emit(state.copyWith(isClosed: !state.isClosed));
+    emit(state.copyWith(isClosedActive: !state.isClosedActive));
   }
 
   void _onToggleVoted(ToggleVoted event, Emitter<ListFilterState> emit) {

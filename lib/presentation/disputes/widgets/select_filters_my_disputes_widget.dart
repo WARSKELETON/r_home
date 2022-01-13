@@ -17,14 +17,14 @@ class SelectFiltersMyDisputesWidget extends StatelessWidget {
           width: 115,
           title: "OPENED",
           isClickable: true,
-          isChecked: context.watch<ListFilterBloc>().state.isOpened,
+          isChecked: context.watch<ListFilterBloc>().state.isOpenedActive,
           onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleOpened()),
         ),
         ChipWidget(
           width: 115,
           title: "CLOSED",
           isClickable: true,
-          isChecked: context.watch<ListFilterBloc>().state.isClosed,
+          isChecked: context.watch<ListFilterBloc>().state.isClosedActive,
           onPressed: () => context.read<ListFilterBloc>().add(const ListFilterEvent.toggleClosed()),
         ),
         ChipWidget(

@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:r_home/presentation/disputes/widgets/chart_legend_widget.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/disputes/disputes_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
@@ -59,7 +61,7 @@ class DisputeDetailsPage extends StatelessWidget {
                 ),
                 body: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 20.0),
+                    padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                     child: Column(
                       children: [
                         const Padding(
@@ -178,11 +180,21 @@ class DisputeDetailsPage extends StatelessWidget {
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(top: 15.0),
+                          padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
                           child: Divider(
                             height: 5,
                           ),
                         ),
+                        if (state.dispute.usersVoted.contains(_user.id)) ...[
+                          const Center(
+                            child: Text(
+                                "You already voted in this dispute.",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600
+                                ),
+                              ),
+                          )
+                        ],
                         if (!_userIsLoading && _user.id != state.dispute.issuerUuid && !state.dispute.usersVoted.contains(_user.id)) ...[
                           const Align(
                             alignment: Alignment.centerLeft,
@@ -256,7 +268,75 @@ class DisputeDetailsPage extends StatelessWidget {
                             height: 35,
                             width: 250,
                           ),
-                        ],
+                        ] else ...[
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Current Voting Results",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10.0),
+                            child: ChartLegendWidget(colors: [Theme.of(context).colorScheme.primaryBlue, const Color(0xFFF9A53C), const Color(0xFFF7554C)]),
+                          ),
+                          Center(
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                if (_dispute.usersVoted.isEmpty) ...[
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 20.0),
+                                    child: Text(
+                                      "There are no votes yet.",
+                                    ),
+                                  ),
+                                ] else ...[
+                                  Text(
+                                    "${_dispute.usersVoted.length} votes",
+                                  ),
+                                  SfCircularChart(
+                                    tooltipBehavior: TooltipBehavior(enable: true),
+                                    series: <DoughnutSeries<_PieData, String>>[
+                                      DoughnutSeries<_PieData, String>(
+                                        innerRadius: '75%',
+                                        enableTooltip: true,
+                                        dataSource: [
+                                          _PieData(
+                                            "In Favour",
+                                            _dispute.votesInFavour,
+                                            "${(_dispute.votesInFavour / _dispute.usersVoted.length * 100).round()}%", Theme.of(context).colorScheme.primaryBlue
+                                          ),
+                                          _PieData(
+                                            "Irrelevant",
+                                            _dispute.votesIrrelevant,
+                                            "${(_dispute.votesIrrelevant / _dispute.usersVoted.length * 100).round()}%", const Color(0xFFF9A53C)
+                                          ),
+                                          _PieData(
+                                            "Against",
+                                            _dispute.votesAgainst,
+                                            "${(_dispute.votesAgainst / _dispute.usersVoted.length * 100).round()}%", const Color(0xFFF7554C)
+                                          ),
+                                        ],
+                                        xValueMapper: (_PieData data, _) => data.xData,
+                                        yValueMapper: (_PieData data, _) => data.yData,
+                                        dataLabelMapper: (_PieData data, _) => data.text,
+                                        pointColorMapper: (_PieData data,  _) => data.color,
+                                        dataLabelSettings: const DataLabelSettings(
+                                          isVisible: true,
+                                          labelPosition: ChartDataLabelPosition.outside,
+                                          connectorLineSettings: ConnectorLineSettings()
+                                        )
+                                      ),
+                                    ]
+                                  )
+                                ],
+                              ]
+                            ),
+                          ),
+                        ]
                       ],
                     ),
                   ),
@@ -269,4 +349,12 @@ class DisputeDetailsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class _PieData {
+ _PieData(this.xData, this.yData, this.text, this.color);
+ final String xData;
+ final num yData;
+ final String text;
+ final Color color;
 }
