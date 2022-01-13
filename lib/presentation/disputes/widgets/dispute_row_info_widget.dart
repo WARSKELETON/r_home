@@ -1,11 +1,10 @@
-
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/disputes/widgets/chip_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/dispute_row_detail_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 
 class DisputeListRowWidget extends StatelessWidget {
@@ -79,7 +78,7 @@ class DisputeListRowWidget extends StatelessWidget {
                         ),
                         ChipWidget(
                           width: 120,
-                          title: "NOT VOTED",
+                          title: dispute.usersVoted.contains(context.watch<AuthBloc>().state.user.id) ? "VOTED" : "NOT VOTED",
                           isClickable: false,
                           isChecked: false,
                           borderColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),

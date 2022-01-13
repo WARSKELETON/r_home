@@ -3,8 +3,8 @@ part of 'list_filter_bloc.dart';
 @freezed
 class ListFilterState with _$ListFilterState {
   const factory ListFilterState({
-    required bool isOpened,
-    required bool isClosed,
+    required bool isOpenedActive,
+    required bool isClosedActive,
     required bool isVotedActive,
     required bool isNotVotedActive,
     required bool isDamagesActive,
@@ -12,8 +12,8 @@ class ListFilterState with _$ListFilterState {
   }) = _ListFilterState;
 
   factory ListFilterState.initial() => const ListFilterState(
-    isOpened: false,
-    isClosed: false,
+    isOpenedActive: false,
+    isClosedActive: false,
     isVotedActive: false,
     isNotVotedActive: false,
     isDamagesActive: false,

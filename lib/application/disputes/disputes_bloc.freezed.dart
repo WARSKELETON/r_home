@@ -48,16 +48,22 @@ class _$DisputesEventTearOff {
     );
   }
 
-  VoteAgainst voteAgainst() {
-    return const VoteAgainst();
+  RentalReceived rentalReceived(Rental rental) {
+    return RentalReceived(
+      rental,
+    );
   }
 
-  VoteIndiferent voteIndiferent() {
-    return const VoteIndiferent();
+  VoteReceived voteReceived(DisputeVote vote) {
+    return VoteReceived(
+      vote,
+    );
   }
 
-  VoteFavour voteFavour() {
-    return const VoteFavour();
+  VoteSubmit voteSubmit(String userUuid) {
+    return VoteSubmit(
+      userUuid,
+    );
   }
 }
 
@@ -73,9 +79,9 @@ mixin _$DisputesEvent {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,9 +91,9 @@ mixin _$DisputesEvent {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,9 +103,9 @@ mixin _$DisputesEvent {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,9 +116,9 @@ mixin _$DisputesEvent {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -122,9 +128,9 @@ mixin _$DisputesEvent {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -134,9 +140,9 @@ mixin _$DisputesEvent {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -228,9 +234,9 @@ class _$Initialize implements Initialize {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
     return initialize(allDisputes);
   }
@@ -243,9 +249,9 @@ class _$Initialize implements Initialize {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
     return initialize?.call(allDisputes);
   }
@@ -258,9 +264,9 @@ class _$Initialize implements Initialize {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -277,9 +283,9 @@ class _$Initialize implements Initialize {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
     return initialize(this);
   }
@@ -292,9 +298,9 @@ class _$Initialize implements Initialize {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
     return initialize?.call(this);
   }
@@ -307,9 +313,9 @@ class _$Initialize implements Initialize {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -398,9 +404,9 @@ class _$DisputesReceived implements DisputesReceived {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
     return disputesReceived(disputes);
   }
@@ -413,9 +419,9 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
     return disputesReceived?.call(disputes);
   }
@@ -428,9 +434,9 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
     if (disputesReceived != null) {
@@ -447,9 +453,9 @@ class _$DisputesReceived implements DisputesReceived {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
     return disputesReceived(this);
   }
@@ -462,9 +468,9 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
     return disputesReceived?.call(this);
   }
@@ -477,9 +483,9 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
     if (disputesReceived != null) {
@@ -568,9 +574,9 @@ class _$WatchDispute implements WatchDispute {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
     return watchDispute(disputeUuid);
   }
@@ -583,9 +589,9 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
     return watchDispute?.call(disputeUuid);
   }
@@ -598,9 +604,9 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
     if (watchDispute != null) {
@@ -617,9 +623,9 @@ class _$WatchDispute implements WatchDispute {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
     return watchDispute(this);
   }
@@ -632,9 +638,9 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
     return watchDispute?.call(this);
   }
@@ -647,9 +653,9 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
     if (watchDispute != null) {
@@ -747,9 +753,9 @@ class _$DisputeReceived implements DisputeReceived {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
     return disputeReceived(dispute);
   }
@@ -762,9 +768,9 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
     return disputeReceived?.call(dispute);
   }
@@ -777,9 +783,9 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
     if (disputeReceived != null) {
@@ -796,9 +802,9 @@ class _$DisputeReceived implements DisputeReceived {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
     return disputeReceived(this);
   }
@@ -811,9 +817,9 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
     return disputeReceived?.call(this);
   }
@@ -826,9 +832,9 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
     if (disputeReceived != null) {
@@ -925,9 +931,9 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
     return homeReceived(home);
   }
@@ -940,9 +946,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
     return homeReceived?.call(home);
   }
@@ -955,9 +961,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
     if (homeReceived != null) {
@@ -974,9 +980,9 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
     return homeReceived(this);
   }
@@ -989,9 +995,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
     return homeReceived?.call(this);
   }
@@ -1004,9 +1010,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
     if (homeReceived != null) {
@@ -1026,182 +1032,75 @@ abstract class HomeReceived implements DisputesEvent {
 }
 
 /// @nodoc
-abstract class $VoteAgainstCopyWith<$Res> {
-  factory $VoteAgainstCopyWith(
-          VoteAgainst value, $Res Function(VoteAgainst) then) =
-      _$VoteAgainstCopyWithImpl<$Res>;
+abstract class $RentalReceivedCopyWith<$Res> {
+  factory $RentalReceivedCopyWith(
+          RentalReceived value, $Res Function(RentalReceived) then) =
+      _$RentalReceivedCopyWithImpl<$Res>;
+  $Res call({Rental rental});
+
+  $RentalCopyWith<$Res> get rental;
 }
 
 /// @nodoc
-class _$VoteAgainstCopyWithImpl<$Res> extends _$DisputesEventCopyWithImpl<$Res>
-    implements $VoteAgainstCopyWith<$Res> {
-  _$VoteAgainstCopyWithImpl(
-      VoteAgainst _value, $Res Function(VoteAgainst) _then)
-      : super(_value, (v) => _then(v as VoteAgainst));
-
-  @override
-  VoteAgainst get _value => super._value as VoteAgainst;
-}
-
-/// @nodoc
-
-class _$VoteAgainst implements VoteAgainst {
-  const _$VoteAgainst();
-
-  @override
-  String toString() {
-    return 'DisputesEvent.voteAgainst()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is VoteAgainst);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool allDisputes) initialize,
-    required TResult Function(List<Dispute> disputes) disputesReceived,
-    required TResult Function(String disputeUuid) watchDispute,
-    required TResult Function(Dispute dispute) disputeReceived,
-    required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
-  }) {
-    return voteAgainst();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool allDisputes)? initialize,
-    TResult Function(List<Dispute> disputes)? disputesReceived,
-    TResult Function(String disputeUuid)? watchDispute,
-    TResult Function(Dispute dispute)? disputeReceived,
-    TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
-  }) {
-    return voteAgainst?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool allDisputes)? initialize,
-    TResult Function(List<Dispute> disputes)? disputesReceived,
-    TResult Function(String disputeUuid)? watchDispute,
-    TResult Function(Dispute dispute)? disputeReceived,
-    TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
-    required TResult orElse(),
-  }) {
-    if (voteAgainst != null) {
-      return voteAgainst();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initialize value) initialize,
-    required TResult Function(DisputesReceived value) disputesReceived,
-    required TResult Function(WatchDispute value) watchDispute,
-    required TResult Function(DisputeReceived value) disputeReceived,
-    required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
-  }) {
-    return voteAgainst(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(DisputesReceived value)? disputesReceived,
-    TResult Function(WatchDispute value)? watchDispute,
-    TResult Function(DisputeReceived value)? disputeReceived,
-    TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
-  }) {
-    return voteAgainst?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(DisputesReceived value)? disputesReceived,
-    TResult Function(WatchDispute value)? watchDispute,
-    TResult Function(DisputeReceived value)? disputeReceived,
-    TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
-    required TResult orElse(),
-  }) {
-    if (voteAgainst != null) {
-      return voteAgainst(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class VoteAgainst implements DisputesEvent {
-  const factory VoteAgainst() = _$VoteAgainst;
-}
-
-/// @nodoc
-abstract class $VoteIndiferentCopyWith<$Res> {
-  factory $VoteIndiferentCopyWith(
-          VoteIndiferent value, $Res Function(VoteIndiferent) then) =
-      _$VoteIndiferentCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$VoteIndiferentCopyWithImpl<$Res>
+class _$RentalReceivedCopyWithImpl<$Res>
     extends _$DisputesEventCopyWithImpl<$Res>
-    implements $VoteIndiferentCopyWith<$Res> {
-  _$VoteIndiferentCopyWithImpl(
-      VoteIndiferent _value, $Res Function(VoteIndiferent) _then)
-      : super(_value, (v) => _then(v as VoteIndiferent));
+    implements $RentalReceivedCopyWith<$Res> {
+  _$RentalReceivedCopyWithImpl(
+      RentalReceived _value, $Res Function(RentalReceived) _then)
+      : super(_value, (v) => _then(v as RentalReceived));
 
   @override
-  VoteIndiferent get _value => super._value as VoteIndiferent;
+  RentalReceived get _value => super._value as RentalReceived;
+
+  @override
+  $Res call({
+    Object? rental = freezed,
+  }) {
+    return _then(RentalReceived(
+      rental == freezed
+          ? _value.rental
+          : rental // ignore: cast_nullable_to_non_nullable
+              as Rental,
+    ));
+  }
+
+  @override
+  $RentalCopyWith<$Res> get rental {
+    return $RentalCopyWith<$Res>(_value.rental, (value) {
+      return _then(_value.copyWith(rental: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$VoteIndiferent implements VoteIndiferent {
-  const _$VoteIndiferent();
+class _$RentalReceived implements RentalReceived {
+  const _$RentalReceived(this.rental);
+
+  @override
+  final Rental rental;
 
   @override
   String toString() {
-    return 'DisputesEvent.voteIndiferent()';
+    return 'DisputesEvent.rentalReceived(rental: $rental)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is VoteIndiferent);
+        (other.runtimeType == runtimeType &&
+            other is RentalReceived &&
+            const DeepCollectionEquality().equals(other.rental, rental));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rental));
+
+  @JsonKey(ignore: true)
+  @override
+  $RentalReceivedCopyWith<RentalReceived> get copyWith =>
+      _$RentalReceivedCopyWithImpl<RentalReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1211,11 +1110,11 @@ class _$VoteIndiferent implements VoteIndiferent {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
-    return voteIndiferent();
+    return rentalReceived(rental);
   }
 
   @override
@@ -1226,11 +1125,11 @@ class _$VoteIndiferent implements VoteIndiferent {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
-    return voteIndiferent?.call();
+    return rentalReceived?.call(rental);
   }
 
   @override
@@ -1241,13 +1140,13 @@ class _$VoteIndiferent implements VoteIndiferent {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
-    if (voteIndiferent != null) {
-      return voteIndiferent();
+    if (rentalReceived != null) {
+      return rentalReceived(rental);
     }
     return orElse();
   }
@@ -1260,11 +1159,11 @@ class _$VoteIndiferent implements VoteIndiferent {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
-    return voteIndiferent(this);
+    return rentalReceived(this);
   }
 
   @override
@@ -1275,11 +1174,11 @@ class _$VoteIndiferent implements VoteIndiferent {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
-    return voteIndiferent?.call(this);
+    return rentalReceived?.call(this);
   }
 
   @override
@@ -1290,57 +1189,87 @@ class _$VoteIndiferent implements VoteIndiferent {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
-    if (voteIndiferent != null) {
-      return voteIndiferent(this);
+    if (rentalReceived != null) {
+      return rentalReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class VoteIndiferent implements DisputesEvent {
-  const factory VoteIndiferent() = _$VoteIndiferent;
+abstract class RentalReceived implements DisputesEvent {
+  const factory RentalReceived(Rental rental) = _$RentalReceived;
+
+  Rental get rental;
+  @JsonKey(ignore: true)
+  $RentalReceivedCopyWith<RentalReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $VoteFavourCopyWith<$Res> {
-  factory $VoteFavourCopyWith(
-          VoteFavour value, $Res Function(VoteFavour) then) =
-      _$VoteFavourCopyWithImpl<$Res>;
+abstract class $VoteReceivedCopyWith<$Res> {
+  factory $VoteReceivedCopyWith(
+          VoteReceived value, $Res Function(VoteReceived) then) =
+      _$VoteReceivedCopyWithImpl<$Res>;
+  $Res call({DisputeVote vote});
 }
 
 /// @nodoc
-class _$VoteFavourCopyWithImpl<$Res> extends _$DisputesEventCopyWithImpl<$Res>
-    implements $VoteFavourCopyWith<$Res> {
-  _$VoteFavourCopyWithImpl(VoteFavour _value, $Res Function(VoteFavour) _then)
-      : super(_value, (v) => _then(v as VoteFavour));
+class _$VoteReceivedCopyWithImpl<$Res> extends _$DisputesEventCopyWithImpl<$Res>
+    implements $VoteReceivedCopyWith<$Res> {
+  _$VoteReceivedCopyWithImpl(
+      VoteReceived _value, $Res Function(VoteReceived) _then)
+      : super(_value, (v) => _then(v as VoteReceived));
 
   @override
-  VoteFavour get _value => super._value as VoteFavour;
+  VoteReceived get _value => super._value as VoteReceived;
+
+  @override
+  $Res call({
+    Object? vote = freezed,
+  }) {
+    return _then(VoteReceived(
+      vote == freezed
+          ? _value.vote
+          : vote // ignore: cast_nullable_to_non_nullable
+              as DisputeVote,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$VoteFavour implements VoteFavour {
-  const _$VoteFavour();
+class _$VoteReceived implements VoteReceived {
+  const _$VoteReceived(this.vote);
+
+  @override
+  final DisputeVote vote;
 
   @override
   String toString() {
-    return 'DisputesEvent.voteFavour()';
+    return 'DisputesEvent.voteReceived(vote: $vote)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is VoteFavour);
+        (other.runtimeType == runtimeType &&
+            other is VoteReceived &&
+            const DeepCollectionEquality().equals(other.vote, vote));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(vote));
+
+  @JsonKey(ignore: true)
+  @override
+  $VoteReceivedCopyWith<VoteReceived> get copyWith =>
+      _$VoteReceivedCopyWithImpl<VoteReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1350,11 +1279,11 @@ class _$VoteFavour implements VoteFavour {
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
-    required TResult Function() voteAgainst,
-    required TResult Function() voteIndiferent,
-    required TResult Function() voteFavour,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
   }) {
-    return voteFavour();
+    return voteReceived(vote);
   }
 
   @override
@@ -1365,11 +1294,11 @@ class _$VoteFavour implements VoteFavour {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
   }) {
-    return voteFavour?.call();
+    return voteReceived?.call(vote);
   }
 
   @override
@@ -1380,13 +1309,13 @@ class _$VoteFavour implements VoteFavour {
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
-    TResult Function()? voteAgainst,
-    TResult Function()? voteIndiferent,
-    TResult Function()? voteFavour,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
     required TResult orElse(),
   }) {
-    if (voteFavour != null) {
-      return voteFavour();
+    if (voteReceived != null) {
+      return voteReceived(vote);
     }
     return orElse();
   }
@@ -1399,11 +1328,11 @@ class _$VoteFavour implements VoteFavour {
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
-    required TResult Function(VoteAgainst value) voteAgainst,
-    required TResult Function(VoteIndiferent value) voteIndiferent,
-    required TResult Function(VoteFavour value) voteFavour,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
   }) {
-    return voteFavour(this);
+    return voteReceived(this);
   }
 
   @override
@@ -1414,11 +1343,11 @@ class _$VoteFavour implements VoteFavour {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
   }) {
-    return voteFavour?.call(this);
+    return voteReceived?.call(this);
   }
 
   @override
@@ -1429,20 +1358,193 @@ class _$VoteFavour implements VoteFavour {
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
-    TResult Function(VoteAgainst value)? voteAgainst,
-    TResult Function(VoteIndiferent value)? voteIndiferent,
-    TResult Function(VoteFavour value)? voteFavour,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
     required TResult orElse(),
   }) {
-    if (voteFavour != null) {
-      return voteFavour(this);
+    if (voteReceived != null) {
+      return voteReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class VoteFavour implements DisputesEvent {
-  const factory VoteFavour() = _$VoteFavour;
+abstract class VoteReceived implements DisputesEvent {
+  const factory VoteReceived(DisputeVote vote) = _$VoteReceived;
+
+  DisputeVote get vote;
+  @JsonKey(ignore: true)
+  $VoteReceivedCopyWith<VoteReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $VoteSubmitCopyWith<$Res> {
+  factory $VoteSubmitCopyWith(
+          VoteSubmit value, $Res Function(VoteSubmit) then) =
+      _$VoteSubmitCopyWithImpl<$Res>;
+  $Res call({String userUuid});
+}
+
+/// @nodoc
+class _$VoteSubmitCopyWithImpl<$Res> extends _$DisputesEventCopyWithImpl<$Res>
+    implements $VoteSubmitCopyWith<$Res> {
+  _$VoteSubmitCopyWithImpl(VoteSubmit _value, $Res Function(VoteSubmit) _then)
+      : super(_value, (v) => _then(v as VoteSubmit));
+
+  @override
+  VoteSubmit get _value => super._value as VoteSubmit;
+
+  @override
+  $Res call({
+    Object? userUuid = freezed,
+  }) {
+    return _then(VoteSubmit(
+      userUuid == freezed
+          ? _value.userUuid
+          : userUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VoteSubmit implements VoteSubmit {
+  const _$VoteSubmit(this.userUuid);
+
+  @override
+  final String userUuid;
+
+  @override
+  String toString() {
+    return 'DisputesEvent.voteSubmit(userUuid: $userUuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is VoteSubmit &&
+            const DeepCollectionEquality().equals(other.userUuid, userUuid));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(userUuid));
+
+  @JsonKey(ignore: true)
+  @override
+  $VoteSubmitCopyWith<VoteSubmit> get copyWith =>
+      _$VoteSubmitCopyWithImpl<VoteSubmit>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool allDisputes) initialize,
+    required TResult Function(List<Dispute> disputes) disputesReceived,
+    required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(Dispute dispute) disputeReceived,
+    required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
+  }) {
+    return voteSubmit(userUuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool allDisputes)? initialize,
+    TResult Function(List<Dispute> disputes)? disputesReceived,
+    TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(Dispute dispute)? disputeReceived,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
+  }) {
+    return voteSubmit?.call(userUuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool allDisputes)? initialize,
+    TResult Function(List<Dispute> disputes)? disputesReceived,
+    TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(Dispute dispute)? disputeReceived,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
+    required TResult orElse(),
+  }) {
+    if (voteSubmit != null) {
+      return voteSubmit(userUuid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(DisputesReceived value) disputesReceived,
+    required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(DisputeReceived value) disputeReceived,
+    required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
+  }) {
+    return voteSubmit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(DisputesReceived value)? disputesReceived,
+    TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(DisputeReceived value)? disputeReceived,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
+  }) {
+    return voteSubmit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(DisputesReceived value)? disputesReceived,
+    TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(DisputeReceived value)? disputeReceived,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
+    required TResult orElse(),
+  }) {
+    if (voteSubmit != null) {
+      return voteSubmit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VoteSubmit implements DisputesEvent {
+  const factory VoteSubmit(String userUuid) = _$VoteSubmit;
+
+  String get userUuid;
+  @JsonKey(ignore: true)
+  $VoteSubmitCopyWith<VoteSubmit> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1454,13 +1556,17 @@ class _$DisputesStateTearOff {
       required List<Dispute> disputes,
       required Dispute dispute,
       required Home home,
-      required DomainUser host}) {
+      required DomainUser host,
+      required DisputeVote currentVote,
+      required Rental rental}) {
     return _DisputesState(
       isLoading: isLoading,
       disputes: disputes,
       dispute: dispute,
       home: home,
       host: host,
+      currentVote: currentVote,
+      rental: rental,
     );
   }
 }
@@ -1475,6 +1581,8 @@ mixin _$DisputesState {
   Dispute get dispute => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
   DomainUser get host => throw _privateConstructorUsedError;
+  DisputeVote get currentVote => throw _privateConstructorUsedError;
+  Rental get rental => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DisputesStateCopyWith<DisputesState> get copyWith =>
@@ -1491,11 +1599,14 @@ abstract class $DisputesStateCopyWith<$Res> {
       List<Dispute> disputes,
       Dispute dispute,
       Home home,
-      DomainUser host});
+      DomainUser host,
+      DisputeVote currentVote,
+      Rental rental});
 
   $DisputeCopyWith<$Res> get dispute;
   $HomeCopyWith<$Res> get home;
   $DomainUserCopyWith<$Res> get host;
+  $RentalCopyWith<$Res> get rental;
 }
 
 /// @nodoc
@@ -1514,6 +1625,8 @@ class _$DisputesStateCopyWithImpl<$Res>
     Object? dispute = freezed,
     Object? home = freezed,
     Object? host = freezed,
+    Object? currentVote = freezed,
+    Object? rental = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -1536,6 +1649,14 @@ class _$DisputesStateCopyWithImpl<$Res>
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
               as DomainUser,
+      currentVote: currentVote == freezed
+          ? _value.currentVote
+          : currentVote // ignore: cast_nullable_to_non_nullable
+              as DisputeVote,
+      rental: rental == freezed
+          ? _value.rental
+          : rental // ignore: cast_nullable_to_non_nullable
+              as Rental,
     ));
   }
 
@@ -1559,6 +1680,13 @@ class _$DisputesStateCopyWithImpl<$Res>
       return _then(_value.copyWith(host: value));
     });
   }
+
+  @override
+  $RentalCopyWith<$Res> get rental {
+    return $RentalCopyWith<$Res>(_value.rental, (value) {
+      return _then(_value.copyWith(rental: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1573,7 +1701,9 @@ abstract class _$DisputesStateCopyWith<$Res>
       List<Dispute> disputes,
       Dispute dispute,
       Home home,
-      DomainUser host});
+      DomainUser host,
+      DisputeVote currentVote,
+      Rental rental});
 
   @override
   $DisputeCopyWith<$Res> get dispute;
@@ -1581,6 +1711,8 @@ abstract class _$DisputesStateCopyWith<$Res>
   $HomeCopyWith<$Res> get home;
   @override
   $DomainUserCopyWith<$Res> get host;
+  @override
+  $RentalCopyWith<$Res> get rental;
 }
 
 /// @nodoc
@@ -1601,6 +1733,8 @@ class __$DisputesStateCopyWithImpl<$Res>
     Object? dispute = freezed,
     Object? home = freezed,
     Object? host = freezed,
+    Object? currentVote = freezed,
+    Object? rental = freezed,
   }) {
     return _then(_DisputesState(
       isLoading: isLoading == freezed
@@ -1623,6 +1757,14 @@ class __$DisputesStateCopyWithImpl<$Res>
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
               as DomainUser,
+      currentVote: currentVote == freezed
+          ? _value.currentVote
+          : currentVote // ignore: cast_nullable_to_non_nullable
+              as DisputeVote,
+      rental: rental == freezed
+          ? _value.rental
+          : rental // ignore: cast_nullable_to_non_nullable
+              as Rental,
     ));
   }
 }
@@ -1635,7 +1777,9 @@ class _$_DisputesState implements _DisputesState {
       required this.disputes,
       required this.dispute,
       required this.home,
-      required this.host});
+      required this.host,
+      required this.currentVote,
+      required this.rental});
 
   @override
   final bool isLoading;
@@ -1647,10 +1791,14 @@ class _$_DisputesState implements _DisputesState {
   final Home home;
   @override
   final DomainUser host;
+  @override
+  final DisputeVote currentVote;
+  @override
+  final Rental rental;
 
   @override
   String toString() {
-    return 'DisputesState(isLoading: $isLoading, disputes: $disputes, dispute: $dispute, home: $home, host: $host)';
+    return 'DisputesState(isLoading: $isLoading, disputes: $disputes, dispute: $dispute, home: $home, host: $host, currentVote: $currentVote, rental: $rental)';
   }
 
   @override
@@ -1662,7 +1810,10 @@ class _$_DisputesState implements _DisputesState {
             const DeepCollectionEquality().equals(other.disputes, disputes) &&
             const DeepCollectionEquality().equals(other.dispute, dispute) &&
             const DeepCollectionEquality().equals(other.home, home) &&
-            const DeepCollectionEquality().equals(other.host, host));
+            const DeepCollectionEquality().equals(other.host, host) &&
+            const DeepCollectionEquality()
+                .equals(other.currentVote, currentVote) &&
+            const DeepCollectionEquality().equals(other.rental, rental));
   }
 
   @override
@@ -1672,7 +1823,9 @@ class _$_DisputesState implements _DisputesState {
       const DeepCollectionEquality().hash(disputes),
       const DeepCollectionEquality().hash(dispute),
       const DeepCollectionEquality().hash(home),
-      const DeepCollectionEquality().hash(host));
+      const DeepCollectionEquality().hash(host),
+      const DeepCollectionEquality().hash(currentVote),
+      const DeepCollectionEquality().hash(rental));
 
   @JsonKey(ignore: true)
   @override
@@ -1686,7 +1839,9 @@ abstract class _DisputesState implements DisputesState {
       required List<Dispute> disputes,
       required Dispute dispute,
       required Home home,
-      required DomainUser host}) = _$_DisputesState;
+      required DomainUser host,
+      required DisputeVote currentVote,
+      required Rental rental}) = _$_DisputesState;
 
   @override
   bool get isLoading;
@@ -1698,6 +1853,10 @@ abstract class _DisputesState implements DisputesState {
   Home get home;
   @override
   DomainUser get host;
+  @override
+  DisputeVote get currentVote;
+  @override
+  Rental get rental;
   @override
   @JsonKey(ignore: true)
   _$DisputesStateCopyWith<_DisputesState> get copyWith =>

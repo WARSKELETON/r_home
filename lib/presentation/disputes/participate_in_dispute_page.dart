@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/disputes/disputes_bloc.dart';
 import 'package:r_home/application/list_filter/list_filter_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
@@ -30,9 +31,18 @@ class ParticipateInDisputePage extends StatelessWidget {
           BlocProvider(
             create: (BuildContext context) => ListFilterBloc(),
           ),
+          BlocProvider(
+            create: (context) => AuthBloc(FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance))
+              ..add(const AuthEvent.getDomainUser()),
+          ),
         ],
         child: BlocBuilder<ListFilterBloc, ListFilterState>(
           builder: (context, state) {
+            final _user = context.watch<AuthBloc>().state.user;
+
             bool isVotedActive = context.watch<ListFilterBloc>().state.isVotedActive;
             bool isNotVotedActive = context.watch<ListFilterBloc>().state.isNotVotedActive;
             bool isDamagesActive = context.watch<ListFilterBloc>().state.isDamagesActive;
@@ -42,21 +52,14 @@ class ParticipateInDisputePage extends StatelessWidget {
               (!isVotedActive && !isNotVotedActive && !isDamagesActive && !isFalseAdsActive) ? true :
               (isDamagesActive == (dispute.category == DisputeCategory.damages_in_properties.name) ||
               isFalseAdsActive == (dispute.category == DisputeCategory.false_advertisement.name))
+            ).where((dispute) =>
+              dispute.usersVoted.contains(_user.id) == isVotedActive ||
+              !dispute.usersVoted.contains(_user.id) == isNotVotedActive
             ).toList();
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 10.0, bottom: 15.0),
-                  child: Text(
-                    "Select the filters you want to apply:",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                  ),
-                ),
                 const Padding(
                   padding: EdgeInsets.only(left: 10.0, bottom: 5.0, right: 10.0),
                   child: SelectFiltersParticipateInDisputeWidget(),
@@ -71,7 +74,7 @@ class ParticipateInDisputePage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     itemCount: _disputes.length,
                     itemBuilder: (BuildContext ctxt, int index) {
-                      return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid, privateMode: false)));
+                      return DisputeListRowWidget(dispute: _disputes[index], onPressed: () => AutoRouter.of(context).push(DisputeDetailsPageRoute(disputeUuid: _disputes[index].uuid)));
                     },
                     separatorBuilder: (BuildContext context, int index) => const Divider(),
                   ),

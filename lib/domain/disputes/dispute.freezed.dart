@@ -28,11 +28,12 @@ class _$DisputeTearOff {
       required String rentalUuid,
       required bool isOpened,
       required int votesAgainst,
-      required int votesIndiferent,
+      required int votesIrrelevant,
       required int votesInFavour,
       required double initialStake,
       required double stake,
-      required String category}) {
+      required String category,
+      required List<String> usersVoted}) {
     return _Dispute(
       uuid: uuid,
       issuerUuid: issuerUuid,
@@ -43,11 +44,12 @@ class _$DisputeTearOff {
       rentalUuid: rentalUuid,
       isOpened: isOpened,
       votesAgainst: votesAgainst,
-      votesIndiferent: votesIndiferent,
+      votesIrrelevant: votesIrrelevant,
       votesInFavour: votesInFavour,
       initialStake: initialStake,
       stake: stake,
       category: category,
+      usersVoted: usersVoted,
     );
   }
 }
@@ -66,11 +68,12 @@ mixin _$Dispute {
   String get rentalUuid => throw _privateConstructorUsedError;
   bool get isOpened => throw _privateConstructorUsedError;
   int get votesAgainst => throw _privateConstructorUsedError;
-  int get votesIndiferent => throw _privateConstructorUsedError;
+  int get votesIrrelevant => throw _privateConstructorUsedError;
   int get votesInFavour => throw _privateConstructorUsedError;
   double get initialStake => throw _privateConstructorUsedError;
   double get stake => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
+  List<String> get usersVoted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DisputeCopyWith<Dispute> get copyWith => throw _privateConstructorUsedError;
@@ -90,11 +93,12 @@ abstract class $DisputeCopyWith<$Res> {
       String rentalUuid,
       bool isOpened,
       int votesAgainst,
-      int votesIndiferent,
+      int votesIrrelevant,
       int votesInFavour,
       double initialStake,
       double stake,
-      String category});
+      String category,
+      List<String> usersVoted});
 }
 
 /// @nodoc
@@ -116,11 +120,12 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
     Object? rentalUuid = freezed,
     Object? isOpened = freezed,
     Object? votesAgainst = freezed,
-    Object? votesIndiferent = freezed,
+    Object? votesIrrelevant = freezed,
     Object? votesInFavour = freezed,
     Object? initialStake = freezed,
     Object? stake = freezed,
     Object? category = freezed,
+    Object? usersVoted = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -159,9 +164,9 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
           ? _value.votesAgainst
           : votesAgainst // ignore: cast_nullable_to_non_nullable
               as int,
-      votesIndiferent: votesIndiferent == freezed
-          ? _value.votesIndiferent
-          : votesIndiferent // ignore: cast_nullable_to_non_nullable
+      votesIrrelevant: votesIrrelevant == freezed
+          ? _value.votesIrrelevant
+          : votesIrrelevant // ignore: cast_nullable_to_non_nullable
               as int,
       votesInFavour: votesInFavour == freezed
           ? _value.votesInFavour
@@ -179,6 +184,10 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
+      usersVoted: usersVoted == freezed
+          ? _value.usersVoted
+          : usersVoted // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -198,11 +207,12 @@ abstract class _$DisputeCopyWith<$Res> implements $DisputeCopyWith<$Res> {
       String rentalUuid,
       bool isOpened,
       int votesAgainst,
-      int votesIndiferent,
+      int votesIrrelevant,
       int votesInFavour,
       double initialStake,
       double stake,
-      String category});
+      String category,
+      List<String> usersVoted});
 }
 
 /// @nodoc
@@ -225,11 +235,12 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
     Object? rentalUuid = freezed,
     Object? isOpened = freezed,
     Object? votesAgainst = freezed,
-    Object? votesIndiferent = freezed,
+    Object? votesIrrelevant = freezed,
     Object? votesInFavour = freezed,
     Object? initialStake = freezed,
     Object? stake = freezed,
     Object? category = freezed,
+    Object? usersVoted = freezed,
   }) {
     return _then(_Dispute(
       uuid: uuid == freezed
@@ -268,9 +279,9 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
           ? _value.votesAgainst
           : votesAgainst // ignore: cast_nullable_to_non_nullable
               as int,
-      votesIndiferent: votesIndiferent == freezed
-          ? _value.votesIndiferent
-          : votesIndiferent // ignore: cast_nullable_to_non_nullable
+      votesIrrelevant: votesIrrelevant == freezed
+          ? _value.votesIrrelevant
+          : votesIrrelevant // ignore: cast_nullable_to_non_nullable
               as int,
       votesInFavour: votesInFavour == freezed
           ? _value.votesInFavour
@@ -288,6 +299,10 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
+      usersVoted: usersVoted == freezed
+          ? _value.usersVoted
+          : usersVoted // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -305,11 +320,12 @@ class _$_Dispute extends _Dispute {
       required this.rentalUuid,
       required this.isOpened,
       required this.votesAgainst,
-      required this.votesIndiferent,
+      required this.votesIrrelevant,
       required this.votesInFavour,
       required this.initialStake,
       required this.stake,
-      required this.category})
+      required this.category,
+      required this.usersVoted})
       : super._();
 
   @override
@@ -331,7 +347,7 @@ class _$_Dispute extends _Dispute {
   @override
   final int votesAgainst;
   @override
-  final int votesIndiferent;
+  final int votesIrrelevant;
   @override
   final int votesInFavour;
   @override
@@ -340,10 +356,12 @@ class _$_Dispute extends _Dispute {
   final double stake;
   @override
   final String category;
+  @override
+  final List<String> usersVoted;
 
   @override
   String toString() {
-    return 'Dispute(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIndiferent: $votesIndiferent, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category)';
+    return 'Dispute(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, isOpened: $isOpened, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted)';
   }
 
   @override
@@ -366,13 +384,15 @@ class _$_Dispute extends _Dispute {
             const DeepCollectionEquality()
                 .equals(other.votesAgainst, votesAgainst) &&
             const DeepCollectionEquality()
-                .equals(other.votesIndiferent, votesIndiferent) &&
+                .equals(other.votesIrrelevant, votesIrrelevant) &&
             const DeepCollectionEquality()
                 .equals(other.votesInFavour, votesInFavour) &&
             const DeepCollectionEquality()
                 .equals(other.initialStake, initialStake) &&
             const DeepCollectionEquality().equals(other.stake, stake) &&
-            const DeepCollectionEquality().equals(other.category, category));
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality()
+                .equals(other.usersVoted, usersVoted));
   }
 
   @override
@@ -387,11 +407,12 @@ class _$_Dispute extends _Dispute {
       const DeepCollectionEquality().hash(rentalUuid),
       const DeepCollectionEquality().hash(isOpened),
       const DeepCollectionEquality().hash(votesAgainst),
-      const DeepCollectionEquality().hash(votesIndiferent),
+      const DeepCollectionEquality().hash(votesIrrelevant),
       const DeepCollectionEquality().hash(votesInFavour),
       const DeepCollectionEquality().hash(initialStake),
       const DeepCollectionEquality().hash(stake),
-      const DeepCollectionEquality().hash(category));
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(usersVoted));
 
   @JsonKey(ignore: true)
   @override
@@ -410,11 +431,12 @@ abstract class _Dispute extends Dispute {
       required String rentalUuid,
       required bool isOpened,
       required int votesAgainst,
-      required int votesIndiferent,
+      required int votesIrrelevant,
       required int votesInFavour,
       required double initialStake,
       required double stake,
-      required String category}) = _$_Dispute;
+      required String category,
+      required List<String> usersVoted}) = _$_Dispute;
   const _Dispute._() : super._();
 
   @override
@@ -436,7 +458,7 @@ abstract class _Dispute extends Dispute {
   @override
   int get votesAgainst;
   @override
-  int get votesIndiferent;
+  int get votesIrrelevant;
   @override
   int get votesInFavour;
   @override
@@ -445,6 +467,8 @@ abstract class _Dispute extends Dispute {
   double get stake;
   @override
   String get category;
+  @override
+  List<String> get usersVoted;
   @override
   @JsonKey(ignore: true)
   _$DisputeCopyWith<_Dispute> get copyWith =>

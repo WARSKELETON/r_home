@@ -17,11 +17,14 @@ _$_DisputeDto _$$_DisputeDtoFromJson(Map<String, dynamic> json) =>
       rentalUuid: json['rentalUuid'] as String,
       isOpened: json['isOpened'] as bool,
       votesAgainst: json['votesAgainst'] as int,
-      votesIndiferent: json['votesIndiferent'] as int,
+      votesIrrelevant: json['votesIrrelevant'] as int,
       votesInFavour: json['votesInFavour'] as int,
       initialStake: (json['initialStake'] as num).toDouble(),
       stake: (json['stake'] as num).toDouble(),
       category: json['category'] as String,
+      usersVoted: (json['usersVoted'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
@@ -35,9 +38,10 @@ Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
       'rentalUuid': instance.rentalUuid,
       'isOpened': instance.isOpened,
       'votesAgainst': instance.votesAgainst,
-      'votesIndiferent': instance.votesIndiferent,
+      'votesIrrelevant': instance.votesIrrelevant,
       'votesInFavour': instance.votesInFavour,
       'initialStake': instance.initialStake,
       'stake': instance.stake,
       'category': instance.category,
+      'usersVoted': instance.usersVoted,
     };

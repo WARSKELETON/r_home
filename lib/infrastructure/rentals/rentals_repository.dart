@@ -53,14 +53,14 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   @override
-  Stream<Rental> watch(String homeUuid) async* {
+  Stream<Rental> watch(String rentalUuid) async* {
     final userId = _authFacade.getSignedInUserId()!;
 
     final docRef = _firestore
         .collection(PARENT_COLLECTION)
         .doc(userId)
         .collection(RENTALS_COLLECTION)
-        .doc(homeUuid);
+        .doc(rentalUuid);
 
     yield* docRef.snapshots().map((doc) => doc.toRental());
   }

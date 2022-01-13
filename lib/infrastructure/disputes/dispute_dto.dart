@@ -19,11 +19,12 @@ abstract class DisputeDto implements _$DisputeDto {
     required String rentalUuid,
     required bool isOpened,
     required int votesAgainst,
-    required int votesIndiferent,
+    required int votesIrrelevant,
     required int votesInFavour,
     required double initialStake,
     required double stake,
     required String category,
+    required List<String> usersVoted
   }) = _DisputeDto;
 
   factory DisputeDto.fromDomain(Dispute dispute) {
@@ -37,11 +38,12 @@ abstract class DisputeDto implements _$DisputeDto {
       rentalUuid: dispute.rentalUuid,
       isOpened: dispute.isOpened,
       votesAgainst: dispute.votesAgainst,
-      votesIndiferent: dispute.votesIndiferent,
+      votesIrrelevant: dispute.votesIrrelevant,
       votesInFavour: dispute.votesInFavour,
       initialStake: dispute.initialStake,
       stake: dispute.stake,
-      category: dispute.category
+      category: dispute.category,
+      usersVoted: dispute.usersVoted
     );
   }
 
@@ -56,11 +58,12 @@ abstract class DisputeDto implements _$DisputeDto {
       rentalUuid: rentalUuid,
       isOpened: isOpened,
       votesAgainst: votesAgainst,
-      votesIndiferent: votesIndiferent,
+      votesIrrelevant: votesIrrelevant,
       votesInFavour: votesInFavour,
       initialStake: initialStake,
       stake: stake,
-      category: category
+      category: category,
+      usersVoted: usersVoted
     );
   }
 

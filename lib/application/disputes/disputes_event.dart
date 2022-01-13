@@ -7,7 +7,7 @@ class DisputesEvent with _$DisputesEvent {
   const factory DisputesEvent.watchDispute(String disputeUuid) = WatchDispute;
   const factory DisputesEvent.disputeReceived(Dispute dispute) = DisputeReceived;
   const factory DisputesEvent.homeReceived(Home home) = HomeReceived;
-  const factory DisputesEvent.voteAgainst() = VoteAgainst;
-  const factory DisputesEvent.voteIndiferent() = VoteIndiferent;
-  const factory DisputesEvent.voteFavour() = VoteFavour;
+  const factory DisputesEvent.rentalReceived(Rental rental) = RentalReceived;
+  const factory DisputesEvent.voteReceived(DisputeVote vote) = VoteReceived;
+  const factory DisputesEvent.voteSubmit(String userUuid) = VoteSubmit;
 }

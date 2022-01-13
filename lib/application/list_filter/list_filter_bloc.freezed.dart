@@ -908,15 +908,15 @@ class _$ListFilterStateTearOff {
   const _$ListFilterStateTearOff();
 
   _ListFilterState call(
-      {required bool isOpened,
-      required bool isClosed,
+      {required bool isOpenedActive,
+      required bool isClosedActive,
       required bool isVotedActive,
       required bool isNotVotedActive,
       required bool isDamagesActive,
       required bool isFalseAdsActive}) {
     return _ListFilterState(
-      isOpened: isOpened,
-      isClosed: isClosed,
+      isOpenedActive: isOpenedActive,
+      isClosedActive: isClosedActive,
       isVotedActive: isVotedActive,
       isNotVotedActive: isNotVotedActive,
       isDamagesActive: isDamagesActive,
@@ -930,8 +930,8 @@ const $ListFilterState = _$ListFilterStateTearOff();
 
 /// @nodoc
 mixin _$ListFilterState {
-  bool get isOpened => throw _privateConstructorUsedError;
-  bool get isClosed => throw _privateConstructorUsedError;
+  bool get isOpenedActive => throw _privateConstructorUsedError;
+  bool get isClosedActive => throw _privateConstructorUsedError;
   bool get isVotedActive => throw _privateConstructorUsedError;
   bool get isNotVotedActive => throw _privateConstructorUsedError;
   bool get isDamagesActive => throw _privateConstructorUsedError;
@@ -948,8 +948,8 @@ abstract class $ListFilterStateCopyWith<$Res> {
           ListFilterState value, $Res Function(ListFilterState) then) =
       _$ListFilterStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isOpened,
-      bool isClosed,
+      {bool isOpenedActive,
+      bool isClosedActive,
       bool isVotedActive,
       bool isNotVotedActive,
       bool isDamagesActive,
@@ -967,21 +967,21 @@ class _$ListFilterStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isOpened = freezed,
-    Object? isClosed = freezed,
+    Object? isOpenedActive = freezed,
+    Object? isClosedActive = freezed,
     Object? isVotedActive = freezed,
     Object? isNotVotedActive = freezed,
     Object? isDamagesActive = freezed,
     Object? isFalseAdsActive = freezed,
   }) {
     return _then(_value.copyWith(
-      isOpened: isOpened == freezed
-          ? _value.isOpened
-          : isOpened // ignore: cast_nullable_to_non_nullable
+      isOpenedActive: isOpenedActive == freezed
+          ? _value.isOpenedActive
+          : isOpenedActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      isClosed: isClosed == freezed
-          ? _value.isClosed
-          : isClosed // ignore: cast_nullable_to_non_nullable
+      isClosedActive: isClosedActive == freezed
+          ? _value.isClosedActive
+          : isClosedActive // ignore: cast_nullable_to_non_nullable
               as bool,
       isVotedActive: isVotedActive == freezed
           ? _value.isVotedActive
@@ -1011,8 +1011,8 @@ abstract class _$ListFilterStateCopyWith<$Res>
       __$ListFilterStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isOpened,
-      bool isClosed,
+      {bool isOpenedActive,
+      bool isClosedActive,
       bool isVotedActive,
       bool isNotVotedActive,
       bool isDamagesActive,
@@ -1032,21 +1032,21 @@ class __$ListFilterStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isOpened = freezed,
-    Object? isClosed = freezed,
+    Object? isOpenedActive = freezed,
+    Object? isClosedActive = freezed,
     Object? isVotedActive = freezed,
     Object? isNotVotedActive = freezed,
     Object? isDamagesActive = freezed,
     Object? isFalseAdsActive = freezed,
   }) {
     return _then(_ListFilterState(
-      isOpened: isOpened == freezed
-          ? _value.isOpened
-          : isOpened // ignore: cast_nullable_to_non_nullable
+      isOpenedActive: isOpenedActive == freezed
+          ? _value.isOpenedActive
+          : isOpenedActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      isClosed: isClosed == freezed
-          ? _value.isClosed
-          : isClosed // ignore: cast_nullable_to_non_nullable
+      isClosedActive: isClosedActive == freezed
+          ? _value.isClosedActive
+          : isClosedActive // ignore: cast_nullable_to_non_nullable
               as bool,
       isVotedActive: isVotedActive == freezed
           ? _value.isVotedActive
@@ -1072,17 +1072,17 @@ class __$ListFilterStateCopyWithImpl<$Res>
 
 class _$_ListFilterState implements _ListFilterState {
   const _$_ListFilterState(
-      {required this.isOpened,
-      required this.isClosed,
+      {required this.isOpenedActive,
+      required this.isClosedActive,
       required this.isVotedActive,
       required this.isNotVotedActive,
       required this.isDamagesActive,
       required this.isFalseAdsActive});
 
   @override
-  final bool isOpened;
+  final bool isOpenedActive;
   @override
-  final bool isClosed;
+  final bool isClosedActive;
   @override
   final bool isVotedActive;
   @override
@@ -1094,7 +1094,7 @@ class _$_ListFilterState implements _ListFilterState {
 
   @override
   String toString() {
-    return 'ListFilterState(isOpened: $isOpened, isClosed: $isClosed, isVotedActive: $isVotedActive, isNotVotedActive: $isNotVotedActive, isDamagesActive: $isDamagesActive, isFalseAdsActive: $isFalseAdsActive)';
+    return 'ListFilterState(isOpenedActive: $isOpenedActive, isClosedActive: $isClosedActive, isVotedActive: $isVotedActive, isNotVotedActive: $isNotVotedActive, isDamagesActive: $isDamagesActive, isFalseAdsActive: $isFalseAdsActive)';
   }
 
   @override
@@ -1102,8 +1102,10 @@ class _$_ListFilterState implements _ListFilterState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ListFilterState &&
-            const DeepCollectionEquality().equals(other.isOpened, isOpened) &&
-            const DeepCollectionEquality().equals(other.isClosed, isClosed) &&
+            const DeepCollectionEquality()
+                .equals(other.isOpenedActive, isOpenedActive) &&
+            const DeepCollectionEquality()
+                .equals(other.isClosedActive, isClosedActive) &&
             const DeepCollectionEquality()
                 .equals(other.isVotedActive, isVotedActive) &&
             const DeepCollectionEquality()
@@ -1117,8 +1119,8 @@ class _$_ListFilterState implements _ListFilterState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isOpened),
-      const DeepCollectionEquality().hash(isClosed),
+      const DeepCollectionEquality().hash(isOpenedActive),
+      const DeepCollectionEquality().hash(isClosedActive),
       const DeepCollectionEquality().hash(isVotedActive),
       const DeepCollectionEquality().hash(isNotVotedActive),
       const DeepCollectionEquality().hash(isDamagesActive),
@@ -1132,17 +1134,17 @@ class _$_ListFilterState implements _ListFilterState {
 
 abstract class _ListFilterState implements ListFilterState {
   const factory _ListFilterState(
-      {required bool isOpened,
-      required bool isClosed,
+      {required bool isOpenedActive,
+      required bool isClosedActive,
       required bool isVotedActive,
       required bool isNotVotedActive,
       required bool isDamagesActive,
       required bool isFalseAdsActive}) = _$_ListFilterState;
 
   @override
-  bool get isOpened;
+  bool get isOpenedActive;
   @override
-  bool get isClosed;
+  bool get isClosedActive;
   @override
   bool get isVotedActive;
   @override
