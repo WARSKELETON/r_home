@@ -72,7 +72,7 @@ class DisputeDetailsPage extends StatelessWidget {
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(bottom: 10.0),
+                                padding: const EdgeInsets.only(bottom: 10.0, top: 5.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -81,7 +81,6 @@ class DisputeDetailsPage extends StatelessWidget {
                                         "Closes in ",
                                         style: TextStyle(
                                           color: _timer.inHours >= 1 ? Theme.of(context).colorScheme.primaryBlue : Colors.red,
-                                          fontWeight: FontWeight.bold
                                         ),
                                       ),
                                       SizedBox(
@@ -90,7 +89,6 @@ class DisputeDetailsPage extends StatelessWidget {
                                           '${_timer.inHours.toString().padLeft(2, '0')} : ${DateFormat("mm : ss").format(DateTime.fromMillisecondsSinceEpoch(_timer.inMilliseconds))}',
                                           style: TextStyle(
                                             color: _timer.inHours >= 1 ? Theme.of(context).colorScheme.primaryBlue : Colors.red,
-                                            fontWeight: FontWeight.bold
                                           ),
                                         ),
                                       ),

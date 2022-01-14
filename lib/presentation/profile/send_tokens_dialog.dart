@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/reward_user/reward_user_bloc.dart';
@@ -20,7 +21,7 @@ class SendTokensDialog extends StatelessWidget {
         message: "You are about to send $tokens tokens to user $username.",
         onPressed: () {
           context.read<RewardUserBloc>().add(const RewardUserEvent.sendTokens());
-          Navigator.of(context).pop();
+          AutoRouter.of(context).popUntilRouteWithName("ProfilePageRoute");
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text("Your tokens were sent.")));
         },);
       },

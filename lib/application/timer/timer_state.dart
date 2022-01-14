@@ -7,5 +7,5 @@ class TimerState with _$TimerState {
     required Duration timeToEnd,
   }) = _TimerState;
 
-  factory TimerState.initial() => TimerState(finishTime: DateTime(DateTime.now().year), timeToEnd: Duration());
+  factory TimerState.initial() => TimerState(finishTime: DateTime(DateTime.now().year), timeToEnd: Duration(hours: 48));
 }
