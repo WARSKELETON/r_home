@@ -7,7 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:r_home/application/timer/timer_bloc.dart';
 import 'package:r_home/presentation/disputes/widgets/chart_legend_widget.dart';
-import 'package:r_home/presentation/disputes/widgets/confirmation_dialog.dart';
+import 'package:r_home/presentation/disputes/widgets/vote_confirmation_dialog.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/disputes/disputes_bloc.dart';
@@ -40,13 +40,6 @@ class DisputeDetailsPage extends StatelessWidget {
               FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
                   FirebaseFirestore.instance)))
             ..add(DisputesEvent.watchDispute(disputeUuid)),
-        ),
-        BlocProvider(
-          create: (context) => AuthBloc(FirebaseAuthFacade(
-              FirebaseAuth.instance,
-              GoogleSignIn(),
-              FirebaseFirestore.instance))
-            ..add(const AuthEvent.getDomainUser()),
         ),
         BlocProvider(
           create: (context) => TimerBloc()
@@ -234,7 +227,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                              //if (!_userIsLoading && _user.id != _dispute.issuerUuid && !_dispute.usersVoted.contains(_user.id)) ...[
+                              if (!_userIsLoading && _user.id != _dispute.issuerUuid && !_dispute.usersVoted.contains(_user.id)) ...[
                                 const Align(
                                   alignment: Alignment.centerLeft,
                                   child: Padding(
@@ -299,7 +292,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                     showDialog(context: context,
                                       builder: (_) => BlocProvider.value(
                                         value: context.read<DisputesBloc>(),
-                                        child: ConfirmationDialog(vote: _currentVote),
+                                        child: VoteConfirmationDialog(vote: _currentVote),
                                       )
                                     )
                                   },
@@ -311,7 +304,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                   height: 35,
                                   width: 250,
                                 ),
-                              //] else ...[
+                              ] else ...[
                                 const Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
@@ -386,7 +379,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                     ]
                                   ),
                                 ),
-                              //]
+                              ]
                             ],
                           ),
                         ),

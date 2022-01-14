@@ -76,13 +76,8 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   @override
-  Future<DomainUser> getGuest(String guestUuid) {
-    return _authFacade.getUserById(guestUuid);
-  }
-
-  @override
-  Future<DomainUser> getHost(String hostUuid) {
-    return _authFacade.getUserById(hostUuid);
+  Future<DomainUser> getUserById(String userUuid) {
+    return _authFacade.getUserById(userUuid);
   }
 
   @override

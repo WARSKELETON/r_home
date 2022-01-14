@@ -33,6 +33,9 @@ class DisputeListRowWidget extends StatelessWidget {
         builder: (context, state) {
           final _timer = context.read<TimerBloc>().state.timeToEnd;
           final _isOpened = !_closingTime.isBefore(DateTime.now());
+          print(_closingTime);
+          print(_timer);
+          print(_isOpened);
 
           return InkWell(
             splashColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),

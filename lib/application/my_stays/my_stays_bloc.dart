@@ -64,8 +64,8 @@ class MyStaysBloc extends Bloc<MyStaysEvent, MyStaysState> {
   }
 
   void _onRentalReceived(RentalReceived event, Emitter<MyStaysState> emit) async {
-    final host = await _rentalsRepository.getHost(event.rental.hostId);
-    final guest = await _rentalsRepository.getGuest(event.rental.guestId);
+    final host = await _rentalsRepository.getUserById(event.rental.hostId);
+    final guest = await _rentalsRepository.getUserById(event.rental.guestId);
     emit(state.copyWith(
       rental: event.rental,
       host: host,

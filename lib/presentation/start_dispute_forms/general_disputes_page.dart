@@ -37,13 +37,6 @@ class GeneralDisputesPage extends StatelessWidget {
     return MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AuthBloc(FirebaseAuthFacade(
-                  FirebaseAuth.instance,
-                  GoogleSignIn(),
-                  FirebaseFirestore.instance))
-                ..add(const AuthEvent.getDomainUser()),
-            ),
-            BlocProvider(
               create: (BuildContext context) => StepperBloc(),
             ),
             BlocProvider(

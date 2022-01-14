@@ -152,4 +152,23 @@ class FirebaseAuthFacade implements IAuthFacade {
 
     return UserDto.fromFirestore(doc).toDomain();
   }
+
+  @override
+  Future<void> makeTransferOfTokens(String beneficiaryId, int amount) async {
+    var user = getSignedInUserId();
+    
+    _firestore
+      .collection(USERS_COLLECTION)
+      .doc(user)
+      .update({"numTokens" : FieldValue.increment(-amount)})
+      .then((_) => print("User updated successfuly"))
+      .catchError((onError) => print(onError));
+
+    _firestore
+      .collection(USERS_COLLECTION)
+      .doc(beneficiaryId)
+      .update({"numTokens" : FieldValue.increment(amount)})
+      .then((_) => print("User updated successfuly"))
+      .catchError((onError) => print(onError));
+  }
 }

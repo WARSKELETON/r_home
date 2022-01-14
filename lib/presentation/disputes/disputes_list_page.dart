@@ -27,17 +27,18 @@ class DisputesListPage extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => DisputesBloc(DisputesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
-              ..add(const DisputesEvent.initialize(true))),
+            create: (context) => DisputesBloc(
+              DisputesRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                  )
+                )
+              )..add(const DisputesEvent.initialize(true))),
           BlocProvider(
             create: (BuildContext context) => ListFilterBloc(),
-          ),
-          BlocProvider(
-            create: (context) => AuthBloc(FirebaseAuthFacade(
-                FirebaseAuth.instance,
-                GoogleSignIn(),
-                FirebaseFirestore.instance))
-              ..add(const AuthEvent.getDomainUser()),
           ),
         ],
         child: BlocBuilder<ListFilterBloc, ListFilterState>(

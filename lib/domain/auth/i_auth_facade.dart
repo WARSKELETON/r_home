@@ -9,5 +9,6 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
   Future<Either<AuthFailure, Unit>> registerUserWithRole(String role);
   Future<DomainUser> getUserById(String userId);
+  Future<void> makeTransferOfTokens(String userId2, int amount);
   Future<void> signOut();
 }
