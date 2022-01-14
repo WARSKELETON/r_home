@@ -33,6 +33,7 @@ class DisputeListRowWidget extends StatelessWidget {
         builder: (context, state) {
           final _timer = context.read<TimerBloc>().state.timeToEnd;
           final _isOpened = !_closingTime.isBefore(DateTime.now());
+
           return InkWell(
             splashColor:
                 Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
@@ -89,14 +90,12 @@ class DisputeListRowWidget extends StatelessWidget {
                               if (opened) ...[
                                 ChipWidget(
                                   width: 100,
-                                  title: "OPEN",
+                                  title: _isOpened ? "OPENED" : "CLOSED",
                                   isClickable: false,
                                   isChecked: false,
-                                  borderColor:
-                                      Theme.of(context).colorScheme.primaryBlue,
-                                  backgroundColor: const Color(0xFFD2E4A9),
-                                  textColor:
-                                      Theme.of(context).colorScheme.primaryBlue,
+                                  borderColor: Theme.of(context).colorScheme.primaryBlue,
+                                  backgroundColor: _isOpened ? const Color(0xFFD2E4A9) : const Color(0xFFFAAAAA),
+                                  textColor: Theme.of(context).colorScheme.primaryBlue,
                                 ),
                               ],
                               if (voted) ...[
@@ -107,18 +106,9 @@ class DisputeListRowWidget extends StatelessWidget {
                                       : "NOT VOTED",
                                   isClickable: false,
                                   isChecked: false,
-                                  borderColor: Theme.of(context)
-                                      .colorScheme
-                                      .primaryBlue
-                                      .withOpacity(0.1),
-                                  backgroundColor: Theme.of(context)
-                                      .colorScheme
-                                      .primaryBlue
-                                      .withOpacity(0.1),
-                                  textColor: Theme.of(context)
-                                      .colorScheme
-                                      .primaryBlue
-                                      .withOpacity(0.6),
+                                  borderColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
+                                  backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
+                                  textColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
                                 ),
                               ],
                             ],

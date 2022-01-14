@@ -5,6 +5,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
+import 'package:r_home/domain/homes/home.dart';
+import 'package:r_home/domain/homes/i_homes_repository.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 
@@ -15,10 +17,13 @@ part 'disputes_form_bloc.freezed.dart';
 class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
   final IDisputesRepository _disputesRepository;
   final IRentalsRepository _rentalsRepository;
+  final IHomesRepository _homesRepository;
 
-  DisputesFormBloc(this._disputesRepository, this._rentalsRepository): super(DisputesFormState.initial()) {
+
+  DisputesFormBloc(this._disputesRepository, this._rentalsRepository, this._homesRepository): super(DisputesFormState.initial()) {
     on<Initialize>(_onInitialize);
     on<RentalsReceived>(_onRentalsReceived);
+    on<HomesReceived>(_onHomesReceived);
     on<CategoryChanged>(_onCategoryChanged);
     on<HomeChanged>(_onHomeChanged);
     on<RentalChanged>(_onRentalChanged);
@@ -29,17 +34,27 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
   }
 
   StreamSubscription<List<Rental>>? _myRentalsStreamSubscription;
+  StreamSubscription<List<Home>>? _myRentalHomesStreamSubscription;
 
   void _onInitialize(Initialize event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(dispute: state.dispute.copyWith(category: event.disputeCategory.name)));
 
-    _myRentalsStreamSubscription = _rentalsRepository.watchAll().listen(
-      (disputes) => add(DisputesFormEvent.rentalsReceived(disputes)),
+    _myRentalsStreamSubscription = _rentalsRepository.watchAllWhereUserIsInvolved().listen(
+      (rentals) => {
+        add(DisputesFormEvent.rentalsReceived(rentals)),
+        _myRentalHomesStreamSubscription = _homesRepository.watchAllFromHomeIds(rentals.map((rental) => rental.homeId).toList()).listen(
+          (homes) => add(DisputesFormEvent.homesReceived(homes))
+        )
+      }
     );
   }
 
   void _onRentalsReceived(RentalsReceived event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(rentals: event.rentals));
+  }
+
+  void _onHomesReceived(HomesReceived event, Emitter<DisputesFormState> emit) {
+    emit(state.copyWith(homes: event.homes));
   }
 
   void _onCategoryChanged(CategoryChanged event, Emitter<DisputesFormState> emit) {
@@ -84,5 +99,12 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
     await _disputesRepository.create(state.dispute);
 
     emit(state.copyWith(isSaving: false));
+  }
+
+  @override
+  Future<void> close() {
+    _myRentalsStreamSubscription?.cancel();
+    _myRentalHomesStreamSubscription?.cancel();
+    return super.close();
   }
 }

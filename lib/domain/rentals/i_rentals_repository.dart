@@ -3,6 +3,7 @@ import 'package:r_home/domain/rentals/rental.dart';
 
 abstract class IRentalsRepository {
   Stream<List<Rental>> watchAll();
+  Stream<List<Rental>> watchAllWhereUserIsInvolved();
   Stream<List<Rental>> watchAllAsGuest();
   Stream<List<Rental>> watchAllAsHost();
   Stream<Rental> watch(String homeUuid);

@@ -4,12 +4,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
+import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/disputes/disputes_repository.dart';
+import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -34,35 +37,50 @@ class GeneralDisputesPage extends StatelessWidget {
     return MultiBlocProvider(
           providers: [
             BlocProvider(
+              create: (context) => AuthBloc(FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance))
+                ..add(const AuthEvent.getDomainUser()),
+            ),
+            BlocProvider(
               create: (BuildContext context) => StepperBloc(),
             ),
             BlocProvider(
               create: (context) => DisputesFormBloc(
-                  DisputesRepository(
-                    FirebaseFirestore.instance,
-                    FirebaseAuthFacade(
-                      FirebaseAuth.instance,
-                      GoogleSignIn(),
-                      FirebaseFirestore.instance
-                    )
-                  ),
-                  RentalsRepository(
-                    FirebaseFirestore.instance,
-                    FirebaseAuthFacade(
-                      FirebaseAuth.instance,
-                      GoogleSignIn(),
-                      FirebaseFirestore.instance
-                    )
+                DisputesRepository(
+                  FirebaseFirestore.instance,
+                  FirebaseAuthFacade(
+                    FirebaseAuth.instance,
+                    GoogleSignIn(),
+                    FirebaseFirestore.instance
                   )
-              )
-              ..add(DisputesFormEvent.initialize(disputeCategory)),
+                ),
+                RentalsRepository(
+                  FirebaseFirestore.instance,
+                  FirebaseAuthFacade(
+                    FirebaseAuth.instance,
+                    GoogleSignIn(),
+                    FirebaseFirestore.instance
+                  )
+                ),
+                HomesRepository(
+                  FirebaseFirestore.instance,
+                  FirebaseAuthFacade(
+                    FirebaseAuth.instance,
+                    GoogleSignIn(),
+                    FirebaseFirestore.instance
+                  )
+                )
+              )..add(DisputesFormEvent.initialize(disputeCategory)),
             ),
           ],
           child: BlocBuilder<StepperBloc, StepperState>(
             buildWhen: (p, c) => p.selectedIndex != c.selectedIndex,
             builder: (context, state) {
               int _currentIndex = context.read<StepperBloc>().state.selectedIndex;
-
+              
+              List<Home> _homes = context.watch<DisputesFormBloc>().state.homes;
               List<Rental> _rentals = context.watch<DisputesFormBloc>().state.rentals;
               String _rentalUuid = context.watch<DisputesFormBloc>().state.dispute.rentalUuid;
               double _initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
@@ -104,7 +122,7 @@ class GeneralDisputesPage extends StatelessWidget {
                       if (_currentIndex == 0) ...[
                         const ConsentMessageWidget(),
                       ] else if (_currentIndex == 1) ...[
-                        SelectRentalWidget(rentals: _rentals),
+                        SelectRentalWidget(rentals: _rentals, homes: _homes),
                       ] else if (_currentIndex == 2) ...[
                         const StartDisputesForm(),
                       ] else if (_currentIndex == 3) ...[

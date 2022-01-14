@@ -51,7 +51,6 @@ class DisputesListPage extends StatelessWidget {
             bool isDamagesActive = context.watch<ListFilterBloc>().state.isDamagesActive;
             bool isFalseAdsActive = context.watch<ListFilterBloc>().state.isFalseAdsActive;
 
-            // TODO: sort list by creation date. Show latest first
             final _disputes = context.watch<DisputesBloc>().state.disputes.where((dispute) =>
               (!isVotedActive && !isNotVotedActive && !isDamagesActive && !isFalseAdsActive) ? true :
               (isDamagesActive == (dispute.category == DisputeCategory.damages_in_properties.name) ||
@@ -60,9 +59,13 @@ class DisputesListPage extends StatelessWidget {
               dispute.usersVoted.contains(_user.id) == isVotedActive ||
               !dispute.usersVoted.contains(_user.id) == isNotVotedActive 
             ).where((dispute) =>
-              dispute.isOpened == isOpenedActive ||
-              !dispute.isOpened == isClosedActive 
+              !dispute.creationDate.add(const Duration(days: 2)).isBefore(DateTime.now()) == isOpenedActive ||
+              dispute.creationDate.add(const Duration(days: 2)).isBefore(DateTime.now()) == isClosedActive
+            ).where((dispute) => 
+              privateMode ? dispute.issuerUuid == _user.id : dispute.issuerUuid != _user.id
             ).toList();
+
+            _disputes.sort((dispute1, dispute2) => dispute2.creationDate.compareTo(dispute1.creationDate));
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -92,10 +92,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                       SizedBox(
                                         width: 80,
                                         child: Text(
-                                          '${_timer.inHours} : ${DateFormat("mm : ss").format(DateTime.fromMillisecondsSinceEpoch(_timer.inMilliseconds))}',
-                                          style: TextStyle(
-                                            color: Theme.of(context).colorScheme.primaryBlue,
-                                          ),
+                                          '${_timer.inHours.toString().padLeft(2, '0')} : ${DateFormat("mm : ss").format(DateTime.fromMillisecondsSinceEpoch(_timer.inMilliseconds))}',
                                         ),
                                       ),
                                     ] else ...[
@@ -223,7 +220,13 @@ class DisputeDetailsPage extends StatelessWidget {
                                         fontWeight: FontWeight.w600
                                       ),
                                     ),
-                                )
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                                  child: Divider(
+                                    height: 5,
+                                  ),
+                                ),
                               ],
                               if (!_userIsLoading && _user.id != _dispute.issuerUuid && !_dispute.usersVoted.contains(_user.id)) ...[
                                 const Align(
@@ -313,9 +316,9 @@ class DisputeDetailsPage extends StatelessWidget {
                                     padding: const EdgeInsets.only(top: 10.0),
                                     child: ChartLegendWidget(
                                       colors: [
-                                        Theme.of(context).colorScheme.primaryBlue,
+                                        const Color(0xFFF7554C),
                                         const Color(0xFFF9A53C),
-                                        const Color(0xFFF7554C)
+                                        Theme.of(context).colorScheme.primaryBlue,
                                       ]
                                     ),
                                   ),
@@ -365,7 +368,6 @@ class DisputeDetailsPage extends StatelessWidget {
                                               dataLabelSettings: const DataLabelSettings(
                                                 isVisible: true,
                                                 labelPosition: ChartDataLabelPosition.outside,
-                                                connectorLineSettings: ConnectorLineSettings()
                                               )
                                             ),
                                           ]
