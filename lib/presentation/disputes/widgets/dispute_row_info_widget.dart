@@ -35,20 +35,20 @@ class DisputeListRowWidget extends StatelessWidget {
           final _isOpened = !_closingTime.isBefore(DateTime.now());
 
           return InkWell(
-            splashColor:
-                Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
+            splashColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
             onTap: onPressed,
             borderRadius: BorderRadius.circular(15.0),
             child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 5.0, bottom: 3.0, left: 1.0, right: 1.0),
+              padding: const EdgeInsets.only(top: 5.0, bottom: 3.0, left: 1.0, right: 1.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset("assets/icons/dispute_alarm.png",
-                          width: 130)),
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.asset("assets/icons/dispute_alarm.png",
+                      width: 130,
+                    ),
+                  ),
                   const SizedBox(width: 15),
                   Expanded(
                     child: Column(
@@ -89,13 +89,13 @@ class DisputeListRowWidget extends StatelessWidget {
                             children: [
                               if (opened) ...[
                                 ChipWidget(
-                                  width: 100,
-                                  title: _isOpened ? "OPENED" : "CLOSED",
+                                  width: _isOpened && _timer.inHours < 1 ? 200 : 100,
+                                  title: _isOpened ? (_timer.inHours < 1 ? "CLOSING SOON" : "OPENED") : "CLOSED",
                                   isClickable: false,
                                   isChecked: false,
                                   borderColor: Theme.of(context).colorScheme.primaryBlue,
-                                  backgroundColor: _isOpened ? const Color(0xFFD2E4A9) : const Color(0xFFFAAAAA),
-                                  textColor: Theme.of(context).colorScheme.primaryBlue,
+                                  backgroundColor: _isOpened ? (_timer.inHours < 1 ? const Color(0xFFFF8383) : const Color(0xFFD2E4A9)) : const Color(0xFFFAAAAA),
+                                  textColor: _isOpened && _timer.inHours < 1 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
                                 ),
                               ],
                               if (voted) ...[
