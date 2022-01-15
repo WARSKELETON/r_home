@@ -7,16 +7,12 @@ import 'package:r_home/presentation/homes/homes_page.dart';
 import 'package:r_home/presentation/my_homes_form/categories_page.dart';
 import 'package:r_home/presentation/my_homes_form/local_activity_details_page.dart';
 import 'package:r_home/presentation/my_homes_form/local_activities_page.dart';
-import 'package:r_home/presentation/my_stays/my_stays_details_page.dart';
-import 'package:r_home/presentation/my_stays/my_stays_page.dart';
 import 'package:r_home/presentation/reward_user/reward_user_page.dart';
 import 'package:r_home/presentation/start_dispute_forms/general_disputes_page.dart';
 import 'package:r_home/presentation/start_dispute_forms/problems_with_payments_page.dart';
 import 'package:r_home/presentation/disputes/start_dispute_page.dart';
 import 'package:r_home/presentation/home/home_page.dart';
-import 'package:r_home/presentation/my_homes/my_home_details_page.dart';
 import 'package:r_home/presentation/my_homes_form/my_homes_form.dart';
-import 'package:r_home/presentation/my_homes/my_homes_page.dart';
 import 'package:r_home/presentation/my_local_activities_form/category_selection_page.dart';
 import 'package:r_home/presentation/my_local_activities/my_local_activities_details_page.dart';
 import 'package:r_home/presentation/my_local_activities/my_local_activities_page.dart';
@@ -39,8 +35,6 @@ import 'package:r_home/presentation/splash/test_page.dart';
     MaterialRoute(page: RolePage),
     CustomRoute(page: HomePage),
     CustomRoute(page: DisputesPage),
-    CustomRoute(page: MyHomesPage),
-    CustomRoute(page: MyStaysPage),
     CustomRoute(page: HomesPage),
     MaterialRoute(page: MyHomesForm, fullscreenDialog: true),
     CustomRoute(page: RentAHomePage),
@@ -54,8 +48,6 @@ import 'package:r_home/presentation/splash/test_page.dart';
     CustomRoute(page: ProblemsWithPaymentsPage, fullscreenDialog: true),
     CustomRoute(page: GeneralDisputesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: HomeDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
-    CustomRoute(page: MyHomeDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
-    CustomRoute(page: MyStayDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: LocalActivityDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyLocalActivityDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: WalletPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
