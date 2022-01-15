@@ -26,9 +26,9 @@ import 'package:r_home/presentation/start_dispute_forms/widgets/info_message_wid
 import 'package:r_home/presentation/start_dispute_forms/widgets/select_rental_widget.dart';
 
 class ProblemsWithPaymentsPage extends StatelessWidget {
-  final DisputeCategory disputeCategory;
+  final Dispute dispute;
 
-  const ProblemsWithPaymentsPage({Key? key, required this.disputeCategory}) : super(key: key);
+  const ProblemsWithPaymentsPage({Key? key, required this.dispute}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class ProblemsWithPaymentsPage extends StatelessWidget {
                 FirebaseFirestore.instance
               )
             )
-          )..add(DisputesFormEvent.initialize(disputeCategory)),
+          )..add(DisputesFormEvent.initialize(dispute)),
         ),
       ],
       child: BlocBuilder<StepperBloc, StepperState>(

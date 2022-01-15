@@ -149,9 +149,12 @@ class MyRouter extends _i30.RootStackRouter {
           barrierDismissible: false);
     },
     StartDisputesPageRoute.name: (routeData) {
+      final args = routeData.argsAs<StartDisputesPageRouteArgs>(
+          orElse: () => const StartDisputesPageRouteArgs());
       return _i30.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i13.StartDisputesPage(),
+          child: _i13.StartDisputesPage(
+              key: args.key, rentalUuid: args.rentalUuid),
           transitionsBuilder: _i30.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -186,7 +189,7 @@ class MyRouter extends _i30.RootStackRouter {
       return _i30.CustomPage<dynamic>(
           routeData: routeData,
           child: _i16.ProblemsWithPaymentsPage(
-              key: args.key, disputeCategory: args.disputeCategory),
+              key: args.key, dispute: args.dispute),
           fullscreenDialog: true,
           opaque: true,
           barrierDismissible: false);
@@ -195,8 +198,7 @@ class MyRouter extends _i30.RootStackRouter {
       final args = routeData.argsAs<GeneralDisputesPageRouteArgs>();
       return _i30.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i17.GeneralDisputesPage(
-              key: args.key, disputeCategory: args.disputeCategory),
+          child: _i17.GeneralDisputesPage(key: args.key, dispute: args.dispute),
           transitionsBuilder: _i30.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -568,11 +570,27 @@ class RewardUserPageRouteArgs {
 
 /// generated route for
 /// [_i13.StartDisputesPage]
-class StartDisputesPageRoute extends _i30.PageRouteInfo<void> {
-  const StartDisputesPageRoute()
-      : super(StartDisputesPageRoute.name, path: '/start-disputes-page');
+class StartDisputesPageRoute
+    extends _i30.PageRouteInfo<StartDisputesPageRouteArgs> {
+  StartDisputesPageRoute({_i31.Key? key, String? rentalUuid})
+      : super(StartDisputesPageRoute.name,
+            path: '/start-disputes-page',
+            args: StartDisputesPageRouteArgs(key: key, rentalUuid: rentalUuid));
 
   static const String name = 'StartDisputesPageRoute';
+}
+
+class StartDisputesPageRouteArgs {
+  const StartDisputesPageRouteArgs({this.key, this.rentalUuid});
+
+  final _i31.Key? key;
+
+  final String? rentalUuid;
+
+  @override
+  String toString() {
+    return 'StartDisputesPageRouteArgs{key: $key, rentalUuid: $rentalUuid}';
+  }
 }
 
 /// generated route for
@@ -639,27 +657,25 @@ class DisputesListPageRouteArgs {
 /// [_i16.ProblemsWithPaymentsPage]
 class ProblemsWithPaymentsPageRoute
     extends _i30.PageRouteInfo<ProblemsWithPaymentsPageRouteArgs> {
-  ProblemsWithPaymentsPageRoute(
-      {_i31.Key? key, required _i36.DisputeCategory disputeCategory})
+  ProblemsWithPaymentsPageRoute({_i31.Key? key, required _i36.Dispute dispute})
       : super(ProblemsWithPaymentsPageRoute.name,
             path: '/problems-with-payments-page',
-            args: ProblemsWithPaymentsPageRouteArgs(
-                key: key, disputeCategory: disputeCategory));
+            args:
+                ProblemsWithPaymentsPageRouteArgs(key: key, dispute: dispute));
 
   static const String name = 'ProblemsWithPaymentsPageRoute';
 }
 
 class ProblemsWithPaymentsPageRouteArgs {
-  const ProblemsWithPaymentsPageRouteArgs(
-      {this.key, required this.disputeCategory});
+  const ProblemsWithPaymentsPageRouteArgs({this.key, required this.dispute});
 
   final _i31.Key? key;
 
-  final _i36.DisputeCategory disputeCategory;
+  final _i36.Dispute dispute;
 
   @override
   String toString() {
-    return 'ProblemsWithPaymentsPageRouteArgs{key: $key, disputeCategory: $disputeCategory}';
+    return 'ProblemsWithPaymentsPageRouteArgs{key: $key, dispute: $dispute}';
   }
 }
 
@@ -667,26 +683,24 @@ class ProblemsWithPaymentsPageRouteArgs {
 /// [_i17.GeneralDisputesPage]
 class GeneralDisputesPageRoute
     extends _i30.PageRouteInfo<GeneralDisputesPageRouteArgs> {
-  GeneralDisputesPageRoute(
-      {_i31.Key? key, required _i36.DisputeCategory disputeCategory})
+  GeneralDisputesPageRoute({_i31.Key? key, required _i36.Dispute dispute})
       : super(GeneralDisputesPageRoute.name,
             path: '/general-disputes-page',
-            args: GeneralDisputesPageRouteArgs(
-                key: key, disputeCategory: disputeCategory));
+            args: GeneralDisputesPageRouteArgs(key: key, dispute: dispute));
 
   static const String name = 'GeneralDisputesPageRoute';
 }
 
 class GeneralDisputesPageRouteArgs {
-  const GeneralDisputesPageRouteArgs({this.key, required this.disputeCategory});
+  const GeneralDisputesPageRouteArgs({this.key, required this.dispute});
 
   final _i31.Key? key;
 
-  final _i36.DisputeCategory disputeCategory;
+  final _i36.Dispute dispute;
 
   @override
   String toString() {
-    return 'GeneralDisputesPageRouteArgs{key: $key, disputeCategory: $disputeCategory}';
+    return 'GeneralDisputesPageRouteArgs{key: $key, dispute: $dispute}';
   }
 }
 

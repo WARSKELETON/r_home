@@ -37,7 +37,7 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
   StreamSubscription<List<Home>>? _myRentalHomesStreamSubscription;
 
   void _onInitialize(Initialize event, Emitter<DisputesFormState> emit) {
-    emit(state.copyWith(dispute: state.dispute.copyWith(category: event.disputeCategory.name)));
+    emit(state.copyWith(dispute: event.dispute));
 
     _myRentalsStreamSubscription = _rentalsRepository.watchAllWhereUserIsInvolved().listen(
       (rentals) => {

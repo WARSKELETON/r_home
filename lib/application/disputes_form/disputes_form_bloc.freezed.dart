@@ -18,9 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$DisputesFormEventTearOff {
   const _$DisputesFormEventTearOff();
 
-  Initialize initialize(DisputeCategory disputeCategory) {
+  Initialize initialize(Dispute dispute) {
     return Initialize(
-      disputeCategory,
+      dispute,
     );
   }
 
@@ -84,7 +84,7 @@ const $DisputesFormEvent = _$DisputesFormEventTearOff();
 mixin _$DisputesFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -98,7 +98,7 @@ mixin _$DisputesFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -112,7 +112,7 @@ mixin _$DisputesFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -192,7 +192,9 @@ abstract class $InitializeCopyWith<$Res> {
   factory $InitializeCopyWith(
           Initialize value, $Res Function(Initialize) then) =
       _$InitializeCopyWithImpl<$Res>;
-  $Res call({DisputeCategory disputeCategory});
+  $Res call({Dispute dispute});
+
+  $DisputeCopyWith<$Res> get dispute;
 }
 
 /// @nodoc
@@ -207,28 +209,35 @@ class _$InitializeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? disputeCategory = freezed,
+    Object? dispute = freezed,
   }) {
     return _then(Initialize(
-      disputeCategory == freezed
-          ? _value.disputeCategory
-          : disputeCategory // ignore: cast_nullable_to_non_nullable
-              as DisputeCategory,
+      dispute == freezed
+          ? _value.dispute
+          : dispute // ignore: cast_nullable_to_non_nullable
+              as Dispute,
     ));
+  }
+
+  @override
+  $DisputeCopyWith<$Res> get dispute {
+    return $DisputeCopyWith<$Res>(_value.dispute, (value) {
+      return _then(_value.copyWith(dispute: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$Initialize implements Initialize {
-  const _$Initialize(this.disputeCategory);
+  const _$Initialize(this.dispute);
 
   @override
-  final DisputeCategory disputeCategory;
+  final Dispute dispute;
 
   @override
   String toString() {
-    return 'DisputesFormEvent.initialize(disputeCategory: $disputeCategory)';
+    return 'DisputesFormEvent.initialize(dispute: $dispute)';
   }
 
   @override
@@ -236,13 +245,12 @@ class _$Initialize implements Initialize {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Initialize &&
-            const DeepCollectionEquality()
-                .equals(other.disputeCategory, disputeCategory));
+            const DeepCollectionEquality().equals(other.dispute, dispute));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(disputeCategory));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(dispute));
 
   @JsonKey(ignore: true)
   @override
@@ -252,7 +260,7 @@ class _$Initialize implements Initialize {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -263,13 +271,13 @@ class _$Initialize implements Initialize {
     required TResult Function(double tokens) initialStakeChanged,
     required TResult Function() submit,
   }) {
-    return initialize(disputeCategory);
+    return initialize(dispute);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -280,13 +288,13 @@ class _$Initialize implements Initialize {
     TResult Function(double tokens)? initialStakeChanged,
     TResult Function()? submit,
   }) {
-    return initialize?.call(disputeCategory);
+    return initialize?.call(dispute);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -299,7 +307,7 @@ class _$Initialize implements Initialize {
     required TResult orElse(),
   }) {
     if (initialize != null) {
-      return initialize(disputeCategory);
+      return initialize(dispute);
     }
     return orElse();
   }
@@ -361,9 +369,9 @@ class _$Initialize implements Initialize {
 }
 
 abstract class Initialize implements DisputesFormEvent {
-  const factory Initialize(DisputeCategory disputeCategory) = _$Initialize;
+  const factory Initialize(Dispute dispute) = _$Initialize;
 
-  DisputeCategory get disputeCategory;
+  Dispute get dispute;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
       throw _privateConstructorUsedError;
@@ -434,7 +442,7 @@ class _$RentalsReceived implements RentalsReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -451,7 +459,7 @@ class _$RentalsReceived implements RentalsReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -468,7 +476,7 @@ class _$RentalsReceived implements RentalsReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -616,7 +624,7 @@ class _$HomesReceived implements HomesReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -633,7 +641,7 @@ class _$HomesReceived implements HomesReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -650,7 +658,7 @@ class _$HomesReceived implements HomesReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -798,7 +806,7 @@ class _$CategoryChanged implements CategoryChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -815,7 +823,7 @@ class _$CategoryChanged implements CategoryChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -832,7 +840,7 @@ class _$CategoryChanged implements CategoryChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -981,7 +989,7 @@ class _$RentalChanged implements RentalChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -998,7 +1006,7 @@ class _$RentalChanged implements RentalChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1015,7 +1023,7 @@ class _$RentalChanged implements RentalChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1163,7 +1171,7 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1180,7 +1188,7 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1197,7 +1205,7 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1345,7 +1353,7 @@ class _$TitleChanged implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1362,7 +1370,7 @@ class _$TitleChanged implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1379,7 +1387,7 @@ class _$TitleChanged implements TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1528,7 +1536,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1545,7 +1553,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1562,7 +1570,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1710,7 +1718,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1727,7 +1735,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1744,7 +1752,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1865,7 +1873,7 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DisputeCategory disputeCategory) initialize,
+    required TResult Function(Dispute dispute) initialize,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1882,7 +1890,7 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1899,7 +1907,7 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DisputeCategory disputeCategory)? initialize,
+    TResult Function(Dispute dispute)? initialize,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,

@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
@@ -28,9 +27,9 @@ import 'package:r_home/presentation/start_dispute_forms/widgets/info_message_wid
 import 'package:r_home/presentation/start_dispute_forms/widgets/select_rental_widget.dart';
 
 class GeneralDisputesPage extends StatelessWidget {
-  final DisputeCategory disputeCategory;
+  final Dispute dispute;
   
-  const GeneralDisputesPage({Key? key, required this.disputeCategory}) : super(key: key);
+  const GeneralDisputesPage({Key? key, required this.dispute}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,7 @@ class GeneralDisputesPage extends StatelessWidget {
                     FirebaseFirestore.instance
                   )
                 )
-              )..add(DisputesFormEvent.initialize(disputeCategory)),
+              )..add(DisputesFormEvent.initialize(dispute)),
             ),
           ],
           child: BlocBuilder<StepperBloc, StepperState>(

@@ -7,7 +7,8 @@ import 'package:r_home/presentation/disputes/widgets/dispute_type_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class StartDisputesPage extends StatelessWidget {
-  const StartDisputesPage({Key? key}) : super(key: key);
+  final String? rentalUuid;
+  const StartDisputesPage({Key? key, this.rentalUuid}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,14 @@ class StartDisputesPage extends StatelessWidget {
                 svgSize: 75,
                 paddingText: const EdgeInsets.only(left: 40.0, top: 5),
                 svgPath: "assets/icons/problemsPayments.svg",
-                onPressed: () => AutoRouter.of(context).push(ProblemsWithPaymentsPageRoute(disputeCategory: DisputeCategory.problems_with_payments))
+                onPressed: () => AutoRouter.of(context).push(
+                  ProblemsWithPaymentsPageRoute(
+                    dispute: Dispute.empty().copyWith(
+                      rentalUuid: rentalUuid ?? "",
+                      category: DisputeCategory.problems_with_payments.name
+                    )
+                  )
+                ),
               ),
               const SizedBox(
                 height: 50,
@@ -51,7 +59,14 @@ class StartDisputesPage extends StatelessWidget {
                 svgSize: 75,
                 paddingText: const EdgeInsets.only(left: 40.0, top: 5),
                 svgPath: "assets/icons/damagesInProperty.svg",
-                onPressed: () => AutoRouter.of(context).push(GeneralDisputesPageRoute(disputeCategory: DisputeCategory.damages_in_properties))
+                onPressed: () => AutoRouter.of(context).push(
+                  GeneralDisputesPageRoute(
+                    dispute: Dispute.empty().copyWith(
+                      rentalUuid: rentalUuid ?? "",
+                      category: DisputeCategory.problems_with_payments.name
+                    )
+                  )
+                )
               ),
               const SizedBox(
                 height: 50,
@@ -64,7 +79,14 @@ class StartDisputesPage extends StatelessWidget {
                 svgSize: 75,
                 paddingText: const EdgeInsets.only(left: 40.0, top: 5),
                 svgPath: "assets/icons/falseAdvertisement.svg",
-                onPressed: () => AutoRouter.of(context).push(GeneralDisputesPageRoute(disputeCategory: DisputeCategory.false_advertisement))
+                onPressed: () => AutoRouter.of(context).push(
+                  GeneralDisputesPageRoute(
+                    dispute: Dispute.empty().copyWith(
+                      rentalUuid: rentalUuid ?? "",
+                      category: DisputeCategory.problems_with_payments.name
+                    )
+                  )
+                )
               ),
               const SizedBox(
                 height: 50,

@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/homes/homes_bloc.dart';
@@ -15,6 +14,7 @@ import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/core/square_icon_button_widget.dart';
 import 'package:r_home/presentation/core/string_extension.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
@@ -201,6 +201,19 @@ class HomeDetailsPage extends StatelessWidget {
                               ),
                               _buildMoneyRow(context, "Total Tokens: ", _rental.totalPrice(_home.price), _rental.getPaymentMethodIcon()),
                             ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: RoundedButtonWidget(
+                            text: 'Open Dispute',
+                            onPressed: () => AutoRouter.of(context).push(StartDisputesPageRoute(rentalUuid: _rental.uuid)),
+                            backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                            fontWeight: FontWeight.w400,
+                            textColor: Colors.white,
+                            fontSize: 20,
+                            height: 40,
+                            width: 200,
                           ),
                         ),
                       ]
