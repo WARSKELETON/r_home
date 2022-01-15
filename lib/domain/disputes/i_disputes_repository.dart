@@ -9,7 +9,7 @@ abstract class IDisputesRepository {
   Stream<List<Dispute>> watchAllFromUser();
   Stream<Dispute> watch(String disputeUuid);
   Stream<Home> watchHomeFromDispute(String homeUuid);
-  Stream<Rental> watchRentalFromDispute(String rentalUuid);
+  Stream<Rental> watchRentalFromDispute(String rentalUuid, String issuerUuid);
   Future<DomainUser> getHost(String hostUuid);
   Future<void> create(Dispute dispute);
   Future<void> update(Dispute dispute);

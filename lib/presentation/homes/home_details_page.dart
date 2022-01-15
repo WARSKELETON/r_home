@@ -112,7 +112,7 @@ class HomeDetailsPage extends StatelessWidget {
                     children: <Widget>[
                       const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
                       HomeDetailsTextWidget(home: _home),
-                      if (_currentUser.role == "guest" || (_currentUser.role == "host" &&_rental.homeId != "")) ...[
+                      if (_rental.homeId != "") ...[
                         const Divider(
                           thickness: 8,
                           height: 40,

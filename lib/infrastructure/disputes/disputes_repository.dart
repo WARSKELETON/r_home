@@ -60,12 +60,10 @@ class DisputesRepository implements IDisputesRepository {
   }
 
   @override
-  Stream<Rental> watchRentalFromDispute(String rentalUuid) async* {
-    final userId = _authFacade.getSignedInUserId()!;
-
+  Stream<Rental> watchRentalFromDispute(String rentalUuid, String issuerUuid) async* {
     final docRef = _firestore
         .collection(PARENT_COLLECTION)
-        .doc(userId)
+        .doc(issuerUuid)
         .collection(RENTALS_COLLECTION)
         .doc(rentalUuid);
 
