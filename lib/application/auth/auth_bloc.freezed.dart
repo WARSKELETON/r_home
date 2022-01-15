@@ -29,6 +29,12 @@ class _$AuthEventTearOff {
   GetDomainUser getDomainUser() {
     return const GetDomainUser();
   }
+
+  DomainUserReceived domainUserReceived(DomainUser user) {
+    return DomainUserReceived(
+      user,
+    );
+  }
 }
 
 /// @nodoc
@@ -41,6 +47,7 @@ mixin _$AuthEvent {
     required TResult Function() authRequest,
     required TResult Function() signedOut,
     required TResult Function() getDomainUser,
+    required TResult Function(DomainUser user) domainUserReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +55,7 @@ mixin _$AuthEvent {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,7 @@ mixin _$AuthEvent {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +72,7 @@ mixin _$AuthEvent {
     required TResult Function(AuthRequest value) authRequest,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(GetDomainUser value) getDomainUser,
+    required TResult Function(DomainUserReceived value) domainUserReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +80,7 @@ mixin _$AuthEvent {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +88,7 @@ mixin _$AuthEvent {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +152,7 @@ class _$AuthRequest implements AuthRequest {
     required TResult Function() authRequest,
     required TResult Function() signedOut,
     required TResult Function() getDomainUser,
+    required TResult Function(DomainUser user) domainUserReceived,
   }) {
     return authRequest();
   }
@@ -150,6 +163,7 @@ class _$AuthRequest implements AuthRequest {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
   }) {
     return authRequest?.call();
   }
@@ -160,6 +174,7 @@ class _$AuthRequest implements AuthRequest {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
     required TResult orElse(),
   }) {
     if (authRequest != null) {
@@ -174,6 +189,7 @@ class _$AuthRequest implements AuthRequest {
     required TResult Function(AuthRequest value) authRequest,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(GetDomainUser value) getDomainUser,
+    required TResult Function(DomainUserReceived value) domainUserReceived,
   }) {
     return authRequest(this);
   }
@@ -184,6 +200,7 @@ class _$AuthRequest implements AuthRequest {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
   }) {
     return authRequest?.call(this);
   }
@@ -194,6 +211,7 @@ class _$AuthRequest implements AuthRequest {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
     required TResult orElse(),
   }) {
     if (authRequest != null) {
@@ -248,6 +266,7 @@ class _$SignedOut implements SignedOut {
     required TResult Function() authRequest,
     required TResult Function() signedOut,
     required TResult Function() getDomainUser,
+    required TResult Function(DomainUser user) domainUserReceived,
   }) {
     return signedOut();
   }
@@ -258,6 +277,7 @@ class _$SignedOut implements SignedOut {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
   }) {
     return signedOut?.call();
   }
@@ -268,6 +288,7 @@ class _$SignedOut implements SignedOut {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
     required TResult orElse(),
   }) {
     if (signedOut != null) {
@@ -282,6 +303,7 @@ class _$SignedOut implements SignedOut {
     required TResult Function(AuthRequest value) authRequest,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(GetDomainUser value) getDomainUser,
+    required TResult Function(DomainUserReceived value) domainUserReceived,
   }) {
     return signedOut(this);
   }
@@ -292,6 +314,7 @@ class _$SignedOut implements SignedOut {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
   }) {
     return signedOut?.call(this);
   }
@@ -302,6 +325,7 @@ class _$SignedOut implements SignedOut {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
     required TResult orElse(),
   }) {
     if (signedOut != null) {
@@ -358,6 +382,7 @@ class _$GetDomainUser implements GetDomainUser {
     required TResult Function() authRequest,
     required TResult Function() signedOut,
     required TResult Function() getDomainUser,
+    required TResult Function(DomainUser user) domainUserReceived,
   }) {
     return getDomainUser();
   }
@@ -368,6 +393,7 @@ class _$GetDomainUser implements GetDomainUser {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
   }) {
     return getDomainUser?.call();
   }
@@ -378,6 +404,7 @@ class _$GetDomainUser implements GetDomainUser {
     TResult Function()? authRequest,
     TResult Function()? signedOut,
     TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
     required TResult orElse(),
   }) {
     if (getDomainUser != null) {
@@ -392,6 +419,7 @@ class _$GetDomainUser implements GetDomainUser {
     required TResult Function(AuthRequest value) authRequest,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(GetDomainUser value) getDomainUser,
+    required TResult Function(DomainUserReceived value) domainUserReceived,
   }) {
     return getDomainUser(this);
   }
@@ -402,6 +430,7 @@ class _$GetDomainUser implements GetDomainUser {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
   }) {
     return getDomainUser?.call(this);
   }
@@ -412,6 +441,7 @@ class _$GetDomainUser implements GetDomainUser {
     TResult Function(AuthRequest value)? authRequest,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
     required TResult orElse(),
   }) {
     if (getDomainUser != null) {
@@ -423,6 +453,161 @@ class _$GetDomainUser implements GetDomainUser {
 
 abstract class GetDomainUser implements AuthEvent {
   const factory GetDomainUser() = _$GetDomainUser;
+}
+
+/// @nodoc
+abstract class $DomainUserReceivedCopyWith<$Res> {
+  factory $DomainUserReceivedCopyWith(
+          DomainUserReceived value, $Res Function(DomainUserReceived) then) =
+      _$DomainUserReceivedCopyWithImpl<$Res>;
+  $Res call({DomainUser user});
+
+  $DomainUserCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class _$DomainUserReceivedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements $DomainUserReceivedCopyWith<$Res> {
+  _$DomainUserReceivedCopyWithImpl(
+      DomainUserReceived _value, $Res Function(DomainUserReceived) _then)
+      : super(_value, (v) => _then(v as DomainUserReceived));
+
+  @override
+  DomainUserReceived get _value => super._value as DomainUserReceived;
+
+  @override
+  $Res call({
+    Object? user = freezed,
+  }) {
+    return _then(DomainUserReceived(
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
+    ));
+  }
+
+  @override
+  $DomainUserCopyWith<$Res> get user {
+    return $DomainUserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DomainUserReceived implements DomainUserReceived {
+  const _$DomainUserReceived(this.user);
+
+  @override
+  final DomainUser user;
+
+  @override
+  String toString() {
+    return 'AuthEvent.domainUserReceived(user: $user)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DomainUserReceived &&
+            const DeepCollectionEquality().equals(other.user, user));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
+
+  @JsonKey(ignore: true)
+  @override
+  $DomainUserReceivedCopyWith<DomainUserReceived> get copyWith =>
+      _$DomainUserReceivedCopyWithImpl<DomainUserReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authRequest,
+    required TResult Function() signedOut,
+    required TResult Function() getDomainUser,
+    required TResult Function(DomainUser user) domainUserReceived,
+  }) {
+    return domainUserReceived(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? authRequest,
+    TResult Function()? signedOut,
+    TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
+  }) {
+    return domainUserReceived?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authRequest,
+    TResult Function()? signedOut,
+    TResult Function()? getDomainUser,
+    TResult Function(DomainUser user)? domainUserReceived,
+    required TResult orElse(),
+  }) {
+    if (domainUserReceived != null) {
+      return domainUserReceived(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthRequest value) authRequest,
+    required TResult Function(SignedOut value) signedOut,
+    required TResult Function(GetDomainUser value) getDomainUser,
+    required TResult Function(DomainUserReceived value) domainUserReceived,
+  }) {
+    return domainUserReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AuthRequest value)? authRequest,
+    TResult Function(SignedOut value)? signedOut,
+    TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
+  }) {
+    return domainUserReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthRequest value)? authRequest,
+    TResult Function(SignedOut value)? signedOut,
+    TResult Function(GetDomainUser value)? getDomainUser,
+    TResult Function(DomainUserReceived value)? domainUserReceived,
+    required TResult orElse(),
+  }) {
+    if (domainUserReceived != null) {
+      return domainUserReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DomainUserReceived implements AuthEvent {
+  const factory DomainUserReceived(DomainUser user) = _$DomainUserReceived;
+
+  DomainUser get user;
+  @JsonKey(ignore: true)
+  $DomainUserReceivedCopyWith<DomainUserReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

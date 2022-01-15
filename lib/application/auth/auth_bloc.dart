@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/auth/domain_user.dart';
@@ -14,7 +16,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthRequest>(_onAuthRequest);
     on<SignedOut>(_onSignedOut);
     on<GetDomainUser>(_onGetDomainUser);
+    on<DomainUserReceived>(_onDomainUserReceived);
   }
+
+  StreamSubscription<DomainUser>? _userStreamSubscription;
 
   void _onAuthRequest(AuthEvent event, Emitter<AuthState> emit) async {
     final userOption = await _authFacade.getSignedInUser();
@@ -32,6 +37,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _onGetDomainUser(AuthEvent event, Emitter<AuthState> emit) async {
+    _userStreamSubscription = _authFacade.watchSignedInUser().listen(
+      (user) => add(AuthEvent.domainUserReceived(user)),
+    );
+
     emit(state.copyWith(isLoading: true));
     final userOption = await _authFacade.getSignedInUser();
 
@@ -40,5 +49,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (user) => emit(state.copyWith(user: user)),
     );
     emit(state.copyWith(isLoading: false));
+  }
+
+  void _onDomainUserReceived(DomainUserReceived event, Emitter<AuthState> emit) {
+    emit(state.copyWith(user: event.user));
+  }
+
+  @override
+  Future<void> close() {
+    _userStreamSubscription?.cancel();
+    return super.close();
   }
 }
