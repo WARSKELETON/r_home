@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:r_home/application/timer/timer_bloc.dart';
-import 'package:r_home/presentation/disputes/widgets/chart_legend_widget.dart';
+import 'package:r_home/presentation/core/chart_legend_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/vote_confirmation_dialog.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
@@ -318,12 +318,10 @@ class DisputeDetailsPage extends StatelessWidget {
                                 if (_dispute.usersVoted.isNotEmpty) ...[
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
-                                    child: ChartLegendWidget(
-                                      colors: [
-                                        const Color(0xFFF7554C),
-                                        const Color(0xFFF9A53C),
-                                        Theme.of(context).colorScheme.primaryBlue,
-                                      ]
+                                    child: ChartLegendWidget(data: {
+                                      const Color(0xFFF7554C): "Against",
+                                      const Color(0xFFF9A53C): "Irrelevant",
+                                      Theme.of(context).colorScheme.primaryBlue: "In Favour"}
                                     ),
                                   ),
                                 ],
@@ -352,17 +350,20 @@ class DisputeDetailsPage extends StatelessWidget {
                                                 _PieData(
                                                   "In Favour",
                                                   _dispute.votesInFavour,
-                                                  "${(_dispute.votesInFavour / _dispute.usersVoted.length * 100).round()}%", Theme.of(context).colorScheme.primaryBlue
+                                                  "${(_dispute.votesInFavour / _dispute.usersVoted.length * 100).round()}%",
+                                                  Theme.of(context).colorScheme.primaryBlue
                                                 ),
                                                 _PieData(
                                                   "Irrelevant",
                                                   _dispute.votesIrrelevant,
-                                                  "${(_dispute.votesIrrelevant / _dispute.usersVoted.length * 100).round()}%", const Color(0xFFF9A53C)
+                                                  "${(_dispute.votesIrrelevant / _dispute.usersVoted.length * 100).round()}%",
+                                                  const Color(0xFFF9A53C)
                                                 ),
                                                 _PieData(
                                                   "Against",
                                                   _dispute.votesAgainst,
-                                                  "${(_dispute.votesAgainst / _dispute.usersVoted.length * 100).round()}%", const Color(0xFFF7554C)
+                                                  "${(_dispute.votesAgainst / _dispute.usersVoted.length * 100).round()}%",
+                                                  const Color(0xFFF7554C)
                                                 ),
                                               ],
                                               xValueMapper: (_PieData data, _) => data.xData,

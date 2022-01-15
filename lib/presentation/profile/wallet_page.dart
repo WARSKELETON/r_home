@@ -72,7 +72,7 @@ class WalletPage extends StatelessWidget {
                       ),
                       RoundedButtonWidget(
                         text: 'Monitorize Fees',
-                        onPressed: () {},
+                        onPressed: () => AutoRouter.of(context).push(const MonitorizeFeesPageRoute()),
                         backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,

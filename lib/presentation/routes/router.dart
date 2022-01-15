@@ -7,6 +7,7 @@ import 'package:r_home/presentation/homes/homes_page.dart';
 import 'package:r_home/presentation/my_homes_form/categories_page.dart';
 import 'package:r_home/presentation/my_homes_form/local_activity_details_page.dart';
 import 'package:r_home/presentation/my_homes_form/local_activities_page.dart';
+import 'package:r_home/presentation/profile/monitorize_fees_page.dart';
 import 'package:r_home/presentation/reward_user/reward_user_page.dart';
 import 'package:r_home/presentation/start_dispute_forms/general_disputes_page.dart';
 import 'package:r_home/presentation/start_dispute_forms/problems_with_payments_page.dart';
@@ -51,6 +52,7 @@ import 'package:r_home/presentation/splash/test_page.dart';
     CustomRoute(page: LocalActivityDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyLocalActivityDetailsPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: WalletPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
+    CustomRoute(page: MonitorizeFeesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     CustomRoute(page: MyLocalActivitiesPage, transitionsBuilder: TransitionsBuilders.slideLeft, durationInMilliseconds: 150),
     MaterialRoute(page: NewLocalAcitvityPage, fullscreenDialog: true),
     MaterialRoute(page: CategorySelectionPage, fullscreenDialog: true),
