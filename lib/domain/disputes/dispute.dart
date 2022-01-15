@@ -28,7 +28,6 @@ abstract class Dispute implements _$Dispute {
     required String descritption,
     required String homeUuid,
     required String rentalUuid,
-    required bool isOpened,
     required int votesAgainst,
     required int votesIrrelevant,
     required int votesInFavour,
@@ -36,6 +35,7 @@ abstract class Dispute implements _$Dispute {
     required double stake,
     required String category,
     required List<String> usersVoted,
+    required DateTime creationDate,
     // Add image
   }) = _Dispute;
 
@@ -47,13 +47,17 @@ abstract class Dispute implements _$Dispute {
     descritption: '',
     homeUuid: '',
     rentalUuid: '',
-    isOpened: true,
     votesAgainst: 0,
     votesIrrelevant: 0,
     votesInFavour: 0,
     initialStake: 0,
     stake: 0,
     category: '',
-    usersVoted: []
+    usersVoted: [],
+    creationDate: DateTime.now(),
   );
+
+  // String getDateString() {
+  //   return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
+  // }
 }

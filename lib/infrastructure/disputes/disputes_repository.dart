@@ -84,7 +84,8 @@ class DisputesRepository implements IDisputesRepository {
 
     dispute = dispute.copyWith(
       issuerUuid: userId,
-      issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase())
+      issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase()),
+      creationDate: DateTime.now()
     );
 
     _firestore

@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/reward_user/reward_user_bloc.dart';
+import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
-class SelectGuestRewardWidget extends StatelessWidget {
-  final List<String> guests;
+class SelectUserRewardWidget extends StatelessWidget {
+  final List<DomainUser> users;
 
-  const SelectGuestRewardWidget({
+  const SelectUserRewardWidget({
     Key? key,
-    required this.guests,
+    required this.users,
   }) : super(key: key);
 
   Widget _itemBuilder(BuildContext context, int index) {
     return ListTile(
-      title: Text(guests[index]),
+      title: Text(users[index].getUsername()),
       leading: Radio<String>(
         activeColor: Theme.of(context).colorScheme.primaryBlue,
-        value: guests[index],
-        groupValue: context.watch<RewardUserBloc>().state.guestName,
+        value: users[index].id,
+        groupValue: context.watch<RewardUserBloc>().state.beneficiary.id,
         onChanged: (String? value) {
-          context.read<RewardUserBloc>().add(RewardUserEvent.rewardGuest(value!));
+          var selectedUser = users.firstWhere((user) => user.id == value);
+          context.read<RewardUserBloc>().add(RewardUserEvent.rewardGuest(selectedUser));
         },
       ),
     );
@@ -32,7 +34,7 @@ class SelectGuestRewardWidget extends StatelessWidget {
         return Expanded(
           child: ListView.builder(
             padding: const EdgeInsets.only(left: 8),
-            itemCount: guests.length,
+            itemCount: users.length,
             itemBuilder: _itemBuilder
           ),
         );

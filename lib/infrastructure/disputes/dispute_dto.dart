@@ -5,6 +5,12 @@ import 'package:r_home/domain/disputes/dispute.dart';
 part 'dispute_dto.freezed.dart';
 part 'dispute_dto.g.dart';
 
+Timestamp firestoreTimestampFromJson(dynamic value) {
+  return value;
+}
+
+dynamic firestoreTimestampToJson(dynamic value) => value;
+
 @freezed
 abstract class DisputeDto implements _$DisputeDto {
   const DisputeDto._();
@@ -17,14 +23,18 @@ abstract class DisputeDto implements _$DisputeDto {
     required String descritption,
     required String homeUuid,
     required String rentalUuid,
-    required bool isOpened,
     required int votesAgainst,
     required int votesIrrelevant,
     required int votesInFavour,
     required double initialStake,
     required double stake,
     required String category,
-    required List<String> usersVoted
+    required List<String> usersVoted,
+    @JsonKey(
+      fromJson: firestoreTimestampFromJson,
+      toJson: firestoreTimestampToJson,
+    )
+    required Timestamp creationDate,
   }) = _DisputeDto;
 
   factory DisputeDto.fromDomain(Dispute dispute) {
@@ -36,14 +46,14 @@ abstract class DisputeDto implements _$DisputeDto {
       descritption: dispute.descritption,
       homeUuid: dispute.homeUuid,
       rentalUuid: dispute.rentalUuid,
-      isOpened: dispute.isOpened,
       votesAgainst: dispute.votesAgainst,
       votesIrrelevant: dispute.votesIrrelevant,
       votesInFavour: dispute.votesInFavour,
       initialStake: dispute.initialStake,
       stake: dispute.stake,
       category: dispute.category,
-      usersVoted: dispute.usersVoted
+      usersVoted: dispute.usersVoted,
+      creationDate: Timestamp.fromDate(dispute.creationDate)
     );
   }
 
@@ -56,14 +66,14 @@ abstract class DisputeDto implements _$DisputeDto {
       descritption: descritption,
       homeUuid: homeUuid,
       rentalUuid: rentalUuid,
-      isOpened: isOpened,
       votesAgainst: votesAgainst,
       votesIrrelevant: votesIrrelevant,
       votesInFavour: votesInFavour,
       initialStake: initialStake,
       stake: stake,
       category: category,
-      usersVoted: usersVoted
+      usersVoted: usersVoted,
+      creationDate: creationDate.toDate()
     );
   }
 

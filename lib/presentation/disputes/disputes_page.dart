@@ -37,7 +37,7 @@ class DisputesPage extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10.0),
               child: RoundedButtonWidget(
                 text: 'SEE MY DISPUTES',
-                onPressed: () => AutoRouter.of(context).push(const MyDisputesPageRoute()),
+                onPressed: () => AutoRouter.of(context).push(DisputesListPageRoute(privateMode: true)),
                 backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                 fontWeight: FontWeight.w400,
                 textColor: Colors.white,
@@ -52,7 +52,7 @@ class DisputesPage extends StatelessWidget {
             ),
             RoundedButtonWidget(
               text: 'PARTICIPATE IN DISPUTE',
-              onPressed: () => AutoRouter.of(context).push(const ParticipateInDisputePageRoute()),
+              onPressed: () => AutoRouter.of(context).push(DisputesListPageRoute(privateMode: false)),
               backgroundColor: Theme.of(context).colorScheme.primaryBlue,
               fontWeight: FontWeight.w400,
               textColor: Colors.white,

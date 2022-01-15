@@ -1,3 +1,5 @@
+import 'package:async/async.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
@@ -24,6 +26,14 @@ class RentalsRepository implements IRentalsRepository {
         .collection(RENTALS_COLLECTION);
 
     yield* colRef.snapshots().map((query) => query.toListRental());
+  }
+
+  @override
+  Stream<List<Rental>> watchAllWhereUserIsInvolved() async* {
+    var stream1 = watchAllAsGuest();
+    var stream2 = watchAllAsHost();
+    
+    yield* StreamZip([stream1, stream2]).map((streams) => [...streams[0], ...streams[1]]);
   }
 
   @override
@@ -66,13 +76,8 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   @override
-  Future<DomainUser> getGuest(String guestUuid) {
-    return _authFacade.getUserById(guestUuid);
-  }
-
-  @override
-  Future<DomainUser> getHost(String hostUuid) {
-    return _authFacade.getUserById(hostUuid);
+  Future<DomainUser> getUserById(String userUuid) {
+    return _authFacade.getUserById(userUuid);
   }
 
   @override

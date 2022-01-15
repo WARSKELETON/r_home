@@ -5,14 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:r_home/application/my_local_activities_form/my_local_activities_form_bloc.dart';
 import 'package:r_home/application/rent_a_home/rent_a_home_bloc.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
 import 'package:r_home/domain/homes/home.dart';
-import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
-import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -20,13 +17,10 @@ import 'package:r_home/presentation/core/operation_successful_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/core/stepper_widget.dart';
-import 'package:r_home/presentation/my_local_activities_form/category_selection_page.dart';
-import 'package:r_home/presentation/my_local_activities_form/my_local_activities_form.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/date_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/payment_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/rental_guests_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/select_home_field_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class RentAHomePage extends StatelessWidget {
   const RentAHomePage({Key? key}) : super(key: key);

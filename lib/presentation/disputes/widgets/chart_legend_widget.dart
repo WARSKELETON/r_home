@@ -29,8 +29,8 @@ class ChartLegendWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildLegendItem("Irrelevant", colors[0]),
-        _buildLegendItem("Against", colors[1]),
+        _buildLegendItem("Against", colors[0]),
+        _buildLegendItem("Irrelevant", colors[1]),
         _buildLegendItem("In Favour", colors[2]),
       ],
     );

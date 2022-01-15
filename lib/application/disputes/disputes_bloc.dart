@@ -84,7 +84,6 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
       if (event.vote == state.currentVote) {
         emit(state.copyWith(currentVote: DisputeVote.none));
       } else {
-        print("DDD");
         emit(state.copyWith(currentVote: event.vote));
       }
   }

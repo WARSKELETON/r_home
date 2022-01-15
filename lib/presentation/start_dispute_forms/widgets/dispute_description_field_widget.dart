@@ -19,14 +19,12 @@ class DisputeDescriptionField extends HookWidget {
         return Padding(
           padding: const EdgeInsets.all(10),
           child: TextFormField(
-            maxLines: 10,
+            maxLines: 7,
             controller: textEditingController,
             decoration: const InputDecoration(
               labelText: 'Dispute Subitle',
               counterText: '',
-              labelStyle: TextStyle(
-                
-              )
+              alignLabelWithHint: true,
             ),
             onChanged: (value) => context
                 .read<DisputesFormBloc>()
