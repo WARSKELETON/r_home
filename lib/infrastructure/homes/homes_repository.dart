@@ -41,6 +41,15 @@ class HomesRepository implements IHomesRepository {
   }
 
   @override
+  Stream<List<Home>> watchAllFromActivityId(String activityUuid) async* {
+    final colRef = _firestore
+        .collection(HOMES_COLLECTION)
+        .where("localActivities", arrayContains: activityUuid);
+
+    yield* colRef.snapshots().map((query) => query.toListHome());
+  }
+
+  @override
   Stream<Home> watch(String homeUuid) async* {
     final docRef = _firestore
         .collection(HOMES_COLLECTION)

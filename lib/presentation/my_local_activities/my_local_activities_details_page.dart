@@ -11,6 +11,7 @@ import 'package:r_home/infrastructure/local_activities/local_activities_reposito
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyLocalActivityDetailsPage extends StatelessWidget {
@@ -78,49 +79,54 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
                 )
               ],
             ),
-            body: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints viewportConstraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: viewportConstraints.maxHeight,
+            body: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Material(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15)
+                      )
                     ),
+                    clipBehavior: Clip.hardEdge,
+                    color: Colors.transparent,
+                    child: Ink.image(
+                      image: const AssetImage("assets/icons/food0.png"),
+                      fit: BoxFit.cover,
+                      width: MediaQuery.of(context).size.width,
+                      height: 230,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0, right: 15.0, left: 15.0),
                     child: Column(
-                      children: <Widget>[
-                        Material(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15)
-                            )
-                          ),
-                          clipBehavior: Clip.hardEdge,
-                          color: Colors.transparent,
-                          child: Ink.image(
-                            image: const AssetImage("assets/icons/food0.png"),
-                            fit: BoxFit.cover,
-                            width: MediaQuery.of(context).size.width,
-                            height: 230,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15.0),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            child: Column(
-                              children: [
-                                _buildRow(context, "Location:", _localActivity.location),
-                                _buildRow(context, "Price:", _localActivity.price),
-                                _buildRow(context, "Contact:", _localActivity.contact),
-                              ],
-                            ),
-                          ),
-                        ),
+                      children: [
+                        _buildRow(context, "Location:", _localActivity.location),
+                        _buildRow(context, "Price:", _localActivity.price),
+                        _buildRow(context, "Contact:", _localActivity.contact),
                       ],
                     ),
                   ),
-                );
-              },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: RoundedButtonWidget(
+                      text: 'SEE HOMES ASSOCIATED',
+                      onPressed: () => AutoRouter.of(context).push(HomesPageRoute(activityUuid: _localActivity.uuid)),
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                      fontWeight: FontWeight.w400,
+                      textColor: Colors.white,
+                      fontSize: 20,
+                      height: 45,
+                      width: 310,
+                      trailingIcon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 16,
+                      ),
+                    ),
+                  ),                  
+                ],
+              )
             ),
             bottomNavigationBar: const BottomBarWidget(),
           );
