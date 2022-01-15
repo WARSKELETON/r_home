@@ -17,6 +17,7 @@ import 'package:r_home/presentation/core/slider_tokens_widget.dart';
 import 'package:r_home/presentation/core/stepper_widget.dart';
 import 'package:r_home/presentation/profile/send_tokens_dialog.dart';
 import 'package:r_home/presentation/profile/widgets/select_guest_reward_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class SendTokensPage extends StatelessWidget {
   const SendTokensPage({Key? key}) : super(key: key);
@@ -104,7 +105,7 @@ class SendTokensPage extends StatelessWidget {
                             showDialog(context: context,
                               builder: (_) => BlocProvider.value(
                                 value: context.read<RewardUserBloc>(),
-                                child: SendTokensDialog(tokens: amount.round(), username: beneficiary.getUsername()),
+                                child: SendTokensDialog(tokens: amount.round(), username: beneficiary.getUsername(), routeNameToPopUntil: ProfilePageRoute.name),
                               )
                             ) : context.read<StepperBloc>().add(const StepperEvent.incrementIndex()),
                             backgroundColor: Theme.of(context).colorScheme.primaryBlue,

@@ -40,9 +40,21 @@ class _$MyHomesEventTearOff {
     );
   }
 
+  WatchRental watchRental(String rentalUuid) {
+    return WatchRental(
+      rentalUuid,
+    );
+  }
+
   HomeReceived homeReceived(Home home) {
     return HomeReceived(
       home,
+    );
+  }
+
+  RentalReceived rentalReceived(Rental rental) {
+    return RentalReceived(
+      rental,
     );
   }
 }
@@ -58,7 +70,9 @@ mixin _$MyHomesEvent {
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
     required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,7 +81,9 @@ mixin _$MyHomesEvent {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,7 +92,9 @@ mixin _$MyHomesEvent {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,7 +104,9 @@ mixin _$MyHomesEvent {
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
     required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,7 +115,9 @@ mixin _$MyHomesEvent {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,7 +126,9 @@ mixin _$MyHomesEvent {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,7 +193,9 @@ class _$Initialize implements Initialize {
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
     required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
   }) {
     return initialize();
   }
@@ -181,7 +207,9 @@ class _$Initialize implements Initialize {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
   }) {
     return initialize?.call();
   }
@@ -193,7 +221,9 @@ class _$Initialize implements Initialize {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -209,7 +239,9 @@ class _$Initialize implements Initialize {
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
     required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
   }) {
     return initialize(this);
   }
@@ -221,7 +253,9 @@ class _$Initialize implements Initialize {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
   }) {
     return initialize?.call(this);
   }
@@ -233,7 +267,9 @@ class _$Initialize implements Initialize {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -315,7 +351,9 @@ class _$HomesReceived implements HomesReceived {
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
     required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
   }) {
     return homesReceived(homes);
   }
@@ -327,7 +365,9 @@ class _$HomesReceived implements HomesReceived {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
   }) {
     return homesReceived?.call(homes);
   }
@@ -339,7 +379,9 @@ class _$HomesReceived implements HomesReceived {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
     required TResult orElse(),
   }) {
     if (homesReceived != null) {
@@ -355,7 +397,9 @@ class _$HomesReceived implements HomesReceived {
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
     required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
   }) {
     return homesReceived(this);
   }
@@ -367,7 +411,9 @@ class _$HomesReceived implements HomesReceived {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
   }) {
     return homesReceived?.call(this);
   }
@@ -379,7 +425,9 @@ class _$HomesReceived implements HomesReceived {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
     required TResult orElse(),
   }) {
     if (homesReceived != null) {
@@ -467,7 +515,9 @@ class _$RentalsReceived implements RentalsReceived {
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
     required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
   }) {
     return rentalsReceived(rentals);
   }
@@ -479,7 +529,9 @@ class _$RentalsReceived implements RentalsReceived {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
   }) {
     return rentalsReceived?.call(rentals);
   }
@@ -491,7 +543,9 @@ class _$RentalsReceived implements RentalsReceived {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
     required TResult orElse(),
   }) {
     if (rentalsReceived != null) {
@@ -507,7 +561,9 @@ class _$RentalsReceived implements RentalsReceived {
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
     required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
   }) {
     return rentalsReceived(this);
   }
@@ -519,7 +575,9 @@ class _$RentalsReceived implements RentalsReceived {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
   }) {
     return rentalsReceived?.call(this);
   }
@@ -531,7 +589,9 @@ class _$RentalsReceived implements RentalsReceived {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
     required TResult orElse(),
   }) {
     if (rentalsReceived != null) {
@@ -616,7 +676,9 @@ class _$WatchHome implements WatchHome {
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
     required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
   }) {
     return watchHome(homeUuid);
   }
@@ -628,7 +690,9 @@ class _$WatchHome implements WatchHome {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
   }) {
     return watchHome?.call(homeUuid);
   }
@@ -640,7 +704,9 @@ class _$WatchHome implements WatchHome {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
     required TResult orElse(),
   }) {
     if (watchHome != null) {
@@ -656,7 +722,9 @@ class _$WatchHome implements WatchHome {
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
     required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
   }) {
     return watchHome(this);
   }
@@ -668,7 +736,9 @@ class _$WatchHome implements WatchHome {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
   }) {
     return watchHome?.call(this);
   }
@@ -680,7 +750,9 @@ class _$WatchHome implements WatchHome {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
     required TResult orElse(),
   }) {
     if (watchHome != null) {
@@ -696,6 +768,170 @@ abstract class WatchHome implements MyHomesEvent {
   String get homeUuid;
   @JsonKey(ignore: true)
   $WatchHomeCopyWith<WatchHome> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WatchRentalCopyWith<$Res> {
+  factory $WatchRentalCopyWith(
+          WatchRental value, $Res Function(WatchRental) then) =
+      _$WatchRentalCopyWithImpl<$Res>;
+  $Res call({String rentalUuid});
+}
+
+/// @nodoc
+class _$WatchRentalCopyWithImpl<$Res> extends _$MyHomesEventCopyWithImpl<$Res>
+    implements $WatchRentalCopyWith<$Res> {
+  _$WatchRentalCopyWithImpl(
+      WatchRental _value, $Res Function(WatchRental) _then)
+      : super(_value, (v) => _then(v as WatchRental));
+
+  @override
+  WatchRental get _value => super._value as WatchRental;
+
+  @override
+  $Res call({
+    Object? rentalUuid = freezed,
+  }) {
+    return _then(WatchRental(
+      rentalUuid == freezed
+          ? _value.rentalUuid
+          : rentalUuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$WatchRental implements WatchRental {
+  const _$WatchRental(this.rentalUuid);
+
+  @override
+  final String rentalUuid;
+
+  @override
+  String toString() {
+    return 'MyHomesEvent.watchRental(rentalUuid: $rentalUuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WatchRental &&
+            const DeepCollectionEquality()
+                .equals(other.rentalUuid, rentalUuid));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rentalUuid));
+
+  @JsonKey(ignore: true)
+  @override
+  $WatchRentalCopyWith<WatchRental> get copyWith =>
+      _$WatchRentalCopyWithImpl<WatchRental>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(List<Rental> rentals) rentalsReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
+    required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
+  }) {
+    return watchRental(rentalUuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+  }) {
+    return watchRental?.call(rentalUuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    required TResult orElse(),
+  }) {
+    if (watchRental != null) {
+      return watchRental(rentalUuid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(RentalsReceived value) rentalsReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
+    required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
+  }) {
+    return watchRental(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+  }) {
+    return watchRental?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    required TResult orElse(),
+  }) {
+    if (watchRental != null) {
+      return watchRental(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WatchRental implements MyHomesEvent {
+  const factory WatchRental(String rentalUuid) = _$WatchRental;
+
+  String get rentalUuid;
+  @JsonKey(ignore: true)
+  $WatchRentalCopyWith<WatchRental> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -776,7 +1012,9 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
     required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
   }) {
     return homeReceived(home);
   }
@@ -788,7 +1026,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
   }) {
     return homeReceived?.call(home);
   }
@@ -800,7 +1040,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
     TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
     required TResult orElse(),
   }) {
     if (homeReceived != null) {
@@ -816,7 +1058,9 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
     required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
   }) {
     return homeReceived(this);
   }
@@ -828,7 +1072,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
   }) {
     return homeReceived?.call(this);
   }
@@ -840,7 +1086,9 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
     TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
     required TResult orElse(),
   }) {
     if (homeReceived != null) {
@@ -860,6 +1108,179 @@ abstract class HomeReceived implements MyHomesEvent {
 }
 
 /// @nodoc
+abstract class $RentalReceivedCopyWith<$Res> {
+  factory $RentalReceivedCopyWith(
+          RentalReceived value, $Res Function(RentalReceived) then) =
+      _$RentalReceivedCopyWithImpl<$Res>;
+  $Res call({Rental rental});
+
+  $RentalCopyWith<$Res> get rental;
+}
+
+/// @nodoc
+class _$RentalReceivedCopyWithImpl<$Res>
+    extends _$MyHomesEventCopyWithImpl<$Res>
+    implements $RentalReceivedCopyWith<$Res> {
+  _$RentalReceivedCopyWithImpl(
+      RentalReceived _value, $Res Function(RentalReceived) _then)
+      : super(_value, (v) => _then(v as RentalReceived));
+
+  @override
+  RentalReceived get _value => super._value as RentalReceived;
+
+  @override
+  $Res call({
+    Object? rental = freezed,
+  }) {
+    return _then(RentalReceived(
+      rental == freezed
+          ? _value.rental
+          : rental // ignore: cast_nullable_to_non_nullable
+              as Rental,
+    ));
+  }
+
+  @override
+  $RentalCopyWith<$Res> get rental {
+    return $RentalCopyWith<$Res>(_value.rental, (value) {
+      return _then(_value.copyWith(rental: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RentalReceived implements RentalReceived {
+  const _$RentalReceived(this.rental);
+
+  @override
+  final Rental rental;
+
+  @override
+  String toString() {
+    return 'MyHomesEvent.rentalReceived(rental: $rental)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RentalReceived &&
+            const DeepCollectionEquality().equals(other.rental, rental));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rental));
+
+  @JsonKey(ignore: true)
+  @override
+  $RentalReceivedCopyWith<RentalReceived> get copyWith =>
+      _$RentalReceivedCopyWithImpl<RentalReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(List<Rental> rentals) rentalsReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
+    required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
+  }) {
+    return rentalReceived(rental);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+  }) {
+    return rentalReceived?.call(rental);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    required TResult orElse(),
+  }) {
+    if (rentalReceived != null) {
+      return rentalReceived(rental);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(RentalsReceived value) rentalsReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
+    required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
+  }) {
+    return rentalReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+  }) {
+    return rentalReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    required TResult orElse(),
+  }) {
+    if (rentalReceived != null) {
+      return rentalReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RentalReceived implements MyHomesEvent {
+  const factory RentalReceived(Rental rental) = _$RentalReceived;
+
+  Rental get rental;
+  @JsonKey(ignore: true)
+  $RentalReceivedCopyWith<RentalReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$MyHomesStateTearOff {
   const _$MyHomesStateTearOff();
 
@@ -867,12 +1288,18 @@ class _$MyHomesStateTearOff {
       {required bool isLoading,
       required List<Home> homes,
       required List<Rental> rentals,
-      required Home home}) {
+      required Home home,
+      required Rental rental,
+      required DomainUser host,
+      required DomainUser guest}) {
     return _MyHomesState(
       isLoading: isLoading,
       homes: homes,
       rentals: rentals,
       home: home,
+      rental: rental,
+      host: host,
+      guest: guest,
     );
   }
 }
@@ -886,6 +1313,9 @@ mixin _$MyHomesState {
   List<Home> get homes => throw _privateConstructorUsedError;
   List<Rental> get rentals => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
+  Rental get rental => throw _privateConstructorUsedError;
+  DomainUser get host => throw _privateConstructorUsedError;
+  DomainUser get guest => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyHomesStateCopyWith<MyHomesState> get copyWith =>
@@ -898,9 +1328,18 @@ abstract class $MyHomesStateCopyWith<$Res> {
           MyHomesState value, $Res Function(MyHomesState) then) =
       _$MyHomesStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isLoading, List<Home> homes, List<Rental> rentals, Home home});
+      {bool isLoading,
+      List<Home> homes,
+      List<Rental> rentals,
+      Home home,
+      Rental rental,
+      DomainUser host,
+      DomainUser guest});
 
   $HomeCopyWith<$Res> get home;
+  $RentalCopyWith<$Res> get rental;
+  $DomainUserCopyWith<$Res> get host;
+  $DomainUserCopyWith<$Res> get guest;
 }
 
 /// @nodoc
@@ -917,6 +1356,9 @@ class _$MyHomesStateCopyWithImpl<$Res> implements $MyHomesStateCopyWith<$Res> {
     Object? homes = freezed,
     Object? rentals = freezed,
     Object? home = freezed,
+    Object? rental = freezed,
+    Object? host = freezed,
+    Object? guest = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -935,6 +1377,18 @@ class _$MyHomesStateCopyWithImpl<$Res> implements $MyHomesStateCopyWith<$Res> {
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
+      rental: rental == freezed
+          ? _value.rental
+          : rental // ignore: cast_nullable_to_non_nullable
+              as Rental,
+      host: host == freezed
+          ? _value.host
+          : host // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
+      guest: guest == freezed
+          ? _value.guest
+          : guest // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
     ));
   }
 
@@ -942,6 +1396,27 @@ class _$MyHomesStateCopyWithImpl<$Res> implements $MyHomesStateCopyWith<$Res> {
   $HomeCopyWith<$Res> get home {
     return $HomeCopyWith<$Res>(_value.home, (value) {
       return _then(_value.copyWith(home: value));
+    });
+  }
+
+  @override
+  $RentalCopyWith<$Res> get rental {
+    return $RentalCopyWith<$Res>(_value.rental, (value) {
+      return _then(_value.copyWith(rental: value));
+    });
+  }
+
+  @override
+  $DomainUserCopyWith<$Res> get host {
+    return $DomainUserCopyWith<$Res>(_value.host, (value) {
+      return _then(_value.copyWith(host: value));
+    });
+  }
+
+  @override
+  $DomainUserCopyWith<$Res> get guest {
+    return $DomainUserCopyWith<$Res>(_value.guest, (value) {
+      return _then(_value.copyWith(guest: value));
     });
   }
 }
@@ -954,10 +1429,22 @@ abstract class _$MyHomesStateCopyWith<$Res>
       __$MyHomesStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isLoading, List<Home> homes, List<Rental> rentals, Home home});
+      {bool isLoading,
+      List<Home> homes,
+      List<Rental> rentals,
+      Home home,
+      Rental rental,
+      DomainUser host,
+      DomainUser guest});
 
   @override
   $HomeCopyWith<$Res> get home;
+  @override
+  $RentalCopyWith<$Res> get rental;
+  @override
+  $DomainUserCopyWith<$Res> get host;
+  @override
+  $DomainUserCopyWith<$Res> get guest;
 }
 
 /// @nodoc
@@ -976,6 +1463,9 @@ class __$MyHomesStateCopyWithImpl<$Res> extends _$MyHomesStateCopyWithImpl<$Res>
     Object? homes = freezed,
     Object? rentals = freezed,
     Object? home = freezed,
+    Object? rental = freezed,
+    Object? host = freezed,
+    Object? guest = freezed,
   }) {
     return _then(_MyHomesState(
       isLoading: isLoading == freezed
@@ -994,6 +1484,18 @@ class __$MyHomesStateCopyWithImpl<$Res> extends _$MyHomesStateCopyWithImpl<$Res>
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
+      rental: rental == freezed
+          ? _value.rental
+          : rental // ignore: cast_nullable_to_non_nullable
+              as Rental,
+      host: host == freezed
+          ? _value.host
+          : host // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
+      guest: guest == freezed
+          ? _value.guest
+          : guest // ignore: cast_nullable_to_non_nullable
+              as DomainUser,
     ));
   }
 }
@@ -1005,7 +1507,10 @@ class _$_MyHomesState implements _MyHomesState {
       {required this.isLoading,
       required this.homes,
       required this.rentals,
-      required this.home});
+      required this.home,
+      required this.rental,
+      required this.host,
+      required this.guest});
 
   @override
   final bool isLoading;
@@ -1015,10 +1520,16 @@ class _$_MyHomesState implements _MyHomesState {
   final List<Rental> rentals;
   @override
   final Home home;
+  @override
+  final Rental rental;
+  @override
+  final DomainUser host;
+  @override
+  final DomainUser guest;
 
   @override
   String toString() {
-    return 'MyHomesState(isLoading: $isLoading, homes: $homes, rentals: $rentals, home: $home)';
+    return 'MyHomesState(isLoading: $isLoading, homes: $homes, rentals: $rentals, home: $home, rental: $rental, host: $host, guest: $guest)';
   }
 
   @override
@@ -1029,7 +1540,10 @@ class _$_MyHomesState implements _MyHomesState {
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.homes, homes) &&
             const DeepCollectionEquality().equals(other.rentals, rentals) &&
-            const DeepCollectionEquality().equals(other.home, home));
+            const DeepCollectionEquality().equals(other.home, home) &&
+            const DeepCollectionEquality().equals(other.rental, rental) &&
+            const DeepCollectionEquality().equals(other.host, host) &&
+            const DeepCollectionEquality().equals(other.guest, guest));
   }
 
   @override
@@ -1038,7 +1552,10 @@ class _$_MyHomesState implements _MyHomesState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(homes),
       const DeepCollectionEquality().hash(rentals),
-      const DeepCollectionEquality().hash(home));
+      const DeepCollectionEquality().hash(home),
+      const DeepCollectionEquality().hash(rental),
+      const DeepCollectionEquality().hash(host),
+      const DeepCollectionEquality().hash(guest));
 
   @JsonKey(ignore: true)
   @override
@@ -1051,7 +1568,10 @@ abstract class _MyHomesState implements MyHomesState {
       {required bool isLoading,
       required List<Home> homes,
       required List<Rental> rentals,
-      required Home home}) = _$_MyHomesState;
+      required Home home,
+      required Rental rental,
+      required DomainUser host,
+      required DomainUser guest}) = _$_MyHomesState;
 
   @override
   bool get isLoading;
@@ -1061,6 +1581,12 @@ abstract class _MyHomesState implements MyHomesState {
   List<Rental> get rentals;
   @override
   Home get home;
+  @override
+  Rental get rental;
+  @override
+  DomainUser get host;
+  @override
+  DomainUser get guest;
   @override
   @JsonKey(ignore: true)
   _$MyHomesStateCopyWith<_MyHomesState> get copyWith =>

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_homes/my_homes_bloc.dart';
+import 'package:r_home/domain/rentals/rental.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
@@ -35,13 +36,15 @@ class MyHomesPage extends StatelessWidget {
         child: BlocBuilder<MyHomesBloc, MyHomesState>(
           builder: (context, state) {
             final _homes = context.watch<MyHomesBloc>().state.homes;
+            final _rentals = context.watch<MyHomesBloc>().state.rentals;
 
             return Center(
               child: ListView.separated(
                 padding: const EdgeInsets.all(10),
                 itemCount: _homes.length,
                 itemBuilder: (BuildContext ctxt, int index) {
-                  return MyHomeWidget(home: _homes[index]);
+                  final _rental = _rentals.firstWhere((rental) => rental.homeId == _homes[index].uuid, orElse: Rental.empty);
+                  return MyHomeWidget(home: _homes[index], rental: _rental);
                 },
                 separatorBuilder: (BuildContext context, int index) => const Padding(
                   padding: EdgeInsets.only(top: 10.0),

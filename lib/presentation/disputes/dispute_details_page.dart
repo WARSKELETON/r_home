@@ -130,7 +130,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                             ),
                                             child: InkWell(
                                               splashColor: const Color.fromRGBO(128,128,128, 0.3),
-                                              onTap: () => _user.id == _rental.guestId ? AutoRouter.of(context).push(MyStayDetailsPageRoute(homeUuid: _home.uuid, rentalUuid: _dispute.rentalUuid)) : AutoRouter.of(context).push(MyHomeDetailsPageRoute(homeUuid: _home.uuid)),
+                                              onTap: () => _user.id == _rental.guestId ? AutoRouter.of(context).push(MyStayDetailsPageRoute(homeUuid: _home.uuid, rentalUuid: _dispute.rentalUuid)) : AutoRouter.of(context).push(MyHomeDetailsPageRoute(homeUuid: _home.uuid, rentalUuid: _dispute.rentalUuid)),
                                               borderRadius: BorderRadius.circular(5.0),
                                               child: Padding(
                                                 padding: const EdgeInsets.all(5.0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/disputes/widgets/chip_widget.dart';
 
 class RoundedCardWidget extends StatelessWidget {
   final String title;
@@ -9,6 +10,7 @@ class RoundedCardWidget extends StatelessWidget {
   final double height;
   final void Function()? onPressed;
   final bool? selected;
+  final bool? booked;
 
   const RoundedCardWidget({
     Key? key,
@@ -17,7 +19,9 @@ class RoundedCardWidget extends StatelessWidget {
     required this.image,
     required this.width,
     required this.height,
-    required this.onPressed, this.selected,
+    required this.onPressed, 
+    this.selected, 
+    this.booked,
   }) : super(key: key);
 
   @override
@@ -40,7 +44,7 @@ class RoundedCardWidget extends StatelessWidget {
                 clipBehavior: Clip.hardEdge,
                 color: Colors.transparent,
                 child: Stack(
-                  alignment: Alignment.center,
+                  alignment: Alignment.topRight,
                   children: [
                       if (selected != null && selected!) ...[
                         Container(
@@ -55,6 +59,16 @@ class RoundedCardWidget extends StatelessWidget {
                             color: Colors.white,
                             size: 50,
                           )
+                        ),
+                      ],
+                      if (booked != null && booked!) ...[
+                        ChipWidget(
+                          width: 100, 
+                          title: "BOOKED",
+                          isChecked: false,
+                          isClickable: false,
+                          backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
+                          textColor: Colors.white,
                         ),
                       ],
                       Ink.image(

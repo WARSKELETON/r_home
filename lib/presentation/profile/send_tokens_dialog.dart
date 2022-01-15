@@ -7,8 +7,9 @@ import 'package:r_home/presentation/core/confirmation_dialog_widget.dart';
 class SendTokensDialog extends StatelessWidget {
   final int tokens;
   final String username;
+  final String routeNameToPopUntil;
 
-  const SendTokensDialog({Key? key, required this.tokens, required this.username}) : super(key: key);
+  const SendTokensDialog({Key? key, required this.tokens, required this.username, required this.routeNameToPopUntil}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SendTokensDialog extends StatelessWidget {
         message: "You are about to send $tokens tokens to user $username.",
         onPressed: () {
           context.read<RewardUserBloc>().add(const RewardUserEvent.sendTokens());
-          AutoRouter.of(context).popUntilRouteWithName("ProfilePageRoute");
+          AutoRouter.of(context).popUntilRouteWithName(routeNameToPopUntil);
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text("Your tokens were sent.")));
         },);
       },

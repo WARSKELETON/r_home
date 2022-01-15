@@ -40,6 +40,20 @@ abstract class Rental implements _$Rental {
     numPets: 0,
   );
 
+  bool isRentalActive(DateTime currentDate) {
+    return checkIn.isBefore(currentDate) && checkOut.isAfter(currentDate);
+  }
+
+  int nightsBetween() {
+    DateTime from = DateTime(checkIn.year, checkIn.month, checkIn.day);
+    DateTime to = DateTime(checkOut.year, checkOut.month, checkOut.day);
+    return (to.difference(from).inHours / 24).round();
+  }
+
+  double totalPrice(double pricePerNight) {
+    return (nightsBetween() * pricePerNight) + 3;
+  }
+
   String getDateString() {
     return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
   }

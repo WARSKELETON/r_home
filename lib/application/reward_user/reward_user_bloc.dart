@@ -49,4 +49,10 @@ class RewardUserBloc extends Bloc<RewardUserEvent, RewardUserState> {
   _onSubmit(Submit event, Emitter<RewardUserState> emit) {
     _authFacade.makeTransferOfTokens(state.beneficiary.id, state.amount.round());
   }
+
+  @override
+  Future<void> close() {
+    _rentalsStreamSubscription?.cancel();
+    return super.close();
+  }
 }

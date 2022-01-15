@@ -6,5 +6,7 @@ class MyHomesEvent with _$MyHomesEvent {
   const factory MyHomesEvent.homesReceived(List<Home> homes) = HomesReceived;
   const factory MyHomesEvent.rentalsReceived(List<Rental> rentals) = RentalsReceived;  
   const factory MyHomesEvent.watchHome(String homeUuid) = WatchHome;
+  const factory MyHomesEvent.watchRental(String rentalUuid) = WatchRental;
   const factory MyHomesEvent.homeReceived(Home home) = HomeReceived;
+  const factory MyHomesEvent.rentalReceived(Rental rental) = RentalReceived;
 }

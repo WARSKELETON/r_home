@@ -52,15 +52,19 @@ class MyStaysBloc extends Bloc<MyStaysEvent, MyStaysState> {
   void _onRentalsReceived(RentalsReceived event, Emitter<MyStaysState> emit) {
     List<String> homeIds = event.rentals.map((rental) => rental.homeId).toList();
 
-    _homesStreamSubscription?.cancel();
+    if (homeIds.isNotEmpty) {
+      _homesStreamSubscription?.cancel();
 
-    _homesStreamSubscription = _homesRepository
-      .watchAllFromHomeIds(homeIds)
-      .listen(
-        (homes) => add(MyStaysEvent.homesReceived(homes)),
-      );
+      _homesStreamSubscription = _homesRepository
+        .watchAllFromHomeIds(homeIds)
+        .listen(
+          (homes) => add(MyStaysEvent.homesReceived(homes)),
+        );
 
-    emit(state.copyWith(rentals: event.rentals));
+      emit(state.copyWith(rentals: event.rentals));
+    }
+
+    emit(state);
   }
 
   void _onRentalReceived(RentalReceived event, Emitter<MyStaysState> emit) async {

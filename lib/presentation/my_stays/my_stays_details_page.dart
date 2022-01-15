@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 
 class MyStayDetailsPage extends StatelessWidget {
@@ -21,16 +23,6 @@ class MyStayDetailsPage extends StatelessWidget {
   final String rentalUuid;
 
   const MyStayDetailsPage({Key? key, required this.homeUuid, required this.rentalUuid}) : super(key: key);
-
-  int nightsBetween(DateTime from, DateTime to) {
-    from = DateTime(from.year, from.month, from.day);
-    to = DateTime(to.year, to.month, to.day);
-    return (to.difference(from).inHours / 24).round();
-  }
-
-  double totalPrice(int nights, double pricePerNight, int singleFee) {
-    return (nights * pricePerNight) + singleFee;
-  }
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
@@ -94,7 +86,6 @@ class MyStayDetailsPage extends StatelessWidget {
           final _home = context.watch<MyStaysBloc>().state.home;
           final _rental = context.watch<MyStaysBloc>().state.rental;
           final _host = context.watch<MyStaysBloc>().state.host;
-          final nights = nightsBetween(_rental.checkIn, _rental.checkOut);
 
           return Scaffold(
             appBar: AppBarWidget(
@@ -154,7 +145,7 @@ class MyStayDetailsPage extends StatelessWidget {
                                     ),
                                     const Spacer(),
                                     CircleIconButtonWidget(
-                                      onPressed: () => {},
+                                      onPressed: () => AutoRouter.of(context).push(RewardUserPageRoute(user: _host, routeNameToPopUntil: MyStayDetailsPageRoute.name)),
                                       size: 15,
                                       backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                                       icon: const Icon(
@@ -190,7 +181,7 @@ class MyStayDetailsPage extends StatelessWidget {
                               height: 10,
                               color: Color(0xFFE5E5E5),
                             ),
-                            _buildRow(context, "Total Tokens: ", totalPrice(nights, _home.price, 3)),
+                            _buildRow(context, "Total Tokens: ", _rental.totalPrice(_home.price)),
                           ],
                         ),
                       ),

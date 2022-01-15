@@ -20,8 +20,9 @@ import 'package:r_home/r_home_icon_icons.dart';
 
 class MyHomeDetailsPage extends StatelessWidget {
   final String homeUuid;
+  final String rentalUuid;
 
-  const MyHomeDetailsPage({Key? key, required this.homeUuid}) : super(key: key);
+  const MyHomeDetailsPage({Key? key, required this.homeUuid, required this.rentalUuid}) : super(key: key);
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
@@ -78,10 +79,13 @@ class MyHomeDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MyHomesBloc(RentalsRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)), HomesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
-        ..add(MyHomesEvent.watchHome(homeUuid)),
+        ..add(MyHomesEvent.watchHome(homeUuid))
+        ..add(MyHomesEvent.watchRental(rentalUuid)),
       child: BlocBuilder<MyHomesBloc, MyHomesState>(
         builder: (context, state) {
           final _home = context.watch<MyHomesBloc>().state.home;
+          final _rental = context.watch<MyHomesBloc>().state.rental;
+          final _guest = context.watch<MyHomesBloc>().state.guest;
 
           return Scaffold(
             appBar: AppBarWidget(
@@ -100,65 +104,69 @@ class MyHomeDetailsPage extends StatelessWidget {
                     children: <Widget>[
                       const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
                       HomeDetailsTextWidget(home: _home),
-                      const Divider(
-                        thickness: 8,
-                        height: 40,
-                        color: Color(0xFFE5E5E5),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: SizedBox(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(bottom: 20.0, right: 15.0, left: 15.0),
-                                child: Text(
-                                  "Guest Info",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
+                      if (_rental.homeId != "") ...[
+                        const Divider(
+                          thickness: 8,
+                          height: 40,
+                          color: Color(0xFFE5E5E5),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5.0),
+                          child: SizedBox(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.only(bottom: 20.0, right: 15.0, left: 15.0),
+                                  child: Text(
+                                    "Guest Info",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 10.0, bottom: 15.0, top: 10.0),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(50.0),
-                                          child: Image.network(
-                                            "https://static.wixstatic.com/media/6f3bc4_c69a145099ba4376b3d429fcc61a8c1d~mv2.jpg/v1/crop/x_23,y_0,w_465,h_465/fill/w_220,h_220,al_c,q_80,usm_0.66_1.00_0.01/AndreAugusto.webp",
-                                            width: 80,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 10.0, bottom: 15.0, top: 10.0),
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(50.0),
+                                            child: _guest.photo == null ?
+                                              Container(decoration: const BoxDecoration(shape: BoxShape.rectangle), width: 80, height: 80) 
+                                              : 
+                                              Image.network(
+                                                _guest.photo!,
+                                                width: 80,
+                                              ),
                                           ),
                                         ),
-                                      ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          _buildGuestRow(context, RHomeIcon.profile, "@freddie"),
-                                          _buildGuestRow(context, Icons.phone, "918 678 009"),
-                                        ]
-                                      ),
-                                      const Spacer(),
-                                      CircleIconButtonWidget(
-                                        onPressed: () => {},
-                                        size: 15,
-                                        backgroundColor: Theme.of(context).colorScheme.primaryBlue,
-                                        icon: const Icon(
-                                          RHomeIcon.reward, 
-                                          color: Colors.white,
-                                          size: 38,
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            _buildGuestRow(context, RHomeIcon.profile, _guest.getUsername()),
+                                            _buildGuestRow(context, Icons.phone, "918 678 009"),
+                                          ]
                                         ),
-                                        splashColor: Colors.black
-                                      )
-                                    ]),
-                              ),
+                                        const Spacer(),
+                                        CircleIconButtonWidget(
+                                          onPressed: () => AutoRouter.of(context).push(RewardUserPageRoute(user: _guest, routeNameToPopUntil: MyHomeDetailsPageRoute.name)),
+                                          size: 15,
+                                          backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                                          icon: const Icon(
+                                            RHomeIcon.reward, 
+                                            color: Colors.white,
+                                            size: 38,
+                                          ),
+                                          splashColor: Colors.black
+                                        )
+                                      ]),
+                                ),
                               const Divider(
                                 thickness: 8,
                                 height: 40,
@@ -176,18 +184,19 @@ class MyHomeDetailsPage extends StatelessWidget {
                                 ),
                               ),
                               _buildRow(
-                                  context, "Date: ", "12/01/2022  -  17/01/2022"),
+                                  context, "Date: ", _rental.getDateString()),
                               _buildRow(context, "Price per Night:", _home.price),
                               const Divider(
                                 thickness: 3,
                                 height: 10,
                                 color: Color(0xFFE5E5E5),
                               ),
-                              _buildRow(context, "Total Tokens: ", "110.0"),
+                              _buildRow(context, "Total Tokens: ", _rental.totalPrice(_home.price)),
                             ],
                           ),
                         ),
                       ),
+                      ]
                     ],
                   ),
             ),
