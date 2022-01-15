@@ -32,7 +32,15 @@ class SelectUserRewardWidget extends StatelessWidget {
     return BlocBuilder<RewardUserBloc, RewardUserState>(
       builder: (context, state) {
         return Expanded(
-          child: ListView.builder(
+          child: users.isEmpty ?
+          const Padding(
+            padding: EdgeInsets.only(top: 30.0),
+            child: Text(
+              "You cannot send tokens to any user because you haven't interacted with one yet.",
+              textAlign: TextAlign.center,
+            ),
+          ) :
+          ListView.builder(
             padding: const EdgeInsets.only(left: 8),
             itemCount: users.length,
             itemBuilder: _itemBuilder

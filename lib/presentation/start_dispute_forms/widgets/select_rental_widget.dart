@@ -31,7 +31,15 @@ class SelectRentalWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
+      child: rentals.isEmpty ? 
+      const Padding(
+        padding: EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0),
+        child: Text(
+          "You cannot open a dispute since you haven't rented a home yet.",
+          textAlign: TextAlign.center,
+        ),
+      )
+       : ListView.builder(
         padding: const EdgeInsets.only(left: 8),
         itemCount: rentals.length,
         itemBuilder: _itemBuilder

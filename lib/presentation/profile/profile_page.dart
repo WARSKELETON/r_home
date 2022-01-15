@@ -96,20 +96,22 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  RoundedButtonWidget(
-                    text: 'MY ACTIVITIES',
-                    onPressed: () => AutoRouter.of(context).push(const MyLocalActivitiesPageRoute()),
-                    backgroundColor: Theme.of(context).colorScheme.primaryBlue,
-                    fontWeight: FontWeight.w400,
-                    textColor: Colors.white,
-                    fontSize: 20,
-                    height: 45,
-                    width: 310,
-                    trailingIcon: const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 16,
+                  if (currentUser.role == "producer") ...[
+                    RoundedButtonWidget(
+                      text: 'MY ACTIVITIES',
+                      onPressed: () => AutoRouter.of(context).push(const MyLocalActivitiesPageRoute()),
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                      fontWeight: FontWeight.w400,
+                      textColor: Colors.white,
+                      fontSize: 20,
+                      height: 45,
+                      width: 310,
+                      trailingIcon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 16,
+                      ),
                     ),
-                  ),
+                  ],
                 ],
               ),
             );
