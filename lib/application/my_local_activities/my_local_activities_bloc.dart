@@ -24,32 +24,26 @@ class MyLocalActivitiesBloc
   StreamSubscription<List<LocalActivity>>? _localActivitiesStreamSubscription;
   StreamSubscription<LocalActivity>? _localActivityStreamSubscription;
 
-  void _onInitialize(
-      MyLocalActivitiesEvent event, Emitter<MyLocalActivitiesState> emit) {
+  void _onInitialize(MyLocalActivitiesEvent event, Emitter<MyLocalActivitiesState> emit) {
     _localActivitiesStreamSubscription = _localActivitiesRepository
-        .watchAll()
-        .listen(
+        .watchAllFromUser().listen(
           (localActivities) => add(MyLocalActivitiesEvent.localActivitiesReceived(localActivities)),
         );
     emit(state);
   }
 
-  void _onWatchLocalActivity(
-      WatchLocalActivity event, Emitter<MyLocalActivitiesState> emit) {
-    print("Starting watching home " + event.localActivityUuid);
+  void _onWatchLocalActivity(WatchLocalActivity event, Emitter<MyLocalActivitiesState> emit) {
     _localActivityStreamSubscription = _localActivitiesRepository
         .watch(event.localActivityUuid)
         .listen((localActivity) => add(MyLocalActivitiesEvent.localActivityReceivedReceived(localActivity)));
     emit(state);
   }
 
-  void _onLocalActivitiesReceived(
-      LocalActivitiesReceived event, Emitter<MyLocalActivitiesState> emit) {
+  void _onLocalActivitiesReceived(LocalActivitiesReceived event, Emitter<MyLocalActivitiesState> emit) {
     emit(state.copyWith(localActivities: event.localActivities));
   }
 
-  void _onLocalActivityReceived(
-      LocalActivityReceived event, Emitter<MyLocalActivitiesState> emit) {
+  void _onLocalActivityReceived(LocalActivityReceived event, Emitter<MyLocalActivitiesState> emit) {
     emit(state.copyWith(localActivity: event.localActivity));
   }
 }

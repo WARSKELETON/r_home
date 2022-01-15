@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
+import 'package:r_home/domain/local_activities/local_activity.dart';
 
 part 'my_homes_form_event.dart';
 part 'my_homes_form_state.dart';
@@ -13,6 +14,8 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
 
   MyHomesFormBloc(this._homesRepository) : super(MyHomesFormState.initial()) {
     on<Initialize>(_onInitialize);
+    on<CategoryChanged>(_onCategoryChanged);
+    on<LocalActivityReceived>(_onLocalActivityReceived);
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
     on<PriceChanged>(_onPriceChanged);
@@ -32,6 +35,20 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
         home: initialHome,
         isEditing: true
       ),
+    ));
+  }
+
+  void _onCategoryChanged(CategoryChanged event, Emitter<MyHomesFormState> emit) {
+    emit(state.copyWith(
+      category: state.category != event.activityCategory ? event.activityCategory : null,
+      saveFailureOrSuccessOption: none(),
+    ));
+  }
+
+  void _onLocalActivityReceived(LocalActivityReceived event, Emitter<MyHomesFormState> emit) {
+    emit(state.copyWith(
+      localActivities: [...state.localActivities, event.localActivity],
+      saveFailureOrSuccessOption: none(),
     ));
   }
 
@@ -103,7 +120,10 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
   }
 
   void _onSubmit(Submit event, Emitter<MyHomesFormState> emit) async {
-    emit(state.copyWith(isSaving: true));
+    emit(state.copyWith(
+      isSaving: true,
+      home: state.home.copyWith(localActivities: state.localActivities.map((activity) => activity.uuid).toList())
+    ));
 
     state.isEditing
         ? await _homesRepository.update(state.home)

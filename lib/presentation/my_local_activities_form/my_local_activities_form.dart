@@ -31,8 +31,7 @@ class MyLocalActivitiesForm extends StatelessWidget {
                 FirebaseFirestore.instance,
                 FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
                     FirebaseFirestore.instance)))
-          ..add(
-              MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
+          ..add(MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
         child: Scaffold(
           appBar: AppBarWidget(
             title: "Edit Activity",
@@ -68,18 +67,21 @@ class MyLocalActivitiesForm extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return Form(
+        return Expanded(
+          child: Form(
             child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              ActivityNameField(),
-              ActivityLocationField(),
-              ActivityPriceField(),
-              ActivityContactField()
-            ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  ActivityNameField(),
+                  ActivityLocationField(),
+                  ActivityPriceField(),
+                  ActivityContactField()
+                ],
+              ),
+            )
           ),
-        ));
+        );
       },
     );
   }

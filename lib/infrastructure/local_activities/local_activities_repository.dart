@@ -20,6 +20,17 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
     yield* colRef.snapshots().map((query) => query.toListLocalActivity());
   }
 
+    @override
+  Stream<List<LocalActivity>> watchAllFromUser() async* {
+    final userId = _authFacade.getSignedInUserId();
+
+    final colRef = _firestore
+        .collection(ACTIVITIES_COLLECTION)
+        .where("producer", isEqualTo: userId);
+
+    yield* colRef.snapshots().map((query) => query.toListLocalActivity());
+  }
+
   @override
   Stream<LocalActivity> watch(String localActivityUuid) async* {
     final docRef = _firestore

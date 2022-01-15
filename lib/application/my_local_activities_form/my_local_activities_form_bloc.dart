@@ -21,7 +21,6 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
     on<Submit>(_onSubmit);
   }
 
-
   void _onInitialize(Initialize event, Emitter<MyLocalActivitiesFormState> emit) {
     emit(event.initialActivityOption.fold(
       () => state,
@@ -34,7 +33,7 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
 
   void _onCategoryChanged(CategoryChanged event, Emitter<MyLocalActivitiesFormState> emit) {
     emit(state.copyWith(
-      category: event.activityCategory,
+      category: state.category != event.activityCategory ? event.activityCategory : null,
       saveFailureOrSuccessOption: none(),
     ));
   }

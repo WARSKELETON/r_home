@@ -24,6 +24,18 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
+  CategoryChanged categoryChanged(ActivityCategory? activityCategory) {
+    return CategoryChanged(
+      activityCategory,
+    );
+  }
+
+  LocalActivityReceived changeLocalActivity(LocalActivity localActivity) {
+    return LocalActivityReceived(
+      localActivity,
+    );
+  }
+
   NameChanged nameChanged(String name) {
     return NameChanged(
       name,
@@ -91,6 +103,9 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -106,6 +121,8 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -121,6 +138,8 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -137,6 +156,8 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -152,6 +173,8 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -167,6 +190,8 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -265,6 +290,9 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -283,6 +311,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -301,6 +331,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -323,6 +355,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -341,6 +375,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -359,6 +395,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -384,6 +422,422 @@ abstract class Initialize implements MyHomesFormEvent {
   Option<Home> get initialHomeOption;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CategoryChangedCopyWith<$Res> {
+  factory $CategoryChangedCopyWith(
+          CategoryChanged value, $Res Function(CategoryChanged) then) =
+      _$CategoryChangedCopyWithImpl<$Res>;
+  $Res call({ActivityCategory? activityCategory});
+}
+
+/// @nodoc
+class _$CategoryChangedCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $CategoryChangedCopyWith<$Res> {
+  _$CategoryChangedCopyWithImpl(
+      CategoryChanged _value, $Res Function(CategoryChanged) _then)
+      : super(_value, (v) => _then(v as CategoryChanged));
+
+  @override
+  CategoryChanged get _value => super._value as CategoryChanged;
+
+  @override
+  $Res call({
+    Object? activityCategory = freezed,
+  }) {
+    return _then(CategoryChanged(
+      activityCategory == freezed
+          ? _value.activityCategory
+          : activityCategory // ignore: cast_nullable_to_non_nullable
+              as ActivityCategory?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CategoryChanged implements CategoryChanged {
+  const _$CategoryChanged(this.activityCategory);
+
+  @override
+  final ActivityCategory? activityCategory;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.categoryChanged(activityCategory: $activityCategory)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CategoryChanged &&
+            const DeepCollectionEquality()
+                .equals(other.activityCategory, activityCategory));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(activityCategory));
+
+  @JsonKey(ignore: true)
+  @override
+  $CategoryChangedCopyWith<CategoryChanged> get copyWith =>
+      _$CategoryChangedCopyWithImpl<CategoryChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return categoryChanged(activityCategory);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return categoryChanged?.call(activityCategory);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (categoryChanged != null) {
+      return categoryChanged(activityCategory);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return categoryChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return categoryChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (categoryChanged != null) {
+      return categoryChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategoryChanged implements MyHomesFormEvent {
+  const factory CategoryChanged(ActivityCategory? activityCategory) =
+      _$CategoryChanged;
+
+  ActivityCategory? get activityCategory;
+  @JsonKey(ignore: true)
+  $CategoryChangedCopyWith<CategoryChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LocalActivityReceivedCopyWith<$Res> {
+  factory $LocalActivityReceivedCopyWith(LocalActivityReceived value,
+          $Res Function(LocalActivityReceived) then) =
+      _$LocalActivityReceivedCopyWithImpl<$Res>;
+  $Res call({LocalActivity localActivity});
+
+  $LocalActivityCopyWith<$Res> get localActivity;
+}
+
+/// @nodoc
+class _$LocalActivityReceivedCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $LocalActivityReceivedCopyWith<$Res> {
+  _$LocalActivityReceivedCopyWithImpl(
+      LocalActivityReceived _value, $Res Function(LocalActivityReceived) _then)
+      : super(_value, (v) => _then(v as LocalActivityReceived));
+
+  @override
+  LocalActivityReceived get _value => super._value as LocalActivityReceived;
+
+  @override
+  $Res call({
+    Object? localActivity = freezed,
+  }) {
+    return _then(LocalActivityReceived(
+      localActivity == freezed
+          ? _value.localActivity
+          : localActivity // ignore: cast_nullable_to_non_nullable
+              as LocalActivity,
+    ));
+  }
+
+  @override
+  $LocalActivityCopyWith<$Res> get localActivity {
+    return $LocalActivityCopyWith<$Res>(_value.localActivity, (value) {
+      return _then(_value.copyWith(localActivity: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$LocalActivityReceived implements LocalActivityReceived {
+  const _$LocalActivityReceived(this.localActivity);
+
+  @override
+  final LocalActivity localActivity;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.changeLocalActivity(localActivity: $localActivity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LocalActivityReceived &&
+            const DeepCollectionEquality()
+                .equals(other.localActivity, localActivity));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(localActivity));
+
+  @JsonKey(ignore: true)
+  @override
+  $LocalActivityReceivedCopyWith<LocalActivityReceived> get copyWith =>
+      _$LocalActivityReceivedCopyWithImpl<LocalActivityReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return changeLocalActivity(localActivity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return changeLocalActivity?.call(localActivity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (changeLocalActivity != null) {
+      return changeLocalActivity(localActivity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return changeLocalActivity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return changeLocalActivity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (changeLocalActivity != null) {
+      return changeLocalActivity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocalActivityReceived implements MyHomesFormEvent {
+  const factory LocalActivityReceived(LocalActivity localActivity) =
+      _$LocalActivityReceived;
+
+  LocalActivity get localActivity;
+  @JsonKey(ignore: true)
+  $LocalActivityReceivedCopyWith<LocalActivityReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -453,6 +907,9 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -471,6 +928,8 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -489,6 +948,8 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -511,6 +972,8 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -529,6 +992,8 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -547,6 +1012,8 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -641,6 +1108,9 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -659,6 +1129,8 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -677,6 +1149,8 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -699,6 +1173,8 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -717,6 +1193,8 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -735,6 +1213,8 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -829,6 +1309,9 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -847,6 +1330,8 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -865,6 +1350,8 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -887,6 +1374,8 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -905,6 +1394,8 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -923,6 +1414,8 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1014,6 +1507,9 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1032,6 +1528,8 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1050,6 +1548,8 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1072,6 +1572,8 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1090,6 +1592,8 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1108,6 +1612,8 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1202,6 +1708,9 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1220,6 +1729,8 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1238,6 +1749,8 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1260,6 +1773,8 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1278,6 +1793,8 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1296,6 +1813,8 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1390,6 +1909,9 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1408,6 +1930,8 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1426,6 +1950,8 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1448,6 +1974,8 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1466,6 +1994,8 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1484,6 +2014,8 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1578,6 +2110,9 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1596,6 +2131,8 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1614,6 +2151,8 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1636,6 +2175,8 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1654,6 +2195,8 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1672,6 +2215,8 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1763,6 +2308,9 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1781,6 +2329,8 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1799,6 +2349,8 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1821,6 +2373,8 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1839,6 +2393,8 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1857,6 +2413,8 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1949,6 +2507,9 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1967,6 +2528,8 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1985,6 +2548,8 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2007,6 +2572,8 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2025,6 +2592,8 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2043,6 +2612,8 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2110,6 +2681,9 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2128,6 +2702,8 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2146,6 +2722,8 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2168,6 +2746,8 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2186,6 +2766,8 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2204,6 +2786,8 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2232,12 +2816,16 @@ class _$MyHomesFormStateTearOff {
   const _$MyHomesFormStateTearOff();
 
   _MyHomesFormState call(
-      {required Home home,
+      {required List<LocalActivity> localActivities,
+      required ActivityCategory? category,
+      required Home home,
       required bool showErrorMessages,
       required bool isEditing,
       required bool isSaving,
       required Option<Either<Home, Unit>> saveFailureOrSuccessOption}) {
     return _MyHomesFormState(
+      localActivities: localActivities,
+      category: category,
       home: home,
       showErrorMessages: showErrorMessages,
       isEditing: isEditing,
@@ -2252,6 +2840,8 @@ const $MyHomesFormState = _$MyHomesFormStateTearOff();
 
 /// @nodoc
 mixin _$MyHomesFormState {
+  List<LocalActivity> get localActivities => throw _privateConstructorUsedError;
+  ActivityCategory? get category => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
@@ -2270,7 +2860,9 @@ abstract class $MyHomesFormStateCopyWith<$Res> {
           MyHomesFormState value, $Res Function(MyHomesFormState) then) =
       _$MyHomesFormStateCopyWithImpl<$Res>;
   $Res call(
-      {Home home,
+      {List<LocalActivity> localActivities,
+      ActivityCategory? category,
+      Home home,
       bool showErrorMessages,
       bool isEditing,
       bool isSaving,
@@ -2290,6 +2882,8 @@ class _$MyHomesFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? localActivities = freezed,
+    Object? category = freezed,
     Object? home = freezed,
     Object? showErrorMessages = freezed,
     Object? isEditing = freezed,
@@ -2297,6 +2891,14 @@ class _$MyHomesFormStateCopyWithImpl<$Res>
     Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      localActivities: localActivities == freezed
+          ? _value.localActivities
+          : localActivities // ignore: cast_nullable_to_non_nullable
+              as List<LocalActivity>,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ActivityCategory?,
       home: home == freezed
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
@@ -2336,7 +2938,9 @@ abstract class _$MyHomesFormStateCopyWith<$Res>
       __$MyHomesFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Home home,
+      {List<LocalActivity> localActivities,
+      ActivityCategory? category,
+      Home home,
       bool showErrorMessages,
       bool isEditing,
       bool isSaving,
@@ -2359,6 +2963,8 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? localActivities = freezed,
+    Object? category = freezed,
     Object? home = freezed,
     Object? showErrorMessages = freezed,
     Object? isEditing = freezed,
@@ -2366,6 +2972,14 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
     Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_MyHomesFormState(
+      localActivities: localActivities == freezed
+          ? _value.localActivities
+          : localActivities // ignore: cast_nullable_to_non_nullable
+              as List<LocalActivity>,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ActivityCategory?,
       home: home == freezed
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
@@ -2394,12 +3008,18 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
 
 class _$_MyHomesFormState implements _MyHomesFormState {
   const _$_MyHomesFormState(
-      {required this.home,
+      {required this.localActivities,
+      required this.category,
+      required this.home,
       required this.showErrorMessages,
       required this.isEditing,
       required this.isSaving,
       required this.saveFailureOrSuccessOption});
 
+  @override
+  final List<LocalActivity> localActivities;
+  @override
+  final ActivityCategory? category;
   @override
   final Home home;
   @override
@@ -2413,7 +3033,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
 
   @override
   String toString() {
-    return 'MyHomesFormState(home: $home, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'MyHomesFormState(localActivities: $localActivities, category: $category, home: $home, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -2421,6 +3041,9 @@ class _$_MyHomesFormState implements _MyHomesFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MyHomesFormState &&
+            const DeepCollectionEquality()
+                .equals(other.localActivities, localActivities) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.home, home) &&
             const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
@@ -2433,6 +3056,8 @@ class _$_MyHomesFormState implements _MyHomesFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(localActivities),
+      const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(home),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isEditing),
@@ -2447,13 +3072,19 @@ class _$_MyHomesFormState implements _MyHomesFormState {
 
 abstract class _MyHomesFormState implements MyHomesFormState {
   const factory _MyHomesFormState(
-          {required Home home,
+          {required List<LocalActivity> localActivities,
+          required ActivityCategory? category,
+          required Home home,
           required bool showErrorMessages,
           required bool isEditing,
           required bool isSaving,
           required Option<Either<Home, Unit>> saveFailureOrSuccessOption}) =
       _$_MyHomesFormState;
 
+  @override
+  List<LocalActivity> get localActivities;
+  @override
+  ActivityCategory? get category;
   @override
   Home get home;
   @override

@@ -5,18 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:r_home/application/my_local_activities/my_local_activities_bloc.dart';
+import 'package:r_home/application/local_activities/local_activities_bloc.dart';
+import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
-import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
-class MyLocalActivityDetailsPage extends StatelessWidget {
+class LocalActivityDetailsPage extends StatelessWidget {
   final String localActivityUuid;
+  final MyHomesFormBloc myHomesFormBloc;
 
-  const MyLocalActivityDetailsPage({Key? key, required this.localActivityUuid}) : super(key: key);
+  const LocalActivityDetailsPage({Key? key, required this.localActivityUuid, required this.myHomesFormBloc}) : super(key: key);
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
@@ -53,7 +55,7 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MyLocalActivitiesBloc(
+      create: (context) => LocalActivitiesBloc(
         LocalActivitiesRepository(
           FirebaseFirestore.instance,
           FirebaseAuthFacade(
@@ -62,21 +64,14 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
             FirebaseFirestore.instance
           )
         )
-      )..add(MyLocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
+      )..add(LocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
       child: Builder(
         builder: (context) {
-          final _localActivity = context.watch<MyLocalActivitiesBloc>().state.localActivity;
+          final _localActivity = context.watch<LocalActivitiesBloc>().state.localActivity;
 
           return Scaffold(
             appBar: AppBarWidget(
               title: _localActivity.name,
-              actions: [
-                IconButton(
-                  onPressed: () => AutoRouter.of(context).push(MyLocalActivitiesFormRoute(editedActivity: _localActivity)),
-                  icon: const Icon(Icons.edit),
-                  splashRadius: 20,
-                )
-              ],
             ),
             body: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints viewportConstraints) {
@@ -116,16 +111,40 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        RoundedButtonWidget(
+                          text: 'ASSOCIATE THIS ACTIVITY',
+                          onPressed: () => {
+                            myHomesFormBloc.add(MyHomesFormEvent.changeLocalActivity(_localActivity)),
+                            AutoRouter.of(context).popUntilRouteWithName(MyHomesFormRoute.name)
+                          },
+                          backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                          fontWeight: FontWeight.w400,
+                          textColor: Colors.white,
+                          fontSize: 17,
+                          height: 40,
+                          width: 300,
+                          trailingIcon: const Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 16,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 );
               },
             ),
-            bottomNavigationBar: const BottomBarWidget(),
           );
         }
       ),
+    );
+  }
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider.value(
+      value: myHomesFormBloc, 
+      child: this
     );
   }
 }

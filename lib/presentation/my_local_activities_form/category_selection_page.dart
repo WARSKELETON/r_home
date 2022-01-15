@@ -21,13 +21,7 @@ class CategorySelectionPage extends StatelessWidget {
             text: ActivityCategory.values[index].name.replaceAll("_", " ").capitalize(),
             image: "assets/icons/${ActivityCategory.values[index].name}.png",
             selected: context.watch<MyLocalActivitiesFormBloc>().state.category == ActivityCategory.values[index],
-            onPressed: () {
-              if (context.read<MyLocalActivitiesFormBloc>().state.category != ActivityCategory.values[index]) {
-                context.read<MyLocalActivitiesFormBloc>().add(MyLocalActivitiesFormEvent.categoryChanged(ActivityCategory.values[index]));
-              } else {
-                context.read<MyLocalActivitiesFormBloc>().add(const MyLocalActivitiesFormEvent.categoryChanged(null));
-              }
-            },
+            onPressed: () => context.read<MyLocalActivitiesFormBloc>().add(MyLocalActivitiesFormEvent.categoryChanged(ActivityCategory.values[index]))
           )
         ),
       ),
