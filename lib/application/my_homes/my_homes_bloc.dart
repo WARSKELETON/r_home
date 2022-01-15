@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
@@ -20,18 +21,21 @@ class MyHomesBloc extends Bloc<MyHomesEvent, MyHomesState> {
     on<HomesReceived>(_onHomesReceived);
     on<RentalsReceived>(_onRentalsReceived);
     on<HomeReceived>(_onHomeReceived);
+    on<RentalReceived>(_onRentalReceived);
     on<WatchHome>(_onWatchHome);
+    on<WatchRental>(_onWatchRental);
   }
 
   StreamSubscription<List<Home>>? _myHomesStreamSubscription;
   StreamSubscription<List<Rental>>? _myRentalsStreamSubscription;
   StreamSubscription<Home>? _myHomeStreamSubscription;
+  StreamSubscription<Rental>? _myRentalStreamSubscription;
 
   void _onInitialize(MyHomesEvent event, Emitter<MyHomesState> emit) {
     _myHomesStreamSubscription = _homesRepository.watchAllFromHost().listen(
           (home) => add(MyHomesEvent.homesReceived(home)),
         );
-    _myRentalsStreamSubscription = _rentalsRepository.watchAll().listen(
+    _myRentalsStreamSubscription = _rentalsRepository.watchAllAsHost().listen(
           (rental) => add(MyHomesEvent.rentalsReceived(rental)),
         );
     emit(state);
@@ -45,15 +49,58 @@ class MyHomesBloc extends Bloc<MyHomesEvent, MyHomesState> {
     emit(state);
   }
 
+  void _onWatchRental(WatchRental event, Emitter<MyHomesState> emit) {
+    if (event.rentalUuid != "") {
+      _myRentalStreamSubscription = _rentalsRepository
+        .watch(event.rentalUuid)
+        .listen((rental) => add(MyHomesEvent.rentalReceived(rental))
+      );
+    }
+    emit(state);
+  }
+
   void _onHomesReceived(HomesReceived event, Emitter<MyHomesState> emit) {
     emit(state.copyWith(homes: event.homes));
   }
 
   void _onRentalsReceived(RentalsReceived event, Emitter<MyHomesState> emit) {
-    emit(state.copyWith(rentals: event.rentals));
+    DateTime currentDate = DateTime.now();
+    List<Rental> rentals = event.rentals.where((rental) => rental.checkIn.isBefore(currentDate) && rental.checkOut.isAfter(currentDate)).toList();
+    rentals.forEach((element) { print(element); });
+    emit(state.copyWith(rentals: rentals));
   }
 
   void _onHomeReceived(HomeReceived event, Emitter<MyHomesState> emit) {
     emit(state.copyWith(home: event.home));
+  }
+
+  void _onRentalReceived(RentalReceived event, Emitter<MyHomesState> emit) async {
+    final newRental = event.rental;
+    DateTime currentDate = DateTime.now();
+
+    if (newRental.checkIn.isBefore(currentDate) && newRental.checkOut.isAfter(currentDate)) {
+      final host = await _rentalsRepository.getHost(event.rental.hostId);
+      final guest = await _rentalsRepository.getGuest(event.rental.guestId);
+      emit(state.copyWith(
+        rental: event.rental,
+        host: host,
+        guest: guest,
+      ));
+    } else {
+      emit(state.copyWith(
+        rental: Rental.empty(),
+        host: DomainUser.empty(),
+        guest: DomainUser.empty(),
+      ));
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _myHomesStreamSubscription?.cancel();
+    _myRentalsStreamSubscription?.cancel();
+    _myHomeStreamSubscription?.cancel();
+    _myRentalStreamSubscription?.cancel();
+    return super.close();
   }
 }

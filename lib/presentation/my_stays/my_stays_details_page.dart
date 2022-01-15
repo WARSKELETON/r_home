@@ -22,16 +22,6 @@ class MyStayDetailsPage extends StatelessWidget {
 
   const MyStayDetailsPage({Key? key, required this.homeUuid, required this.rentalUuid}) : super(key: key);
 
-  int nightsBetween(DateTime from, DateTime to) {
-    from = DateTime(from.year, from.month, from.day);
-    to = DateTime(to.year, to.month, to.day);
-    return (to.difference(from).inHours / 24).round();
-  }
-
-  double totalPrice(int nights, double pricePerNight, int singleFee) {
-    return (nights * pricePerNight) + singleFee;
-  }
-
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
       padding: const EdgeInsets.only(top: 5.0, bottom: 10.0, left: 15.0, right: 15.0),
@@ -94,7 +84,6 @@ class MyStayDetailsPage extends StatelessWidget {
           final _home = context.watch<MyStaysBloc>().state.home;
           final _rental = context.watch<MyStaysBloc>().state.rental;
           final _host = context.watch<MyStaysBloc>().state.host;
-          final nights = nightsBetween(_rental.checkIn, _rental.checkOut);
 
           return Scaffold(
             appBar: AppBarWidget(
@@ -190,7 +179,7 @@ class MyStayDetailsPage extends StatelessWidget {
                               height: 10,
                               color: Color(0xFFE5E5E5),
                             ),
-                            _buildRow(context, "Total Tokens: ", totalPrice(nights, _home.price, 3)),
+                            _buildRow(context, "Total Tokens: ", _rental.totalPrice(_home.price)),
                           ],
                         ),
                       ),

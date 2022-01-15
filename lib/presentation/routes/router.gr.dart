@@ -183,7 +183,10 @@ class MyRouter extends _i29.RootStackRouter {
       final args = routeData.argsAs<MyHomeDetailsPageRouteArgs>();
       return _i29.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i18.MyHomeDetailsPage(key: args.key, homeUuid: args.homeUuid),
+          child: _i18.MyHomeDetailsPage(
+              key: args.key,
+              homeUuid: args.homeUuid,
+              rentalUuid: args.rentalUuid),
           transitionsBuilder: _i29.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -550,24 +553,29 @@ class GeneralDisputesPageRouteArgs {
 /// [_i18.MyHomeDetailsPage]
 class MyHomeDetailsPageRoute
     extends _i29.PageRouteInfo<MyHomeDetailsPageRouteArgs> {
-  MyHomeDetailsPageRoute({_i30.Key? key, required String homeUuid})
+  MyHomeDetailsPageRoute(
+      {_i30.Key? key, required String homeUuid, required String rentalUuid})
       : super(MyHomeDetailsPageRoute.name,
             path: '/my-home-details-page',
-            args: MyHomeDetailsPageRouteArgs(key: key, homeUuid: homeUuid));
+            args: MyHomeDetailsPageRouteArgs(
+                key: key, homeUuid: homeUuid, rentalUuid: rentalUuid));
 
   static const String name = 'MyHomeDetailsPageRoute';
 }
 
 class MyHomeDetailsPageRouteArgs {
-  const MyHomeDetailsPageRouteArgs({this.key, required this.homeUuid});
+  const MyHomeDetailsPageRouteArgs(
+      {this.key, required this.homeUuid, required this.rentalUuid});
 
   final _i30.Key? key;
 
   final String homeUuid;
 
+  final String rentalUuid;
+
   @override
   String toString() {
-    return 'MyHomeDetailsPageRouteArgs{key: $key, homeUuid: $homeUuid}';
+    return 'MyHomeDetailsPageRouteArgs{key: $key, homeUuid: $homeUuid, rentalUuid: $rentalUuid}';
   }
 }
 
