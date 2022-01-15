@@ -8,6 +8,7 @@ import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
+import 'dart:math' as math;
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -15,9 +16,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "Profile"),
+      appBar: AppBarWidget(
+        title: "Profile",
+        leading: Transform.rotate(
+          angle: 180 * math.pi / 180,
+          child: IconButton(
+            onPressed: () {
+              context.read<AuthBloc>().add(const AuthEvent.signedOut());
+              AutoRouter.of(context).replace(const SignInPageRoute());
+            },
+            icon: const Icon(Icons.exit_to_app),
+            splashRadius: 20,
+          ),
+        ),
+      ),
       body: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
+            final currentUser = context.watch<AuthBloc>().state.user;
+
             return Center(
               child: Column(
                 children: [
@@ -27,13 +43,13 @@ class ProfilePage extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100.0),
                       child: Image.network(
-                          state.user.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" : state.user.photo!),
+                          currentUser.photo == null ? "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" : currentUser.photo!),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 50.0),
                     child: Text(
-                      state.user.getUsername(),
+                      currentUser.getUsername(),
                       style: const TextStyle(fontSize: 16),
                     ),
                   ),
@@ -44,7 +60,7 @@ class ProfilePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          state.user.name == null ? "name" : state.user.name!,
+                          currentUser.name == null ? "name" : currentUser.name!,
                           style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -53,7 +69,7 @@ class ProfilePage extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(right: 8.0),
                               child: Text(
-                                state.user.numTokens.toString(),
+                                currentUser.numTokens.toString(),
                                 style: const TextStyle(fontSize: 24),
                               ),
                             ),

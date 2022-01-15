@@ -4,6 +4,7 @@ import 'package:r_home/domain/auth/domain_user.dart';
 
 abstract class IAuthFacade {
   Future<Option<DomainUser>> getSignedInUser();
+  Stream<DomainUser> watchSignedInUser();
   String? getSignedInUserId();
   String? getSignedInUsername();
   Future<Either<AuthFailure, Unit>> signInWithGoogle();

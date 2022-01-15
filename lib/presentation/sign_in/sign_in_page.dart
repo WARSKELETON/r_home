@@ -38,6 +38,7 @@ class SignInPage extends StatelessWidget {
                 (_) {
                   AutoRouter.of(context).replace(const HomePageRoute());
                   context.read<AuthBloc>().add(const AuthEvent.authRequest());
+                  context.read<AuthBloc>().add(const AuthEvent.getDomainUser());
                 },
               ),
             );

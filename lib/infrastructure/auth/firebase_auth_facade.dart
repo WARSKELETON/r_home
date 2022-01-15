@@ -25,11 +25,22 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<Option<DomainUser>> getSignedInUser() async {
     final userDto = await getCurrentUserDto();
 
-   if (userDto == null) {
-     return optionOf(null);
-   }
+    if (userDto == null) {
+      return optionOf(null);
+    }
 
     return optionOf(_firebaseAuth.currentUser?.toDomain(userDto));
+  }
+
+  @override
+  Stream<DomainUser> watchSignedInUser() async* {
+    final userId = getSignedInUserId()!;
+
+    final docRef = _firestore
+        .collection(USERS_COLLECTION)
+        .doc(userId);
+
+    yield* docRef.snapshots().map((doc) => UserDto.fromFirestore(doc).toDomain());
   }
 
   @override
@@ -104,7 +115,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<void> signOut() => Future.wait([
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
-      ]);
+  ]);
 
   Future<bool> isUserRegistered() async {
     try {
