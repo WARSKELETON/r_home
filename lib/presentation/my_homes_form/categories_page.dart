@@ -27,7 +27,7 @@ class CategoriesPage extends StatelessWidget implements AutoRouteWrapper {
             image: "assets/icons/${ActivityCategory.values[index].name}.png",
             onPressed: () => {
               context.read<MyHomesFormBloc>().add(MyHomesFormEvent.categoryChanged(ActivityCategory.values[index])),
-              AutoRouter.of(context).push(LocalActivitiesPageRoute(myHomesFormBloc: BlocProvider.of<MyHomesFormBloc>(context))),
+              AutoRouter.of(context).push(LocalActivitiesPageRoute(myHomesFormBloc: BlocProvider.of<MyHomesFormBloc>(context), activityCategory: ActivityCategory.values[index])),
             }
           )
         ),

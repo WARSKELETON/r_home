@@ -14,10 +14,10 @@ import 'package:auto_route/auto_route.dart' as _i31;
 import 'package:flutter/material.dart' as _i32;
 
 import '../../application/my_homes_form/my_homes_form_bloc.dart' as _i34;
-import '../../domain/auth/domain_user.dart' as _i35;
-import '../../domain/disputes/dispute.dart' as _i36;
+import '../../domain/auth/domain_user.dart' as _i36;
+import '../../domain/disputes/dispute.dart' as _i37;
 import '../../domain/homes/home.dart' as _i33;
-import '../../domain/local_activities/local_activity.dart' as _i37;
+import '../../domain/local_activities/local_activity.dart' as _i35;
 import '../disputes/dispute_details_page.dart' as _i15;
 import '../disputes/disputes_list_page.dart' as _i16;
 import '../disputes/disputes_page.dart' as _i5;
@@ -26,8 +26,8 @@ import '../home/home_page.dart' as _i4;
 import '../my_homes/my_home_details_page.dart' as _i19;
 import '../my_homes/my_homes_page.dart' as _i6;
 import '../my_homes_form/categories_page.dart' as _i12;
-import '../my_homes_form/local_activities_details_page.dart' as _i21;
 import '../my_homes_form/local_activities_page.dart' as _i11;
+import '../my_homes_form/local_activity_details_page.dart' as _i21;
 import '../my_homes_form/my_homes_form.dart' as _i8;
 import '../my_local_activities/my_local_activities_details_page.dart' as _i22;
 import '../my_local_activities/my_local_activities_page.dart' as _i24;
@@ -122,7 +122,9 @@ class MyRouter extends _i31.RootStackRouter {
       return _i31.CustomPage<dynamic>(
           routeData: routeData,
           child: _i11.LocalActivitiesPage(
-              key: args.key, myHomesFormBloc: args.myHomesFormBloc),
+              key: args.key,
+              myHomesFormBloc: args.myHomesFormBloc,
+              activityCategory: args.activityCategory),
           transitionsBuilder: _i31.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -480,25 +482,34 @@ class ProfilePageRoute extends _i31.PageRouteInfo<void> {
 class LocalActivitiesPageRoute
     extends _i31.PageRouteInfo<LocalActivitiesPageRouteArgs> {
   LocalActivitiesPageRoute(
-      {_i32.Key? key, required _i34.MyHomesFormBloc myHomesFormBloc})
+      {_i32.Key? key,
+      required _i34.MyHomesFormBloc myHomesFormBloc,
+      required _i35.ActivityCategory activityCategory})
       : super(LocalActivitiesPageRoute.name,
             path: '/local-activities-page',
             args: LocalActivitiesPageRouteArgs(
-                key: key, myHomesFormBloc: myHomesFormBloc));
+                key: key,
+                myHomesFormBloc: myHomesFormBloc,
+                activityCategory: activityCategory));
 
   static const String name = 'LocalActivitiesPageRoute';
 }
 
 class LocalActivitiesPageRouteArgs {
-  const LocalActivitiesPageRouteArgs({this.key, required this.myHomesFormBloc});
+  const LocalActivitiesPageRouteArgs(
+      {this.key,
+      required this.myHomesFormBloc,
+      required this.activityCategory});
 
   final _i32.Key? key;
 
   final _i34.MyHomesFormBloc myHomesFormBloc;
 
+  final _i35.ActivityCategory activityCategory;
+
   @override
   String toString() {
-    return 'LocalActivitiesPageRouteArgs{key: $key, myHomesFormBloc: $myHomesFormBloc}';
+    return 'LocalActivitiesPageRouteArgs{key: $key, myHomesFormBloc: $myHomesFormBloc, activityCategory: $activityCategory}';
   }
 }
 
@@ -533,7 +544,7 @@ class CategoriesPageRouteArgs {
 class RewardUserPageRoute extends _i31.PageRouteInfo<RewardUserPageRouteArgs> {
   RewardUserPageRoute(
       {_i32.Key? key,
-      required _i35.DomainUser user,
+      required _i36.DomainUser user,
       required String routeNameToPopUntil})
       : super(RewardUserPageRoute.name,
             path: '/reward-user-page',
@@ -551,7 +562,7 @@ class RewardUserPageRouteArgs {
 
   final _i32.Key? key;
 
-  final _i35.DomainUser user;
+  final _i36.DomainUser user;
 
   final String routeNameToPopUntil;
 
@@ -635,7 +646,7 @@ class DisputesListPageRouteArgs {
 class ProblemsWithPaymentsPageRoute
     extends _i31.PageRouteInfo<ProblemsWithPaymentsPageRouteArgs> {
   ProblemsWithPaymentsPageRoute(
-      {_i32.Key? key, required _i36.DisputeCategory disputeCategory})
+      {_i32.Key? key, required _i37.DisputeCategory disputeCategory})
       : super(ProblemsWithPaymentsPageRoute.name,
             path: '/problems-with-payments-page',
             args: ProblemsWithPaymentsPageRouteArgs(
@@ -650,7 +661,7 @@ class ProblemsWithPaymentsPageRouteArgs {
 
   final _i32.Key? key;
 
-  final _i36.DisputeCategory disputeCategory;
+  final _i37.DisputeCategory disputeCategory;
 
   @override
   String toString() {
@@ -663,7 +674,7 @@ class ProblemsWithPaymentsPageRouteArgs {
 class GeneralDisputesPageRoute
     extends _i31.PageRouteInfo<GeneralDisputesPageRouteArgs> {
   GeneralDisputesPageRoute(
-      {_i32.Key? key, required _i36.DisputeCategory disputeCategory})
+      {_i32.Key? key, required _i37.DisputeCategory disputeCategory})
       : super(GeneralDisputesPageRoute.name,
             path: '/general-disputes-page',
             args: GeneralDisputesPageRouteArgs(
@@ -677,7 +688,7 @@ class GeneralDisputesPageRouteArgs {
 
   final _i32.Key? key;
 
-  final _i36.DisputeCategory disputeCategory;
+  final _i37.DisputeCategory disputeCategory;
 
   @override
   String toString() {
@@ -851,7 +862,7 @@ class CategorySelectionPageRoute extends _i31.PageRouteInfo<void> {
 class MyLocalActivitiesFormRoute
     extends _i31.PageRouteInfo<MyLocalActivitiesFormRouteArgs> {
   MyLocalActivitiesFormRoute(
-      {_i32.Key? key, _i37.LocalActivity? editedActivity})
+      {_i32.Key? key, _i35.LocalActivity? editedActivity})
       : super(MyLocalActivitiesFormRoute.name,
             path: '/my-local-activities-form',
             args: MyLocalActivitiesFormRouteArgs(
@@ -865,7 +876,7 @@ class MyLocalActivitiesFormRouteArgs {
 
   final _i32.Key? key;
 
-  final _i37.LocalActivity? editedActivity;
+  final _i35.LocalActivity? editedActivity;
 
   @override
   String toString() {

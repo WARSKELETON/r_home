@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/local_activities/local_activities_bloc.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
+import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
@@ -14,8 +15,9 @@ import 'package:r_home/presentation/routes/router.gr.dart';
 
 class LocalActivitiesPage extends StatelessWidget implements AutoRouteWrapper {
   final MyHomesFormBloc myHomesFormBloc;
+  final ActivityCategory activityCategory;
 
-  const LocalActivitiesPage({Key? key, required this.myHomesFormBloc}) : super(key: key);
+  const LocalActivitiesPage({Key? key, required this.myHomesFormBloc, required this.activityCategory}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +45,8 @@ class LocalActivitiesPage extends StatelessWidget implements AutoRouteWrapper {
         )..add(const LocalActivitiesEvent.initialize()),
         child: BlocBuilder<LocalActivitiesBloc, LocalActivitiesState>(
           builder: (context, state) {
-            final _localActivities = context.watch<LocalActivitiesBloc>().state.localActivities;
-            // filter by chosen category
+            final _localActivities = context.watch<LocalActivitiesBloc>().state.localActivities
+            .where((localActivity) => localActivity.category == activityCategory.name).toList();
 
             return Padding(
               padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
@@ -57,9 +59,10 @@ class LocalActivitiesPage extends StatelessWidget implements AutoRouteWrapper {
                     title: _localActivities[index].name,
                     subtitle: _localActivities[index].location,
                     image: "assets/icons/food${index % 2}.png",
+                    selected: myHomesFormBloc.state.localActivities.contains(_localActivities[index]),
                     width: 160,
                     height: 160,
-                    onPressed: () => AutoRouter.of(context).push(LocalActivityDetailsPageRoute(localActivityUuid: _localActivities[index].uuid, myHomesFormBloc: myHomesFormBloc)),
+                    onPressed: () => myHomesFormBloc.state.localActivities.contains(_localActivities[index]) ? null : AutoRouter.of(context).push(LocalActivityDetailsPageRoute(localActivityUuid: _localActivities[index].uuid, myHomesFormBloc: myHomesFormBloc)),
                   )),
               ),
             );

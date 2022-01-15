@@ -3,7 +3,7 @@ import 'package:r_home/presentation/disputes/dispute_details_page.dart';
 import 'package:r_home/presentation/disputes/disputes_page.dart';
 import 'package:r_home/presentation/disputes/disputes_list_page.dart';
 import 'package:r_home/presentation/my_homes_form/categories_page.dart';
-import 'package:r_home/presentation/my_homes_form/local_activities_details_page.dart';
+import 'package:r_home/presentation/my_homes_form/local_activity_details_page.dart';
 import 'package:r_home/presentation/my_homes_form/local_activities_page.dart';
 import 'package:r_home/presentation/my_stays/my_stays_details_page.dart';
 import 'package:r_home/presentation/my_stays/my_stays_page.dart';

@@ -14,7 +14,7 @@ abstract class MyHomesFormState with _$MyHomesFormState {
 
   factory MyHomesFormState.initial() => MyHomesFormState(
     localActivities: [],
-    category: null,
+    category: ActivityCategory.coffee_shops,
     home: Home.empty(),
     showErrorMessages: false,
     isEditing: false,

@@ -13,7 +13,10 @@ class GuestsField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          Text("How many guests are allowed?", style: TextStyle(fontSize: 18, color: Colors.grey)),
+          Padding(
+            padding: EdgeInsets.only(bottom: 10.0, top: 5.0),
+            child: Text("How many guests are allowed?", style: TextStyle(fontSize: 18, color: Colors.grey)),
+          ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 2.0),
             child: AdultsField(),

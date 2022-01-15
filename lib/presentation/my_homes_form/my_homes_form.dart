@@ -6,20 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
-import 'package:r_home/application/my_local_activities_form/my_local_activities_form_bloc.dart';
+import 'package:r_home/application/my_local_activities/my_local_activities_bloc.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
-import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
+
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/core/rounded_button_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/carousel_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/guests_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/home_name_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/location_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/price_field_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class MyHomesForm extends StatelessWidget {
   final Home? editedHome;
@@ -47,6 +45,7 @@ class MyHomesForm extends StatelessWidget {
         },
         builder: (context, state) {
           final isEditing = context.read<MyHomesFormBloc>().state.isEditing;
+          final localActivities = context.watch<MyHomesFormBloc>().state.localActivities;
 
           return Scaffold(
             appBar: AppBarWidget(
@@ -68,27 +67,7 @@ class MyHomesForm extends StatelessWidget {
                     const LocationField(),
                     const PriceField(),
                     const GuestsField(),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 25.0),
-                        child: RoundedButtonWidget(
-                          text: isEditing
-                              ? 'EDIT ACTIVITIES'
-                              : 'ASSOCIATE ACTIVITY',
-                          onPressed: () => AutoRouter.of(context).push(CategoriesPageRoute(myHomesFormBloc: BlocProvider.of<MyHomesFormBloc>(context))),
-                          backgroundColor: Theme.of(context).colorScheme.primaryBlue,
-                          fontWeight: FontWeight.w400,
-                          textColor: Colors.white,
-                          fontSize: 17,
-                          height: 40,
-                          width: 250,
-                          trailingIcon: const Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            size: 16,
-                          ),
-                        ),
-                      ),
-                    )
+                    CarouselWidget(title: "Selected Activities", localActivities: localActivities),
                   ],
                 ),
               )
