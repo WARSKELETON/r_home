@@ -10,6 +10,7 @@ import 'package:r_home/application/my_local_activities/my_local_activities_bloc.
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
+import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -29,11 +30,24 @@ class MyHomesForm extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => MyHomesFormBloc(HomesRepository(
+          create: (context) => MyHomesFormBloc(
+            HomesRepository(
               FirebaseFirestore.instance,
-              FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                  FirebaseFirestore.instance)))
-            ..add(MyHomesFormEvent.initialize(optionOf(editedHome))),
+              FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance
+              )
+            ),
+            LocalActivitiesRepository(
+              FirebaseFirestore.instance,
+              FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance
+              )
+            )
+          )..add(MyHomesFormEvent.initialize(optionOf(editedHome))),
         ),
       ],
       child: BlocConsumer<MyHomesFormBloc, MyHomesFormState>(
