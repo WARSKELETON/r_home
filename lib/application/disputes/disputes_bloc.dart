@@ -65,7 +65,7 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
     );
 
     _rentalStreamSubscription = _disputesRepository
-      .watchRentalFromDispute(event.dispute.rentalUuid)
+      .watchRentalFromDispute(event.dispute.rentalUuid, event.dispute.issuerUuid)
       .listen((rental) => add(DisputesEvent.rentalReceived(rental))
     );
     emit(state);

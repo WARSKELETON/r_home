@@ -12,7 +12,6 @@ import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
@@ -102,7 +101,7 @@ class HomeDetailsPage extends StatelessWidget {
                     children: <Widget>[
                       const ImageAndDetailsWidget(image: AssetImage("assets/icons/home3.png")),
                       HomeDetailsTextWidget(home: _home),
-                      if (_currentUser.role == "guest" || (_currentUser.role == "host" &&_rental.homeId != "")) ...[
+                      if (_rental.homeId != "") ...[
                         const Divider(
                           thickness: 8,
                           height: 40,

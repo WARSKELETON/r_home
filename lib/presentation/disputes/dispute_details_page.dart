@@ -56,7 +56,7 @@ class DisputeDetailsPage extends StatelessWidget {
                     final _rental = context.watch<DisputesBloc>().state.rental;
                     final _home = context.watch<DisputesBloc>().state.home;
                     final _user = context.watch<AuthBloc>().state.user;
-                    final _host = context.read<DisputesBloc>().state.host;
+                    // final _host = context.read<DisputesBloc>().state.host;
                     final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
                     final _currentVote = context.read<DisputesBloc>().state.currentVote;
                     final _timer = context.read<TimerBloc>().state.timeToEnd;
@@ -118,43 +118,46 @@ class DisputeDetailsPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(_home.name),
-                                    if (_user.id == _rental.hostId || _user.id == _rental.guestId) ...[
-                                      Material(
-                                        borderRadius: BorderRadius.circular(5),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(left: 10.0),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
-                                              borderRadius: BorderRadius.circular(5),
+                                    Material(
+                                      borderRadius: BorderRadius.circular(5),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 10.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                          child: InkWell(
+                                            splashColor: const Color.fromRGBO(128,128,128, 0.3),
+                                            onTap: () => AutoRouter.of(context).push(HomeDetailsPageRoute(
+                                              homeUuid: _home.uuid,
+                                              rentalUuid: (_user.id == _rental.hostId || _user.id == _rental.guestId) ? _dispute.rentalUuid : "")
                                             ),
-                                            child: InkWell(
-                                              splashColor: const Color.fromRGBO(128,128,128, 0.3),
-                                              onTap: () => AutoRouter.of(context).push(HomeDetailsPageRoute(homeUuid: _home.uuid, rentalUuid: _dispute.rentalUuid)),
-                                              borderRadius: BorderRadius.circular(5.0),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(5.0),
-                                                child: Row(
-                                                  children: [
-                                                    Text(
-                                                      "See Rental",
-                                                      style: TextStyle(
-                                                        color: Theme.of(context).colorScheme.primaryBlue
-                                                      ),
+                                            borderRadius: BorderRadius.circular(5.0),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(5.0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    (_user.id == _rental.hostId || _user.id == _rental.guestId) ? 
+                                                    "See Rental" :
+                                                    "See Home",
+                                                    style: TextStyle(
+                                                      color: Theme.of(context).colorScheme.primaryBlue
                                                     ),
-                                                    Icon(
-                                                      Icons.arrow_forward_ios_rounded,
-                                                      color: Theme.of(context).colorScheme.primaryBlue,
-                                                      size: 14,
-                                                    )
-                                                  ],
-                                                ),
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_forward_ios_rounded,
+                                                    color: Theme.of(context).colorScheme.primaryBlue,
+                                                    size: 14,
+                                                  )
+                                                ],
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ]
+                                    ),
                                   ],
                                 ),
                               ),
@@ -169,7 +172,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(_host.name == null ? "name" : _host.name!),
+                                  Text(_dispute.issuerUsername),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 7, right: 7),
                                     child: Container(
@@ -225,7 +228,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                              if (!_userIsLoading && _user.id != _dispute.issuerUuid && !_dispute.usersVoted.contains(_user.id)) ...[
+                              if (!_userIsLoading && _user.id != _dispute.issuerUuid && _home.host != _user.id && !_dispute.usersVoted.contains(_user.id)) ...[
                                 const Align(
                                   alignment: Alignment.centerLeft,
                                   child: Padding(

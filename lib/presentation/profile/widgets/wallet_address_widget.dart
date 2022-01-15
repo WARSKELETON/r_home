@@ -23,18 +23,21 @@ class WalletAddressWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            address.length > 25 ?
-            Text(address.substring(0, 25) + "...",
-              style: const TextStyle(
-                fontSize: 15,
-                color: Colors.black
-              )
-            ):
-            Text(address,
-              style: const TextStyle(
-                fontSize: 15,
-                color: Colors.black
-              )
+            Container (
+              width: MediaQuery.of(context).size.width * 0.58,
+              child: address.length > 25 ?
+              Text(address.substring(0, 25) + "...",
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.black
+                )
+              ):
+              Text(address,
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.black
+                )
+              ),
             ),
             Material(
               color: Colors.transparent,
