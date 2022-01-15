@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
               child: HorizontalScrollWidget(
                   title: "Recommended for you",
                   items: const [1, 2, 3, 4],
-                  onPressed: () => AutoRouter.of(context).push(const MyHomesPageRoute())),
+                  onPressed: () => AutoRouter.of(context).push(HomesPageRoute())),
             ),
             const Divider(
               thickness: 8,
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
               child: HorizontalScrollWidget(
                   title: "My Host Recommendations",
                   items: const [1, 2, 3, 4],
-                  onPressed: () => AutoRouter.of(context).push(const MyStaysPageRoute())),
+                  onPressed: () => AutoRouter.of(context).push(HomesPageRoute())),
             ),
           ],
         ),
