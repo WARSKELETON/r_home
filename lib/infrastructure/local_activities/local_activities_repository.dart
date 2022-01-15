@@ -1,3 +1,5 @@
+import 'package:async/async.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
@@ -29,6 +31,15 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
         .where("producer", isEqualTo: userId);
 
     yield* colRef.snapshots().map((query) => query.toListLocalActivity());
+  }
+
+  @override
+  Stream<List<LocalActivity>> watchAllFromIds(List<String> activitiesIds) async* {
+    final docRef = _firestore
+        .collection(ACTIVITIES_COLLECTION)
+        .where("uuid", whereIn: activitiesIds);
+
+    yield* docRef.snapshots().map((doc) => doc.toListLocalActivity());
   }
 
   @override

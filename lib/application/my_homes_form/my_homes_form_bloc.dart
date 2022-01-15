@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
+import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
 
 part 'my_homes_form_event.dart';
@@ -11,9 +14,11 @@ part 'my_homes_form_bloc.freezed.dart';
 
 class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
   final IHomesRepository _homesRepository;
+  final ILocalActivitiesRepository _localActivitiesRepository;
 
-  MyHomesFormBloc(this._homesRepository) : super(MyHomesFormState.initial()) {
+  MyHomesFormBloc(this._homesRepository, this._localActivitiesRepository) : super(MyHomesFormState.initial()) {
     on<Initialize>(_onInitialize);
+    on<LocalActivitiesChanged>(_onLocalActivitiesChanged);
     on<CategoryChanged>(_onCategoryChanged);
     on<LocalActivityReceived>(_onLocalActivityReceived);
     on<NameChanged>(_onNameChanged);
@@ -28,13 +33,20 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     on<Submit>(_onSubmit);
   }
 
+  StreamSubscription<List<LocalActivity>>? _localActivitiesStreamSubscription;
+
   void _onInitialize(Initialize event, Emitter<MyHomesFormState> emit) {
     emit(event.initialHomeOption.fold(
       () => state,
-      (initialHome) => state.copyWith(
-        home: initialHome,
-        isEditing: true
-      ),
+      (initialHome) { 
+        _localActivitiesStreamSubscription = _localActivitiesRepository.watchAllFromIds(initialHome.localActivities)
+          .listen((localActivities) => MyHomesFormEvent.localActivitiesChanged(localActivities));
+        
+        return state.copyWith(
+          home: initialHome,
+          isEditing: true
+        );
+      }
     ));
   }
 
@@ -42,6 +54,13 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     emit(state.copyWith(
       category: state.category != event.activityCategory ? event.activityCategory : null,
       saveFailureOrSuccessOption: none(),
+    ));
+  }
+
+  void _onLocalActivitiesChanged(LocalActivitiesChanged event, Emitter<MyHomesFormState> emit) {
+    print(event.localActivities);
+    emit(state.copyWith(
+      localActivities: event.localActivities
     ));
   }
 
