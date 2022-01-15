@@ -4,8 +4,9 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
   final Widget? leading;
+  final bool? centerLeft;
 
-  const AppBarWidget({Key? key, required this.title, this.actions, this.leading}) : super(key: key);
+  const AppBarWidget({Key? key, required this.title, this.actions, this.leading, this.centerLeft}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
       title: Text(title),
       leading: leading,
       foregroundColor: Colors.grey[600],
-      centerTitle: true,
+      centerTitle: centerLeft == null ? true : false,
       backgroundColor: Colors.grey[50],
       actions: actions,
     );
