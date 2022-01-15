@@ -41,10 +41,12 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
 
     _myRentalsStreamSubscription = _rentalsRepository.watchAllWhereUserIsInvolved().listen(
       (rentals) => {
-        add(DisputesFormEvent.rentalsReceived(rentals)),
-        _myRentalHomesStreamSubscription = _homesRepository.watchAllFromHomeIds(rentals.map((rental) => rental.homeId).toList()).listen(
-          (homes) => add(DisputesFormEvent.homesReceived(homes))
-        )
+        if (rentals.isNotEmpty) {
+          add(DisputesFormEvent.rentalsReceived(rentals)),
+          _myRentalHomesStreamSubscription = _homesRepository.watchAllFromHomeIds(rentals.map((rental) => rental.homeId).toList()).listen(
+            (homes) => add(DisputesFormEvent.homesReceived(homes))
+          )
+        }
       }
     );
   }
