@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 import 'package:uuid/uuid.dart';
 
 part 'rental.freezed.dart';
@@ -8,6 +10,10 @@ enum PaymentMethod {
   ether, 
   token, 
   eurs
+}
+
+extension PaymentMethodEnumEx on String {
+  PaymentMethod toPaymentMethod() => PaymentMethod.values.firstWhere((d) => d.name == toLowerCase());
 }
 
 @freezed
@@ -52,6 +58,23 @@ abstract class Rental implements _$Rental {
 
   double totalPrice(double pricePerNight) {
     return (nightsBetween() * pricePerNight) + 3;
+  }
+
+  IconData getPaymentMethodIcon() {
+    if (paymentMethod != "") {
+      final method = paymentMethod.toPaymentMethod();
+      if (method == PaymentMethod.token) {
+        return RHomeIcon.token;
+      } else if (method == PaymentMethod.bitcoin) {
+        return RHomeIcon.bitcoin;
+      } else if (method == PaymentMethod.ether) {
+        return RHomeIcon.ether;
+      } else if (method == PaymentMethod.eurs) {
+        return RHomeIcon.eurs;
+      }
+    }
+
+    return RHomeIcon.token;
   }
 
   String getDateString() {

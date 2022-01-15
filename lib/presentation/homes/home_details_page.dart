@@ -36,23 +36,34 @@ class HomeDetailsPage extends StatelessWidget {
             left,
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
-          if (left.toString() == "Price per Night:") ...[
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(right.toString()),
-                ),
-                SvgPicture.asset(
-                  'assets/icons/token.svg',
-                  color: Theme.of(context).colorScheme.primaryBlue,
-                  width: 23,
-                )
-              ],
-            ),
-          ] else ...[
-            Text(right.toString()),
-          ]
+          Text(right.toString()),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMoneyRow(BuildContext context, String left, var right, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5.0, bottom: 10.0, left: 15.0, right: 15.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            left,
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Text(right.toString()),
+              ),
+              Icon(
+                icon,
+                color: Theme.of(context).colorScheme.primaryBlue,
+              )
+            ],
+          ),
         ],
       ),
     );
@@ -182,13 +193,13 @@ class HomeDetailsPage extends StatelessWidget {
                               ),
                               _buildRow(
                                   context, "Date: ", _rental.getDateString()),
-                              _buildRow(context, "Price per Night:", _home.price),
+                              _buildMoneyRow(context, "Price per Night:", _home.price, _rental.getPaymentMethodIcon()),
                               const Divider(
                                 thickness: 3,
                                 height: 10,
                                 color: Color(0xFFE5E5E5),
                               ),
-                              _buildRow(context, "Total Tokens: ", _rental.totalPrice(_home.price)),
+                              _buildMoneyRow(context, "Total Tokens: ", _rental.totalPrice(_home.price), _rental.getPaymentMethodIcon()),
                             ],
                           ),
                         ),
