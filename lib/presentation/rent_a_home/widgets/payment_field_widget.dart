@@ -20,7 +20,7 @@ class PaymentField extends StatelessWidget {
     return (nights * pricePerNight) + singleFee;
   }
 
-  List<Widget> paymentInfoWidgets(BuildContext context) {
+  List<Widget> paymentInfoWidgets(BuildContext context, IconData paymentMethodIcon) {
     int nights = nightsBetween(context.read<RentAHomeBloc>().state.checkIn!, context.read<RentAHomeBloc>().state.checkOut!);
     double price = context.read<RentAHomeBloc>().state.selectedHome.price;
 
@@ -74,7 +74,10 @@ class PaymentField extends StatelessWidget {
                     )
                   ),
                 ),
-                const Icon(RHomeIcon.token)
+                Icon(
+                  paymentMethodIcon,
+                  color: Theme.of(context).colorScheme.primaryBlue,
+                )
               ],
             )
           ],
@@ -91,8 +94,8 @@ class PaymentField extends StatelessWidget {
               fontSize: 16
             )),
             Row(
-              children: const [
-                Padding(
+              children: [
+                const Padding(
                   padding: EdgeInsets.only(right: 8.0),
                   child: Text(
                     "3",
@@ -101,7 +104,10 @@ class PaymentField extends StatelessWidget {
                     )
                   ),
                 ),
-                Icon(RHomeIcon.token)
+                Icon(
+                  paymentMethodIcon,
+                  color: Theme.of(context).colorScheme.primaryBlue,
+                )
               ],
             )
           ],
@@ -128,7 +134,10 @@ class PaymentField extends StatelessWidget {
                     )
                   ),
                 ),
-                Icon(RHomeIcon.token)
+                Icon(
+                  paymentMethodIcon,
+                  color: Theme.of(context).colorScheme.primaryBlue,
+                )
               ],
             )
           ],
@@ -180,11 +189,13 @@ class PaymentField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RentAHomeBloc, RentAHomeState>(
       builder: (context, state) {
+        final rental = context.watch<RentAHomeBloc>().state.idealRental;
+
         return Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ...paymentInfoWidgets(context),
+              ...paymentInfoWidgets(context, rental.getPaymentMethodIcon()),
               ...paymentMethodsWidgets()
             ],
           ),
