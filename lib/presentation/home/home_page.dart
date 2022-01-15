@@ -1,9 +1,11 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/home/horizontal_scroll_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
+import 'package:r_home/presentation/home/widgets/home_guest_widget.dart';
+import 'package:r_home/presentation/home/widgets/home_host_widget.dart';
+import 'package:r_home/presentation/home/widgets/home_producer_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,40 +15,17 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: const AppBarWidget(title: "R-HOME"),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 275,
-              child: HorizontalScrollWidget(
-                  title: "Recommended for you",
-                  items: const [1, 2, 3, 4],
-                  onPressed: () => AutoRouter.of(context).push(HomesPageRoute())),
-            ),
-            const Divider(
-              thickness: 8,
-              height: 40,
-              color: Color(0xFFE5E5E5),
-            ),
-            SizedBox(
-              height: 275,
-              child: HorizontalScrollWidget(
-                  title: "My Stays",
-                  items: const [1, 2, 3, 4],
-                  onPressed: () => AutoRouter.of(context).push(const RentAHomePageRoute())),
-            ),
-            const Divider(
-              thickness: 8,
-              height: 40,
-              color: Color(0xFFE5E5E5),
-            ),
-            SizedBox(
-              height: 275,
-              child: HorizontalScrollWidget(
-                  title: "My Host Recommendations",
-                  items: const [1, 2, 3, 4],
-                  onPressed: () => AutoRouter.of(context).push(HomesPageRoute())),
-            ),
-          ],
+        child: BlocBuilder<AuthBloc, AuthState>(
+          builder: (context, state) {
+            final currentUser = context.watch<AuthBloc>().state.user;
+            if (currentUser.role == "guest") {
+              return const HomeGuestWidget();
+            } else if (currentUser.role == "host") {
+              return const HomeHostWidget();
+            } else {
+              return const HomeProducerWidget();
+            }
+          },
         ),
       ),
       bottomNavigationBar: const BottomBarWidget(),
