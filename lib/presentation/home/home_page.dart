@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
+import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/home/widgets/home_guest_widget.dart';
@@ -24,8 +25,10 @@ class HomePage extends StatelessWidget {
             centerLeft: true,
             actions: [
               IconButton(
-                onPressed: () =>
-                    AutoRouter.of(context).push(const ProfilePageRoute()),
+                onPressed: () => {
+                  context.read<BottomBarBloc>().add(const BottomBarEvent.changeIndex(2)),
+                  AutoRouter.of(context).replace(const ProfilePageRoute())
+                },
                 icon: ClipRRect(
                   borderRadius: BorderRadius.circular(100.0),
                   child: Image.network(currentUser.photo == null
