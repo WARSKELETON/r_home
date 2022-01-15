@@ -66,7 +66,6 @@ class MyHomesBloc extends Bloc<MyHomesEvent, MyHomesState> {
   void _onRentalsReceived(RentalsReceived event, Emitter<MyHomesState> emit) {
     DateTime currentDate = DateTime.now();
     List<Rental> rentals = event.rentals.where((rental) => rental.checkIn.isBefore(currentDate) && rental.checkOut.isAfter(currentDate)).toList();
-    rentals.forEach((element) { print(element); });
     emit(state.copyWith(rentals: rentals));
   }
 
@@ -79,8 +78,8 @@ class MyHomesBloc extends Bloc<MyHomesEvent, MyHomesState> {
     DateTime currentDate = DateTime.now();
 
     if (newRental.checkIn.isBefore(currentDate) && newRental.checkOut.isAfter(currentDate)) {
-      final host = await _rentalsRepository.getHost(event.rental.hostId);
-      final guest = await _rentalsRepository.getGuest(event.rental.guestId);
+      final host = await _rentalsRepository.getUserById(event.rental.hostId);
+      final guest = await _rentalsRepository.getUserById(event.rental.guestId);
       emit(state.copyWith(
         rental: event.rental,
         host: host,
