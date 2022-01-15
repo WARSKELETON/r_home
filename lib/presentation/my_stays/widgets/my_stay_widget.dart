@@ -21,6 +21,7 @@ class MyStayWidget extends StatelessWidget {
         image: "assets/icons/home3.png",
         width: MediaQuery.of(context).size.width,
         height: 200,
+        booked: rental.isRentalActive(DateTime.now()),
         onPressed: () => AutoRouter.of(context).push(MyStayDetailsPageRoute(homeUuid: home.uuid, rentalUuid: rental.uuid)),
       ),
     );

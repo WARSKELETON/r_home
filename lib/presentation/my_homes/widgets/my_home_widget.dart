@@ -21,6 +21,7 @@ class MyHomeWidget extends StatelessWidget {
         image: "assets/icons/home3.png",
         width: MediaQuery.of(context).size.width,
         height: 200,
+        booked: rental.homeId != "",
         onPressed: () => AutoRouter.of(context).push(MyHomeDetailsPageRoute(homeUuid: home.uuid, rentalUuid: rental.homeId == "" ? "" : rental.uuid)),
       ),
     );

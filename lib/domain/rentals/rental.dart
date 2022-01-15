@@ -40,6 +40,10 @@ abstract class Rental implements _$Rental {
     numPets: 0,
   );
 
+  bool isRentalActive(DateTime currentDate) {
+    return checkIn.isBefore(currentDate) && checkOut.isAfter(currentDate);
+  }
+
   int nightsBetween() {
     DateTime from = DateTime(checkIn.year, checkIn.month, checkIn.day);
     DateTime to = DateTime(checkOut.year, checkOut.month, checkOut.day);

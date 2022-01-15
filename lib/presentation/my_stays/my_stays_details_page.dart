@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
 import 'package:r_home/presentation/core/home_details_text_widget.dart';
 import 'package:r_home/presentation/core/image_and_details_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 
 class MyStayDetailsPage extends StatelessWidget {
@@ -143,7 +145,7 @@ class MyStayDetailsPage extends StatelessWidget {
                                     ),
                                     const Spacer(),
                                     CircleIconButtonWidget(
-                                      onPressed: () => {},
+                                      onPressed: () => AutoRouter.of(context).push(RewardUserPageRoute(user: _host, routeNameToPopUntil: MyStayDetailsPageRoute.name)),
                                       size: 15,
                                       backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                                       icon: const Icon(

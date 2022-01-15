@@ -155,7 +155,7 @@ class MyHomeDetailsPage extends StatelessWidget {
                                         ),
                                         const Spacer(),
                                         CircleIconButtonWidget(
-                                          onPressed: () => {},
+                                          onPressed: () => AutoRouter.of(context).push(RewardUserPageRoute(user: _guest, routeNameToPopUntil: MyHomeDetailsPageRoute.name)),
                                           size: 15,
                                           backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                                           icon: const Icon(
