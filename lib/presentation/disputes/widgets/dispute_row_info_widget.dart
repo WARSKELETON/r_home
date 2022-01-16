@@ -43,7 +43,7 @@ class DisputeListRowWidget extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 150,
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: FittedBox(

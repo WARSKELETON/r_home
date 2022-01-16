@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:r_home/application/timer/timer_bloc.dart';
 import 'package:r_home/presentation/core/chart_legend_widget.dart';
+import 'package:r_home/presentation/disputes/widgets/images_view_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/vote_confirmation_dialog.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
@@ -58,13 +59,12 @@ class DisputeDetailsPage extends StatelessWidget {
                     final _home = context.watch<DisputesBloc>().state.home;
                     final _currentVote = context.read<DisputesBloc>().state.currentVote;
                     final _images = context.watch<DisputesBloc>().state.disputeImages;
-                    print("DetailsPage: " + _images.toString());
 
                     final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
                     final _user = context.watch<AuthBloc>().state.user;
                     final _timer = context.read<TimerBloc>().state.timeToEnd;
                     final _isOpened = !_closingTime.isBefore(DateTime.now());
-                    
+
                     return Scaffold(
                       appBar: AppBarWidget(
                         title: _dispute.title,
@@ -103,25 +103,10 @@ class DisputeDetailsPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              GestureDetector(
-                                child: Container(
-                                  height: 180.0,
-                                  width: 225.0,
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: _dispute.mainImageUrl != "" ? 
-                                      NetworkImage(
-                                        _dispute.mainImageUrl,
-                                      ) : 
-                                      const AssetImage("assets/icons/home1.png") as ImageProvider,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20),
-                                    shape: BoxShape.rectangle,
-                                  ),
-                                ),
-                                onTap: () => _images.isEmpty ? null : AutoRouter.of(context).push(ImageViewerPageRoute(images: _images)),
+                              SizedBox(
+                                height: 180.0,
+                                width: 225.0,
+                                child: ImagesViewWidget(images: _images),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 7.0, bottom: 7.0),

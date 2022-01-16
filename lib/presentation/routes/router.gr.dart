@@ -22,7 +22,7 @@ import '../disputes/dispute_details_page.dart' as _i15;
 import '../disputes/disputes_list_page.dart' as _i16;
 import '../disputes/disputes_page.dart' as _i5;
 import '../disputes/start_dispute_page.dart' as _i14;
-import '../disputes/widgets/image_viewer_page.dart' as _i8;
+import '../disputes/widgets/images_viewer_page.dart' as _i8;
 import '../home/home_page.dart' as _i4;
 import '../homes/home_details_page.dart' as _i19;
 import '../homes/homes_page.dart' as _i6;
@@ -98,11 +98,11 @@ class MyRouter extends _i31.RootStackRouter {
           child: _i7.MyHomesForm(key: args.key, editedHome: args.editedHome),
           fullscreenDialog: true);
     },
-    ImageViewerPageRoute.name: (routeData) {
-      final args = routeData.argsAs<ImageViewerPageRouteArgs>();
+    ImagesViewerPageRoute.name: (routeData) {
+      final args = routeData.argsAs<ImagesViewerPageRouteArgs>();
       return _i31.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i8.ImageViewerPage(key: args.key, images: args.images),
+          child: _i8.ImagesViewerPage(key: args.key, images: args.images),
           fullscreenDialog: true);
     },
     RentAHomePageRoute.name: (routeData) {
@@ -335,7 +335,8 @@ class MyRouter extends _i31.RootStackRouter {
         _i31.RouteConfig(DisputesPageRoute.name, path: '/disputes-page'),
         _i31.RouteConfig(HomesPageRoute.name, path: '/homes-page'),
         _i31.RouteConfig(MyHomesFormRoute.name, path: '/my-homes-form'),
-        _i31.RouteConfig(ImageViewerPageRoute.name, path: '/image-viewer-page'),
+        _i31.RouteConfig(ImagesViewerPageRoute.name,
+            path: '/images-viewer-page'),
         _i31.RouteConfig(RentAHomePageRoute.name, path: '/rent-ahome-page'),
         _i31.RouteConfig(ProfilePageRoute.name, path: '/profile-page'),
         _i31.RouteConfig(LocalActivitiesPageRoute.name,
@@ -465,19 +466,19 @@ class MyHomesFormRouteArgs {
 }
 
 /// generated route for
-/// [_i8.ImageViewerPage]
-class ImageViewerPageRoute
-    extends _i31.PageRouteInfo<ImageViewerPageRouteArgs> {
-  ImageViewerPageRoute({_i32.Key? key, required List<String> images})
-      : super(ImageViewerPageRoute.name,
-            path: '/image-viewer-page',
-            args: ImageViewerPageRouteArgs(key: key, images: images));
+/// [_i8.ImagesViewerPage]
+class ImagesViewerPageRoute
+    extends _i31.PageRouteInfo<ImagesViewerPageRouteArgs> {
+  ImagesViewerPageRoute({_i32.Key? key, required List<String> images})
+      : super(ImagesViewerPageRoute.name,
+            path: '/images-viewer-page',
+            args: ImagesViewerPageRouteArgs(key: key, images: images));
 
-  static const String name = 'ImageViewerPageRoute';
+  static const String name = 'ImagesViewerPageRoute';
 }
 
-class ImageViewerPageRouteArgs {
-  const ImageViewerPageRouteArgs({this.key, required this.images});
+class ImagesViewerPageRouteArgs {
+  const ImagesViewerPageRouteArgs({this.key, required this.images});
 
   final _i32.Key? key;
 
@@ -485,7 +486,7 @@ class ImageViewerPageRouteArgs {
 
   @override
   String toString() {
-    return 'ImageViewerPageRouteArgs{key: $key, images: $images}';
+    return 'ImagesViewerPageRouteArgs{key: $key, images: $images}';
   }
 }
 
