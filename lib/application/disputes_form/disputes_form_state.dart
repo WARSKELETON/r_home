@@ -4,6 +4,7 @@ part of 'disputes_form_bloc.dart';
 abstract class DisputesFormState with _$DisputesFormState {
   const factory DisputesFormState({
     required Dispute dispute,
+    required List<String> imagePaths,
     required List<Home> homes,
     required List<Rental> rentals,
     required bool showErrorMessages,
@@ -14,6 +15,7 @@ abstract class DisputesFormState with _$DisputesFormState {
 
   factory DisputesFormState.initial() => DisputesFormState(
     dispute: Dispute.empty(),
+    imagePaths: [],
     homes: [],
     rentals: [],
     showErrorMessages: false,

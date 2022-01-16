@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -46,7 +47,8 @@ class GeneralDisputesPage extends StatelessWidget {
                     FirebaseAuth.instance,
                     GoogleSignIn(),
                     FirebaseFirestore.instance
-                  )
+                  ),
+                  FirebaseStorage.instance
                 ),
                 RentalsRepository(
                   FirebaseFirestore.instance,
@@ -74,6 +76,7 @@ class GeneralDisputesPage extends StatelessWidget {
               
               List<Home> _homes = context.watch<DisputesFormBloc>().state.homes;
               List<Rental> _rentals = context.watch<DisputesFormBloc>().state.rentals;
+              Dispute _dispute = context.watch<DisputesFormBloc>().state.dispute;
               String _rentalUuid = context.watch<DisputesFormBloc>().state.dispute.rentalUuid;
               double _initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
 
@@ -157,7 +160,10 @@ class GeneralDisputesPage extends StatelessWidget {
                                     ),
                                     RoundedButtonWidget(
                                       text: 'Next',
-                                      disabled: (_rentalUuid.isEmpty && _currentIndex == 1) | (_initialStake == 0 && _currentIndex == 3),
+                                      disabled: 
+                                        (_rentalUuid.isEmpty && _currentIndex == 1) |
+                                       (_initialStake == 0 && _currentIndex == 3) |
+                                       ((_dispute.title.isEmpty | _dispute.descritption.isEmpty) && _currentIndex == 2),
                                       onPressed: () {
                                         if (_currentIndex == 3) {
                                           context.read<DisputesFormBloc>().add(const DisputesFormEvent.submit());
