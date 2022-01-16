@@ -8,9 +8,10 @@ class AdditionCardWidget extends StatelessWidget {
   final double width;
   final double height;
   final void Function()? onPressed;
+  final bool? disabled;
 
   const AdditionCardWidget({Key? key,
-  required this.title, required this.icon, required this.width, required this.height, required this.onPressed}) : super(key: key);
+  required this.title, required this.icon, required this.width, required this.height, required this.onPressed, this.disabled}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class AdditionCardWidget extends StatelessWidget {
           color: const Color(0xFFEAEAEA),
           child: InkWell(
             splashColor: const Color.fromRGBO(128,128,128, 0.3),
-            onTap: onPressed,
+            onTap: disabled != null && disabled! ? null : onPressed,
             borderRadius: BorderRadius.circular(15.0),
             child: Stack(
               children: [
@@ -39,14 +40,15 @@ class AdditionCardWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const RoundPlusWidget(
+                      RoundPlusWidget(
                         icon: Icon(
                           Icons.add,
-                          color: Colors.white,
+                          color: disabled != null && disabled! ? Colors.grey : Colors.white,
                           size: 25,
                         ),
                         width: 40,
-                        height: 40
+                        height: 40,
+                        color: disabled != null && disabled! ? Colors.grey.shade300 : Theme.of(context).colorScheme.primaryBlue
                       ),
                       const SizedBox(
                         height: 8,
@@ -54,7 +56,7 @@ class AdditionCardWidget extends StatelessWidget {
                       Text(
                         title,
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.primaryBlue
+                          color: disabled != null && disabled! ? Colors.grey : Theme.of(context).colorScheme.primaryBlue
                         ),
                       )
                     ]

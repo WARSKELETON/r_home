@@ -105,7 +105,17 @@ class HomeDetailsPage extends StatelessWidget {
 
           return Scaffold(
             appBar: AppBarWidget(
-              title: _home.name
+              title: _home.name,
+              actions: [
+                if (_currentUser.role == "host" && _currentUser.id == _home.host) ...[
+                  IconButton(
+                    onPressed: () =>
+                        AutoRouter.of(context).push(MyHomesFormRoute(editedHome: _home)),
+                    icon: const Icon(Icons.edit),
+                    splashRadius: 20,
+                  )
+                ]
+              ],
             ),
             body: SingleChildScrollView(
                   child: Column(

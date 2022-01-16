@@ -17,12 +17,19 @@ class CarouselWidget extends StatelessWidget {
     if (index == 0) {
       return Padding(
         padding: const EdgeInsets.only(top: 15.0, left: 15.0, right: 10.0),
-        child: AdditionCardWidget(
-          title: "Add Activity",
-          width: 100,
-          height: 100,
-          icon: const Icon(Icons.add, color: Colors.white),
-          onPressed: () => AutoRouter.of(context).push(CategoriesPageRoute(myHomesFormBloc: BlocProvider.of<MyHomesFormBloc>(context)))
+        child: BlocBuilder<MyHomesFormBloc, MyHomesFormState>(
+          builder: (context, state) {
+            final location = context.watch<MyHomesFormBloc>().state.home.location;
+
+            return AdditionCardWidget(
+              title: "Add Activity",
+              width: 100,
+              height: 100,
+              icon: const Icon(Icons.add, color: Colors.white),
+              onPressed: () => AutoRouter.of(context).push(CategoriesPageRoute(myHomesFormBloc: BlocProvider.of<MyHomesFormBloc>(context))),
+              disabled: location == "",
+            );
+          },
         ),
       );
     }
