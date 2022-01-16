@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
 import 'package:r_home/domain/homes/home.dart';
@@ -17,6 +16,7 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
 
   DisputesBloc(this._disputesRepository) : super(DisputesState.initial()) {
     on<Initialize>(_onInitialize);
+    on<SelectedImageIndex>(_onSelectedImageIndex);
     on<ImagesReceived>(_onImagesReceived);
     on<DisputesReceived>(_onDisputesReceived);
     on<DisputeReceived>(_onDisputeReceived);
@@ -53,8 +53,11 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
     emit(state);
   }
 
+  void _onSelectedImageIndex(SelectedImageIndex event, Emitter<DisputesState> emit) {
+    emit(state.copyWith(selectedImageIndex: event.selectedImageIndex));
+  }
+
   void _onImagesReceived(ImagesReceived event, Emitter<DisputesState> emit) {
-    print("Received images");
     emit(state.copyWith(disputeImages: event.images));
   }
 
@@ -67,7 +70,6 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
 
     _disputesRepository.getDisputeImages(event.dispute.uuid)
       .then((images) => {
-        print("Received from future" + images.toString()),
         add(DisputesEvent.imagesReceived(images))
       });
 

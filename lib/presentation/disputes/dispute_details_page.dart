@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:r_home/application/timer/timer_bloc.dart';
 import 'package:r_home/presentation/core/chart_legend_widget.dart';
+import 'package:r_home/presentation/disputes/widgets/image_index_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/images_view_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/vote_confirmation_dialog.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -59,6 +60,7 @@ class DisputeDetailsPage extends StatelessWidget {
                     final _home = context.watch<DisputesBloc>().state.home;
                     final _currentVote = context.read<DisputesBloc>().state.currentVote;
                     final _images = context.watch<DisputesBloc>().state.disputeImages;
+                    final _imageIndex = context.watch<DisputesBloc>().state.selectedImageIndex;
 
                     final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
                     final _user = context.watch<AuthBloc>().state.user;
@@ -108,6 +110,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                 width: 225.0,
                                 child: ImagesViewWidget(images: _images),
                               ),
+                              ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
                               Padding(
                                 padding: const EdgeInsets.only(top: 7.0, bottom: 7.0),
                                 child: Row(

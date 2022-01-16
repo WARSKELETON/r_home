@@ -24,6 +24,12 @@ class _$DisputesEventTearOff {
     );
   }
 
+  SelectedImageIndex changeSelectedImageIndex(int selectedImageIndex) {
+    return SelectedImageIndex(
+      selectedImageIndex,
+    );
+  }
+
   DisputesReceived disputesReceived(List<Dispute> disputes) {
     return DisputesReceived(
       disputes,
@@ -81,6 +87,7 @@ mixin _$DisputesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -94,6 +101,7 @@ mixin _$DisputesEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -107,6 +115,7 @@ mixin _$DisputesEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -121,6 +130,8 @@ mixin _$DisputesEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -134,6 +145,7 @@ mixin _$DisputesEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -147,6 +159,7 @@ mixin _$DisputesEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -242,6 +255,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -258,6 +272,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -274,6 +289,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -294,6 +310,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -310,6 +328,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -326,6 +345,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -349,6 +369,191 @@ abstract class Initialize implements DisputesEvent {
   bool get allDisputes;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SelectedImageIndexCopyWith<$Res> {
+  factory $SelectedImageIndexCopyWith(
+          SelectedImageIndex value, $Res Function(SelectedImageIndex) then) =
+      _$SelectedImageIndexCopyWithImpl<$Res>;
+  $Res call({int selectedImageIndex});
+}
+
+/// @nodoc
+class _$SelectedImageIndexCopyWithImpl<$Res>
+    extends _$DisputesEventCopyWithImpl<$Res>
+    implements $SelectedImageIndexCopyWith<$Res> {
+  _$SelectedImageIndexCopyWithImpl(
+      SelectedImageIndex _value, $Res Function(SelectedImageIndex) _then)
+      : super(_value, (v) => _then(v as SelectedImageIndex));
+
+  @override
+  SelectedImageIndex get _value => super._value as SelectedImageIndex;
+
+  @override
+  $Res call({
+    Object? selectedImageIndex = freezed,
+  }) {
+    return _then(SelectedImageIndex(
+      selectedImageIndex == freezed
+          ? _value.selectedImageIndex
+          : selectedImageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectedImageIndex implements SelectedImageIndex {
+  const _$SelectedImageIndex(this.selectedImageIndex);
+
+  @override
+  final int selectedImageIndex;
+
+  @override
+  String toString() {
+    return 'DisputesEvent.changeSelectedImageIndex(selectedImageIndex: $selectedImageIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SelectedImageIndex &&
+            const DeepCollectionEquality()
+                .equals(other.selectedImageIndex, selectedImageIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedImageIndex));
+
+  @JsonKey(ignore: true)
+  @override
+  $SelectedImageIndexCopyWith<SelectedImageIndex> get copyWith =>
+      _$SelectedImageIndexCopyWithImpl<SelectedImageIndex>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<Dispute> disputes) disputesReceived,
+    required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(Dispute dispute) disputeReceived,
+    required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
+  }) {
+    return changeSelectedImageIndex(selectedImageIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<Dispute> disputes)? disputesReceived,
+    TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(Dispute dispute)? disputeReceived,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
+  }) {
+    return changeSelectedImageIndex?.call(selectedImageIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<Dispute> disputes)? disputesReceived,
+    TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(Dispute dispute)? disputeReceived,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
+    required TResult orElse(),
+  }) {
+    if (changeSelectedImageIndex != null) {
+      return changeSelectedImageIndex(selectedImageIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(DisputesReceived value) disputesReceived,
+    required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(DisputeReceived value) disputeReceived,
+    required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
+  }) {
+    return changeSelectedImageIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(DisputesReceived value)? disputesReceived,
+    TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(DisputeReceived value)? disputeReceived,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
+  }) {
+    return changeSelectedImageIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(DisputesReceived value)? disputesReceived,
+    TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(DisputeReceived value)? disputeReceived,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
+    required TResult orElse(),
+  }) {
+    if (changeSelectedImageIndex != null) {
+      return changeSelectedImageIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectedImageIndex implements DisputesEvent {
+  const factory SelectedImageIndex(int selectedImageIndex) =
+      _$SelectedImageIndex;
+
+  int get selectedImageIndex;
+  @JsonKey(ignore: true)
+  $SelectedImageIndexCopyWith<SelectedImageIndex> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -418,6 +623,7 @@ class _$DisputesReceived implements DisputesReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -434,6 +640,7 @@ class _$DisputesReceived implements DisputesReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -450,6 +657,7 @@ class _$DisputesReceived implements DisputesReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -470,6 +678,8 @@ class _$DisputesReceived implements DisputesReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -486,6 +696,7 @@ class _$DisputesReceived implements DisputesReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -502,6 +713,7 @@ class _$DisputesReceived implements DisputesReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -594,6 +806,7 @@ class _$WatchDispute implements WatchDispute {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -610,6 +823,7 @@ class _$WatchDispute implements WatchDispute {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -626,6 +840,7 @@ class _$WatchDispute implements WatchDispute {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -646,6 +861,8 @@ class _$WatchDispute implements WatchDispute {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -662,6 +879,7 @@ class _$WatchDispute implements WatchDispute {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -678,6 +896,7 @@ class _$WatchDispute implements WatchDispute {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -770,6 +989,7 @@ class _$ImagesReceived implements ImagesReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -786,6 +1006,7 @@ class _$ImagesReceived implements ImagesReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -802,6 +1023,7 @@ class _$ImagesReceived implements ImagesReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -822,6 +1044,8 @@ class _$ImagesReceived implements ImagesReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -838,6 +1062,7 @@ class _$ImagesReceived implements ImagesReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -854,6 +1079,7 @@ class _$ImagesReceived implements ImagesReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -955,6 +1181,7 @@ class _$DisputeReceived implements DisputeReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -971,6 +1198,7 @@ class _$DisputeReceived implements DisputeReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -987,6 +1215,7 @@ class _$DisputeReceived implements DisputeReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1007,6 +1236,8 @@ class _$DisputeReceived implements DisputeReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -1023,6 +1254,7 @@ class _$DisputeReceived implements DisputeReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1039,6 +1271,7 @@ class _$DisputeReceived implements DisputeReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1139,6 +1372,7 @@ class _$HomeReceived implements HomeReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -1155,6 +1389,7 @@ class _$HomeReceived implements HomeReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1171,6 +1406,7 @@ class _$HomeReceived implements HomeReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1191,6 +1427,8 @@ class _$HomeReceived implements HomeReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -1207,6 +1445,7 @@ class _$HomeReceived implements HomeReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1223,6 +1462,7 @@ class _$HomeReceived implements HomeReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1324,6 +1564,7 @@ class _$RentalReceived implements RentalReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -1340,6 +1581,7 @@ class _$RentalReceived implements RentalReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1356,6 +1598,7 @@ class _$RentalReceived implements RentalReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1376,6 +1619,8 @@ class _$RentalReceived implements RentalReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -1392,6 +1637,7 @@ class _$RentalReceived implements RentalReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1408,6 +1654,7 @@ class _$RentalReceived implements RentalReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1499,6 +1746,7 @@ class _$VoteReceived implements VoteReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -1515,6 +1763,7 @@ class _$VoteReceived implements VoteReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1531,6 +1780,7 @@ class _$VoteReceived implements VoteReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1551,6 +1801,8 @@ class _$VoteReceived implements VoteReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -1567,6 +1819,7 @@ class _$VoteReceived implements VoteReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1583,6 +1836,7 @@ class _$VoteReceived implements VoteReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1673,6 +1927,7 @@ class _$VoteSubmit implements VoteSubmit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool allDisputes) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
     required TResult Function(List<String> images) imagesReceived,
@@ -1689,6 +1944,7 @@ class _$VoteSubmit implements VoteSubmit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1705,6 +1961,7 @@ class _$VoteSubmit implements VoteSubmit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool allDisputes)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
     TResult Function(List<String> images)? imagesReceived,
@@ -1725,6 +1982,8 @@ class _$VoteSubmit implements VoteSubmit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
     required TResult Function(ImagesReceived value) imagesReceived,
@@ -1741,6 +2000,7 @@ class _$VoteSubmit implements VoteSubmit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1757,6 +2017,7 @@ class _$VoteSubmit implements VoteSubmit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
     TResult Function(ImagesReceived value)? imagesReceived,
@@ -1789,6 +2050,7 @@ class _$DisputesStateTearOff {
 
   _DisputesState call(
       {required bool isLoading,
+      required int selectedImageIndex,
       required List<String> disputeImages,
       required List<Dispute> disputes,
       required Dispute dispute,
@@ -1797,6 +2059,7 @@ class _$DisputesStateTearOff {
       required Rental rental}) {
     return _DisputesState(
       isLoading: isLoading,
+      selectedImageIndex: selectedImageIndex,
       disputeImages: disputeImages,
       disputes: disputes,
       dispute: dispute,
@@ -1813,6 +2076,7 @@ const $DisputesState = _$DisputesStateTearOff();
 /// @nodoc
 mixin _$DisputesState {
   bool get isLoading => throw _privateConstructorUsedError;
+  int get selectedImageIndex => throw _privateConstructorUsedError;
   List<String> get disputeImages => throw _privateConstructorUsedError;
   List<Dispute> get disputes => throw _privateConstructorUsedError;
   Dispute get dispute => throw _privateConstructorUsedError;
@@ -1832,6 +2096,7 @@ abstract class $DisputesStateCopyWith<$Res> {
       _$DisputesStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      int selectedImageIndex,
       List<String> disputeImages,
       List<Dispute> disputes,
       Dispute dispute,
@@ -1856,6 +2121,7 @@ class _$DisputesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? selectedImageIndex = freezed,
     Object? disputeImages = freezed,
     Object? disputes = freezed,
     Object? dispute = freezed,
@@ -1868,6 +2134,10 @@ class _$DisputesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedImageIndex: selectedImageIndex == freezed
+          ? _value.selectedImageIndex
+          : selectedImageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       disputeImages: disputeImages == freezed
           ? _value.disputeImages
           : disputeImages // ignore: cast_nullable_to_non_nullable
@@ -1926,6 +2196,7 @@ abstract class _$DisputesStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
+      int selectedImageIndex,
       List<String> disputeImages,
       List<Dispute> disputes,
       Dispute dispute,
@@ -1955,6 +2226,7 @@ class __$DisputesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? selectedImageIndex = freezed,
     Object? disputeImages = freezed,
     Object? disputes = freezed,
     Object? dispute = freezed,
@@ -1967,6 +2239,10 @@ class __$DisputesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedImageIndex: selectedImageIndex == freezed
+          ? _value.selectedImageIndex
+          : selectedImageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       disputeImages: disputeImages == freezed
           ? _value.disputeImages
           : disputeImages // ignore: cast_nullable_to_non_nullable
@@ -2000,6 +2276,7 @@ class __$DisputesStateCopyWithImpl<$Res>
 class _$_DisputesState implements _DisputesState {
   const _$_DisputesState(
       {required this.isLoading,
+      required this.selectedImageIndex,
       required this.disputeImages,
       required this.disputes,
       required this.dispute,
@@ -2009,6 +2286,8 @@ class _$_DisputesState implements _DisputesState {
 
   @override
   final bool isLoading;
+  @override
+  final int selectedImageIndex;
   @override
   final List<String> disputeImages;
   @override
@@ -2024,7 +2303,7 @@ class _$_DisputesState implements _DisputesState {
 
   @override
   String toString() {
-    return 'DisputesState(isLoading: $isLoading, disputeImages: $disputeImages, disputes: $disputes, dispute: $dispute, home: $home, currentVote: $currentVote, rental: $rental)';
+    return 'DisputesState(isLoading: $isLoading, selectedImageIndex: $selectedImageIndex, disputeImages: $disputeImages, disputes: $disputes, dispute: $dispute, home: $home, currentVote: $currentVote, rental: $rental)';
   }
 
   @override
@@ -2033,6 +2312,8 @@ class _$_DisputesState implements _DisputesState {
         (other.runtimeType == runtimeType &&
             other is _DisputesState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedImageIndex, selectedImageIndex) &&
             const DeepCollectionEquality()
                 .equals(other.disputeImages, disputeImages) &&
             const DeepCollectionEquality().equals(other.disputes, disputes) &&
@@ -2047,6 +2328,7 @@ class _$_DisputesState implements _DisputesState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(selectedImageIndex),
       const DeepCollectionEquality().hash(disputeImages),
       const DeepCollectionEquality().hash(disputes),
       const DeepCollectionEquality().hash(dispute),
@@ -2063,6 +2345,7 @@ class _$_DisputesState implements _DisputesState {
 abstract class _DisputesState implements DisputesState {
   const factory _DisputesState(
       {required bool isLoading,
+      required int selectedImageIndex,
       required List<String> disputeImages,
       required List<Dispute> disputes,
       required Dispute dispute,
@@ -2072,6 +2355,8 @@ abstract class _DisputesState implements DisputesState {
 
   @override
   bool get isLoading;
+  @override
+  int get selectedImageIndex;
   @override
   List<String> get disputeImages;
   @override

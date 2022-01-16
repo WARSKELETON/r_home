@@ -75,7 +75,7 @@ class DisputeListRowWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 15),
-                  Container(
+                  SizedBox(
                     height: 150,
                     width: MediaQuery.of(context).size.width * 0.55,
                     child: Column(

@@ -3,6 +3,7 @@ part of 'disputes_bloc.dart';
 @freezed
 class DisputesEvent with _$DisputesEvent {
   const factory DisputesEvent.initialize(bool allDisputes) = Initialize;
+  const factory DisputesEvent.changeSelectedImageIndex(int selectedImageIndex) = SelectedImageIndex;
   const factory DisputesEvent.disputesReceived(List<Dispute> disputes) = DisputesReceived;
   const factory DisputesEvent.watchDispute(String disputeUuid) = WatchDispute;
   const factory DisputesEvent.imagesReceived(List<String> images) = ImagesReceived;
