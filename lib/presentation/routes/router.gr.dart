@@ -162,7 +162,9 @@ class MyRouter extends _i31.RootStackRouter {
       return _i31.CustomPage<dynamic>(
           routeData: routeData,
           child: _i14.StartDisputesPage(
-              key: args.key, rentalUuid: args.rentalUuid),
+              key: args.key,
+              rentalUuid: args.rentalUuid,
+              homeUuid: args.homeUuid),
           transitionsBuilder: _i31.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -607,24 +609,27 @@ class RewardUserPageRouteArgs {
 /// [_i14.StartDisputesPage]
 class StartDisputesPageRoute
     extends _i31.PageRouteInfo<StartDisputesPageRouteArgs> {
-  StartDisputesPageRoute({_i32.Key? key, String? rentalUuid})
+  StartDisputesPageRoute({_i32.Key? key, String? rentalUuid, String? homeUuid})
       : super(StartDisputesPageRoute.name,
             path: '/start-disputes-page',
-            args: StartDisputesPageRouteArgs(key: key, rentalUuid: rentalUuid));
+            args: StartDisputesPageRouteArgs(
+                key: key, rentalUuid: rentalUuid, homeUuid: homeUuid));
 
   static const String name = 'StartDisputesPageRoute';
 }
 
 class StartDisputesPageRouteArgs {
-  const StartDisputesPageRouteArgs({this.key, this.rentalUuid});
+  const StartDisputesPageRouteArgs({this.key, this.rentalUuid, this.homeUuid});
 
   final _i32.Key? key;
 
   final String? rentalUuid;
 
+  final String? homeUuid;
+
   @override
   String toString() {
-    return 'StartDisputesPageRouteArgs{key: $key, rentalUuid: $rentalUuid}';
+    return 'StartDisputesPageRouteArgs{key: $key, rentalUuid: $rentalUuid, homeUuid: $homeUuid}';
   }
 }
 

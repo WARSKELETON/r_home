@@ -8,7 +8,8 @@ import 'package:r_home/presentation/routes/router.gr.dart';
 
 class StartDisputesPage extends StatelessWidget {
   final String? rentalUuid;
-  const StartDisputesPage({Key? key, this.rentalUuid}) : super(key: key);
+  final String? homeUuid;
+  const StartDisputesPage({Key? key, this.rentalUuid, this.homeUuid}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +44,7 @@ class StartDisputesPage extends StatelessWidget {
                   ProblemsWithPaymentsPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
+                      homeUuid: rentalUuid ?? "",
                       category: DisputeCategory.problems_with_payments.name
                     )
                   )
@@ -63,6 +65,7 @@ class StartDisputesPage extends StatelessWidget {
                   GeneralDisputesPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
+                      homeUuid: rentalUuid ?? "",
                       category: DisputeCategory.damages_in_properties.name
                     )
                   )
@@ -83,6 +86,7 @@ class StartDisputesPage extends StatelessWidget {
                   GeneralDisputesPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
+                      homeUuid: rentalUuid ?? "",
                       category: DisputeCategory.false_advertisement.name
                     )
                   )

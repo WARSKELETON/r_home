@@ -217,7 +217,7 @@ class HomeDetailsPage extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 10.0),
                           child: RoundedButtonWidget(
                             text: 'Open Dispute',
-                            onPressed: () => AutoRouter.of(context).push(StartDisputesPageRoute(rentalUuid: _rental.uuid)),
+                            onPressed: () => AutoRouter.of(context).push(StartDisputesPageRoute(rentalUuid: _rental.uuid, homeUuid: _rental.homeId)),
                             backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                             fontWeight: FontWeight.w400,
                             textColor: Colors.white,
