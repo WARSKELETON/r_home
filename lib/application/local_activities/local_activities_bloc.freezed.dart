@@ -18,8 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LocalActivitiesEventTearOff {
   const _$LocalActivitiesEventTearOff();
 
-  Initialize initialize() {
-    return const Initialize();
+  Initialize initialize(bool? filtered, String? location) {
+    return Initialize(
+      filtered,
+      location,
+    );
   }
 
   LocalActivitiesReceived localActivitiesReceived(
@@ -50,7 +53,7 @@ const $LocalActivitiesEvent = _$LocalActivitiesEventTearOff();
 mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(bool? filtered, String? location) initialize,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -60,7 +63,7 @@ mixin _$LocalActivitiesEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -70,7 +73,7 @@ mixin _$LocalActivitiesEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -132,6 +135,7 @@ abstract class $InitializeCopyWith<$Res> {
   factory $InitializeCopyWith(
           Initialize value, $Res Function(Initialize) then) =
       _$InitializeCopyWithImpl<$Res>;
+  $Res call({bool? filtered, String? location});
 }
 
 /// @nodoc
@@ -143,57 +147,90 @@ class _$InitializeCopyWithImpl<$Res>
 
   @override
   Initialize get _value => super._value as Initialize;
+
+  @override
+  $Res call({
+    Object? filtered = freezed,
+    Object? location = freezed,
+  }) {
+    return _then(Initialize(
+      filtered == freezed
+          ? _value.filtered
+          : filtered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Initialize implements Initialize {
-  const _$Initialize();
+  const _$Initialize(this.filtered, this.location);
+
+  @override
+  final bool? filtered;
+  @override
+  final String? location;
 
   @override
   String toString() {
-    return 'LocalActivitiesEvent.initialize()';
+    return 'LocalActivitiesEvent.initialize(filtered: $filtered, location: $location)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Initialize);
+        (other.runtimeType == runtimeType &&
+            other is Initialize &&
+            const DeepCollectionEquality().equals(other.filtered, filtered) &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(filtered),
+      const DeepCollectionEquality().hash(location));
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializeCopyWith<Initialize> get copyWith =>
+      _$InitializeCopyWithImpl<Initialize>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(bool? filtered, String? location) initialize,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
     required TResult Function(LocalActivity localActivity)
         localActivityReceivedReceived,
   }) {
-    return initialize();
+    return initialize(filtered, location);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
     TResult Function(LocalActivity localActivity)?
         localActivityReceivedReceived,
   }) {
-    return initialize?.call();
+    return initialize?.call(filtered, location);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -202,7 +239,7 @@ class _$Initialize implements Initialize {
     required TResult orElse(),
   }) {
     if (initialize != null) {
-      return initialize();
+      return initialize(filtered, location);
     }
     return orElse();
   }
@@ -250,7 +287,13 @@ class _$Initialize implements Initialize {
 }
 
 abstract class Initialize implements LocalActivitiesEvent {
-  const factory Initialize() = _$Initialize;
+  const factory Initialize(bool? filtered, String? location) = _$Initialize;
+
+  bool? get filtered;
+  String? get location;
+  @JsonKey(ignore: true)
+  $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -320,7 +363,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(bool? filtered, String? location) initialize,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -333,7 +376,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -346,7 +389,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -478,7 +521,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(bool? filtered, String? location) initialize,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -491,7 +534,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -504,7 +547,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -646,7 +689,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function(bool? filtered, String? location) initialize,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -659,7 +702,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -672,7 +715,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function(bool? filtered, String? location)? initialize,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,

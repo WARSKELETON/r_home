@@ -42,7 +42,7 @@ class LocalActivitiesPage extends StatelessWidget implements AutoRouteWrapper {
               FirebaseFirestore.instance
             )
           )
-        )..add(const LocalActivitiesEvent.initialize()),
+        )..add(LocalActivitiesEvent.initialize(true, myHomesFormBloc.state.home.location)),
         child: BlocBuilder<LocalActivitiesBloc, LocalActivitiesState>(
           builder: (context, state) {
             final _localActivities = context.watch<LocalActivitiesBloc>().state.localActivities

@@ -22,7 +22,7 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
     yield* colRef.snapshots().map((query) => query.toListLocalActivity());
   }
 
-    @override
+  @override
   Stream<List<LocalActivity>> watchAllFromUser() async* {
     final userId = _authFacade.getSignedInUserId();
 
@@ -38,6 +38,15 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
     final docRef = _firestore
         .collection(ACTIVITIES_COLLECTION)
         .where("uuid", whereIn: activitiesIds);
+
+    yield* docRef.snapshots().map((doc) => doc.toListLocalActivity());
+  }
+
+  @override
+  Stream<List<LocalActivity>> watchAllFromLocation(String location) async* {
+    final docRef = _firestore
+        .collection(ACTIVITIES_COLLECTION)
+        .where("location", isEqualTo: location);
 
     yield* docRef.snapshots().map((doc) => doc.toListLocalActivity());
   }

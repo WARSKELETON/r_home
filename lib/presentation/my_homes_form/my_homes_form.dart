@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
-import 'package:r_home/application/my_local_activities/my_local_activities_bloc.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';

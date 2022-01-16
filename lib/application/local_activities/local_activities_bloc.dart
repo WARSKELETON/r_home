@@ -22,10 +22,16 @@ class LocalActivitiesBloc extends Bloc<LocalActivitiesEvent, LocalActivitiesStat
   StreamSubscription<List<LocalActivity>>? _localActivitiesStreamSubscription;
   StreamSubscription<LocalActivity>? _localActivityStreamSubscription;
 
-  void _onInitialize(LocalActivitiesEvent event, Emitter<LocalActivitiesState> emit) {
-    _localActivitiesStreamSubscription = _localActivitiesRepository.watchAll().listen(
+  void _onInitialize(Initialize event, Emitter<LocalActivitiesState> emit) {
+    if (event.filtered == null) {
+      _localActivitiesStreamSubscription = _localActivitiesRepository.watchAll().listen(
         (localActivities) => add(LocalActivitiesEvent.localActivitiesReceived(localActivities))
       );
+    } else if (event.filtered! && event.location != null) {
+      _localActivitiesStreamSubscription = _localActivitiesRepository.watchAllFromLocation(event.location!).listen(
+        (localActivities) => add(LocalActivitiesEvent.localActivitiesReceived(localActivities))
+      ); 
+    }
     emit(state);
   }
 
@@ -42,5 +48,12 @@ class LocalActivitiesBloc extends Bloc<LocalActivitiesEvent, LocalActivitiesStat
 
   void _onLocalActivityReceived(LocalActivityReceived event, Emitter<LocalActivitiesState> emit) {
     emit(state.copyWith(localActivity: event.localActivity));
+  }
+
+  @override
+  Future<void> close() {
+    _localActivitiesStreamSubscription?.cancel();
+    _localActivityStreamSubscription?.cancel();
+    return super.close();
   }
 }
