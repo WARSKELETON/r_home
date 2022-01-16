@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
@@ -75,8 +74,19 @@ class DisputesRepository implements IDisputesRepository {
   }
 
   @override
-  Future<DomainUser> getHost(String hostId) {
-    return _authFacade.getUserById(hostId);
+  Future<List<String>> getDisputeImages(String disputeUuid) async {
+    List<String> listURL = [];
+
+    print("Request received");
+    await _storage.ref("disputes/" + disputeUuid).listAll()
+      .then((value) async => {
+        print("Images received"),
+        for (var ref in value.items) {
+          listURL.add(await ref.getDownloadURL())
+        }
+      });
+
+    return listURL;
   }
 
   @override
@@ -84,23 +94,28 @@ class DisputesRepository implements IDisputesRepository {
     final userId = _authFacade.getSignedInUserId()!;
     final username = _authFacade.getSignedInUsername()!;
 
-    dispute = dispute.copyWith(
-      issuerUuid: userId,
-      issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase()),
-      creationDate: DateTime.now()
-    );
-
-    _firestore
-      .collection(DISPUTES_COLLECTION)
-      .doc(dispute.uuid)
-      .set(DisputeDto.fromDomain(dispute).toJson())
-      .then((_) => print("Dispute created successfuly"))
-      .catchError((onError) => print(onError));
-
+    var downloadURL;
     for (var i = 0; i < imagesPath.length; i++) {
       _storage.ref("/disputes/" + dispute.uuid + "/$i")
         .putFile(File(imagesPath[i]))
-        .then((_) => print("Image uploaded successfuly"));
+        .then((res) async => {
+          print("Image uploaded successfuly"),
+          if (i == 0) {            
+            dispute = dispute.copyWith(
+              issuerUuid: userId,
+              issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase()),
+              creationDate: DateTime.now(),
+              mainImageUrl: await res.ref.getDownloadURL()
+            ),
+
+            _firestore
+              .collection(DISPUTES_COLLECTION)
+              .doc(dispute.uuid)
+              .set(DisputeDto.fromDomain(dispute).toJson())
+              .then((_) => print("Dispute created successfuly"))
+              .catchError((onError) => print(onError)),
+          }
+        });
     }
   }
 

@@ -79,6 +79,7 @@ class GeneralDisputesPage extends StatelessWidget {
               Dispute _dispute = context.watch<DisputesFormBloc>().state.dispute;
               String _rentalUuid = context.watch<DisputesFormBloc>().state.dispute.rentalUuid;
               double _initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
+              List<String> _images = context.watch<DisputesFormBloc>().state.imagePaths;
 
               String title = "";
               switch (_currentIndex) {
@@ -144,16 +145,10 @@ class GeneralDisputesPage extends StatelessWidget {
                                     RoundedButtonWidget(
                                       text: 'Previous',
                                       disabled: _currentIndex == 0,
-                                      onPressed: () => context
-                                          .read<StepperBloc>()
-                                          .add(const StepperEvent.decrementIndex()),
-                                      backgroundColor: _currentIndex == 0
-                                          ? Colors.grey
-                                          : Colors.white,
+                                      onPressed: () => context.read<StepperBloc>().add(const StepperEvent.decrementIndex()),
+                                      backgroundColor: _currentIndex == 0 ? Colors.grey : Colors.white,
                                       fontWeight: FontWeight.w400,
-                                      textColor: _currentIndex == 0
-                                          ? Colors.white
-                                          : Theme.of(context).colorScheme.primaryBlue,
+                                      textColor: _currentIndex == 0 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
                                       fontSize: 16,
                                       height: 35,
                                       width: 120,
@@ -163,7 +158,7 @@ class GeneralDisputesPage extends StatelessWidget {
                                       disabled: 
                                         (_rentalUuid.isEmpty && _currentIndex == 1) |
                                        (_initialStake == 0 && _currentIndex == 3) |
-                                       ((_dispute.title.isEmpty | _dispute.descritption.isEmpty) && _currentIndex == 2),
+                                       ((_dispute.title.isEmpty | _dispute.descritption.isEmpty | _images.isEmpty) && _currentIndex == 2),
                                       onPressed: () {
                                         if (_currentIndex == 3) {
                                           context.read<DisputesFormBloc>().add(const DisputesFormEvent.submit());

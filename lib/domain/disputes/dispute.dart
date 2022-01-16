@@ -36,6 +36,7 @@ abstract class Dispute implements _$Dispute {
     required String category,
     required List<String> usersVoted,
     required DateTime creationDate,
+    required String mainImageUrl
     // Add image
   }) = _Dispute;
 
@@ -55,9 +56,6 @@ abstract class Dispute implements _$Dispute {
     category: '',
     usersVoted: [],
     creationDate: DateTime.now(),
+    mainImageUrl: ''
   );
-
-  // String getDateString() {
-  //   return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
-  // }
 }

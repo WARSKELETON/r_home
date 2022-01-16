@@ -38,7 +38,8 @@ class _$DisputeDtoTearOff {
       required String category,
       required List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
-          required Timestamp creationDate}) {
+          required Timestamp creationDate,
+      required String mainImageUrl}) {
     return _DisputeDto(
       uuid: uuid,
       issuerUuid: issuerUuid,
@@ -55,6 +56,7 @@ class _$DisputeDtoTearOff {
       category: category,
       usersVoted: usersVoted,
       creationDate: creationDate,
+      mainImageUrl: mainImageUrl,
     );
   }
 
@@ -85,6 +87,7 @@ mixin _$DisputeDto {
   @JsonKey(
       fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
   Timestamp get creationDate => throw _privateConstructorUsedError;
+  String get mainImageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -113,7 +116,8 @@ abstract class $DisputeDtoCopyWith<$Res> {
       String category,
       List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
-          Timestamp creationDate});
+          Timestamp creationDate,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -141,6 +145,7 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
     Object? category = freezed,
     Object? usersVoted = freezed,
     Object? creationDate = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -203,6 +208,10 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
           ? _value.creationDate
           : creationDate // ignore: cast_nullable_to_non_nullable
               as Timestamp,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -229,7 +238,8 @@ abstract class _$DisputeDtoCopyWith<$Res> implements $DisputeDtoCopyWith<$Res> {
       String category,
       List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
-          Timestamp creationDate});
+          Timestamp creationDate,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -259,6 +269,7 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
     Object? category = freezed,
     Object? usersVoted = freezed,
     Object? creationDate = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_DisputeDto(
       uuid: uuid == freezed
@@ -321,6 +332,10 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
           ? _value.creationDate
           : creationDate // ignore: cast_nullable_to_non_nullable
               as Timestamp,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -344,7 +359,8 @@ class _$_DisputeDto extends _DisputeDto {
       required this.category,
       required this.usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
-          required this.creationDate})
+          required this.creationDate,
+      required this.mainImageUrl})
       : super._();
 
   factory _$_DisputeDto.fromJson(Map<String, dynamic> json) =>
@@ -382,10 +398,12 @@ class _$_DisputeDto extends _DisputeDto {
   @JsonKey(
       fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
   final Timestamp creationDate;
+  @override
+  final String mainImageUrl;
 
   @override
   String toString() {
-    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted, creationDate: $creationDate)';
+    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted, creationDate: $creationDate, mainImageUrl: $mainImageUrl)';
   }
 
   @override
@@ -417,7 +435,9 @@ class _$_DisputeDto extends _DisputeDto {
             const DeepCollectionEquality()
                 .equals(other.usersVoted, usersVoted) &&
             const DeepCollectionEquality()
-                .equals(other.creationDate, creationDate));
+                .equals(other.creationDate, creationDate) &&
+            const DeepCollectionEquality()
+                .equals(other.mainImageUrl, mainImageUrl));
   }
 
   @override
@@ -437,7 +457,8 @@ class _$_DisputeDto extends _DisputeDto {
       const DeepCollectionEquality().hash(stake),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(usersVoted),
-      const DeepCollectionEquality().hash(creationDate));
+      const DeepCollectionEquality().hash(creationDate),
+      const DeepCollectionEquality().hash(mainImageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -467,7 +488,8 @@ abstract class _DisputeDto extends DisputeDto {
       required String category,
       required List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
-          required Timestamp creationDate}) = _$_DisputeDto;
+          required Timestamp creationDate,
+      required String mainImageUrl}) = _$_DisputeDto;
   const _DisputeDto._() : super._();
 
   factory _DisputeDto.fromJson(Map<String, dynamic> json) =
@@ -505,6 +527,8 @@ abstract class _DisputeDto extends DisputeDto {
   @JsonKey(
       fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
   Timestamp get creationDate;
+  @override
+  String get mainImageUrl;
   @override
   @JsonKey(ignore: true)
   _$DisputeDtoCopyWith<_DisputeDto> get copyWith =>
