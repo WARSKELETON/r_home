@@ -11,7 +11,7 @@ abstract class IDisputesRepository {
   Stream<Home> watchHomeFromDispute(String homeUuid);
   Stream<Rental> watchRentalFromDispute(String rentalUuid, String issuerUuid);
   Future<DomainUser> getHost(String hostUuid);
-  Future<void> create(Dispute dispute);
+  Future<void> create(Dispute dispute, List<String> imagesPath);
   Future<void> update(Dispute dispute);
   void delete(Dispute dispute);
 }

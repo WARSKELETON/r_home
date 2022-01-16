@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
@@ -12,13 +15,14 @@ import 'package:r_home/infrastructure/rentals/rentals_extension.dart';
 
 class DisputesRepository implements IDisputesRepository {
   final FirebaseFirestore _firestore;
+  final FirebaseStorage _storage;
   static const String PARENT_COLLECTION = "user-data";
   static const String RENTALS_COLLECTION = "rentals";
   static const String HOMES_COLLECTION = "homes";
   static const String DISPUTES_COLLECTION = "disputes";
   final IAuthFacade _authFacade;
 
-  DisputesRepository(this._firestore, this._authFacade);
+  DisputesRepository(this._firestore, this._authFacade, this._storage);
 
   @override
   Stream<List<Dispute>> watchAll() async* {
@@ -76,7 +80,7 @@ class DisputesRepository implements IDisputesRepository {
   }
 
   @override
-  Future<void> create(Dispute dispute) async {
+  Future<void> create(Dispute dispute, List<String> imagesPath) async {
     final userId = _authFacade.getSignedInUserId()!;
     final username = _authFacade.getSignedInUsername()!;
 
@@ -92,6 +96,12 @@ class DisputesRepository implements IDisputesRepository {
       .set(DisputeDto.fromDomain(dispute).toJson())
       .then((_) => print("Dispute created successfuly"))
       .catchError((onError) => print(onError));
+
+    for (var i = 0; i < imagesPath.length; i++) {
+      _storage.ref("/disputes/" + dispute.uuid + "/$i")
+        .putFile(File(imagesPath[i]))
+        .then((_) => print("Image uploaded successfuly"));
+    }
   }
 
   @override
