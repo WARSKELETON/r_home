@@ -42,7 +42,7 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
 
   void _onWatchAvailableHomes(WatchAvailableHomes event, Emitter<RentAHomeState> emit) {
     _homesStreamSubscription = _homesRepository
-        .watchAll()
+        .watchAllFiltered(state.location)
         .listen(
           (homes) => add(RentAHomeEvent.availableHomesReceived(homes)),
         );
@@ -50,11 +50,12 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
   }
 
   void _onAvailableHomesReceived(AvailableHomesReceived event, Emitter<RentAHomeState> emit) {
-    emit(state.copyWith(homes: event.homes));
+    final List<Home> homes = event.homes.where((home) => state.idealRental.numAdults <= home.maxAdults && state.idealRental.numChildren <= home.maxChildren && state.idealRental.numPets <= home.maxPets).toList();
+    emit(state.copyWith(homes: homes));
   }
 
   void _onLocationChanged(LocationChanged event, Emitter<RentAHomeState> emit) {
-    // TODO
+    emit(state.copyWith(location: event.location));
   }
 
   void _onPaymentMethodChanged(PaymentMethodChanged event, Emitter<RentAHomeState> emit) {
@@ -147,5 +148,11 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
     await _rentalsRepository.create(finalRental);
 
     emit(state.copyWith(isSaving: false));
+  }
+
+  @override
+  Future<void> close() {
+    _homesStreamSubscription?.cancel();
+    return super.close();
   }
 }

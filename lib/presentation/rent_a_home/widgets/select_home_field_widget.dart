@@ -8,30 +8,56 @@ import 'package:r_home/presentation/rent_a_home/widgets/select_home_card_widget.
 class SelectHomeField extends StatelessWidget {
   const SelectHomeField({Key? key}) : super(key: key);
 
+  String getDateString(DateTime checkIn, DateTime checkOut) {
+    return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RentAHomeBloc, RentAHomeState>(
       builder: (context, state) {
         final _homes = context.watch<RentAHomeBloc>().state.homes;
         final _home = context.watch<RentAHomeBloc>().state.selectedHome;
+        final _checkIn = context.watch<RentAHomeBloc>().state.checkIn;
+        final _checkOut = context.watch<RentAHomeBloc>().state.checkOut;
+        final _location = context.watch<RentAHomeBloc>().state.location;
+        final _numAdults = context.watch<RentAHomeBloc>().state.idealRental.numAdults;
+        final _numChildren = context.watch<RentAHomeBloc>().state.idealRental.numChildren;
+        final _numPets = context.watch<RentAHomeBloc>().state.idealRental.numPets;
 
         if (_home.name == "") {
-          return Expanded(
-            child: ListView.separated(
-              padding: const EdgeInsets.all(10),
-              itemCount: _homes.length,
-              itemBuilder: (BuildContext ctxt, int index) {
-                return SelectHomeCardWidget(home: _homes[index]);
-              },
-              separatorBuilder: (BuildContext context, int index) => const Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: Divider(
-                  color: Colors.grey,
-                  height: 10,
+          if (_homes.isNotEmpty) {
+            return Expanded(
+              child: ListView.separated(
+                padding: const EdgeInsets.all(10),
+                itemCount: _homes.length,
+                itemBuilder: (BuildContext ctxt, int index) {
+                  return SelectHomeCardWidget(home: _homes[index]);
+                },
+                separatorBuilder: (BuildContext context, int index) => const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Divider(
+                    color: Colors.grey,
+                    height: 10,
+                  ),
                 ),
-              ),
-            )
-          );
+              )
+            );
+          } else {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 15.0),
+                child: Text(
+                  "No homes are available in $_location from ${getDateString(_checkIn!, _checkOut!)} for $_numAdults adults, $_numChildren children, $_numPets pets.",
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500
+                  ),
+                ),
+              )
+            );
+          }
         } else {
           return Expanded(
             child: SingleChildScrollView(

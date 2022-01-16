@@ -3,6 +3,7 @@ import 'package:r_home/domain/homes/home.dart';
 
 abstract class IHomesRepository {
   Stream<List<Home>> watchAll();
+  Stream<List<Home>> watchAllFiltered(String location);
   Stream<List<Home>> watchAllFromHomeIds(List<String> homeIds);
   Stream<List<Home>> watchAllFromActivityId(String activityUuid);
   Stream<List<Home>> watchAllFromHost();
