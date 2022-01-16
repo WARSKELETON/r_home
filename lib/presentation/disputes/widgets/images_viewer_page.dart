@@ -1,8 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_gallery.dart';
-import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class ImagesViewerPage extends StatelessWidget {
   final List<String> images;
