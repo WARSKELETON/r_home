@@ -14,7 +14,7 @@ class DisputeRowDetailWidget extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.only(right: 3.0),
+            padding: const EdgeInsets.only(right: 5.0),
             child: icon
           ),
           Text(

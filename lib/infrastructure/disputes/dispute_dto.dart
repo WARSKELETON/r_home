@@ -35,6 +35,7 @@ abstract class DisputeDto implements _$DisputeDto {
       toJson: firestoreTimestampToJson,
     )
     required Timestamp creationDate,
+    required String mainImageUrl
   }) = _DisputeDto;
 
   factory DisputeDto.fromDomain(Dispute dispute) {
@@ -53,7 +54,8 @@ abstract class DisputeDto implements _$DisputeDto {
       stake: dispute.stake,
       category: dispute.category,
       usersVoted: dispute.usersVoted,
-      creationDate: Timestamp.fromDate(dispute.creationDate)
+      creationDate: Timestamp.fromDate(dispute.creationDate),
+      mainImageUrl: dispute.mainImageUrl
     );
   }
 
@@ -73,7 +75,8 @@ abstract class DisputeDto implements _$DisputeDto {
       stake: stake,
       category: category,
       usersVoted: usersVoted,
-      creationDate: creationDate.toDate()
+      creationDate: creationDate.toDate(),
+      mainImageUrl: mainImageUrl
     );
   }
 

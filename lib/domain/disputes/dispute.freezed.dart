@@ -33,7 +33,8 @@ class _$DisputeTearOff {
       required double stake,
       required String category,
       required List<String> usersVoted,
-      required DateTime creationDate}) {
+      required DateTime creationDate,
+      required String mainImageUrl}) {
     return _Dispute(
       uuid: uuid,
       issuerUuid: issuerUuid,
@@ -50,6 +51,7 @@ class _$DisputeTearOff {
       category: category,
       usersVoted: usersVoted,
       creationDate: creationDate,
+      mainImageUrl: mainImageUrl,
     );
   }
 }
@@ -74,6 +76,7 @@ mixin _$Dispute {
   String get category => throw _privateConstructorUsedError;
   List<String> get usersVoted => throw _privateConstructorUsedError;
   DateTime get creationDate => throw _privateConstructorUsedError;
+  String get mainImageUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DisputeCopyWith<Dispute> get copyWith => throw _privateConstructorUsedError;
@@ -98,7 +101,8 @@ abstract class $DisputeCopyWith<$Res> {
       double stake,
       String category,
       List<String> usersVoted,
-      DateTime creationDate});
+      DateTime creationDate,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -126,6 +130,7 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
     Object? category = freezed,
     Object? usersVoted = freezed,
     Object? creationDate = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -188,6 +193,10 @@ class _$DisputeCopyWithImpl<$Res> implements $DisputeCopyWith<$Res> {
           ? _value.creationDate
           : creationDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -212,7 +221,8 @@ abstract class _$DisputeCopyWith<$Res> implements $DisputeCopyWith<$Res> {
       double stake,
       String category,
       List<String> usersVoted,
-      DateTime creationDate});
+      DateTime creationDate,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -241,6 +251,7 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
     Object? category = freezed,
     Object? usersVoted = freezed,
     Object? creationDate = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_Dispute(
       uuid: uuid == freezed
@@ -303,6 +314,10 @@ class __$DisputeCopyWithImpl<$Res> extends _$DisputeCopyWithImpl<$Res>
           ? _value.creationDate
           : creationDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -325,7 +340,8 @@ class _$_Dispute extends _Dispute {
       required this.stake,
       required this.category,
       required this.usersVoted,
-      required this.creationDate})
+      required this.creationDate,
+      required this.mainImageUrl})
       : super._();
 
   @override
@@ -358,10 +374,12 @@ class _$_Dispute extends _Dispute {
   final List<String> usersVoted;
   @override
   final DateTime creationDate;
+  @override
+  final String mainImageUrl;
 
   @override
   String toString() {
-    return 'Dispute(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted, creationDate: $creationDate)';
+    return 'Dispute(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted, creationDate: $creationDate, mainImageUrl: $mainImageUrl)';
   }
 
   @override
@@ -393,7 +411,9 @@ class _$_Dispute extends _Dispute {
             const DeepCollectionEquality()
                 .equals(other.usersVoted, usersVoted) &&
             const DeepCollectionEquality()
-                .equals(other.creationDate, creationDate));
+                .equals(other.creationDate, creationDate) &&
+            const DeepCollectionEquality()
+                .equals(other.mainImageUrl, mainImageUrl));
   }
 
   @override
@@ -413,7 +433,8 @@ class _$_Dispute extends _Dispute {
       const DeepCollectionEquality().hash(stake),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(usersVoted),
-      const DeepCollectionEquality().hash(creationDate));
+      const DeepCollectionEquality().hash(creationDate),
+      const DeepCollectionEquality().hash(mainImageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -437,7 +458,8 @@ abstract class _Dispute extends Dispute {
       required double stake,
       required String category,
       required List<String> usersVoted,
-      required DateTime creationDate}) = _$_Dispute;
+      required DateTime creationDate,
+      required String mainImageUrl}) = _$_Dispute;
   const _Dispute._() : super._();
 
   @override
@@ -470,6 +492,8 @@ abstract class _Dispute extends Dispute {
   List<String> get usersVoted;
   @override
   DateTime get creationDate;
+  @override
+  String get mainImageUrl;
   @override
   @JsonKey(ignore: true)
   _$DisputeCopyWith<_Dispute> get copyWith =>

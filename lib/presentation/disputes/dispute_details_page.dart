@@ -56,10 +56,12 @@ class DisputeDetailsPage extends StatelessWidget {
                     final _dispute = context.watch<DisputesBloc>().state.dispute;
                     final _rental = context.watch<DisputesBloc>().state.rental;
                     final _home = context.watch<DisputesBloc>().state.home;
-                    final _user = context.watch<AuthBloc>().state.user;
-                    // final _host = context.read<DisputesBloc>().state.host;
-                    final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
                     final _currentVote = context.read<DisputesBloc>().state.currentVote;
+                    final _images = context.watch<DisputesBloc>().state.disputeImages;
+                    print("DetailsPage: " + _images.toString());
+
+                    final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
+                    final _user = context.watch<AuthBloc>().state.user;
                     final _timer = context.read<TimerBloc>().state.timeToEnd;
                     final _isOpened = !_closingTime.isBefore(DateTime.now());
                     
@@ -101,17 +103,25 @@ class DisputeDetailsPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Container(
-                                height: 180.0,
-                                width: 180.0,
-                                decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage("assets/icons/dispute_alarm.png"),
-                                    fit: BoxFit.fill,
+                              GestureDetector(
+                                child: Container(
+                                  height: 180.0,
+                                  width: 225.0,
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: _dispute.mainImageUrl != "" ? 
+                                      NetworkImage(
+                                        _dispute.mainImageUrl,
+                                      ) : 
+                                      const AssetImage("assets/icons/home1.png") as ImageProvider,
+                                    ),
+                                    borderRadius: BorderRadius.circular(20),
+                                    shape: BoxShape.rectangle,
                                   ),
-                                  borderRadius: BorderRadius.circular(20),
-                                  shape: BoxShape.rectangle,
                                 ),
+                                onTap: () => _images.isEmpty ? null : AutoRouter.of(context).push(ImageViewerPageRoute(images: _images)),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 7.0, bottom: 7.0),

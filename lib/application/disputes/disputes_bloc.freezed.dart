@@ -36,6 +36,12 @@ class _$DisputesEventTearOff {
     );
   }
 
+  ImagesReceived imagesReceived(List<String> images) {
+    return ImagesReceived(
+      images,
+    );
+  }
+
   DisputeReceived disputeReceived(Dispute dispute) {
     return DisputeReceived(
       dispute,
@@ -77,6 +83,7 @@ mixin _$DisputesEvent {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -89,6 +96,7 @@ mixin _$DisputesEvent {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -101,6 +109,7 @@ mixin _$DisputesEvent {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -114,6 +123,7 @@ mixin _$DisputesEvent {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -126,6 +136,7 @@ mixin _$DisputesEvent {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -138,6 +149,7 @@ mixin _$DisputesEvent {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -232,6 +244,7 @@ class _$Initialize implements Initialize {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -247,6 +260,7 @@ class _$Initialize implements Initialize {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -262,6 +276,7 @@ class _$Initialize implements Initialize {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -281,6 +296,7 @@ class _$Initialize implements Initialize {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -296,6 +312,7 @@ class _$Initialize implements Initialize {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -311,6 +328,7 @@ class _$Initialize implements Initialize {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -402,6 +420,7 @@ class _$DisputesReceived implements DisputesReceived {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -417,6 +436,7 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -432,6 +452,7 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -451,6 +472,7 @@ class _$DisputesReceived implements DisputesReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -466,6 +488,7 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -481,6 +504,7 @@ class _$DisputesReceived implements DisputesReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -572,6 +596,7 @@ class _$WatchDispute implements WatchDispute {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -587,6 +612,7 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -602,6 +628,7 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -621,6 +648,7 @@ class _$WatchDispute implements WatchDispute {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -636,6 +664,7 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -651,6 +680,7 @@ class _$WatchDispute implements WatchDispute {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -671,6 +701,182 @@ abstract class WatchDispute implements DisputesEvent {
   String get disputeUuid;
   @JsonKey(ignore: true)
   $WatchDisputeCopyWith<WatchDispute> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagesReceivedCopyWith<$Res> {
+  factory $ImagesReceivedCopyWith(
+          ImagesReceived value, $Res Function(ImagesReceived) then) =
+      _$ImagesReceivedCopyWithImpl<$Res>;
+  $Res call({List<String> images});
+}
+
+/// @nodoc
+class _$ImagesReceivedCopyWithImpl<$Res>
+    extends _$DisputesEventCopyWithImpl<$Res>
+    implements $ImagesReceivedCopyWith<$Res> {
+  _$ImagesReceivedCopyWithImpl(
+      ImagesReceived _value, $Res Function(ImagesReceived) _then)
+      : super(_value, (v) => _then(v as ImagesReceived));
+
+  @override
+  ImagesReceived get _value => super._value as ImagesReceived;
+
+  @override
+  $Res call({
+    Object? images = freezed,
+  }) {
+    return _then(ImagesReceived(
+      images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImagesReceived implements ImagesReceived {
+  const _$ImagesReceived(this.images);
+
+  @override
+  final List<String> images;
+
+  @override
+  String toString() {
+    return 'DisputesEvent.imagesReceived(images: $images)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImagesReceived &&
+            const DeepCollectionEquality().equals(other.images, images));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(images));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
+      _$ImagesReceivedCopyWithImpl<ImagesReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool allDisputes) initialize,
+    required TResult Function(List<Dispute> disputes) disputesReceived,
+    required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(Dispute dispute) disputeReceived,
+    required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
+    required TResult Function(DisputeVote vote) voteReceived,
+    required TResult Function(String userUuid) voteSubmit,
+  }) {
+    return imagesReceived(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool allDisputes)? initialize,
+    TResult Function(List<Dispute> disputes)? disputesReceived,
+    TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(Dispute dispute)? disputeReceived,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
+  }) {
+    return imagesReceived?.call(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool allDisputes)? initialize,
+    TResult Function(List<Dispute> disputes)? disputesReceived,
+    TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(Dispute dispute)? disputeReceived,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    TResult Function(DisputeVote vote)? voteReceived,
+    TResult Function(String userUuid)? voteSubmit,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(images);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(DisputesReceived value) disputesReceived,
+    required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(DisputeReceived value) disputeReceived,
+    required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
+    required TResult Function(VoteReceived value) voteReceived,
+    required TResult Function(VoteSubmit value) voteSubmit,
+  }) {
+    return imagesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(DisputesReceived value)? disputesReceived,
+    TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(DisputeReceived value)? disputeReceived,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
+  }) {
+    return imagesReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(DisputesReceived value)? disputesReceived,
+    TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(DisputeReceived value)? disputeReceived,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    TResult Function(VoteReceived value)? voteReceived,
+    TResult Function(VoteSubmit value)? voteSubmit,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagesReceived implements DisputesEvent {
+  const factory ImagesReceived(List<String> images) = _$ImagesReceived;
+
+  List<String> get images;
+  @JsonKey(ignore: true)
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -751,6 +957,7 @@ class _$DisputeReceived implements DisputeReceived {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -766,6 +973,7 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -781,6 +989,7 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -800,6 +1009,7 @@ class _$DisputeReceived implements DisputeReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -815,6 +1025,7 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -830,6 +1041,7 @@ class _$DisputeReceived implements DisputeReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -929,6 +1141,7 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -944,6 +1157,7 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -959,6 +1173,7 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -978,6 +1193,7 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -993,6 +1209,7 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1008,6 +1225,7 @@ class _$HomeReceived implements HomeReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1108,6 +1326,7 @@ class _$RentalReceived implements RentalReceived {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -1123,6 +1342,7 @@ class _$RentalReceived implements RentalReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -1138,6 +1358,7 @@ class _$RentalReceived implements RentalReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -1157,6 +1378,7 @@ class _$RentalReceived implements RentalReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -1172,6 +1394,7 @@ class _$RentalReceived implements RentalReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1187,6 +1410,7 @@ class _$RentalReceived implements RentalReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1277,6 +1501,7 @@ class _$VoteReceived implements VoteReceived {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -1292,6 +1517,7 @@ class _$VoteReceived implements VoteReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -1307,6 +1533,7 @@ class _$VoteReceived implements VoteReceived {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -1326,6 +1553,7 @@ class _$VoteReceived implements VoteReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -1341,6 +1569,7 @@ class _$VoteReceived implements VoteReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1356,6 +1585,7 @@ class _$VoteReceived implements VoteReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1445,6 +1675,7 @@ class _$VoteSubmit implements VoteSubmit {
     required TResult Function(bool allDisputes) initialize,
     required TResult Function(List<Dispute> disputes) disputesReceived,
     required TResult Function(String disputeUuid) watchDispute,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Dispute dispute) disputeReceived,
     required TResult Function(Home home) homeReceived,
     required TResult Function(Rental rental) rentalReceived,
@@ -1460,6 +1691,7 @@ class _$VoteSubmit implements VoteSubmit {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -1475,6 +1707,7 @@ class _$VoteSubmit implements VoteSubmit {
     TResult Function(bool allDisputes)? initialize,
     TResult Function(List<Dispute> disputes)? disputesReceived,
     TResult Function(String disputeUuid)? watchDispute,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Dispute dispute)? disputeReceived,
     TResult Function(Home home)? homeReceived,
     TResult Function(Rental rental)? rentalReceived,
@@ -1494,6 +1727,7 @@ class _$VoteSubmit implements VoteSubmit {
     required TResult Function(Initialize value) initialize,
     required TResult Function(DisputesReceived value) disputesReceived,
     required TResult Function(WatchDispute value) watchDispute,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(DisputeReceived value) disputeReceived,
     required TResult Function(HomeReceived value) homeReceived,
     required TResult Function(RentalReceived value) rentalReceived,
@@ -1509,6 +1743,7 @@ class _$VoteSubmit implements VoteSubmit {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1524,6 +1759,7 @@ class _$VoteSubmit implements VoteSubmit {
     TResult Function(Initialize value)? initialize,
     TResult Function(DisputesReceived value)? disputesReceived,
     TResult Function(WatchDispute value)? watchDispute,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(DisputeReceived value)? disputeReceived,
     TResult Function(HomeReceived value)? homeReceived,
     TResult Function(RentalReceived value)? rentalReceived,
@@ -1553,18 +1789,18 @@ class _$DisputesStateTearOff {
 
   _DisputesState call(
       {required bool isLoading,
+      required List<String> disputeImages,
       required List<Dispute> disputes,
       required Dispute dispute,
       required Home home,
-      required DomainUser host,
       required DisputeVote currentVote,
       required Rental rental}) {
     return _DisputesState(
       isLoading: isLoading,
+      disputeImages: disputeImages,
       disputes: disputes,
       dispute: dispute,
       home: home,
-      host: host,
       currentVote: currentVote,
       rental: rental,
     );
@@ -1577,10 +1813,10 @@ const $DisputesState = _$DisputesStateTearOff();
 /// @nodoc
 mixin _$DisputesState {
   bool get isLoading => throw _privateConstructorUsedError;
+  List<String> get disputeImages => throw _privateConstructorUsedError;
   List<Dispute> get disputes => throw _privateConstructorUsedError;
   Dispute get dispute => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
-  DomainUser get host => throw _privateConstructorUsedError;
   DisputeVote get currentVote => throw _privateConstructorUsedError;
   Rental get rental => throw _privateConstructorUsedError;
 
@@ -1596,16 +1832,15 @@ abstract class $DisputesStateCopyWith<$Res> {
       _$DisputesStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      List<String> disputeImages,
       List<Dispute> disputes,
       Dispute dispute,
       Home home,
-      DomainUser host,
       DisputeVote currentVote,
       Rental rental});
 
   $DisputeCopyWith<$Res> get dispute;
   $HomeCopyWith<$Res> get home;
-  $DomainUserCopyWith<$Res> get host;
   $RentalCopyWith<$Res> get rental;
 }
 
@@ -1621,10 +1856,10 @@ class _$DisputesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? disputeImages = freezed,
     Object? disputes = freezed,
     Object? dispute = freezed,
     Object? home = freezed,
-    Object? host = freezed,
     Object? currentVote = freezed,
     Object? rental = freezed,
   }) {
@@ -1633,6 +1868,10 @@ class _$DisputesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      disputeImages: disputeImages == freezed
+          ? _value.disputeImages
+          : disputeImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       disputes: disputes == freezed
           ? _value.disputes
           : disputes // ignore: cast_nullable_to_non_nullable
@@ -1645,10 +1884,6 @@ class _$DisputesStateCopyWithImpl<$Res>
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
-      host: host == freezed
-          ? _value.host
-          : host // ignore: cast_nullable_to_non_nullable
-              as DomainUser,
       currentVote: currentVote == freezed
           ? _value.currentVote
           : currentVote // ignore: cast_nullable_to_non_nullable
@@ -1675,13 +1910,6 @@ class _$DisputesStateCopyWithImpl<$Res>
   }
 
   @override
-  $DomainUserCopyWith<$Res> get host {
-    return $DomainUserCopyWith<$Res>(_value.host, (value) {
-      return _then(_value.copyWith(host: value));
-    });
-  }
-
-  @override
   $RentalCopyWith<$Res> get rental {
     return $RentalCopyWith<$Res>(_value.rental, (value) {
       return _then(_value.copyWith(rental: value));
@@ -1698,10 +1926,10 @@ abstract class _$DisputesStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
+      List<String> disputeImages,
       List<Dispute> disputes,
       Dispute dispute,
       Home home,
-      DomainUser host,
       DisputeVote currentVote,
       Rental rental});
 
@@ -1709,8 +1937,6 @@ abstract class _$DisputesStateCopyWith<$Res>
   $DisputeCopyWith<$Res> get dispute;
   @override
   $HomeCopyWith<$Res> get home;
-  @override
-  $DomainUserCopyWith<$Res> get host;
   @override
   $RentalCopyWith<$Res> get rental;
 }
@@ -1729,10 +1955,10 @@ class __$DisputesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? disputeImages = freezed,
     Object? disputes = freezed,
     Object? dispute = freezed,
     Object? home = freezed,
-    Object? host = freezed,
     Object? currentVote = freezed,
     Object? rental = freezed,
   }) {
@@ -1741,6 +1967,10 @@ class __$DisputesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      disputeImages: disputeImages == freezed
+          ? _value.disputeImages
+          : disputeImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       disputes: disputes == freezed
           ? _value.disputes
           : disputes // ignore: cast_nullable_to_non_nullable
@@ -1753,10 +1983,6 @@ class __$DisputesStateCopyWithImpl<$Res>
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
-      host: host == freezed
-          ? _value.host
-          : host // ignore: cast_nullable_to_non_nullable
-              as DomainUser,
       currentVote: currentVote == freezed
           ? _value.currentVote
           : currentVote // ignore: cast_nullable_to_non_nullable
@@ -1774,15 +2000,17 @@ class __$DisputesStateCopyWithImpl<$Res>
 class _$_DisputesState implements _DisputesState {
   const _$_DisputesState(
       {required this.isLoading,
+      required this.disputeImages,
       required this.disputes,
       required this.dispute,
       required this.home,
-      required this.host,
       required this.currentVote,
       required this.rental});
 
   @override
   final bool isLoading;
+  @override
+  final List<String> disputeImages;
   @override
   final List<Dispute> disputes;
   @override
@@ -1790,15 +2018,13 @@ class _$_DisputesState implements _DisputesState {
   @override
   final Home home;
   @override
-  final DomainUser host;
-  @override
   final DisputeVote currentVote;
   @override
   final Rental rental;
 
   @override
   String toString() {
-    return 'DisputesState(isLoading: $isLoading, disputes: $disputes, dispute: $dispute, home: $home, host: $host, currentVote: $currentVote, rental: $rental)';
+    return 'DisputesState(isLoading: $isLoading, disputeImages: $disputeImages, disputes: $disputes, dispute: $dispute, home: $home, currentVote: $currentVote, rental: $rental)';
   }
 
   @override
@@ -1807,10 +2033,11 @@ class _$_DisputesState implements _DisputesState {
         (other.runtimeType == runtimeType &&
             other is _DisputesState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.disputeImages, disputeImages) &&
             const DeepCollectionEquality().equals(other.disputes, disputes) &&
             const DeepCollectionEquality().equals(other.dispute, dispute) &&
             const DeepCollectionEquality().equals(other.home, home) &&
-            const DeepCollectionEquality().equals(other.host, host) &&
             const DeepCollectionEquality()
                 .equals(other.currentVote, currentVote) &&
             const DeepCollectionEquality().equals(other.rental, rental));
@@ -1820,10 +2047,10 @@ class _$_DisputesState implements _DisputesState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(disputeImages),
       const DeepCollectionEquality().hash(disputes),
       const DeepCollectionEquality().hash(dispute),
       const DeepCollectionEquality().hash(home),
-      const DeepCollectionEquality().hash(host),
       const DeepCollectionEquality().hash(currentVote),
       const DeepCollectionEquality().hash(rental));
 
@@ -1836,23 +2063,23 @@ class _$_DisputesState implements _DisputesState {
 abstract class _DisputesState implements DisputesState {
   const factory _DisputesState(
       {required bool isLoading,
+      required List<String> disputeImages,
       required List<Dispute> disputes,
       required Dispute dispute,
       required Home home,
-      required DomainUser host,
       required DisputeVote currentVote,
       required Rental rental}) = _$_DisputesState;
 
   @override
   bool get isLoading;
   @override
+  List<String> get disputeImages;
+  @override
   List<Dispute> get disputes;
   @override
   Dispute get dispute;
   @override
   Home get home;
-  @override
-  DomainUser get host;
   @override
   DisputeVote get currentVote;
   @override

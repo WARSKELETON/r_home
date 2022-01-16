@@ -17,6 +17,7 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
 
   DisputesBloc(this._disputesRepository) : super(DisputesState.initial()) {
     on<Initialize>(_onInitialize);
+    on<ImagesReceived>(_onImagesReceived);
     on<DisputesReceived>(_onDisputesReceived);
     on<DisputeReceived>(_onDisputeReceived);
     on<HomeReceived>(_onHomeReceived);
@@ -52,12 +53,23 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
     emit(state);
   }
 
+  void _onImagesReceived(ImagesReceived event, Emitter<DisputesState> emit) {
+    print("Received images");
+    emit(state.copyWith(disputeImages: event.images));
+  }
+
   void _onDisputesReceived(DisputesReceived event, Emitter<DisputesState> emit) {
     emit(state.copyWith(disputes: event.disputes));
   }
 
-  void _onDisputeReceived(DisputeReceived event, Emitter<DisputesState> emit) {
+  void _onDisputeReceived(DisputeReceived event, Emitter<DisputesState> emit) async {
     emit(state.copyWith(dispute: event.dispute));
+
+    _disputesRepository.getDisputeImages(event.dispute.uuid)
+      .then((images) => {
+        print("Received from future" + images.toString()),
+        add(DisputesEvent.imagesReceived(images))
+      });
 
     _homeStreamSubscription = _disputesRepository
       .watchHomeFromDispute(event.dispute.homeUuid)
@@ -68,12 +80,10 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
       .watchRentalFromDispute(event.dispute.rentalUuid, event.dispute.issuerUuid)
       .listen((rental) => add(DisputesEvent.rentalReceived(rental))
     );
-    emit(state);
   }
 
   void _onHomeReceived(HomeReceived event, Emitter<DisputesState> emit) async {
-    final host = await _disputesRepository.getHost(event.home.host);
-    emit(state.copyWith(home: event.home, host: host));
+    emit(state.copyWith(home: event.home));
   }
   
   void _onRentalReceived(RentalReceived event, Emitter<DisputesState> emit) async {

@@ -25,6 +25,7 @@ _$_DisputeDto _$$_DisputeDtoFromJson(Map<String, dynamic> json) =>
           .map((e) => e as String)
           .toList(),
       creationDate: firestoreTimestampFromJson(json['creationDate']),
+      mainImageUrl: json['mainImageUrl'] as String,
     );
 
 Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
@@ -44,4 +45,5 @@ Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
       'category': instance.category,
       'usersVoted': instance.usersVoted,
       'creationDate': firestoreTimestampToJson(instance.creationDate),
+      'mainImageUrl': instance.mainImageUrl,
     };

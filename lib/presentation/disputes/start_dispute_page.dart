@@ -63,7 +63,7 @@ class StartDisputesPage extends StatelessWidget {
                   GeneralDisputesPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
-                      category: DisputeCategory.problems_with_payments.name
+                      category: DisputeCategory.damages_in_properties.name
                     )
                   )
                 )
@@ -83,7 +83,7 @@ class StartDisputesPage extends StatelessWidget {
                   GeneralDisputesPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
-                      category: DisputeCategory.problems_with_payments.name
+                      category: DisputeCategory.false_advertisement.name
                     )
                   )
                 )

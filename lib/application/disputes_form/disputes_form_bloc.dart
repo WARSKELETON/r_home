@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
 import 'package:r_home/domain/homes/home.dart';
@@ -39,7 +38,7 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
   StreamSubscription<List<Home>>? _myRentalHomesStreamSubscription;
 
   void _onInitialize(Initialize event, Emitter<DisputesFormState> emit) {
-    emit(state.copyWith(dispute: event.dispute));
+    emit(state.copyWith(dispute: event.dispute, isEditing: true));
 
     _myRentalsStreamSubscription = _rentalsRepository.watchAllWhereUserIsInvolved().listen(
       (rentals) => {

@@ -13,10 +13,8 @@ class ImageCarouselWidget extends StatelessWidget {
 
   const ImageCarouselWidget({Key? key, required this.title, required this.imagesPath}) : super(key: key);
 
-  selectImage(BuildContext context) async {
+  _selectImage(BuildContext context) async {
     List<XFile>? pickedFiles = await ImagePicker().pickMultiImage(
-      maxHeight: 100,
-      maxWidth: 100
     );
 
     if (pickedFiles == null) return;
@@ -26,11 +24,9 @@ class ImageCarouselWidget extends StatelessWidget {
     }
   }
 
-  takePicture(BuildContext context) async {
+  _takePicture(BuildContext context) async {
     final pickedFile = await ImagePicker().pickImage(
       source: ImageSource.camera,
-      maxHeight: 100,
-      maxWidth: 100
     );
 
     if (pickedFile == null) return;
@@ -56,7 +52,7 @@ class ImageCarouselWidget extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                takePicture(context);
+                _takePicture(context);
               },
             ),
             ListTile(
@@ -69,7 +65,7 @@ class ImageCarouselWidget extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                selectImage(context);
+                _selectImage(context);
               },
             )
           ],

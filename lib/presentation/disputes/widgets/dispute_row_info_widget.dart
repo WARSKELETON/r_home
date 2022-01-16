@@ -43,14 +43,41 @@ class DisputeListRowWidget extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.asset("assets/icons/dispute_alarm.png",
-                      width: 130,
+                  Container(
+                    height: 150,
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: dispute.mainImageUrl.isNotEmpty ?
+                          Image.network(
+                          dispute.mainImageUrl,
+                          width: MediaQuery.of(context).size.width * 0.35,
+                          loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: Transform.scale(
+                                scale: 0.5,
+                                child: CircularProgressIndicator(
+                                  value: loadingProgress.expectedTotalBytes != null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              ),
+                            );
+                          },
+                        ) : 
+                        Image.asset("assets/icons/home2.png"),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 15),
-                  Expanded(
+                  Container(
+                    height: 150,
+                    width: MediaQuery.of(context).size.width * 0.55,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,10 +109,12 @@ class DisputeListRowWidget extends StatelessWidget {
                           ),
                           description: dispute.issuerUsername,
                         ),
+                        const Spacer(),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10.0, right: 5.0),
+                          padding: const EdgeInsets.only(top: 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               if (opened) ...[
                                 ChipWidget(
