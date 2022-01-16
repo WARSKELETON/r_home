@@ -3180,6 +3180,7 @@ class _$MyHomesFormStateTearOff {
       {required List<LocalActivity> localActivities,
       required ActivityCategory? category,
       required Home home,
+      required List<LocationSuggestion> locations,
       required bool showErrorMessages,
       required bool isEditing,
       required bool isSaving,
@@ -3188,6 +3189,7 @@ class _$MyHomesFormStateTearOff {
       localActivities: localActivities,
       category: category,
       home: home,
+      locations: locations,
       showErrorMessages: showErrorMessages,
       isEditing: isEditing,
       isSaving: isSaving,
@@ -3204,6 +3206,7 @@ mixin _$MyHomesFormState {
   List<LocalActivity> get localActivities => throw _privateConstructorUsedError;
   ActivityCategory? get category => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
+  List<LocationSuggestion> get locations => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
@@ -3224,6 +3227,7 @@ abstract class $MyHomesFormStateCopyWith<$Res> {
       {List<LocalActivity> localActivities,
       ActivityCategory? category,
       Home home,
+      List<LocationSuggestion> locations,
       bool showErrorMessages,
       bool isEditing,
       bool isSaving,
@@ -3246,6 +3250,7 @@ class _$MyHomesFormStateCopyWithImpl<$Res>
     Object? localActivities = freezed,
     Object? category = freezed,
     Object? home = freezed,
+    Object? locations = freezed,
     Object? showErrorMessages = freezed,
     Object? isEditing = freezed,
     Object? isSaving = freezed,
@@ -3264,6 +3269,10 @@ class _$MyHomesFormStateCopyWithImpl<$Res>
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
+      locations: locations == freezed
+          ? _value.locations
+          : locations // ignore: cast_nullable_to_non_nullable
+              as List<LocationSuggestion>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -3302,6 +3311,7 @@ abstract class _$MyHomesFormStateCopyWith<$Res>
       {List<LocalActivity> localActivities,
       ActivityCategory? category,
       Home home,
+      List<LocationSuggestion> locations,
       bool showErrorMessages,
       bool isEditing,
       bool isSaving,
@@ -3327,6 +3337,7 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
     Object? localActivities = freezed,
     Object? category = freezed,
     Object? home = freezed,
+    Object? locations = freezed,
     Object? showErrorMessages = freezed,
     Object? isEditing = freezed,
     Object? isSaving = freezed,
@@ -3345,6 +3356,10 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
           ? _value.home
           : home // ignore: cast_nullable_to_non_nullable
               as Home,
+      locations: locations == freezed
+          ? _value.locations
+          : locations // ignore: cast_nullable_to_non_nullable
+              as List<LocationSuggestion>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -3372,6 +3387,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
       {required this.localActivities,
       required this.category,
       required this.home,
+      required this.locations,
       required this.showErrorMessages,
       required this.isEditing,
       required this.isSaving,
@@ -3384,6 +3400,8 @@ class _$_MyHomesFormState implements _MyHomesFormState {
   @override
   final Home home;
   @override
+  final List<LocationSuggestion> locations;
+  @override
   final bool showErrorMessages;
   @override
   final bool isEditing;
@@ -3394,7 +3412,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
 
   @override
   String toString() {
-    return 'MyHomesFormState(localActivities: $localActivities, category: $category, home: $home, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'MyHomesFormState(localActivities: $localActivities, category: $category, home: $home, locations: $locations, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -3406,6 +3424,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
                 .equals(other.localActivities, localActivities) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.home, home) &&
+            const DeepCollectionEquality().equals(other.locations, locations) &&
             const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality().equals(other.isEditing, isEditing) &&
@@ -3420,6 +3439,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
       const DeepCollectionEquality().hash(localActivities),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(home),
+      const DeepCollectionEquality().hash(locations),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isEditing),
       const DeepCollectionEquality().hash(isSaving),
@@ -3436,6 +3456,7 @@ abstract class _MyHomesFormState implements MyHomesFormState {
           {required List<LocalActivity> localActivities,
           required ActivityCategory? category,
           required Home home,
+          required List<LocationSuggestion> locations,
           required bool showErrorMessages,
           required bool isEditing,
           required bool isSaving,
@@ -3448,6 +3469,8 @@ abstract class _MyHomesFormState implements MyHomesFormState {
   ActivityCategory? get category;
   @override
   Home get home;
+  @override
+  List<LocationSuggestion> get locations;
   @override
   bool get showErrorMessages;
   @override

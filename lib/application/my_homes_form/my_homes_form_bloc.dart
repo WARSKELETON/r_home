@@ -7,6 +7,7 @@ import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
 import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
+import 'package:r_home/domain/locations/location_suggestion.dart';
 
 part 'my_homes_form_event.dart';
 part 'my_homes_form_state.dart';

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:r_home/application/my_homes_form/my_homes_form_bloc.dart';
+import 'package:r_home/domain/locations/location_suggestion.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/location_search.dart';
+import 'package:uuid/uuid.dart';
 
 class LocationField extends HookWidget {
   const LocationField({Key? key}) : super(key: key);
@@ -25,6 +28,20 @@ class LocationField extends HookWidget {
               labelText: 'Location',
               counterText: '',
             ),
+            onTap: () async {
+              final sessionToken = const Uuid().v4();
+              final LocationSuggestion? result = await showSearch(
+                context: context,
+                delegate: LocationSearch(sessionToken),
+              );
+
+              if (result != null) {
+                textEditingController.text = result.desc;
+                context
+                .read<MyHomesFormBloc>()
+                .add(MyHomesFormEvent.locationChanged(result.desc));
+              }
+            },
             onChanged: (value) => context
                 .read<MyHomesFormBloc>()
                 .add(MyHomesFormEvent.locationChanged(value)),
