@@ -21,6 +21,15 @@ class HomesRepository implements IHomesRepository {
   }
 
   @override
+  Stream<List<Home>> watchAllFiltered(String location) async* {
+    final colRef = _firestore
+        .collection(HOMES_COLLECTION)
+        .where("location", isEqualTo: location);
+
+    yield* colRef.snapshots().map((query) => query.toListHome());
+  }
+
+  @override
   Stream<List<Home>> watchAllFromHomeIds(List<String> homeIds) async* {
     final colRef = _firestore
         .collection(HOMES_COLLECTION)

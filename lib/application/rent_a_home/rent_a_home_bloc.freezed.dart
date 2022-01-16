@@ -3388,6 +3388,7 @@ class _$RentAHomeStateTearOff {
   _RentAHomeState call(
       {required DateTime? checkIn,
       required DateTime? checkOut,
+      required String location,
       required Rental idealRental,
       required Home selectedHome,
       required List<Home> homes,
@@ -3397,6 +3398,7 @@ class _$RentAHomeStateTearOff {
     return _RentAHomeState(
       checkIn: checkIn,
       checkOut: checkOut,
+      location: location,
       idealRental: idealRental,
       selectedHome: selectedHome,
       homes: homes,
@@ -3414,6 +3416,7 @@ const $RentAHomeState = _$RentAHomeStateTearOff();
 mixin _$RentAHomeState {
   DateTime? get checkIn => throw _privateConstructorUsedError;
   DateTime? get checkOut => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
   Rental get idealRental => throw _privateConstructorUsedError;
   Home get selectedHome => throw _privateConstructorUsedError;
   List<Home> get homes => throw _privateConstructorUsedError;
@@ -3435,6 +3438,7 @@ abstract class $RentAHomeStateCopyWith<$Res> {
   $Res call(
       {DateTime? checkIn,
       DateTime? checkOut,
+      String location,
       Rental idealRental,
       Home selectedHome,
       List<Home> homes,
@@ -3459,6 +3463,7 @@ class _$RentAHomeStateCopyWithImpl<$Res>
   $Res call({
     Object? checkIn = freezed,
     Object? checkOut = freezed,
+    Object? location = freezed,
     Object? idealRental = freezed,
     Object? selectedHome = freezed,
     Object? homes = freezed,
@@ -3475,6 +3480,10 @@ class _$RentAHomeStateCopyWithImpl<$Res>
           ? _value.checkOut
           : checkOut // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
       idealRental: idealRental == freezed
           ? _value.idealRental
           : idealRental // ignore: cast_nullable_to_non_nullable
@@ -3527,6 +3536,7 @@ abstract class _$RentAHomeStateCopyWith<$Res>
   $Res call(
       {DateTime? checkIn,
       DateTime? checkOut,
+      String location,
       Rental idealRental,
       Home selectedHome,
       List<Home> homes,
@@ -3555,6 +3565,7 @@ class __$RentAHomeStateCopyWithImpl<$Res>
   $Res call({
     Object? checkIn = freezed,
     Object? checkOut = freezed,
+    Object? location = freezed,
     Object? idealRental = freezed,
     Object? selectedHome = freezed,
     Object? homes = freezed,
@@ -3571,6 +3582,10 @@ class __$RentAHomeStateCopyWithImpl<$Res>
           ? _value.checkOut
           : checkOut // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
       idealRental: idealRental == freezed
           ? _value.idealRental
           : idealRental // ignore: cast_nullable_to_non_nullable
@@ -3605,6 +3620,7 @@ class _$_RentAHomeState implements _RentAHomeState {
   const _$_RentAHomeState(
       {required this.checkIn,
       required this.checkOut,
+      required this.location,
       required this.idealRental,
       required this.selectedHome,
       required this.homes,
@@ -3616,6 +3632,8 @@ class _$_RentAHomeState implements _RentAHomeState {
   final DateTime? checkIn;
   @override
   final DateTime? checkOut;
+  @override
+  final String location;
   @override
   final Rental idealRental;
   @override
@@ -3631,7 +3649,7 @@ class _$_RentAHomeState implements _RentAHomeState {
 
   @override
   String toString() {
-    return 'RentAHomeState(checkIn: $checkIn, checkOut: $checkOut, idealRental: $idealRental, selectedHome: $selectedHome, homes: $homes, showErrorMessages: $showErrorMessages, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'RentAHomeState(checkIn: $checkIn, checkOut: $checkOut, location: $location, idealRental: $idealRental, selectedHome: $selectedHome, homes: $homes, showErrorMessages: $showErrorMessages, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -3641,6 +3659,7 @@ class _$_RentAHomeState implements _RentAHomeState {
             other is _RentAHomeState &&
             const DeepCollectionEquality().equals(other.checkIn, checkIn) &&
             const DeepCollectionEquality().equals(other.checkOut, checkOut) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality()
                 .equals(other.idealRental, idealRental) &&
             const DeepCollectionEquality()
@@ -3658,6 +3677,7 @@ class _$_RentAHomeState implements _RentAHomeState {
       runtimeType,
       const DeepCollectionEquality().hash(checkIn),
       const DeepCollectionEquality().hash(checkOut),
+      const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(idealRental),
       const DeepCollectionEquality().hash(selectedHome),
       const DeepCollectionEquality().hash(homes),
@@ -3675,6 +3695,7 @@ abstract class _RentAHomeState implements RentAHomeState {
   const factory _RentAHomeState(
           {required DateTime? checkIn,
           required DateTime? checkOut,
+          required String location,
           required Rental idealRental,
           required Home selectedHome,
           required List<Home> homes,
@@ -3687,6 +3708,8 @@ abstract class _RentAHomeState implements RentAHomeState {
   DateTime? get checkIn;
   @override
   DateTime? get checkOut;
+  @override
+  String get location;
   @override
   Rental get idealRental;
   @override

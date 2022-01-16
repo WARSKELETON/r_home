@@ -18,7 +18,9 @@ import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/core/stepper_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/date_field_widget.dart';
+import 'package:r_home/presentation/rent_a_home/widgets/explore_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/payment_field_widget.dart';
+import 'package:r_home/presentation/rent_a_home/widgets/rent_stepper_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/rental_guests_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/select_home_field_widget.dart';
 
@@ -39,137 +41,22 @@ class RentAHomePage extends StatelessWidget {
                   RentalsRepository(
                       FirebaseFirestore.instance,
                       FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                          FirebaseFirestore.instance)), HomesRepository(
+                          FirebaseFirestore.instance)),
+                  HomesRepository(
                       FirebaseFirestore.instance,
                       FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
                           FirebaseFirestore.instance)))
                 ..add(RentAHomeEvent.initialize(optionOf(null))),
             ),
           ],
-          child: BlocBuilder<StepperBloc, StepperState>(
-            buildWhen: (p, c) => p.selectedIndex != c.selectedIndex,
+          child: BlocBuilder<RentAHomeBloc, RentAHomeState>(
             builder: (context, state) {
-              int currentIndex =
-                  context.read<StepperBloc>().state.selectedIndex;
-              DateTime? checkIn = context.watch<RentAHomeBloc>().state.checkIn;
-              DateTime? checkOut = context.watch<RentAHomeBloc>().state.checkOut;
-              int numAdults = context.watch<RentAHomeBloc>().state.idealRental.numAdults;
-              int numChildren = context.watch<RentAHomeBloc>().state.idealRental.numChildren;
-              int numPets = context.watch<RentAHomeBloc>().state.idealRental.numPets;
-              Home selectedHome = context.watch<RentAHomeBloc>().state.selectedHome;
-
-              String title = "";
-              switch (currentIndex) {
-                case 0:
-                  title = "When are you staying in this home?";
-                  break;
-                case 1:
-                  title =
-                      "How many guests?";
-                  break;
-                case 2:
-                  title = selectedHome.name != "" ? selectedHome.name : "Select a home";
-                  break;
-                case 3:
-                  title = "Confirm payment";
-                  break;
-                case 4:
-                  title = "Booked home successfully!";
-                  break;
-                default:
+              final location = context.watch<RentAHomeBloc>().state.location;
+              if (location != "") {
+                return const RentStepperWidget();
+              } else {
+                return const ExploreWidget();
               }
-
-              return Center(
-                child: Column(
-                  children: [
-                    StepperWidget(
-                      numberOfSteps: 4,
-                      totalWidth: 320,
-                      stepWidth: 30,
-                      separatorWidth: 50,
-                      title: title,
-                      titleAlignment: Alignment.center,
-                      titleTextAlignment: TextAlign.center,
-                    ),
-                    if (currentIndex == 0) ...[
-                      const DateField(),
-                    ] else if (currentIndex == 1) ...[
-                      const RentalGuestsField(),
-                    ] else if (currentIndex == 2) ...[
-                      const SelectHomeField(),
-                    ] else if (currentIndex == 3) ...[
-                      const PaymentField(),
-                    ] else if (currentIndex == 4) ...[
-                      OperationSuccessfulWidget(
-                          buttonText: "Back to My Stays",
-                          onPressed: () => AutoRouter.of(context)
-                              .pop()),
-                    ],
-                    if (currentIndex != 4) ...[
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              RoundedButtonWidget(
-                                text: 'Previous',
-                                disabled: currentIndex == 0,
-                                onPressed: () {
-                                    if (currentIndex == 2 && selectedHome.name != "") {
-                                      context
-                                      .read<RentAHomeBloc>()
-                                      .add(RentAHomeEvent.homeChanged(Home.empty()));
-                                    } else {
-                                      context
-                                      .read<StepperBloc>()
-                                      .add(const StepperEvent.decrementIndex());
-                                    }
-                                  },
-                                backgroundColor: currentIndex == 0
-                                    ? Colors.grey
-                                    : Colors.white,
-                                fontWeight: FontWeight.w400,
-                                textColor: currentIndex == 0
-                                    ? Colors.white
-                                    : Theme.of(context).colorScheme.primaryBlue,
-                                fontSize: 16,
-                                height: 35,
-                                width: 120,
-                              ),
-                              BlocBuilder<RentAHomeBloc, RentAHomeState>(
-                                builder: (context, state) {
-                                  return RoundedButtonWidget(
-                                    text: 'Next',
-                                    onPressed: () {
-                                      if (currentIndex == 1) {
-                                        context.read<RentAHomeBloc>().add(const RentAHomeEvent.watchAvailableHomes());
-                                      } else if (currentIndex == 3) {
-                                        context.read<RentAHomeBloc>().add(const RentAHomeEvent.submit());
-                                      }
-                                      context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
-                                    },
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .primaryBlue,
-                                    disabled: (currentIndex == 0 && (checkIn == null || checkOut == null)) || (currentIndex == 1 && (numAdults == 0 && numChildren == 0 && numPets == 0)) || (currentIndex == 2 && selectedHome.name == ""),
-                                    fontWeight: FontWeight.w400,
-                                    textColor: Colors.white,
-                                    fontSize: 16,
-                                    height: 35,
-                                    width: 120,
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ]
-                  ],
-                ),
-              );
             },
           )),
       bottomNavigationBar: const BottomBarWidget(),

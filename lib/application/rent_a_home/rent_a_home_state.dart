@@ -5,6 +5,7 @@ abstract class RentAHomeState with _$RentAHomeState {
   const factory RentAHomeState({
     required DateTime? checkIn,
     required DateTime? checkOut,
+    required String location,
     required Rental idealRental,
     required Home selectedHome,
     required List<Home> homes,
@@ -18,6 +19,7 @@ abstract class RentAHomeState with _$RentAHomeState {
     checkOut: null,
     idealRental: Rental.empty(),
     selectedHome: Home.empty(),
+    location: "",
     homes: [],
     showErrorMessages: false,
     isSaving: false,

@@ -15,7 +15,7 @@ class LocationsFacade implements ILocationsFacade {
   @override
   Future<List<LocationSuggestion>> fetchSuggestions(String input, String lang) async {
     final request =
-        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&types=(regions)&language=$lang&components=country:pt&key=$ANDROID&sessiontoken=$sessionToken';
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&language=$lang&components=country:pt&key=$ANDROID&sessiontoken=$sessionToken';
     final response = await client.get(Uri.parse(request));
 
     if (response.statusCode == 200) {

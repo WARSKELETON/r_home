@@ -11,6 +11,7 @@ class RoundedCardWidget extends StatelessWidget {
   final void Function()? onPressed;
   final bool? selected;
   final bool? booked;
+  final bool? center;
 
   const RoundedCardWidget({
     Key? key,
@@ -21,7 +22,8 @@ class RoundedCardWidget extends StatelessWidget {
     required this.height,
     required this.onPressed, 
     this.selected, 
-    this.booked,
+    this.booked, 
+    this.center,
   }) : super(key: key);
 
   @override
@@ -108,7 +110,7 @@ class RoundedCardWidget extends StatelessWidget {
                       width: width,
                       child: Text(
                         cutTitle,
-                        textAlign: TextAlign.center,
+                        textAlign: center == null ? TextAlign.center : TextAlign.start,
                         maxLines: 2,
                         style: const TextStyle(
                           color: Colors.black,
