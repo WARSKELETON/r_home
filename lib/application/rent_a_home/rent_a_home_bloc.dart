@@ -23,6 +23,7 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
     on<LocationChanged>(_onLocationChanged);
     on<PaymentMethodChanged>(_onPaymentMethodChanged);
     on<HomeChanged>(_onHomeChanged);
+    on<ImagesReceived>(_onImagesReceived);
     on<CheckInChanged>(_onCheckInChanged);
     on<CheckOutChanged>(_onCheckOutChanged);
     on<AdultsAdd>(_onAdultsAdd);
@@ -70,12 +71,21 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
     ));
   }
 
+  void _onImagesReceived(ImagesReceived event, Emitter<RentAHomeState> emit) {
+    emit(state.copyWith(homeImages: event.images));
+  }
+
   void _onHomeChanged(HomeChanged event, Emitter<RentAHomeState> emit) {
     emit(
       state.copyWith(
         selectedHome: event.home
       )
     );
+
+    _homesRepository.getHomeImages(event.home.uuid)
+      .then((images) => {
+        add(RentAHomeEvent.imagesReceived(images))
+      });
   }
 
   void _onCheckInChanged(CheckInChanged event, Emitter<RentAHomeState> emit) {

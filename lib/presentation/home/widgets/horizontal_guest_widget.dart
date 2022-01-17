@@ -58,7 +58,8 @@ class HorizontalGuestWidget extends StatelessWidget {
                     child: RoundedCardWidget(
                       title: _home.name,
                       subtitle: rentals[index].getDateString(),
-                      image: "assets/icons/home${1}.png",
+                      image: _home.mainImageUrl,
+                      network: true,
                       width: 155,
                       height: 155,
                       onPressed: () => AutoRouter.of(context).push(HomeDetailsPageRoute(homeUuid: _home.uuid, rentalUuid: rentals[index].homeId == "" ? "" : rentals[index].uuid)),

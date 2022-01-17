@@ -47,6 +47,12 @@ class _$RentAHomeEventTearOff {
     );
   }
 
+  ImagesReceived imagesReceived(List<String> images) {
+    return ImagesReceived(
+      images,
+    );
+  }
+
   HomeChanged homeChanged(Home home) {
     return HomeChanged(
       home,
@@ -119,6 +125,7 @@ mixin _$RentAHomeEvent {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -138,6 +145,7 @@ mixin _$RentAHomeEvent {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -157,6 +165,7 @@ mixin _$RentAHomeEvent {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -178,6 +187,7 @@ mixin _$RentAHomeEvent {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -197,6 +207,7 @@ mixin _$RentAHomeEvent {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -216,6 +227,7 @@ mixin _$RentAHomeEvent {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -327,6 +339,7 @@ class _$Initialize implements Initialize {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -349,6 +362,7 @@ class _$Initialize implements Initialize {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -371,6 +385,7 @@ class _$Initialize implements Initialize {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -398,6 +413,7 @@ class _$Initialize implements Initialize {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -420,6 +436,7 @@ class _$Initialize implements Initialize {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -442,6 +459,7 @@ class _$Initialize implements Initialize {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -519,6 +537,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -541,6 +560,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -563,6 +583,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -590,6 +611,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -612,6 +634,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -634,6 +657,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -729,6 +753,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -751,6 +776,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -773,6 +799,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -800,6 +827,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -822,6 +850,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -844,6 +873,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -944,6 +974,7 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -966,6 +997,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -988,6 +1020,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1015,6 +1048,7 @@ class _$LocationChanged implements LocationChanged {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -1037,6 +1071,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1059,6 +1094,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1160,6 +1196,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -1182,6 +1219,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1204,6 +1242,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1231,6 +1270,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -1253,6 +1293,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1275,6 +1316,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1301,6 +1343,226 @@ abstract class PaymentMethodChanged implements RentAHomeEvent {
   String get paymentMethod;
   @JsonKey(ignore: true)
   $PaymentMethodChangedCopyWith<PaymentMethodChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagesReceivedCopyWith<$Res> {
+  factory $ImagesReceivedCopyWith(
+          ImagesReceived value, $Res Function(ImagesReceived) then) =
+      _$ImagesReceivedCopyWithImpl<$Res>;
+  $Res call({List<String> images});
+}
+
+/// @nodoc
+class _$ImagesReceivedCopyWithImpl<$Res>
+    extends _$RentAHomeEventCopyWithImpl<$Res>
+    implements $ImagesReceivedCopyWith<$Res> {
+  _$ImagesReceivedCopyWithImpl(
+      ImagesReceived _value, $Res Function(ImagesReceived) _then)
+      : super(_value, (v) => _then(v as ImagesReceived));
+
+  @override
+  ImagesReceived get _value => super._value as ImagesReceived;
+
+  @override
+  $Res call({
+    Object? images = freezed,
+  }) {
+    return _then(ImagesReceived(
+      images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImagesReceived implements ImagesReceived {
+  const _$ImagesReceived(this.images);
+
+  @override
+  final List<String> images;
+
+  @override
+  String toString() {
+    return 'RentAHomeEvent.imagesReceived(images: $images)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImagesReceived &&
+            const DeepCollectionEquality().equals(other.images, images));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(images));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
+      _$ImagesReceivedCopyWithImpl<ImagesReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
+    required TResult Function() watchAvailableHomes,
+    required TResult Function(List<Home> homes) availableHomesReceived,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(Home home) homeChanged,
+    required TResult Function(DateTime? checkIn) checkInChanged,
+    required TResult Function(DateTime? checkOut) checkOutChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return imagesReceived(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return imagesReceived?.call(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
+    TResult Function()? watchAvailableHomes,
+    TResult Function(List<Home> homes)? availableHomesReceived,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(Home home)? homeChanged,
+    TResult Function(DateTime? checkIn)? checkInChanged,
+    TResult Function(DateTime? checkOut)? checkOutChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(images);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(WatchAvailableHomes value) watchAvailableHomes,
+    required TResult Function(AvailableHomesReceived value)
+        availableHomesReceived,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(HomeChanged value) homeChanged,
+    required TResult Function(CheckInChanged value) checkInChanged,
+    required TResult Function(CheckOutChanged value) checkOutChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return imagesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return imagesReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(WatchAvailableHomes value)? watchAvailableHomes,
+    TResult Function(AvailableHomesReceived value)? availableHomesReceived,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(CheckInChanged value)? checkInChanged,
+    TResult Function(CheckOutChanged value)? checkOutChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagesReceived implements RentAHomeEvent {
+  const factory ImagesReceived(List<String> images) = _$ImagesReceived;
+
+  List<String> get images;
+  @JsonKey(ignore: true)
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1383,6 +1645,7 @@ class _$HomeChanged implements HomeChanged {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -1405,6 +1668,7 @@ class _$HomeChanged implements HomeChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1427,6 +1691,7 @@ class _$HomeChanged implements HomeChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1454,6 +1719,7 @@ class _$HomeChanged implements HomeChanged {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -1476,6 +1742,7 @@ class _$HomeChanged implements HomeChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1498,6 +1765,7 @@ class _$HomeChanged implements HomeChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1597,6 +1865,7 @@ class _$CheckInChanged implements CheckInChanged {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -1619,6 +1888,7 @@ class _$CheckInChanged implements CheckInChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1641,6 +1911,7 @@ class _$CheckInChanged implements CheckInChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1668,6 +1939,7 @@ class _$CheckInChanged implements CheckInChanged {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -1690,6 +1962,7 @@ class _$CheckInChanged implements CheckInChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1712,6 +1985,7 @@ class _$CheckInChanged implements CheckInChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1811,6 +2085,7 @@ class _$CheckOutChanged implements CheckOutChanged {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -1833,6 +2108,7 @@ class _$CheckOutChanged implements CheckOutChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1855,6 +2131,7 @@ class _$CheckOutChanged implements CheckOutChanged {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -1882,6 +2159,7 @@ class _$CheckOutChanged implements CheckOutChanged {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -1904,6 +2182,7 @@ class _$CheckOutChanged implements CheckOutChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -1926,6 +2205,7 @@ class _$CheckOutChanged implements CheckOutChanged {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2022,6 +2302,7 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -2044,6 +2325,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2066,6 +2348,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2093,6 +2376,7 @@ class _$AdultsAdd implements AdultsAdd {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -2115,6 +2399,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2137,6 +2422,7 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2236,6 +2522,7 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -2258,6 +2545,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2280,6 +2568,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2307,6 +2596,7 @@ class _$AdultsRemove implements AdultsRemove {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -2329,6 +2619,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2351,6 +2642,7 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2449,6 +2741,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -2471,6 +2764,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2493,6 +2787,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2520,6 +2815,7 @@ class _$ChildrenAdd implements ChildrenAdd {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -2542,6 +2838,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2564,6 +2861,7 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2663,6 +2961,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -2685,6 +2984,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2707,6 +3007,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2734,6 +3035,7 @@ class _$ChildrenRemove implements ChildrenRemove {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -2756,6 +3058,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2778,6 +3081,7 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2874,6 +3178,7 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -2896,6 +3201,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2918,6 +3224,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -2945,6 +3252,7 @@ class _$PetsAdd implements PetsAdd {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -2967,6 +3275,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -2989,6 +3298,7 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -3085,6 +3395,7 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -3107,6 +3418,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -3129,6 +3441,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -3156,6 +3469,7 @@ class _$PetsRemove implements PetsRemove {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -3178,6 +3492,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -3200,6 +3515,7 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -3272,6 +3588,7 @@ class _$Submit implements Submit {
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
     required TResult Function(String paymentMethod) paymentMethodChanged,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(Home home) homeChanged,
     required TResult Function(DateTime? checkIn) checkInChanged,
     required TResult Function(DateTime? checkOut) checkOutChanged,
@@ -3294,6 +3611,7 @@ class _$Submit implements Submit {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -3316,6 +3634,7 @@ class _$Submit implements Submit {
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
     TResult Function(String paymentMethod)? paymentMethodChanged,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(Home home)? homeChanged,
     TResult Function(DateTime? checkIn)? checkInChanged,
     TResult Function(DateTime? checkOut)? checkOutChanged,
@@ -3343,6 +3662,7 @@ class _$Submit implements Submit {
         availableHomesReceived,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PaymentMethodChanged value) paymentMethodChanged,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(HomeChanged value) homeChanged,
     required TResult Function(CheckInChanged value) checkInChanged,
     required TResult Function(CheckOutChanged value) checkOutChanged,
@@ -3365,6 +3685,7 @@ class _$Submit implements Submit {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -3387,6 +3708,7 @@ class _$Submit implements Submit {
     TResult Function(AvailableHomesReceived value)? availableHomesReceived,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PaymentMethodChanged value)? paymentMethodChanged,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(HomeChanged value)? homeChanged,
     TResult Function(CheckInChanged value)? checkInChanged,
     TResult Function(CheckOutChanged value)? checkOutChanged,
@@ -3420,6 +3742,7 @@ class _$RentAHomeStateTearOff {
       required String location,
       required Rental idealRental,
       required Home selectedHome,
+      required List<String> homeImages,
       required List<Home> homes,
       required bool showErrorMessages,
       required bool isSaving,
@@ -3430,6 +3753,7 @@ class _$RentAHomeStateTearOff {
       location: location,
       idealRental: idealRental,
       selectedHome: selectedHome,
+      homeImages: homeImages,
       homes: homes,
       showErrorMessages: showErrorMessages,
       isSaving: isSaving,
@@ -3448,6 +3772,7 @@ mixin _$RentAHomeState {
   String get location => throw _privateConstructorUsedError;
   Rental get idealRental => throw _privateConstructorUsedError;
   Home get selectedHome => throw _privateConstructorUsedError;
+  List<String> get homeImages => throw _privateConstructorUsedError;
   List<Home> get homes => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
@@ -3470,6 +3795,7 @@ abstract class $RentAHomeStateCopyWith<$Res> {
       String location,
       Rental idealRental,
       Home selectedHome,
+      List<String> homeImages,
       List<Home> homes,
       bool showErrorMessages,
       bool isSaving,
@@ -3495,6 +3821,7 @@ class _$RentAHomeStateCopyWithImpl<$Res>
     Object? location = freezed,
     Object? idealRental = freezed,
     Object? selectedHome = freezed,
+    Object? homeImages = freezed,
     Object? homes = freezed,
     Object? showErrorMessages = freezed,
     Object? isSaving = freezed,
@@ -3521,6 +3848,10 @@ class _$RentAHomeStateCopyWithImpl<$Res>
           ? _value.selectedHome
           : selectedHome // ignore: cast_nullable_to_non_nullable
               as Home,
+      homeImages: homeImages == freezed
+          ? _value.homeImages
+          : homeImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       homes: homes == freezed
           ? _value.homes
           : homes // ignore: cast_nullable_to_non_nullable
@@ -3568,6 +3899,7 @@ abstract class _$RentAHomeStateCopyWith<$Res>
       String location,
       Rental idealRental,
       Home selectedHome,
+      List<String> homeImages,
       List<Home> homes,
       bool showErrorMessages,
       bool isSaving,
@@ -3597,6 +3929,7 @@ class __$RentAHomeStateCopyWithImpl<$Res>
     Object? location = freezed,
     Object? idealRental = freezed,
     Object? selectedHome = freezed,
+    Object? homeImages = freezed,
     Object? homes = freezed,
     Object? showErrorMessages = freezed,
     Object? isSaving = freezed,
@@ -3623,6 +3956,10 @@ class __$RentAHomeStateCopyWithImpl<$Res>
           ? _value.selectedHome
           : selectedHome // ignore: cast_nullable_to_non_nullable
               as Home,
+      homeImages: homeImages == freezed
+          ? _value.homeImages
+          : homeImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       homes: homes == freezed
           ? _value.homes
           : homes // ignore: cast_nullable_to_non_nullable
@@ -3652,6 +3989,7 @@ class _$_RentAHomeState implements _RentAHomeState {
       required this.location,
       required this.idealRental,
       required this.selectedHome,
+      required this.homeImages,
       required this.homes,
       required this.showErrorMessages,
       required this.isSaving,
@@ -3668,6 +4006,8 @@ class _$_RentAHomeState implements _RentAHomeState {
   @override
   final Home selectedHome;
   @override
+  final List<String> homeImages;
+  @override
   final List<Home> homes;
   @override
   final bool showErrorMessages;
@@ -3678,7 +4018,7 @@ class _$_RentAHomeState implements _RentAHomeState {
 
   @override
   String toString() {
-    return 'RentAHomeState(checkIn: $checkIn, checkOut: $checkOut, location: $location, idealRental: $idealRental, selectedHome: $selectedHome, homes: $homes, showErrorMessages: $showErrorMessages, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'RentAHomeState(checkIn: $checkIn, checkOut: $checkOut, location: $location, idealRental: $idealRental, selectedHome: $selectedHome, homeImages: $homeImages, homes: $homes, showErrorMessages: $showErrorMessages, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -3693,6 +4033,8 @@ class _$_RentAHomeState implements _RentAHomeState {
                 .equals(other.idealRental, idealRental) &&
             const DeepCollectionEquality()
                 .equals(other.selectedHome, selectedHome) &&
+            const DeepCollectionEquality()
+                .equals(other.homeImages, homeImages) &&
             const DeepCollectionEquality().equals(other.homes, homes) &&
             const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
@@ -3709,6 +4051,7 @@ class _$_RentAHomeState implements _RentAHomeState {
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(idealRental),
       const DeepCollectionEquality().hash(selectedHome),
+      const DeepCollectionEquality().hash(homeImages),
       const DeepCollectionEquality().hash(homes),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(isSaving),
@@ -3727,6 +4070,7 @@ abstract class _RentAHomeState implements RentAHomeState {
           required String location,
           required Rental idealRental,
           required Home selectedHome,
+          required List<String> homeImages,
           required List<Home> homes,
           required bool showErrorMessages,
           required bool isSaving,
@@ -3743,6 +4087,8 @@ abstract class _RentAHomeState implements RentAHomeState {
   Rental get idealRental;
   @override
   Home get selectedHome;
+  @override
+  List<String> get homeImages;
   @override
   List<Home> get homes;
   @override

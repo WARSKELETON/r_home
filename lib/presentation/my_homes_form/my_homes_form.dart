@@ -78,22 +78,26 @@ class MyHomesForm extends StatelessWidget {
                 )
               ],
             ),
-            body: Expanded(
-              child: Form(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const HomeNameField(),
-                      const LocationField(),
-                      const PriceField(),
-                      const GuestsField(),
-                      CarouselWidget(title: "Selected Activities", localActivities: localActivities),
-                      if (!isEditing) ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
-                    ],
+            body: Column(
+              children: [
+                Expanded(
+                  child: Form(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const HomeNameField(),
+                          const LocationField(),
+                          const PriceField(),
+                          const GuestsField(),
+                          CarouselWidget(title: "Selected Activities", localActivities: localActivities),
+                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
+                        ],
+                      ),
+                    )
                   ),
-                )
-              ),
+                ),
+              ],
             ),
             bottomNavigationBar: const BottomBarWidget(),
           );
