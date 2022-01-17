@@ -31,13 +31,13 @@ class RoundedCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cutTitle =
-      // title.length > 22 ?
-      // (subtitle == null ?
-      //   title.substring(0, 22) + "..." :
-      //   title.substring(0, 17) + "...") :
+      title.length > 22 ?
+      (subtitle == null ?
+        title.substring(0, 22) + "..." :
+        title.substring(0, 17) + "...") :
       title;
 
-    final cutSubtitle = subtitle; //!= null ? (subtitle!.length > 18 ? subtitle!.substring(0, 17) + "..." : subtitle) : null;
+    final cutSubtitle = subtitle != null ? (subtitle!.length > 18 ? subtitle!.substring(0, 17) + "..." : subtitle) : null;
 
     return InkWell(
       splashColor: const Color.fromRGBO(128,128,128, 0.3),

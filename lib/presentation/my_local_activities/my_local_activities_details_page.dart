@@ -102,8 +102,7 @@ class MyLocalActivityDetailsPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: 230,
                   ),
-                  ImageIndexWidget(
-                      numberOfImages: _images.length, activePage: _imageIndex),
+                  ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
                   Padding(
                     padding: const EdgeInsets.only(
                         top: 15.0, right: 15.0, left: 15.0),
