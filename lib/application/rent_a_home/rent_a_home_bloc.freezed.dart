@@ -18,9 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RentAHomeEventTearOff {
   const _$RentAHomeEventTearOff();
 
-  Initialize initialize(Option<Rental> optionOf) {
+  Initialize initialize(Option<Rental> optionOf, String? location) {
     return Initialize(
       optionOf,
+      location,
     );
   }
 
@@ -112,7 +113,8 @@ const $RentAHomeEvent = _$RentAHomeEventTearOff();
 mixin _$RentAHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -131,7 +133,7 @@ mixin _$RentAHomeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -150,7 +152,7 @@ mixin _$RentAHomeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -251,7 +253,7 @@ abstract class $InitializeCopyWith<$Res> {
   factory $InitializeCopyWith(
           Initialize value, $Res Function(Initialize) then) =
       _$InitializeCopyWithImpl<$Res>;
-  $Res call({Option<Rental> optionOf});
+  $Res call({Option<Rental> optionOf, String? location});
 }
 
 /// @nodoc
@@ -266,12 +268,17 @@ class _$InitializeCopyWithImpl<$Res> extends _$RentAHomeEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? optionOf = freezed,
+    Object? location = freezed,
   }) {
     return _then(Initialize(
       optionOf == freezed
           ? _value.optionOf
           : optionOf // ignore: cast_nullable_to_non_nullable
               as Option<Rental>,
+      location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -279,14 +286,16 @@ class _$InitializeCopyWithImpl<$Res> extends _$RentAHomeEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Initialize implements Initialize {
-  const _$Initialize(this.optionOf);
+  const _$Initialize(this.optionOf, this.location);
 
   @override
   final Option<Rental> optionOf;
+  @override
+  final String? location;
 
   @override
   String toString() {
-    return 'RentAHomeEvent.initialize(optionOf: $optionOf)';
+    return 'RentAHomeEvent.initialize(optionOf: $optionOf, location: $location)';
   }
 
   @override
@@ -294,12 +303,15 @@ class _$Initialize implements Initialize {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Initialize &&
-            const DeepCollectionEquality().equals(other.optionOf, optionOf));
+            const DeepCollectionEquality().equals(other.optionOf, optionOf) &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(optionOf));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(optionOf),
+      const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -309,7 +321,8 @@ class _$Initialize implements Initialize {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -325,13 +338,13 @@ class _$Initialize implements Initialize {
     required TResult Function(int decrement) petsRemove,
     required TResult Function() submit,
   }) {
-    return initialize(optionOf);
+    return initialize(optionOf, location);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -347,13 +360,13 @@ class _$Initialize implements Initialize {
     TResult Function(int decrement)? petsRemove,
     TResult Function()? submit,
   }) {
-    return initialize?.call(optionOf);
+    return initialize?.call(optionOf, location);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -371,7 +384,7 @@ class _$Initialize implements Initialize {
     required TResult orElse(),
   }) {
     if (initialize != null) {
-      return initialize(optionOf);
+      return initialize(optionOf, location);
     }
     return orElse();
   }
@@ -449,9 +462,11 @@ class _$Initialize implements Initialize {
 }
 
 abstract class Initialize implements RentAHomeEvent {
-  const factory Initialize(Option<Rental> optionOf) = _$Initialize;
+  const factory Initialize(Option<Rental> optionOf, String? location) =
+      _$Initialize;
 
   Option<Rental> get optionOf;
+  String? get location;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
       throw _privateConstructorUsedError;
@@ -498,7 +513,8 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -520,7 +536,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -542,7 +558,7 @@ class _$WatchAvailableHomes implements WatchAvailableHomes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -707,7 +723,8 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -729,7 +746,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -751,7 +768,7 @@ class _$AvailableHomesReceived implements AvailableHomesReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -921,7 +938,8 @@ class _$LocationChanged implements LocationChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -943,7 +961,7 @@ class _$LocationChanged implements LocationChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -965,7 +983,7 @@ class _$LocationChanged implements LocationChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1136,7 +1154,8 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -1158,7 +1177,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1180,7 +1199,7 @@ class _$PaymentMethodChanged implements PaymentMethodChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1358,7 +1377,8 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -1380,7 +1400,7 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1402,7 +1422,7 @@ class _$HomeChanged implements HomeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1571,7 +1591,8 @@ class _$CheckInChanged implements CheckInChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -1593,7 +1614,7 @@ class _$CheckInChanged implements CheckInChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1615,7 +1636,7 @@ class _$CheckInChanged implements CheckInChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1784,7 +1805,8 @@ class _$CheckOutChanged implements CheckOutChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -1806,7 +1828,7 @@ class _$CheckOutChanged implements CheckOutChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1828,7 +1850,7 @@ class _$CheckOutChanged implements CheckOutChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -1994,7 +2016,8 @@ class _$AdultsAdd implements AdultsAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -2016,7 +2039,7 @@ class _$AdultsAdd implements AdultsAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2038,7 +2061,7 @@ class _$AdultsAdd implements AdultsAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2207,7 +2230,8 @@ class _$AdultsRemove implements AdultsRemove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -2229,7 +2253,7 @@ class _$AdultsRemove implements AdultsRemove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2251,7 +2275,7 @@ class _$AdultsRemove implements AdultsRemove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2419,7 +2443,8 @@ class _$ChildrenAdd implements ChildrenAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -2441,7 +2466,7 @@ class _$ChildrenAdd implements ChildrenAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2463,7 +2488,7 @@ class _$ChildrenAdd implements ChildrenAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2632,7 +2657,8 @@ class _$ChildrenRemove implements ChildrenRemove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -2654,7 +2680,7 @@ class _$ChildrenRemove implements ChildrenRemove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2676,7 +2702,7 @@ class _$ChildrenRemove implements ChildrenRemove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2842,7 +2868,8 @@ class _$PetsAdd implements PetsAdd {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -2864,7 +2891,7 @@ class _$PetsAdd implements PetsAdd {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -2886,7 +2913,7 @@ class _$PetsAdd implements PetsAdd {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -3052,7 +3079,8 @@ class _$PetsRemove implements PetsRemove {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -3074,7 +3102,7 @@ class _$PetsRemove implements PetsRemove {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -3096,7 +3124,7 @@ class _$PetsRemove implements PetsRemove {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -3238,7 +3266,8 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Rental> optionOf) initialize,
+    required TResult Function(Option<Rental> optionOf, String? location)
+        initialize,
     required TResult Function() watchAvailableHomes,
     required TResult Function(List<Home> homes) availableHomesReceived,
     required TResult Function(String location) locationChanged,
@@ -3260,7 +3289,7 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,
@@ -3282,7 +3311,7 @@ class _$Submit implements Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Rental> optionOf)? initialize,
+    TResult Function(Option<Rental> optionOf, String? location)? initialize,
     TResult Function()? watchAvailableHomes,
     TResult Function(List<Home> homes)? availableHomesReceived,
     TResult Function(String location)? locationChanged,

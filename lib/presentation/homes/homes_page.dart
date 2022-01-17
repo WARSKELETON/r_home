@@ -34,7 +34,7 @@ class HomesPage extends StatelessWidget {
               if (currentUser.role == "guest") ...[
                 IconButton(
                   onPressed: () =>
-                      AutoRouter.of(context).push(const RentAHomePageRoute()),
+                      AutoRouter.of(context).push(RentAHomePageRoute()),
                   icon: const Icon(Icons.add),
                   splashRadius: 20,
                 )

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,25 +6,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/rent_a_home/rent_a_home_bloc.dart';
 import 'package:r_home/application/stepper/stepper_bloc.dart';
-import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/core/operation_successful_widget.dart';
-import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/core/rounded_button_widget.dart';
-import 'package:r_home/presentation/core/stepper_widget.dart';
-import 'package:r_home/presentation/rent_a_home/widgets/date_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/explore_widget.dart';
-import 'package:r_home/presentation/rent_a_home/widgets/payment_field_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/rent_stepper_widget.dart';
-import 'package:r_home/presentation/rent_a_home/widgets/rental_guests_field_widget.dart';
-import 'package:r_home/presentation/rent_a_home/widgets/select_home_field_widget.dart';
 
 class RentAHomePage extends StatelessWidget {
-  const RentAHomePage({Key? key}) : super(key: key);
+  final String? location;
+
+  const RentAHomePage({Key? key, this.location}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +38,7 @@ class RentAHomePage extends StatelessWidget {
                       FirebaseFirestore.instance,
                       FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
                           FirebaseFirestore.instance)))
-                ..add(RentAHomeEvent.initialize(optionOf(null))),
+                ..add(RentAHomeEvent.initialize(optionOf(null), location)),
             ),
           ],
           child: BlocBuilder<RentAHomeBloc, RentAHomeState>(

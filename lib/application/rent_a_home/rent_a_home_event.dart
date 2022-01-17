@@ -2,7 +2,7 @@ part of 'rent_a_home_bloc.dart';
 
 @freezed
 class RentAHomeEvent with _$RentAHomeEvent {
-  const factory  RentAHomeEvent.initialize(Option<Rental> optionOf) = Initialize;
+  const factory  RentAHomeEvent.initialize(Option<Rental> optionOf, String? location) = Initialize;
   const factory  RentAHomeEvent.watchAvailableHomes() = WatchAvailableHomes;
   const factory  RentAHomeEvent.availableHomesReceived(List<Home> homes) = AvailableHomesReceived;
   const factory  RentAHomeEvent.locationChanged(String location) = LocationChanged;

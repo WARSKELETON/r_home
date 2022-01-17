@@ -14,7 +14,6 @@ class HomeProducerWidget extends StatelessWidget {
           height: 275,
           child: HorizontalScrollWidget(
               title: "My Activities",
-              items: const [1, 2, 3, 4],
               onPressed: () => AutoRouter.of(context).push(const MyLocalActivitiesPageRoute())),
         ),
       ],

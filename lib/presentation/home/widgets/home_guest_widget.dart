@@ -14,8 +14,9 @@ class HomeGuestWidget extends StatelessWidget {
           height: 275,
           child: HorizontalScrollWidget(
               title: "Places to Stay",
-              items: const [1, 2, 3, 4],
-              onPressed: () => AutoRouter.of(context).push(const RentAHomePageRoute())),
+              isExplore: true,
+              onPressed: () =>
+                  AutoRouter.of(context).push(RentAHomePageRoute())),
         ),
         const Divider(
           thickness: 8,
@@ -25,10 +26,12 @@ class HomeGuestWidget extends StatelessWidget {
         SizedBox(
           height: 275,
           child: HorizontalScrollWidget(
-              title: "My Stays",
-              items: const [1, 2, 3, 4],
-              onPressed: () => AutoRouter.of(context).push(HomesPageRoute())),
-        ),
+                  title: "My Stays",
+                  onPressed: () =>
+                      AutoRouter.of(context).push(HomesPageRoute()
+                )
+            )
+          ),
       ],
     );
   }

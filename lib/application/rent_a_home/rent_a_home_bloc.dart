@@ -37,6 +37,10 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
   StreamSubscription<List<Home>>? _homesStreamSubscription;
 
   void _onInitialize(Initialize event, Emitter<RentAHomeState> emit) {
+    if (event.location != null) {
+      add(RentAHomeEvent.locationChanged(event.location!));
+    }
+
     emit(state);
   }
 
