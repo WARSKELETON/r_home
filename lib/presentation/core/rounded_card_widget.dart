@@ -6,6 +6,7 @@ class RoundedCardWidget extends StatelessWidget {
   final String title;
   final String? subtitle;
   final String image;
+  final bool? network;
   final double width;
   final double height;
   final void Function()? onPressed;
@@ -18,6 +19,7 @@ class RoundedCardWidget extends StatelessWidget {
     required this.title,
     this.subtitle,
     required this.image,
+    this.network,
     required this.width,
     required this.height,
     required this.onPressed, 
@@ -75,7 +77,7 @@ class RoundedCardWidget extends StatelessWidget {
                       ),
                     ],
                     Ink.image(
-                      image: AssetImage(image),
+                      image: network == null || !network! ? AssetImage(image) as ImageProvider<Object> : NetworkImage(image),
                       fit: BoxFit.cover,
                       colorFilter: selected == null ? null : (selected! ? ColorFilter.mode(Theme.of(context).colorScheme.primaryBlue.withOpacity(0.5), BlendMode.darken) : null),
                       width: width,

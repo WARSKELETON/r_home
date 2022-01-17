@@ -35,160 +35,160 @@ class GeneralDisputesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (BuildContext context) => StepperBloc(),
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => StepperBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DisputesFormBloc(
+            DisputesRepository(
+              FirebaseFirestore.instance,
+              FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance
+              ),
+              FirebaseStorage.instance
             ),
-            BlocProvider(
-              create: (context) => DisputesFormBloc(
-                DisputesRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(
-                    FirebaseAuth.instance,
-                    GoogleSignIn(),
-                    FirebaseFirestore.instance
-                  ),
-                  FirebaseStorage.instance
-                ),
-                RentalsRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(
-                    FirebaseAuth.instance,
-                    GoogleSignIn(),
-                    FirebaseFirestore.instance
-                  )
-                ),
-                HomesRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(
-                    FirebaseAuth.instance,
-                    GoogleSignIn(),
-                    FirebaseFirestore.instance
-                  ),
-                  FirebaseStorage.instance
-                )
-              )..add(DisputesFormEvent.initialize(dispute)),
+            RentalsRepository(
+              FirebaseFirestore.instance,
+              FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance
+              )
             ),
-          ],
-          child: BlocBuilder<StepperBloc, StepperState>(
-            buildWhen: (p, c) => p.selectedIndex != c.selectedIndex,
-            builder: (context, state) {
-              int _currentIndex = context.read<StepperBloc>().state.selectedIndex;
-              
-              List<Home> _homes = context.watch<DisputesFormBloc>().state.homes;
-              List<Rental> _rentals = context.watch<DisputesFormBloc>().state.rentals;
-              Dispute _dispute = context.watch<DisputesFormBloc>().state.dispute;
-              String _rentalUuid = context.watch<DisputesFormBloc>().state.dispute.rentalUuid;
-              double _initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
-              List<String> _images = context.watch<DisputesFormBloc>().state.imagePaths;
+            HomesRepository(
+              FirebaseFirestore.instance,
+              FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance
+              ),
+              FirebaseStorage.instance
+            )
+          )..add(DisputesFormEvent.initialize(dispute)),
+        ),
+      ],
+      child: BlocBuilder<StepperBloc, StepperState>(
+        buildWhen: (p, c) => p.selectedIndex != c.selectedIndex,
+        builder: (context, state) {
+          int _currentIndex = context.read<StepperBloc>().state.selectedIndex;
+          
+          List<Home> _homes = context.watch<DisputesFormBloc>().state.homes;
+          List<Rental> _rentals = context.watch<DisputesFormBloc>().state.rentals;
+          Dispute _dispute = context.watch<DisputesFormBloc>().state.dispute;
+          String _rentalUuid = context.watch<DisputesFormBloc>().state.dispute.rentalUuid;
+          double _initialStake = context.watch<DisputesFormBloc>().state.dispute.initialStake;
+          List<String> _images = context.watch<DisputesFormBloc>().state.imagePaths;
 
-              String title = "";
-              switch (_currentIndex) {
-                case 0:
-                  title = "Consent form";
-                  break;
-                case 1:
-                  title = "Select the home where the problem happened";
-                  break;
-                case 2:
-                  title = "Fill the form with the required information:";
-                  break;
-                case 3:
-                  title = "Slide to choose the amount of tokens you want to pay in order to intialize this dispute:";
-                  break;
-                case 4:
-                  title = "You have created a dispute successfully!";
-                  break;
-                default:
-              }
+          String title = "";
+          switch (_currentIndex) {
+            case 0:
+              title = "Consent form";
+              break;
+            case 1:
+              title = "Select the home where the problem happened";
+              break;
+            case 2:
+              title = "Fill the form with the required information:";
+              break;
+            case 3:
+              title = "Slide to choose the amount of tokens you want to pay in order to intialize this dispute:";
+              break;
+            case 4:
+              title = "You have created a dispute successfully!";
+              break;
+            default:
+          }
 
-              return Scaffold(
-                appBar: AppBarWidget(title: context.watch<DisputesFormBloc>().state.dispute.category.replaceAll("_", " ").capitalize()),
-                body: Center(
-                  child: Column(
-                    children: [
-                      StepperWidget(
-                        numberOfSteps: 4,
-                        totalWidth: 320,
-                        stepWidth: 30,
-                        separatorWidth: 50,
-                        title: title,
-                        titleAlignment: Alignment.center,
-                        titleTextAlignment: TextAlign.center,
-                      ),
-                      if (_currentIndex == 0) ...[
-                        const ConsentMessageWidget(),
-                      ] else if (_currentIndex == 1) ...[
-                        SelectRentalWidget(rentals: _rentals, homes: _homes),
-                      ] else if (_currentIndex == 2) ...[
-                        const StartDisputesForm(),
-                      ] else if (_currentIndex == 3) ...[
-                        SliderTokensWidget(value: context.watch<DisputesFormBloc>().state.dispute.initialStake, onChanged: (value) => context.read<DisputesFormBloc>().add(DisputesFormEvent.initialStakeChanged(value))),
-                      ] else if (_currentIndex == 4) ...[
-                        OperationSuccessfulWidget(
-                          buttonText: "Back to Disputes",
-                          onPressed: () => AutoRouter.of(context).pop()
-                        ),
-                      ],
-                      if (_currentIndex != 4) ...[
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 15.0),
-                            child: Column(
+          return Scaffold(
+            appBar: AppBarWidget(title: context.watch<DisputesFormBloc>().state.dispute.category.replaceAll("_", " ").capitalize()),
+            body: Center(
+              child: Column(
+                children: [
+                  StepperWidget(
+                    numberOfSteps: 4,
+                    totalWidth: 320,
+                    stepWidth: 30,
+                    separatorWidth: 50,
+                    title: title,
+                    titleAlignment: Alignment.center,
+                    titleTextAlignment: TextAlign.center,
+                  ),
+                  if (_currentIndex == 0) ...[
+                    const ConsentMessageWidget(),
+                  ] else if (_currentIndex == 1) ...[
+                    SelectRentalWidget(rentals: _rentals, homes: _homes),
+                  ] else if (_currentIndex == 2) ...[
+                    const StartDisputesForm(),
+                  ] else if (_currentIndex == 3) ...[
+                    SliderTokensWidget(value: context.watch<DisputesFormBloc>().state.dispute.initialStake, onChanged: (value) => context.read<DisputesFormBloc>().add(DisputesFormEvent.initialStakeChanged(value))),
+                  ] else if (_currentIndex == 4) ...[
+                    OperationSuccessfulWidget(
+                      buttonText: "Back to Disputes",
+                      onPressed: () => AutoRouter.of(context).pop()
+                    ),
+                  ],
+                  if (_currentIndex != 4) ...[
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: Column(
+                          children: [
+                            if (_currentIndex == 3) ...[
+                              const InfoMessageWidget(),
+                            ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                if (_currentIndex == 3) ...[
-                                  const InfoMessageWidget(),
-                                ],
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    RoundedButtonWidget(
-                                      text: 'Previous',
-                                      disabled: _currentIndex == 0,
-                                      onPressed: () => context.read<StepperBloc>().add(const StepperEvent.decrementIndex()),
-                                      backgroundColor: _currentIndex == 0 ? Colors.grey : Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                      textColor: _currentIndex == 0 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
-                                      fontSize: 16,
-                                      height: 35,
-                                      width: 120,
-                                    ),
-                                    RoundedButtonWidget(
-                                      text: 'Next',
-                                      disabled: 
-                                        (_rentalUuid.isEmpty && _currentIndex == 1) |
-                                       (_initialStake == 0 && _currentIndex == 3) |
-                                       ((_dispute.title.isEmpty | _dispute.descritption.isEmpty | _images.isEmpty) && _currentIndex == 2),
-                                      onPressed: () {
-                                        if (_currentIndex == 3) {
-                                          context.read<DisputesFormBloc>().add(const DisputesFormEvent.submit());
-                                        }
-                                        context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
-                                      },
-                                      backgroundColor: Theme.of(context)
-                                          .colorScheme
-                                          .primaryBlue,
-                                      fontWeight: FontWeight.w400,
-                                      textColor: Colors.white,
-                                      fontSize: 16,
-                                      height: 35,
-                                      width: 120,
-                                    ),
-                                  ],
+                                RoundedButtonWidget(
+                                  text: 'Previous',
+                                  disabled: _currentIndex == 0,
+                                  onPressed: () => context.read<StepperBloc>().add(const StepperEvent.decrementIndex()),
+                                  backgroundColor: _currentIndex == 0 ? Colors.grey : Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  textColor: _currentIndex == 0 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
+                                  fontSize: 16,
+                                  height: 35,
+                                  width: 120,
+                                ),
+                                RoundedButtonWidget(
+                                  text: 'Next',
+                                  disabled: 
+                                    (_rentalUuid.isEmpty && _currentIndex == 1) |
+                                    (_initialStake == 0 && _currentIndex == 3) |
+                                    ((_dispute.title.isEmpty | _dispute.descritption.isEmpty | _images.isEmpty) && _currentIndex == 2),
+                                  onPressed: () {
+                                    if (_currentIndex == 3) {
+                                      context.read<DisputesFormBloc>().add(const DisputesFormEvent.submit());
+                                    }
+                                    context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
+                                  },
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .primaryBlue,
+                                  fontWeight: FontWeight.w400,
+                                  textColor: Colors.white,
+                                  fontSize: 16,
+                                  height: 35,
+                                  width: 120,
                                 ),
                               ],
                             ),
-                          ),
-                        )
-                      ]
-                    ],
-                  ),
-                ),
-                bottomNavigationBar: const BottomBarWidget(),
-              );
-            },
-          )
+                          ],
+                        ),
+                      ),
+                    )
+                  ]
+                ],
+              ),
+            ),
+            bottomNavigationBar: const BottomBarWidget(),
+          );
+        },
+      )
     );
   }
 }

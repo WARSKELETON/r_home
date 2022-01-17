@@ -15,9 +15,8 @@ class ImageCarouselWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("LIST: " + imagesPath.toString());
     return SizedBox(
-      height: 170,
+      height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -52,10 +51,9 @@ class ImageCarouselWidget extends StatelessWidget {
                 }
 
                 return Padding(
-                  padding: const EdgeInsets.only(
-                      top: 15.0, left: 5.0, right: 5.0),
-                  child: Image.network(
-                    imagesPath[index - 1],
+                  padding: const EdgeInsets.only(top: 15.0, left: 5.0, right: 5.0),
+                  child: Image.file(
+                    File(imagesPath[index - 1]),
                     width: 100,
                     height: 100,
                   ),

@@ -47,10 +47,8 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
             .listen((localActivities) => MyHomesFormEvent.localActivitiesChanged(localActivities));
         }
 
-        _homesRepository.getDisputeImages(initialHome.uuid)
-          .then((images) => {
-            add(MyHomesFormEvent.imagesReceived(images))
-          });
+        _homesRepository.getHomeImages(initialHome.uuid)
+          .then((images) => add(MyHomesFormEvent.imagesReceived(images)));
 
         return state.copyWith(
           home: initialHome,

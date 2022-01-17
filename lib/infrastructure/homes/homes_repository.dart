@@ -72,7 +72,7 @@ class HomesRepository implements IHomesRepository {
   }
 
   @override
-  Future<List<String>> getDisputeImages(String homeUuid) async {
+  Future<List<String>> getHomeImages(String homeUuid) async {
     List<String> listURL = [];
 
     await _storage.ref("$HOMES_COLLECTION/" + homeUuid).listAll()

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:r_home/presentation/disputes/dispute_details_page.dart';
 import 'package:r_home/presentation/disputes/disputes_page.dart';
 import 'package:r_home/presentation/disputes/disputes_list_page.dart';
-import 'package:r_home/presentation/disputes/widgets/images_viewer_page.dart';
+import 'package:r_home/presentation/core/images_viewer_page.dart';
 import 'package:r_home/presentation/homes/home_details_page.dart';
 import 'package:r_home/presentation/homes/homes_page.dart';
 import 'package:r_home/presentation/my_homes_form/categories_page.dart';

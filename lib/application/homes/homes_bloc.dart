@@ -18,6 +18,7 @@ class HomesBloc extends Bloc<HomesEvent, HomesState> {
 
   HomesBloc(this._rentalsRepository, this._homesRepository) : super(HomesState.initial()) {
     on<Initialize>(_onInitialize);
+    on<ImagesReceived>(_onImagesReceived);
     on<HomesReceived>(_onHomesReceived);
     on<RentalsReceived>(_onRentalsReceived);
     on<HomeReceived>(_onHomeReceived);
@@ -61,11 +62,20 @@ class HomesBloc extends Bloc<HomesEvent, HomesState> {
     emit(state);
   }
 
+  void _onImagesReceived(ImagesReceived event, Emitter<HomesState> emit) {
+    emit(state.copyWith(homeImages: event.images));
+  }
+
   void _onWatchHome(WatchHome event, Emitter<HomesState> emit) {
     _homeStreamSubscription = _homesRepository
       .watch(event.homeUuid)
       .listen((home) => add(HomesEvent.homeReceived(home))
     );
+
+    _homesRepository.getHomeImages(event.homeUuid)
+      .then((images) => {
+        add(HomesEvent.imagesReceived(images))
+      });
     emit(state);
   }
 

@@ -16,7 +16,6 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
 
   DisputesBloc(this._disputesRepository) : super(DisputesState.initial()) {
     on<Initialize>(_onInitialize);
-    on<SelectedImageIndex>(_onSelectedImageIndex);
     on<ImagesReceived>(_onImagesReceived);
     on<DisputesReceived>(_onDisputesReceived);
     on<DisputeReceived>(_onDisputeReceived);
@@ -50,11 +49,12 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
       .watch(event.disputeUuid)
       .listen((dispute) => add(DisputesEvent.disputeReceived(dispute))
     );
-    emit(state);
-  }
 
-  void _onSelectedImageIndex(SelectedImageIndex event, Emitter<DisputesState> emit) {
-    emit(state.copyWith(selectedImageIndex: event.selectedImageIndex));
+    _disputesRepository.getDisputeImages(event.disputeUuid)
+    .then((images) => {
+      add(DisputesEvent.imagesReceived(images))
+    });
+    emit(state);
   }
 
   void _onImagesReceived(ImagesReceived event, Emitter<DisputesState> emit) {
@@ -68,15 +68,12 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
   void _onDisputeReceived(DisputeReceived event, Emitter<DisputesState> emit) async {
     emit(state.copyWith(dispute: event.dispute));
 
-    _disputesRepository.getDisputeImages(event.dispute.uuid)
-      .then((images) => {
-        add(DisputesEvent.imagesReceived(images))
-      });
-
-    _homeStreamSubscription = _disputesRepository
-      .watchHomeFromDispute(event.dispute.homeUuid)
-      .listen((home) => add(DisputesEvent.homeReceived(home))
-    );
+    if (event.dispute.homeUuid != "") {
+      _homeStreamSubscription = _disputesRepository
+        .watchHomeFromDispute(event.dispute.homeUuid)
+        .listen((home) => add(DisputesEvent.homeReceived(home))
+      );
+    }
 
     _rentalStreamSubscription = _disputesRepository
       .watchRentalFromDispute(event.dispute.rentalUuid, event.dispute.issuerUuid)

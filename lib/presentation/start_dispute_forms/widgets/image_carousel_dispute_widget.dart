@@ -1,11 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
-import 'package:r_home/presentation/core/show_modal_function.dart';
-import 'package:r_home/presentation/my_homes_form/widgets/addition_card_widget.dart';
 import 'package:r_home/presentation/core/image_carousel_widget.dart';
 
 class ImageCarouselDisputeWidget extends StatelessWidget {
@@ -44,7 +40,7 @@ class ImageCarouselDisputeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DisputesFormBloc, DisputesFormState>(
       builder: (context, state) {
-        return ImageCarouselWidget(blocContext: context, title: title, imagesPath: imagesPath, takePicture: _takePicture(context), selectImage: _selectImage(context));
+        return ImageCarouselWidget(blocContext: context, title: title, imagesPath: imagesPath, takePicture: (context) => _takePicture(context), selectImage: (context) => _selectImage(context));
       },
     );
   }

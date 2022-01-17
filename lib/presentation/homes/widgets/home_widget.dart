@@ -19,7 +19,8 @@ class HomeWidget extends StatelessWidget {
       child: RoundedCardWidget(
         title: home.name,
         subtitle: home.host,
-        image: "assets/icons/home3.png",
+        image: home.mainImageUrl,
+        network: true,
         width: MediaQuery.of(context).size.width,
         height: 200,
         booked: booked,
