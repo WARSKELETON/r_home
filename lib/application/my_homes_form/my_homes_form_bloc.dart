@@ -19,6 +19,8 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
 
   MyHomesFormBloc(this._homesRepository, this._localActivitiesRepository) : super(MyHomesFormState.initial()) {
     on<Initialize>(_onInitialize);
+    on<ImagesReceived>(_onImagesReceived);
+    on<ImageReceived>(_onImageReceived);
     on<LocalActivitiesChanged>(_onLocalActivitiesChanged);
     on<CategoryChanged>(_onCategoryChanged);
     on<LocalActivityReceived>(_onLocalActivityReceived);
@@ -39,10 +41,17 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
   void _onInitialize(Initialize event, Emitter<MyHomesFormState> emit) {
     emit(event.initialHomeOption.fold(
       () => state,
-      (initialHome) { 
-        _localActivitiesStreamSubscription = _localActivitiesRepository.watchAllFromIds(initialHome.localActivities)
-          .listen((localActivities) => MyHomesFormEvent.localActivitiesChanged(localActivities));
-        
+      (initialHome) {
+        if (initialHome.localActivities.isNotEmpty) {
+          _localActivitiesStreamSubscription = _localActivitiesRepository.watchAllFromIds(initialHome.localActivities)
+            .listen((localActivities) => MyHomesFormEvent.localActivitiesChanged(localActivities));
+        }
+
+        _homesRepository.getDisputeImages(initialHome.uuid)
+          .then((images) => {
+            add(MyHomesFormEvent.imagesReceived(images))
+          });
+
         return state.copyWith(
           home: initialHome,
           isEditing: true
@@ -58,8 +67,15 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     ));
   }
 
+  void _onImagesReceived(ImagesReceived event, Emitter<MyHomesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths, ...event.images]));
+  }
+
+  void _onImageReceived(ImageReceived event, Emitter<MyHomesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths, event.image]));
+  }
+
   void _onLocalActivitiesChanged(LocalActivitiesChanged event, Emitter<MyHomesFormState> emit) {
-    print(event.localActivities);
     emit(state.copyWith(
       localActivities: event.localActivities
     ));
@@ -148,7 +164,7 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
 
     state.isEditing
         ? await _homesRepository.update(state.home)
-        : await _homesRepository.create(state.home);
+        : await _homesRepository.create(state.home, state.imagePaths);
 
     emit(state.copyWith(isSaving: false));
   }

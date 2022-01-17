@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -16,6 +17,7 @@ import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/carousel_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/guests_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/home_name_field_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/image_carousel_home_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/location_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/price_field_widget.dart';
 
@@ -36,7 +38,8 @@ class MyHomesForm extends StatelessWidget {
                 FirebaseAuth.instance,
                 GoogleSignIn(),
                 FirebaseFirestore.instance
-              )
+              ),
+              FirebaseStorage.instance
             ),
             LocalActivitiesRepository(
               FirebaseFirestore.instance,
@@ -59,6 +62,9 @@ class MyHomesForm extends StatelessWidget {
         builder: (context, state) {
           final isEditing = context.read<MyHomesFormBloc>().state.isEditing;
           final localActivities = context.watch<MyHomesFormBloc>().state.localActivities;
+          final imagesPaths = context.watch<MyHomesFormBloc>().state.imagePaths;
+
+          print(imagesPaths);
 
           return Scaffold(
             appBar: AppBarWidget(
@@ -81,6 +87,7 @@ class MyHomesForm extends StatelessWidget {
                     const PriceField(),
                     const GuestsField(),
                     CarouselWidget(title: "Selected Activities", localActivities: localActivities),
+                    ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
                   ],
                 ),
               )

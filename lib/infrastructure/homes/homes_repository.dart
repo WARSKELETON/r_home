@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
 import 'package:r_home/domain/homes/home.dart';
@@ -9,8 +12,9 @@ class HomesRepository implements IHomesRepository {
   final FirebaseFirestore _firestore;
   static const String HOMES_COLLECTION = "homes";
   final IAuthFacade _authFacade;
+  final FirebaseStorage _storage;
 
-  HomesRepository(this._firestore, this._authFacade);
+  HomesRepository(this._firestore, this._authFacade, this._storage);
 
   @override
   Stream<List<Home>> watchAll() async* {
@@ -68,17 +72,44 @@ class HomesRepository implements IHomesRepository {
   }
 
   @override
-  Future<void> create(Home home) async {
+  Future<List<String>> getDisputeImages(String homeUuid) async {
+    List<String> listURL = [];
+
+    await _storage.ref("$HOMES_COLLECTION/" + homeUuid).listAll()
+      .then((value) async => {
+        print("Images received"),
+        for (var ref in value.items) {
+          listURL.add(await ref.getDownloadURL())
+        }
+      });
+
+    return listURL;
+  }
+
+  @override
+  Future<void> create(Home home, List<String> imagesPath) async {
     final userId = _authFacade.getSignedInUserId()!;
 
-    home = home.copyWith(host: userId);
+    for (var i = 0; i < imagesPath.length; i++) {
+      _storage.ref("/$HOMES_COLLECTION/" + home.uuid + "/$i")
+        .putFile(File(imagesPath[i]))
+        .then((res) async => {
+          print("Image uploaded successfuly"),
+          if (i == 0) {            
+            home = home.copyWith(
+              host: userId,
+              mainImageUrl: await res.ref.getDownloadURL()
+            ),
 
-    _firestore
-        .collection(HOMES_COLLECTION)
-        .doc(home.uuid)
-        .set(HomeDto.fromDomain(home).toJson())
-        .then((_) => print("Home created successfuly"))
-        .catchError((onError) => print(onError));
+            _firestore
+              .collection(HOMES_COLLECTION)
+              .doc(home.uuid)
+              .set(HomeDto.fromDomain(home).toJson())
+              .then((_) => print("Home created successfuly"))
+              .catchError((onError) => print(onError))
+          }
+        });
+    }
   }
 
   @override

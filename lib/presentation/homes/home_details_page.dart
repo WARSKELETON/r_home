@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -91,7 +92,25 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomesBloc(RentalsRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)), HomesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
+      create: (context) => HomesBloc(
+        RentalsRepository(
+          FirebaseFirestore.instance,
+          FirebaseAuthFacade(
+            FirebaseAuth.instance,
+            GoogleSignIn(),
+            FirebaseFirestore.instance
+          )
+        ),
+          HomesRepository(
+            FirebaseFirestore.instance,
+            FirebaseAuthFacade(
+              FirebaseAuth.instance,
+              GoogleSignIn(),
+              FirebaseFirestore.instance
+            ),
+            FirebaseStorage.instance
+          )
+        )
         ..add(HomesEvent.watchHome(homeUuid))
         ..add(HomesEvent.watchRental(rentalUuid)),
       child: BlocBuilder<HomesBloc, HomesState>(
