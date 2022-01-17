@@ -16,7 +16,8 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
     required String producer,
     required String category,
     required double price,
-    required int contact
+    required int contact,
+    required String mainImageUrl
   }) = _LocalActivityDto;
 
   factory LocalActivityDto.fromDomain(LocalActivity localActivity) {
@@ -28,6 +29,7 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
       category: localActivity.category,
       price: localActivity.price,
       contact: localActivity.contact,
+      mainImageUrl: localActivity.mainImageUrl
     );
   }
 
@@ -40,6 +42,7 @@ abstract class LocalActivityDto implements _$LocalActivityDto {
       category: category,
       price: price,
       contact: contact,
+      mainImageUrl: mainImageUrl
     );
   }
 

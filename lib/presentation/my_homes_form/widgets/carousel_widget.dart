@@ -49,7 +49,7 @@ class CarouselWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 210,
+      height: 220,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

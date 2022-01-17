@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -29,7 +30,7 @@ class MyLocalActivitiesPage extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance)))
+        create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(FirebaseFirestore.instance, FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(), FirebaseFirestore.instance), FirebaseStorage.instance))
         ..add(const MyLocalActivitiesEvent.initialize()),
         child: BlocBuilder<MyLocalActivitiesBloc, MyLocalActivitiesState>(
           builder: (context, state) {
@@ -46,7 +47,8 @@ class MyLocalActivitiesPage extends StatelessWidget {
                     RoundedCardWidget(
                       title: _localActivities[index].name,
                       subtitle: _localActivities[index].location,
-                      image: "assets/icons/food${index % 2}.png",
+                      image: _localActivities[index].mainImageUrl,
+                      network: true,
                       width: 160,
                       height: 160,
                       onPressed: () => AutoRouter.of(context).push(MyLocalActivityDetailsPageRoute(localActivityUuid: _localActivities[index].uuid)),

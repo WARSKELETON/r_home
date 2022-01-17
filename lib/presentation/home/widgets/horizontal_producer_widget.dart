@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -19,7 +20,7 @@ class HorizontalProducerWidget extends StatelessWidget {
       create: (context) => MyLocalActivitiesBloc(LocalActivitiesRepository(
           FirebaseFirestore.instance,
           FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-              FirebaseFirestore.instance)))
+              FirebaseFirestore.instance), FirebaseStorage.instance))
         ..add(const MyLocalActivitiesEvent.initialize()),
       child: Expanded(child: BlocBuilder<MyLocalActivitiesBloc, MyLocalActivitiesState>(
         builder: (context, state) {

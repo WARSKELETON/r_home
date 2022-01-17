@@ -99,7 +99,7 @@ class DisputesRepository implements IDisputesRepository {
         .putFile(File(imagesPath[i]))
         .then((res) async => {
           print("Image uploaded successfuly"),
-          if (i == 0) {            
+          if (i == 0) {
             dispute = dispute.copyWith(
               issuerUuid: userId,
               issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase()),

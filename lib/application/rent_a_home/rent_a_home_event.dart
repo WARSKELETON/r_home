@@ -7,6 +7,7 @@ class RentAHomeEvent with _$RentAHomeEvent {
   const factory  RentAHomeEvent.availableHomesReceived(List<Home> homes) = AvailableHomesReceived;
   const factory  RentAHomeEvent.locationChanged(String location) = LocationChanged;
   const factory  RentAHomeEvent.paymentMethodChanged(String paymentMethod) = PaymentMethodChanged;
+  const factory RentAHomeEvent.imagesReceived(List<String> images) = ImagesReceived;
   const factory  RentAHomeEvent.homeChanged(Home home) = HomeChanged;
   const factory  RentAHomeEvent.checkInChanged(DateTime? checkIn) = CheckInChanged;
   const factory  RentAHomeEvent.checkOutChanged(DateTime? checkOut) = CheckOutChanged;  

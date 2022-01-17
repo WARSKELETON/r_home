@@ -30,13 +30,14 @@ class RoundedCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cutTitle = title.length > 22 ?
-      (subtitle == null ?
-        title.substring(0, 22) + "..." :
-        title.substring(0, 17) + "...") :
+    final cutTitle =
+      // title.length > 22 ?
+      // (subtitle == null ?
+      //   title.substring(0, 22) + "..." :
+      //   title.substring(0, 17) + "...") :
       title;
 
-    final cutSubtitle = subtitle != null ? (subtitle!.length > 18 ? subtitle!.substring(0, 17) + "..." : subtitle) : null;
+    final cutSubtitle = subtitle; //!= null ? (subtitle!.length > 18 ? subtitle!.substring(0, 17) + "..." : subtitle) : null;
 
     return InkWell(
       splashColor: const Color.fromRGBO(128,128,128, 0.3),
@@ -54,41 +55,40 @@ class RoundedCardWidget extends StatelessWidget {
               child: Stack(
                 alignment: selected != null && selected! ? Alignment.center : Alignment.topRight,
                 children: [
-                    if (selected != null && selected!) ...[
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primaryBlue,
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(width: 1, color: Colors.white)
-                        ),
-                        child: const Icon(
-                          Icons.check,
-                          color: Colors.white,
-                          size: 50,
-                        )
+                  if (selected != null && selected!) ...[
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primaryBlue,
+                        borderRadius: BorderRadius.circular(100),
+                        border: Border.all(width: 1, color: Colors.white)
                       ),
-                    ],
-                    if (booked != null && booked!) ...[
-                      ChipWidget(
-                        width: 100, 
-                        title: "BOOKED",
-                        isChecked: false,
-                        isClickable: false,
-                        backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
-                        textColor: Colors.white,
-                      ),
-                    ],
-                    Ink.image(
-                      image: network == null || !network! ? AssetImage(image) as ImageProvider<Object> : NetworkImage(image),
-                      fit: BoxFit.cover,
-                      colorFilter: selected == null ? null : (selected! ? ColorFilter.mode(Theme.of(context).colorScheme.primaryBlue.withOpacity(0.5), BlendMode.darken) : null),
-                      width: width,
-                      height: height,
+                      child: const Icon(
+                        Icons.check,
+                        color: Colors.white,
+                        size: 50,
+                      )
+                    ),
+                  ],
+                  if (booked != null && booked!) ...[
+                    ChipWidget(
+                      width: 100, 
+                      title: "BOOKED",
+                      isChecked: false,
+                      isClickable: false,
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
+                      textColor: Colors.white,
+                    ),
+                  ],
+                  Ink.image(
+                    image: network == null || !network! ? AssetImage(image) as ImageProvider<Object> : NetworkImage(image),
+                    fit: BoxFit.cover,
+                    colorFilter: selected == null ? null : (selected! ? ColorFilter.mode(Theme.of(context).colorScheme.primaryBlue.withOpacity(0.5), BlendMode.darken) : null),
+                    width: width,
+                    height: height,
                   ),
                 ]
               ),
             ),
-            // When retrieving from the network use Image.network(...),
             Padding(
               padding: const EdgeInsets.all(5),
               child: Column(

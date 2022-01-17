@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -15,6 +16,7 @@ import 'package:r_home/presentation/my_local_activities_form/widgets/activity_co
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_location_field_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_name_field_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_price_field_widget.dart';
+import 'package:r_home/presentation/my_local_activities_form/widgets/image_carousel_local_activity_widget.dart';
 
 class MyLocalActivitiesForm extends StatelessWidget {
   final LocalActivity? editedActivity;
@@ -30,7 +32,8 @@ class MyLocalActivitiesForm extends StatelessWidget {
             LocalActivitiesRepository(
                 FirebaseFirestore.instance,
                 FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                    FirebaseFirestore.instance)))
+                    FirebaseFirestore.instance),
+                    FirebaseStorage.instance))
           ..add(MyLocalActivitiesFormEvent.initialize(optionOf(editedActivity))),
         child: Scaffold(
           appBar: AppBarWidget(
@@ -39,9 +42,7 @@ class MyLocalActivitiesForm extends StatelessWidget {
               BlocBuilder<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
                 builder: (context, state) {
                   return IconButton(
-                    onPressed: () => context
-                        .read<MyLocalActivitiesFormBloc>()
-                        .add(const MyLocalActivitiesFormEvent.submit()),
+                    onPressed: () => context.read<MyLocalActivitiesFormBloc>().add(const MyLocalActivitiesFormEvent.submit()),
                     icon: const Icon(Icons.check),
                     splashRadius: 20,
                   );
@@ -49,7 +50,11 @@ class MyLocalActivitiesForm extends StatelessWidget {
               )
             ],
           ),
-          body: buildForm(),
+          body: Column(
+            children: [
+              buildForm(),
+            ],
+          ),
           bottomNavigationBar: const BottomBarWidget(),
         ),
       );
@@ -59,6 +64,7 @@ class MyLocalActivitiesForm extends StatelessWidget {
   }
 
   Widget buildForm() {
+    print("building form");
     return BlocConsumer<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
       listenWhen: (p, c) => p.isSaving != c.isSaving,
       listener: (context, state) {
@@ -67,16 +73,19 @@ class MyLocalActivitiesForm extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        final imagesPaths = context.watch<MyLocalActivitiesFormBloc>().state.imagePaths;
+
         return Expanded(
           child: Form(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  ActivityNameField(),
-                  ActivityLocationField(),
-                  ActivityPriceField(),
-                  ActivityContactField()
+                children: [
+                  const ActivityNameField(),
+                  const ActivityLocationField(),
+                  const ActivityPriceField(),
+                  const ActivityContactField(),
+                  if (editedActivity == null) ImageCarouselLocalActivityWidget(title: "Selected images", imagesPath: imagesPaths)
                 ],
               ),
             )
