@@ -6,10 +6,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/domain/auth/auth_failure.dart';
 import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
+import 'package:r_home/domain/rentals/rental.dart';
+import 'package:r_home/domain/transactions/rhome_transaction.dart';
 import 'package:r_home/infrastructure/auth/user_dto.dart';
+import 'package:r_home/infrastructure/transactions/transaction_repository.dart';
 import './firebase_user_mapper.dart';
 
-class FirebaseAuthFacade implements IAuthFacade {
+class FirebaseAuthFacade extends TransactionRepository implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
   final FirebaseFirestore _firestore;
@@ -19,7 +22,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     this._firebaseAuth,
     this._googleSignIn, 
     this._firestore,
-  );
+  ) : super(_firestore);
 
   @override
   Future<Option<DomainUser>> getSignedInUser() async {
@@ -166,11 +169,24 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<void> makeTransferOfTokens(String beneficiaryId, int amount) async {
-    var user = getSignedInUserId();
+    String? userId = getSignedInUserId();
+    DomainUser user = await getUserById(userId!);
+    DomainUser receiverUser = await getUserById(beneficiaryId);
+
+    RhomeTransaction transaction = RhomeTransaction.empty();
+    transaction = transaction.copyWith(
+      senderId: user.id,
+      receiverId: beneficiaryId,
+      senderUsername: user.getUsername(),
+      receiverUsername: receiverUser.getUsername(),
+      paymentMethod: PaymentMethod.token.name,
+      amount: amount.toDouble(),
+      type: user.role == "host" ? TransactionType.reward_guest.name : TransactionType.reward_host.name,
+    );
     
     _firestore
       .collection(USERS_COLLECTION)
-      .doc(user)
+      .doc(user.id)
       .update({"numTokens" : FieldValue.increment(-amount)})
       .then((_) => print("User updated successfuly"))
       .catchError((onError) => print(onError));
@@ -181,5 +197,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       .update({"numTokens" : FieldValue.increment(amount)})
       .then((_) => print("User updated successfuly"))
       .catchError((onError) => print(onError));
+
+      createTransaction(transaction);
   }
 }

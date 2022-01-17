@@ -159,7 +159,7 @@ class RentAHomeBloc extends Bloc<RentAHomeEvent, RentAHomeState> {
       checkOut: state.checkOut!
     );
 
-    await _rentalsRepository.create(finalRental);
+    await _rentalsRepository.create(finalRental, selectedHome.price);
 
     emit(state.copyWith(isSaving: false));
   }

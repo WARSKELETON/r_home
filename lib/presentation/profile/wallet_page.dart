@@ -59,7 +59,7 @@ class WalletPage extends StatelessWidget {
                       ),
                       RoundedButtonWidget(
                         text: 'Transaction History',
-                        onPressed: () => AutoRouter.of(context).push(TransactionHistoryPageRoute(transactions: const [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3])),
+                        onPressed: () => AutoRouter.of(context).push(TransactionHistoryPageRoute()),
                         backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,
