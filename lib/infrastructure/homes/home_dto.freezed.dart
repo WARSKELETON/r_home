@@ -31,7 +31,8 @@ class _$HomeDtoTearOff {
       required int maxAdults,
       required int maxChildren,
       required int maxPets,
-      required List<String> localActivities}) {
+      required List<String> localActivities,
+      required String mainImageUrl}) {
     return _HomeDto(
       uuid: uuid,
       name: name,
@@ -42,6 +43,7 @@ class _$HomeDtoTearOff {
       maxChildren: maxChildren,
       maxPets: maxPets,
       localActivities: localActivities,
+      mainImageUrl: mainImageUrl,
     );
   }
 
@@ -64,6 +66,7 @@ mixin _$HomeDto {
   int get maxChildren => throw _privateConstructorUsedError;
   int get maxPets => throw _privateConstructorUsedError;
   List<String> get localActivities => throw _privateConstructorUsedError;
+  String get mainImageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -83,7 +86,8 @@ abstract class $HomeDtoCopyWith<$Res> {
       int maxAdults,
       int maxChildren,
       int maxPets,
-      List<String> localActivities});
+      List<String> localActivities,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -105,6 +109,7 @@ class _$HomeDtoCopyWithImpl<$Res> implements $HomeDtoCopyWith<$Res> {
     Object? maxChildren = freezed,
     Object? maxPets = freezed,
     Object? localActivities = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -143,6 +148,10 @@ class _$HomeDtoCopyWithImpl<$Res> implements $HomeDtoCopyWith<$Res> {
           ? _value.localActivities
           : localActivities // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -161,7 +170,8 @@ abstract class _$HomeDtoCopyWith<$Res> implements $HomeDtoCopyWith<$Res> {
       int maxAdults,
       int maxChildren,
       int maxPets,
-      List<String> localActivities});
+      List<String> localActivities,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -184,6 +194,7 @@ class __$HomeDtoCopyWithImpl<$Res> extends _$HomeDtoCopyWithImpl<$Res>
     Object? maxChildren = freezed,
     Object? maxPets = freezed,
     Object? localActivities = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_HomeDto(
       uuid: uuid == freezed
@@ -222,6 +233,10 @@ class __$HomeDtoCopyWithImpl<$Res> extends _$HomeDtoCopyWithImpl<$Res>
           ? _value.localActivities
           : localActivities // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -238,7 +253,8 @@ class _$_HomeDto extends _HomeDto {
       required this.maxAdults,
       required this.maxChildren,
       required this.maxPets,
-      required this.localActivities})
+      required this.localActivities,
+      required this.mainImageUrl})
       : super._();
 
   factory _$_HomeDto.fromJson(Map<String, dynamic> json) =>
@@ -262,10 +278,12 @@ class _$_HomeDto extends _HomeDto {
   final int maxPets;
   @override
   final List<String> localActivities;
+  @override
+  final String mainImageUrl;
 
   @override
   String toString() {
-    return 'HomeDto(uuid: $uuid, name: $name, location: $location, host: $host, price: $price, maxAdults: $maxAdults, maxChildren: $maxChildren, maxPets: $maxPets, localActivities: $localActivities)';
+    return 'HomeDto(uuid: $uuid, name: $name, location: $location, host: $host, price: $price, maxAdults: $maxAdults, maxChildren: $maxChildren, maxPets: $maxPets, localActivities: $localActivities, mainImageUrl: $mainImageUrl)';
   }
 
   @override
@@ -283,7 +301,9 @@ class _$_HomeDto extends _HomeDto {
                 .equals(other.maxChildren, maxChildren) &&
             const DeepCollectionEquality().equals(other.maxPets, maxPets) &&
             const DeepCollectionEquality()
-                .equals(other.localActivities, localActivities));
+                .equals(other.localActivities, localActivities) &&
+            const DeepCollectionEquality()
+                .equals(other.mainImageUrl, mainImageUrl));
   }
 
   @override
@@ -297,7 +317,8 @@ class _$_HomeDto extends _HomeDto {
       const DeepCollectionEquality().hash(maxAdults),
       const DeepCollectionEquality().hash(maxChildren),
       const DeepCollectionEquality().hash(maxPets),
-      const DeepCollectionEquality().hash(localActivities));
+      const DeepCollectionEquality().hash(localActivities),
+      const DeepCollectionEquality().hash(mainImageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -320,7 +341,8 @@ abstract class _HomeDto extends HomeDto {
       required int maxAdults,
       required int maxChildren,
       required int maxPets,
-      required List<String> localActivities}) = _$_HomeDto;
+      required List<String> localActivities,
+      required String mainImageUrl}) = _$_HomeDto;
   const _HomeDto._() : super._();
 
   factory _HomeDto.fromJson(Map<String, dynamic> json) = _$_HomeDto.fromJson;
@@ -343,6 +365,8 @@ abstract class _HomeDto extends HomeDto {
   int get maxPets;
   @override
   List<String> get localActivities;
+  @override
+  String get mainImageUrl;
   @override
   @JsonKey(ignore: true)
   _$HomeDtoCopyWith<_HomeDto> get copyWith =>

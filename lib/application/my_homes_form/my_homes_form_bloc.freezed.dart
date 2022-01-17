@@ -24,6 +24,24 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
+  SelectedImageIndex changeSelectedImageIndex(int selectedImageIndex) {
+    return SelectedImageIndex(
+      selectedImageIndex,
+    );
+  }
+
+  ImagesReceived imagesReceived(List<String> images) {
+    return ImagesReceived(
+      images,
+    );
+  }
+
+  ImageReceived imageReceived(String image) {
+    return ImageReceived(
+      image,
+    );
+  }
+
   LocalActivitiesChanged localActivitiesChanged(
       List<LocalActivity> localActivities) {
     return LocalActivitiesChanged(
@@ -110,6 +128,9 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -130,6 +151,9 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -149,6 +173,9 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -169,6 +196,10 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -188,6 +219,9 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -206,6 +240,9 @@ mixin _$MyHomesFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -307,6 +344,9 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -330,6 +370,9 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -352,6 +395,9 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -378,6 +424,10 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -400,6 +450,9 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -421,6 +474,9 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -449,6 +505,698 @@ abstract class Initialize implements MyHomesFormEvent {
   Option<Home> get initialHomeOption;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SelectedImageIndexCopyWith<$Res> {
+  factory $SelectedImageIndexCopyWith(
+          SelectedImageIndex value, $Res Function(SelectedImageIndex) then) =
+      _$SelectedImageIndexCopyWithImpl<$Res>;
+  $Res call({int selectedImageIndex});
+}
+
+/// @nodoc
+class _$SelectedImageIndexCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $SelectedImageIndexCopyWith<$Res> {
+  _$SelectedImageIndexCopyWithImpl(
+      SelectedImageIndex _value, $Res Function(SelectedImageIndex) _then)
+      : super(_value, (v) => _then(v as SelectedImageIndex));
+
+  @override
+  SelectedImageIndex get _value => super._value as SelectedImageIndex;
+
+  @override
+  $Res call({
+    Object? selectedImageIndex = freezed,
+  }) {
+    return _then(SelectedImageIndex(
+      selectedImageIndex == freezed
+          ? _value.selectedImageIndex
+          : selectedImageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectedImageIndex implements SelectedImageIndex {
+  const _$SelectedImageIndex(this.selectedImageIndex);
+
+  @override
+  final int selectedImageIndex;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.changeSelectedImageIndex(selectedImageIndex: $selectedImageIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SelectedImageIndex &&
+            const DeepCollectionEquality()
+                .equals(other.selectedImageIndex, selectedImageIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedImageIndex));
+
+  @JsonKey(ignore: true)
+  @override
+  $SelectedImageIndexCopyWith<SelectedImageIndex> get copyWith =>
+      _$SelectedImageIndexCopyWithImpl<SelectedImageIndex>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesChanged,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return changeSelectedImageIndex(selectedImageIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return changeSelectedImageIndex?.call(selectedImageIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (changeSelectedImageIndex != null) {
+      return changeSelectedImageIndex(selectedImageIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(LocalActivitiesChanged value)
+        localActivitiesChanged,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return changeSelectedImageIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return changeSelectedImageIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (changeSelectedImageIndex != null) {
+      return changeSelectedImageIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectedImageIndex implements MyHomesFormEvent {
+  const factory SelectedImageIndex(int selectedImageIndex) =
+      _$SelectedImageIndex;
+
+  int get selectedImageIndex;
+  @JsonKey(ignore: true)
+  $SelectedImageIndexCopyWith<SelectedImageIndex> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagesReceivedCopyWith<$Res> {
+  factory $ImagesReceivedCopyWith(
+          ImagesReceived value, $Res Function(ImagesReceived) then) =
+      _$ImagesReceivedCopyWithImpl<$Res>;
+  $Res call({List<String> images});
+}
+
+/// @nodoc
+class _$ImagesReceivedCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $ImagesReceivedCopyWith<$Res> {
+  _$ImagesReceivedCopyWithImpl(
+      ImagesReceived _value, $Res Function(ImagesReceived) _then)
+      : super(_value, (v) => _then(v as ImagesReceived));
+
+  @override
+  ImagesReceived get _value => super._value as ImagesReceived;
+
+  @override
+  $Res call({
+    Object? images = freezed,
+  }) {
+    return _then(ImagesReceived(
+      images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImagesReceived implements ImagesReceived {
+  const _$ImagesReceived(this.images);
+
+  @override
+  final List<String> images;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.imagesReceived(images: $images)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImagesReceived &&
+            const DeepCollectionEquality().equals(other.images, images));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(images));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
+      _$ImagesReceivedCopyWithImpl<ImagesReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesChanged,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return imagesReceived(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return imagesReceived?.call(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(images);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(LocalActivitiesChanged value)
+        localActivitiesChanged,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return imagesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return imagesReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagesReceived implements MyHomesFormEvent {
+  const factory ImagesReceived(List<String> images) = _$ImagesReceived;
+
+  List<String> get images;
+  @JsonKey(ignore: true)
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageReceivedCopyWith<$Res> {
+  factory $ImageReceivedCopyWith(
+          ImageReceived value, $Res Function(ImageReceived) then) =
+      _$ImageReceivedCopyWithImpl<$Res>;
+  $Res call({String image});
+}
+
+/// @nodoc
+class _$ImageReceivedCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $ImageReceivedCopyWith<$Res> {
+  _$ImageReceivedCopyWithImpl(
+      ImageReceived _value, $Res Function(ImageReceived) _then)
+      : super(_value, (v) => _then(v as ImageReceived));
+
+  @override
+  ImageReceived get _value => super._value as ImageReceived;
+
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(ImageReceived(
+      image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageReceived implements ImageReceived {
+  const _$ImageReceived(this.image);
+
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.imageReceived(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageReceived &&
+            const DeepCollectionEquality().equals(other.image, image));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImageReceivedCopyWith<ImageReceived> get copyWith =>
+      _$ImageReceivedCopyWithImpl<ImageReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesChanged,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return imageReceived(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return imageReceived?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (imageReceived != null) {
+      return imageReceived(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(LocalActivitiesChanged value)
+        localActivitiesChanged,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return imageReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return imageReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (imageReceived != null) {
+      return imageReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageReceived implements MyHomesFormEvent {
+  const factory ImageReceived(String image) = _$ImageReceived;
+
+  String get image;
+  @JsonKey(ignore: true)
+  $ImageReceivedCopyWith<ImageReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -520,6 +1268,9 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -543,6 +1294,9 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -565,6 +1319,9 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -591,6 +1348,10 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -613,6 +1374,9 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -634,6 +1398,9 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -733,6 +1500,9 @@ class _$CategoryChanged implements CategoryChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -756,6 +1526,9 @@ class _$CategoryChanged implements CategoryChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -778,6 +1551,9 @@ class _$CategoryChanged implements CategoryChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -804,6 +1580,10 @@ class _$CategoryChanged implements CategoryChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -826,6 +1606,9 @@ class _$CategoryChanged implements CategoryChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -847,6 +1630,9 @@ class _$CategoryChanged implements CategoryChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -956,6 +1742,9 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -979,6 +1768,9 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1001,6 +1793,9 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1027,6 +1822,10 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1049,6 +1848,9 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1070,6 +1872,9 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1168,6 +1973,9 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -1191,6 +1999,9 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1213,6 +2024,9 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1239,6 +2053,10 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1261,6 +2079,9 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1282,6 +2103,9 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1379,6 +2203,9 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -1402,6 +2229,9 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1424,6 +2254,9 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1450,6 +2283,10 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1472,6 +2309,9 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1493,6 +2333,9 @@ class _$LocationChanged implements LocationChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1590,6 +2433,9 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -1613,6 +2459,9 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1635,6 +2484,9 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1661,6 +2513,10 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1683,6 +2539,9 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1704,6 +2563,9 @@ class _$PriceChanged implements PriceChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1798,6 +2660,9 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -1821,6 +2686,9 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1843,6 +2711,9 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -1869,6 +2740,10 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1891,6 +2766,9 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -1912,6 +2790,9 @@ class _$AdultsAdd implements AdultsAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2009,6 +2890,9 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -2032,6 +2916,9 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2054,6 +2941,9 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2080,6 +2970,10 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2102,6 +2996,9 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2123,6 +3020,9 @@ class _$AdultsRemove implements AdultsRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2220,6 +3120,9 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -2243,6 +3146,9 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2265,6 +3171,9 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2291,6 +3200,10 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2313,6 +3226,9 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2334,6 +3250,9 @@ class _$ChildrenAdd implements ChildrenAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2431,6 +3350,9 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -2454,6 +3376,9 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2476,6 +3401,9 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2502,6 +3430,10 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2524,6 +3456,9 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2545,6 +3480,9 @@ class _$ChildrenRemove implements ChildrenRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2639,6 +3577,9 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -2662,6 +3603,9 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2684,6 +3628,9 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2710,6 +3657,10 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2732,6 +3683,9 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2753,6 +3707,9 @@ class _$PetsAdd implements PetsAdd {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2848,6 +3805,9 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -2871,6 +3831,9 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2893,6 +3856,9 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -2919,6 +3885,10 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2941,6 +3911,9 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -2962,6 +3935,9 @@ class _$PetsRemove implements PetsRemove {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -3032,6 +4008,9 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
@@ -3055,6 +4034,9 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -3077,6 +4059,9 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
@@ -3103,6 +4088,10 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -3125,6 +4114,9 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -3146,6 +4138,9 @@ class _$Submit implements Submit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(LocalActivityReceived value)? changeLocalActivity,
@@ -3178,6 +4173,7 @@ class _$MyHomesFormStateTearOff {
 
   _MyHomesFormState call(
       {required List<LocalActivity> localActivities,
+      required List<String> imagePaths,
       required ActivityCategory? category,
       required Home home,
       required List<LocationSuggestion> locations,
@@ -3187,6 +4183,7 @@ class _$MyHomesFormStateTearOff {
       required Option<Either<Home, Unit>> saveFailureOrSuccessOption}) {
     return _MyHomesFormState(
       localActivities: localActivities,
+      imagePaths: imagePaths,
       category: category,
       home: home,
       locations: locations,
@@ -3204,6 +4201,7 @@ const $MyHomesFormState = _$MyHomesFormStateTearOff();
 /// @nodoc
 mixin _$MyHomesFormState {
   List<LocalActivity> get localActivities => throw _privateConstructorUsedError;
+  List<String> get imagePaths => throw _privateConstructorUsedError;
   ActivityCategory? get category => throw _privateConstructorUsedError;
   Home get home => throw _privateConstructorUsedError;
   List<LocationSuggestion> get locations => throw _privateConstructorUsedError;
@@ -3225,6 +4223,7 @@ abstract class $MyHomesFormStateCopyWith<$Res> {
       _$MyHomesFormStateCopyWithImpl<$Res>;
   $Res call(
       {List<LocalActivity> localActivities,
+      List<String> imagePaths,
       ActivityCategory? category,
       Home home,
       List<LocationSuggestion> locations,
@@ -3248,6 +4247,7 @@ class _$MyHomesFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? localActivities = freezed,
+    Object? imagePaths = freezed,
     Object? category = freezed,
     Object? home = freezed,
     Object? locations = freezed,
@@ -3261,6 +4261,10 @@ class _$MyHomesFormStateCopyWithImpl<$Res>
           ? _value.localActivities
           : localActivities // ignore: cast_nullable_to_non_nullable
               as List<LocalActivity>,
+      imagePaths: imagePaths == freezed
+          ? _value.imagePaths
+          : imagePaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -3309,6 +4313,7 @@ abstract class _$MyHomesFormStateCopyWith<$Res>
   @override
   $Res call(
       {List<LocalActivity> localActivities,
+      List<String> imagePaths,
       ActivityCategory? category,
       Home home,
       List<LocationSuggestion> locations,
@@ -3335,6 +4340,7 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? localActivities = freezed,
+    Object? imagePaths = freezed,
     Object? category = freezed,
     Object? home = freezed,
     Object? locations = freezed,
@@ -3348,6 +4354,10 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
           ? _value.localActivities
           : localActivities // ignore: cast_nullable_to_non_nullable
               as List<LocalActivity>,
+      imagePaths: imagePaths == freezed
+          ? _value.imagePaths
+          : imagePaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -3385,6 +4395,7 @@ class __$MyHomesFormStateCopyWithImpl<$Res>
 class _$_MyHomesFormState implements _MyHomesFormState {
   const _$_MyHomesFormState(
       {required this.localActivities,
+      required this.imagePaths,
       required this.category,
       required this.home,
       required this.locations,
@@ -3395,6 +4406,8 @@ class _$_MyHomesFormState implements _MyHomesFormState {
 
   @override
   final List<LocalActivity> localActivities;
+  @override
+  final List<String> imagePaths;
   @override
   final ActivityCategory? category;
   @override
@@ -3412,7 +4425,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
 
   @override
   String toString() {
-    return 'MyHomesFormState(localActivities: $localActivities, category: $category, home: $home, locations: $locations, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'MyHomesFormState(localActivities: $localActivities, imagePaths: $imagePaths, category: $category, home: $home, locations: $locations, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -3422,6 +4435,8 @@ class _$_MyHomesFormState implements _MyHomesFormState {
             other is _MyHomesFormState &&
             const DeepCollectionEquality()
                 .equals(other.localActivities, localActivities) &&
+            const DeepCollectionEquality()
+                .equals(other.imagePaths, imagePaths) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.home, home) &&
             const DeepCollectionEquality().equals(other.locations, locations) &&
@@ -3437,6 +4452,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(localActivities),
+      const DeepCollectionEquality().hash(imagePaths),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(home),
       const DeepCollectionEquality().hash(locations),
@@ -3454,6 +4470,7 @@ class _$_MyHomesFormState implements _MyHomesFormState {
 abstract class _MyHomesFormState implements MyHomesFormState {
   const factory _MyHomesFormState(
           {required List<LocalActivity> localActivities,
+          required List<String> imagePaths,
           required ActivityCategory? category,
           required Home home,
           required List<LocationSuggestion> locations,
@@ -3465,6 +4482,8 @@ abstract class _MyHomesFormState implements MyHomesFormState {
 
   @override
   List<LocalActivity> get localActivities;
+  @override
+  List<String> get imagePaths;
   @override
   ActivityCategory? get category;
   @override

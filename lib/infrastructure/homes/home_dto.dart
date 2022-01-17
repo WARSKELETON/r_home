@@ -19,6 +19,7 @@ abstract class HomeDto implements _$HomeDto {
     required int maxChildren,
     required int maxPets,
     required List<String> localActivities,
+    required String mainImageUrl
   }) = _HomeDto;
 
   factory HomeDto.fromDomain(Home home) {
@@ -31,7 +32,8 @@ abstract class HomeDto implements _$HomeDto {
       maxAdults: home.maxAdults,
       maxChildren: home.maxChildren,
       maxPets: home.maxPets,
-      localActivities: home.localActivities
+      localActivities: home.localActivities,
+      mainImageUrl: home.mainImageUrl
     );
   }
 
@@ -45,7 +47,8 @@ abstract class HomeDto implements _$HomeDto {
       maxAdults: maxAdults,
       maxChildren: maxChildren,
       maxPets: maxPets,
-      localActivities: localActivities
+      localActivities: localActivities,
+      mainImageUrl: mainImageUrl
     );
   }
 

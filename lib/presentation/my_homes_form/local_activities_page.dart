@@ -24,13 +24,6 @@ class LocalActivitiesPage extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       appBar: AppBarWidget(
         title: "Associating Activity",
-        actions: [
-          IconButton(
-            onPressed: () => AutoRouter.of(context).push(const NewLocalAcitvityPageRoute()), 
-            icon: const Icon(Icons.add),
-            splashRadius: 20,
-          )
-        ],
       ),
       body: BlocProvider(
         create: (context) => LocalActivitiesBloc(

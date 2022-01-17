@@ -14,7 +14,7 @@ import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 
-class LocalActivityDetailsPage extends StatelessWidget {
+class LocalActivityDetailsPage extends StatelessWidget implements AutoRouteWrapper{
   final String localActivityUuid;
   final MyHomesFormBloc myHomesFormBloc;
 

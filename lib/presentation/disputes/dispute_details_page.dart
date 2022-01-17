@@ -6,10 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
+import 'package:r_home/application/image_viewer/image_viewer_bloc.dart';
 import 'package:r_home/application/timer/timer_bloc.dart';
 import 'package:r_home/presentation/core/chart_legend_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/image_index_widget.dart';
-import 'package:r_home/presentation/disputes/widgets/images_view_widget.dart';
+import 'package:r_home/presentation/core/images_view_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/vote_confirmation_dialog.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
@@ -48,6 +49,9 @@ class DisputeDetailsPage extends StatelessWidget {
           create: (context) => TimerBloc()
             ..add(TimerEvent.initialize(_closingTime)),
         ),
+        BlocProvider(
+          create: (context) => ImageViewerBloc()
+        ),
       ],
       child: BlocBuilder<TimerBloc, TimerState>(
         builder: (context, timerState) {
@@ -60,7 +64,7 @@ class DisputeDetailsPage extends StatelessWidget {
                     final _home = context.watch<DisputesBloc>().state.home;
                     final _currentVote = context.read<DisputesBloc>().state.currentVote;
                     final _images = context.watch<DisputesBloc>().state.disputeImages;
-                    final _imageIndex = context.watch<DisputesBloc>().state.selectedImageIndex;
+                    final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
 
                     final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
                     final _user = context.watch<AuthBloc>().state.user;

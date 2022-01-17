@@ -78,7 +78,7 @@ class DisputesRepository implements IDisputesRepository {
     List<String> listURL = [];
 
     print("Request received");
-    await _storage.ref("disputes/" + disputeUuid).listAll()
+    await _storage.ref("$DISPUTES_COLLECTION/" + disputeUuid).listAll()
       .then((value) async => {
         print("Images received"),
         for (var ref in value.items) {
@@ -94,9 +94,8 @@ class DisputesRepository implements IDisputesRepository {
     final userId = _authFacade.getSignedInUserId()!;
     final username = _authFacade.getSignedInUsername()!;
 
-    var downloadURL;
     for (var i = 0; i < imagesPath.length; i++) {
-      _storage.ref("/disputes/" + dispute.uuid + "/$i")
+      _storage.ref("/$DISPUTES_COLLECTION/" + dispute.uuid + "/$i")
         .putFile(File(imagesPath[i]))
         .then((res) async => {
           print("Image uploaded successfuly"),

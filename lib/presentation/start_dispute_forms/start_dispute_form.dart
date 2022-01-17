@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/dispute_description_field_widget.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/dispute_title_field_widget.dart';
-import 'package:r_home/presentation/start_dispute_forms/widgets/image_carousel_widget.dart';
+import 'package:r_home/presentation/start_dispute_forms/widgets/image_carousel_dispute_widget.dart';
 
 class StartDisputesForm extends StatelessWidget {
   const StartDisputesForm({Key? key}): super(key: key);
@@ -29,7 +29,10 @@ class StartDisputesForm extends StatelessWidget {
                 children: [
                   const DisputeTitleField(),
                   const DisputeDescriptionField(),
-                  ImageCarouselWidget(title: "Selected images", imagesPath: imagesPaths)
+                  ImageCarouselDisputeWidget(
+                    title: "Selected images",
+                    imagesPath: imagesPaths
+                  )
                 ],
               ),
             )

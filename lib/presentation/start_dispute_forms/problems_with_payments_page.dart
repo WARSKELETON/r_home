@@ -63,7 +63,8 @@ class ProblemsWithPaymentsPage extends StatelessWidget {
                 FirebaseAuth.instance,
                 GoogleSignIn(),
                 FirebaseFirestore.instance
-              )
+              ),
+              FirebaseStorage.instance
             )
           )..add(DisputesFormEvent.initialize(dispute)),
         ),

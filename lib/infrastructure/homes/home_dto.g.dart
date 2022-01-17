@@ -18,6 +18,7 @@ _$_HomeDto _$$_HomeDtoFromJson(Map<String, dynamic> json) => _$_HomeDto(
       localActivities: (json['localActivities'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      mainImageUrl: json['mainImageUrl'] as String,
     );
 
 Map<String, dynamic> _$$_HomeDtoToJson(_$_HomeDto instance) =>
@@ -31,4 +32,5 @@ Map<String, dynamic> _$$_HomeDtoToJson(_$_HomeDto instance) =>
       'maxChildren': instance.maxChildren,
       'maxPets': instance.maxPets,
       'localActivities': instance.localActivities,
+      'mainImageUrl': instance.mainImageUrl,
     };

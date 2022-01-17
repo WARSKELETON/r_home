@@ -5,7 +5,6 @@ import 'package:r_home/application/rent_a_home/rent_a_home_bloc.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/string_extension.dart';
-import 'package:r_home/r_home_icon_icons.dart';
 
 class PaymentField extends StatelessWidget {
   const PaymentField({Key? key}) : super(key: key);

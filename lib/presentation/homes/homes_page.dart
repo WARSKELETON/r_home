@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -49,15 +50,24 @@ class HomesPage extends StatelessWidget {
           ),
           body: BlocProvider(
             create: (context) => HomesBloc(
-                RentalsRepository(
-                    FirebaseFirestore.instance,
-                    FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                        FirebaseFirestore.instance)),
-                HomesRepository(
-                    FirebaseFirestore.instance,
-                    FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                        FirebaseFirestore.instance)))
-              ..add(HomesEvent.initialize(currentUser, activityUuid)),
+              RentalsRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                )
+              ),
+              HomesRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                ),
+                FirebaseStorage.instance
+              )
+            )..add(HomesEvent.initialize(currentUser, activityUuid)),
             child: currentUser.role == "guest" ?
                   const MyStaysWidget() : 
                   (currentUser.role == "host" ? const MyHomesWidget() : const MyActivityHomesWidget())

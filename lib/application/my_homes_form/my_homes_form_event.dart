@@ -3,6 +3,9 @@ part of 'my_homes_form_bloc.dart';
 @freezed
 class MyHomesFormEvent with _$MyHomesFormEvent {
   const factory MyHomesFormEvent.initialize(Option<Home> initialHomeOption) = Initialize;
+  const factory MyHomesFormEvent.changeSelectedImageIndex(int selectedImageIndex) = SelectedImageIndex;
+  const factory MyHomesFormEvent.imagesReceived(List<String> images) = ImagesReceived;
+  const factory MyHomesFormEvent.imageReceived(String image) = ImageReceived;
   const factory MyHomesFormEvent.localActivitiesChanged(List<LocalActivity> localActivities) = LocalActivitiesChanged;
   const factory MyHomesFormEvent.categoryChanged(ActivityCategory? activityCategory) = CategoryChanged;
   const factory MyHomesFormEvent.changeLocalActivity(LocalActivity localActivity) = LocalActivityReceived;
