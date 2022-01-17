@@ -8,7 +8,7 @@ abstract class IRentalsRepository {
   Stream<List<Rental>> watchAllAsHost();
   Stream<Rental> watch(String homeUuid);
   Future<DomainUser> getUserById(String userUuid);
-  Future<void> create(Rental rental);
+  Future<void> create(Rental rental, double pricePerNight);
   Future<void> update(Rental rental);
   void delete(Rental rental);
 }

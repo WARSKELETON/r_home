@@ -5,16 +5,18 @@ import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 import 'package:r_home/domain/rentals/rental.dart';
+import 'package:r_home/domain/transactions/rhome_transaction.dart';
 import 'package:r_home/infrastructure/rentals/rental_dto.dart';
 import 'package:r_home/infrastructure/rentals/rentals_extension.dart';
+import 'package:r_home/infrastructure/transactions/transaction_repository.dart';
 
-class RentalsRepository implements IRentalsRepository {
+class RentalsRepository extends TransactionRepository implements IRentalsRepository {
   final FirebaseFirestore _firestore;
   static const String PARENT_COLLECTION = "user-data";
   static const String RENTALS_COLLECTION = "rentals";
   final IAuthFacade _authFacade;
 
-  RentalsRepository(this._firestore, this._authFacade);
+  RentalsRepository(this._firestore, this._authFacade) : super(_firestore);
 
   @override
   Stream<List<Rental>> watchAll() async* {
@@ -81,11 +83,24 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   @override
-  Future<void> create(Rental rental) async {
+  Future<void> create(Rental rental, double pricePerNight) async {
     final userId = _authFacade.getSignedInUserId()!;
+    final currentUser = await _authFacade.getUserById(userId);
+    final hostUser = await _authFacade.getUserById(rental.hostId);
 
     Rental finalRental = rental.copyWith(
       guestId: userId
+    );
+
+    RhomeTransaction transaction = RhomeTransaction.empty();
+    transaction = transaction.copyWith(
+      senderId: finalRental.guestId,
+      receiverId: finalRental.hostId,
+      senderUsername: currentUser.getUsername(),
+      receiverUsername: hostUser.getUsername(),
+      paymentMethod: finalRental.paymentMethod,
+      amount: finalRental.totalPrice(pricePerNight),
+      type: TransactionType.rental.name,
     );
 
     _firestore
@@ -105,6 +120,8 @@ class RentalsRepository implements IRentalsRepository {
       .set(RentalDto.fromDomain(finalRental).toJson())
       .then((_) => print("Rental created successfuly"))
       .catchError((onError) => print(onError));
+
+    createTransaction(transaction);
   }
 
   @override

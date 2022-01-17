@@ -302,11 +302,9 @@ class MyRouter extends _i31.RootStackRouter {
           fullscreenDialog: true);
     },
     TransactionHistoryPageRoute.name: (routeData) {
-      final args = routeData.argsAs<TransactionHistoryPageRouteArgs>();
       return _i31.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i28.TransactionHistoryPage(
-              key: args.key, transactions: args.transactions),
+          child: const _i28.TransactionHistoryPage(),
           transitionsBuilder: _i31.TransitionsBuilders.slideLeft,
           durationInMilliseconds: 150,
           opaque: true,
@@ -930,28 +928,12 @@ class MyLocalActivitiesFormRouteArgs {
 
 /// generated route for
 /// [_i28.TransactionHistoryPage]
-class TransactionHistoryPageRoute
-    extends _i31.PageRouteInfo<TransactionHistoryPageRouteArgs> {
-  TransactionHistoryPageRoute({_i32.Key? key, required List<int> transactions})
+class TransactionHistoryPageRoute extends _i31.PageRouteInfo<void> {
+  const TransactionHistoryPageRoute()
       : super(TransactionHistoryPageRoute.name,
-            path: '/transaction-history-page',
-            args: TransactionHistoryPageRouteArgs(
-                key: key, transactions: transactions));
+            path: '/transaction-history-page');
 
   static const String name = 'TransactionHistoryPageRoute';
-}
-
-class TransactionHistoryPageRouteArgs {
-  const TransactionHistoryPageRouteArgs({this.key, required this.transactions});
-
-  final _i32.Key? key;
-
-  final List<int> transactions;
-
-  @override
-  String toString() {
-    return 'TransactionHistoryPageRouteArgs{key: $key, transactions: $transactions}';
-  }
 }
 
 /// generated route for
