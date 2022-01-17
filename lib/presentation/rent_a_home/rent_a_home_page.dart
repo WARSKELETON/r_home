@@ -16,7 +16,9 @@ import 'package:r_home/presentation/rent_a_home/widgets/explore_widget.dart';
 import 'package:r_home/presentation/rent_a_home/widgets/rent_stepper_widget.dart';
 
 class RentAHomePage extends StatelessWidget {
-  const RentAHomePage({Key? key}) : super(key: key);
+  final String? location;
+
+  const RentAHomePage({Key? key, this.location}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +31,15 @@ class RentAHomePage extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => RentAHomeBloc(
-                RentalsRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(
-                    FirebaseAuth.instance,
-                    GoogleSignIn(),
-                    FirebaseFirestore.instance
-                  )
-                ),
-                HomesRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(
-                    FirebaseAuth.instance, GoogleSignIn(),
-                    FirebaseFirestore.instance
-                  ),
-                FirebaseStorage.instance)
-              )
-                ..add(RentAHomeEvent.initialize(optionOf(null))),
+                  RentalsRepository(
+                      FirebaseFirestore.instance,
+                      FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
+                          FirebaseFirestore.instance)),
+                  HomesRepository(
+                      FirebaseFirestore.instance,
+                      FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
+                          FirebaseFirestore.instance), FirebaseStorage.instance))
+                ..add(RentAHomeEvent.initialize(optionOf(null), location)),
             ),
           ],
           child: BlocBuilder<RentAHomeBloc, RentAHomeState>(

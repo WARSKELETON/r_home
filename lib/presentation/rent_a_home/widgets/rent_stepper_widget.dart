@@ -16,6 +16,10 @@ import 'package:r_home/presentation/rent_a_home/widgets/select_home_field_widget
 class RentStepperWidget extends StatelessWidget {
   const RentStepperWidget({Key? key}) : super(key: key);
 
+  String getDateString(DateTime checkIn, DateTime checkOut) {
+    return checkIn.day.toString() + "/" + checkIn.month.toString() + "/" + checkIn.year.toString() + " - " + checkOut.day.toString() + "/" + checkOut.month.toString() + "/" + checkOut.year.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<StepperBloc, StepperState>(
@@ -28,16 +32,17 @@ class RentStepperWidget extends StatelessWidget {
           int numAdults = context.watch<RentAHomeBloc>().state.idealRental.numAdults;
           int numChildren = context.watch<RentAHomeBloc>().state.idealRental.numChildren;
           int numPets = context.watch<RentAHomeBloc>().state.idealRental.numPets;
+          String location = context.watch<RentAHomeBloc>().state.location;
           Home selectedHome = context.watch<RentAHomeBloc>().state.selectedHome;
 
           String title = "";
           switch (currentIndex) {
             case 0:
-              title = "When are you staying in this home?";
+              title = "When are you staying in $location?";
               break;
             case 1:
               title =
-                  "How many guests?";
+                  "How many guests in $location for ${getDateString(checkIn!, checkOut!)}?";
               break;
             case 2:
               title = selectedHome.name != "" ? selectedHome.name : "Select a home";

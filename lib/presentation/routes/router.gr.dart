@@ -106,9 +106,11 @@ class MyRouter extends _i31.RootStackRouter {
           fullscreenDialog: true);
     },
     RentAHomePageRoute.name: (routeData) {
+      final args = routeData.argsAs<RentAHomePageRouteArgs>(
+          orElse: () => const RentAHomePageRouteArgs());
       return _i31.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i9.RentAHomePage(),
+          child: _i9.RentAHomePage(key: args.key, location: args.location),
           opaque: true,
           barrierDismissible: false);
     },
@@ -494,11 +496,26 @@ class ImagesViewerPageRouteArgs {
 
 /// generated route for
 /// [_i9.RentAHomePage]
-class RentAHomePageRoute extends _i31.PageRouteInfo<void> {
-  const RentAHomePageRoute()
-      : super(RentAHomePageRoute.name, path: '/rent-ahome-page');
+class RentAHomePageRoute extends _i31.PageRouteInfo<RentAHomePageRouteArgs> {
+  RentAHomePageRoute({_i32.Key? key, String? location})
+      : super(RentAHomePageRoute.name,
+            path: '/rent-ahome-page',
+            args: RentAHomePageRouteArgs(key: key, location: location));
 
   static const String name = 'RentAHomePageRoute';
+}
+
+class RentAHomePageRouteArgs {
+  const RentAHomePageRouteArgs({this.key, this.location});
+
+  final _i32.Key? key;
+
+  final String? location;
+
+  @override
+  String toString() {
+    return 'RentAHomePageRouteArgs{key: $key, location: $location}';
+  }
 }
 
 /// generated route for

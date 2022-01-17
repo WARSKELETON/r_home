@@ -176,7 +176,7 @@ class HomeDetailsPage extends StatelessWidget {
                               padding: const EdgeInsets.only(
                                   bottom: 5.0, right: 15.0, left: 15.0),
                               child: Text(
-                                "//${_userToDisplay.role.capitalize()} Info",
+                                "${_userToDisplay.role.capitalize()} Info",
                                 textAlign: TextAlign.left,
                                 style: const TextStyle(
                                   fontSize: 16,

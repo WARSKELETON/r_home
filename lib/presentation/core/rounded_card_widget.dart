@@ -36,6 +36,8 @@ class RoundedCardWidget extends StatelessWidget {
         title.substring(0, 17) + "...") :
       title;
 
+    final cutSubtitle = subtitle != null ? (subtitle!.length > 18 ? subtitle!.substring(0, 17) + "..." : subtitle) : null;
+
     return InkWell(
       splashColor: const Color.fromRGBO(128,128,128, 0.3),
       onTap: onPressed,
@@ -101,7 +103,7 @@ class RoundedCardWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      subtitle!,
+                      cutSubtitle!,
                       style: const TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
