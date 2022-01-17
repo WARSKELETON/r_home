@@ -47,7 +47,8 @@ class MyHomesForm extends StatelessWidget {
                 FirebaseAuth.instance,
                 GoogleSignIn(),
                 FirebaseFirestore.instance
-              )
+              ),
+              FirebaseStorage.instance
             )
           )..add(MyHomesFormEvent.initialize(optionOf(editedHome))),
         ),
@@ -77,20 +78,22 @@ class MyHomesForm extends StatelessWidget {
                 )
               ],
             ),
-            body: Form(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const HomeNameField(),
-                    const LocationField(),
-                    const PriceField(),
-                    const GuestsField(),
-                    CarouselWidget(title: "Selected Activities", localActivities: localActivities),
-                    if (!isEditing) ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
-                  ],
-                ),
-              )
+            body: Expanded(
+              child: Form(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const HomeNameField(),
+                      const LocationField(),
+                      const PriceField(),
+                      const GuestsField(),
+                      CarouselWidget(title: "Selected Activities", localActivities: localActivities),
+                      if (!isEditing) ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
+                    ],
+                  ),
+                )
+              ),
             ),
             bottomNavigationBar: const BottomBarWidget(),
           );

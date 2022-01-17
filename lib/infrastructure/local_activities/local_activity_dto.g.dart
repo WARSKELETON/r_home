@@ -15,6 +15,7 @@ _$_LocalActivityDto _$$_LocalActivityDtoFromJson(Map<String, dynamic> json) =>
       category: json['category'] as String,
       price: (json['price'] as num).toDouble(),
       contact: json['contact'] as int,
+      mainImageUrl: json['mainImageUrl'] as String,
     );
 
 Map<String, dynamic> _$$_LocalActivityDtoToJson(_$_LocalActivityDto instance) =>
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$_LocalActivityDtoToJson(_$_LocalActivityDto instance) =>
       'category': instance.category,
       'price': instance.price,
       'contact': instance.contact,
+      'mainImageUrl': instance.mainImageUrl,
     };

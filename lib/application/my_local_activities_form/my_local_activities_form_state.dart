@@ -4,6 +4,7 @@ part of 'my_local_activities_form_bloc.dart';
 abstract class MyLocalActivitiesFormState with _$MyLocalActivitiesFormState {
   const factory MyLocalActivitiesFormState({
     required ActivityCategory? category,
+    required List<String> imagePaths,
     required LocalActivity activity,
     required bool showErrorMessages,
     required bool isEditing,
@@ -13,6 +14,7 @@ abstract class MyLocalActivitiesFormState with _$MyLocalActivitiesFormState {
 
   factory MyLocalActivitiesFormState.initial() => MyLocalActivitiesFormState(
     category: null,
+    imagePaths: [],
     activity: LocalActivity.empty(),
     showErrorMessages: false,
     isEditing: false,

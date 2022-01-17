@@ -158,7 +158,8 @@ class HomeDetailsPage extends StatelessWidget {
                     ),
                     ImageIndexWidget(
                         numberOfImages: _images.length,
-                        activePage: _imageIndex),
+                        activePage: _imageIndex
+                    ),
                     HomeDetailsTextWidget(home: _home),
                     if (_rental.homeId != "") ...[
                       const Divider(

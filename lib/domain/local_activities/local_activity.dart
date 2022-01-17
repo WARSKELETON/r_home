@@ -27,8 +27,8 @@ abstract class LocalActivity implements _$LocalActivity {
     required String producer,
     required String category, //enum?
     required double price,
-    required int contact
-    // Add image
+    required int contact,
+    required String mainImageUrl
     // Add schedule
   }) = _LocalActivity;
 
@@ -39,6 +39,7 @@ abstract class LocalActivity implements _$LocalActivity {
     producer: '',
     category: '',
     price: 0.0,
-    contact: 0
+    contact: 0,
+    mainImageUrl: ''
   );
 }

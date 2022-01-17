@@ -13,6 +13,8 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
 
   MyLocalActivitiesFormBloc(this._localActivitiesRepository) : super(MyLocalActivitiesFormState.initial()) {
     on<Initialize>(_onInitialize);
+    on<ImagesReceived>(_onImagesReceived);
+    on<ImageReceived>(_onImageReceived);
     on<CategoryChanged>(_onCategoryChanged);
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
@@ -29,6 +31,14 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
         isEditing: true
       ),
     ));
+  }
+
+  void _onImagesReceived(ImagesReceived event, Emitter<MyLocalActivitiesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths, ...event.images]));
+  }
+
+  void _onImageReceived(ImageReceived event, Emitter<MyLocalActivitiesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths, event.image]));
   }
 
   void _onCategoryChanged(CategoryChanged event, Emitter<MyLocalActivitiesFormState> emit) {
@@ -72,9 +82,7 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
 
     state.isEditing
         ? await _localActivitiesRepository.update(state.activity)
-        : await _localActivitiesRepository.create(state.activity.copyWith(
-      category: state.category!.name
-    ));
+        : await _localActivitiesRepository.create(state.activity.copyWith(category: state.category!.name), state.imagePaths);
 
     emit(state.copyWith(isSaving: false));
   }

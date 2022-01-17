@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:async/async.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
@@ -9,10 +12,11 @@ import 'package:r_home/infrastructure/local_activities/local_activity_dto.dart';
 
 class LocalActivitiesRepository implements ILocalActivitiesRepository {
   final FirebaseFirestore _firestore;
+  final FirebaseStorage _storage;
   static const String ACTIVITIES_COLLECTION = "local-activities";
   final IAuthFacade _authFacade;
 
-  LocalActivitiesRepository(this._firestore, this._authFacade);
+  LocalActivitiesRepository(this._firestore, this._authFacade, this._storage);
 
   @override
   Stream<List<LocalActivity>> watchAll() async* {
@@ -61,17 +65,44 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
   }
 
   @override
-  Future<void> create(LocalActivity localActivity) async {
+  Future<List<String>> getLocalActivityImages(String localActivityUuid) async {
+    List<String> listURL = [];
+
+    await _storage.ref("$ACTIVITIES_COLLECTION/" + localActivityUuid).listAll()
+      .then((value) async => {
+        print("Images received"),
+        for (var ref in value.items) {
+          listURL.add(await ref.getDownloadURL())
+        }
+      });
+
+    return listURL;
+  }
+
+  @override
+  Future<void> create(LocalActivity localActivity, List<String> imagesPath) async {
     final userId = _authFacade.getSignedInUserId()!;
 
-    localActivity = localActivity.copyWith(producer: userId);
+    for (var i = 0; i < imagesPath.length; i++) {
+      _storage.ref("/$ACTIVITIES_COLLECTION/" + localActivity.uuid + "/$i")
+        .putFile(File(imagesPath[i]))
+        .then((res) async => {
+          print("Image uploaded successfuly"),
+          if (i == 0) {
+            localActivity = localActivity.copyWith(
+              producer: userId,
+              mainImageUrl: await res.ref.getDownloadURL()
+            ),
 
-    _firestore
-      .collection(ACTIVITIES_COLLECTION)
-      .doc(localActivity.uuid)
-      .set(LocalActivityDto.fromDomain(localActivity).toJson())
-      .then((_) => print("Activity created successfuly"))
-      .catchError((onError) => print(onError));
+            _firestore
+              .collection(ACTIVITIES_COLLECTION)
+              .doc(localActivity.uuid)
+              .set(LocalActivityDto.fromDomain(localActivity).toJson())
+              .then((_) => print("Activity created successfuly"))
+              .catchError((onError) => print(onError))
+          }
+        });
+    }
   }
 
   @override

@@ -29,7 +29,8 @@ class _$LocalActivityDtoTearOff {
       required String producer,
       required String category,
       required double price,
-      required int contact}) {
+      required int contact,
+      required String mainImageUrl}) {
     return _LocalActivityDto(
       uuid: uuid,
       name: name,
@@ -38,6 +39,7 @@ class _$LocalActivityDtoTearOff {
       category: category,
       price: price,
       contact: contact,
+      mainImageUrl: mainImageUrl,
     );
   }
 
@@ -58,6 +60,7 @@ mixin _$LocalActivityDto {
   String get category => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   int get contact => throw _privateConstructorUsedError;
+  String get mainImageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -77,7 +80,8 @@ abstract class $LocalActivityDtoCopyWith<$Res> {
       String producer,
       String category,
       double price,
-      int contact});
+      int contact,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -98,6 +102,7 @@ class _$LocalActivityDtoCopyWithImpl<$Res>
     Object? category = freezed,
     Object? price = freezed,
     Object? contact = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -128,6 +133,10 @@ class _$LocalActivityDtoCopyWithImpl<$Res>
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
               as int,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -146,7 +155,8 @@ abstract class _$LocalActivityDtoCopyWith<$Res>
       String producer,
       String category,
       double price,
-      int contact});
+      int contact,
+      String mainImageUrl});
 }
 
 /// @nodoc
@@ -169,6 +179,7 @@ class __$LocalActivityDtoCopyWithImpl<$Res>
     Object? category = freezed,
     Object? price = freezed,
     Object? contact = freezed,
+    Object? mainImageUrl = freezed,
   }) {
     return _then(_LocalActivityDto(
       uuid: uuid == freezed
@@ -199,6 +210,10 @@ class __$LocalActivityDtoCopyWithImpl<$Res>
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
               as int,
+      mainImageUrl: mainImageUrl == freezed
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -213,7 +228,8 @@ class _$_LocalActivityDto extends _LocalActivityDto {
       required this.producer,
       required this.category,
       required this.price,
-      required this.contact})
+      required this.contact,
+      required this.mainImageUrl})
       : super._();
 
   factory _$_LocalActivityDto.fromJson(Map<String, dynamic> json) =>
@@ -233,10 +249,12 @@ class _$_LocalActivityDto extends _LocalActivityDto {
   final double price;
   @override
   final int contact;
+  @override
+  final String mainImageUrl;
 
   @override
   String toString() {
-    return 'LocalActivityDto(uuid: $uuid, name: $name, location: $location, producer: $producer, category: $category, price: $price, contact: $contact)';
+    return 'LocalActivityDto(uuid: $uuid, name: $name, location: $location, producer: $producer, category: $category, price: $price, contact: $contact, mainImageUrl: $mainImageUrl)';
   }
 
   @override
@@ -250,7 +268,9 @@ class _$_LocalActivityDto extends _LocalActivityDto {
             const DeepCollectionEquality().equals(other.producer, producer) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.price, price) &&
-            const DeepCollectionEquality().equals(other.contact, contact));
+            const DeepCollectionEquality().equals(other.contact, contact) &&
+            const DeepCollectionEquality()
+                .equals(other.mainImageUrl, mainImageUrl));
   }
 
   @override
@@ -262,7 +282,8 @@ class _$_LocalActivityDto extends _LocalActivityDto {
       const DeepCollectionEquality().hash(producer),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(price),
-      const DeepCollectionEquality().hash(contact));
+      const DeepCollectionEquality().hash(contact),
+      const DeepCollectionEquality().hash(mainImageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +304,8 @@ abstract class _LocalActivityDto extends LocalActivityDto {
       required String producer,
       required String category,
       required double price,
-      required int contact}) = _$_LocalActivityDto;
+      required int contact,
+      required String mainImageUrl}) = _$_LocalActivityDto;
   const _LocalActivityDto._() : super._();
 
   factory _LocalActivityDto.fromJson(Map<String, dynamic> json) =
@@ -303,6 +325,8 @@ abstract class _LocalActivityDto extends LocalActivityDto {
   double get price;
   @override
   int get contact;
+  @override
+  String get mainImageUrl;
   @override
   @JsonKey(ignore: true)
   _$LocalActivityDtoCopyWith<_LocalActivityDto> get copyWith =>
