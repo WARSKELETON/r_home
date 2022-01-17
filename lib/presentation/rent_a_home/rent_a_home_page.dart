@@ -38,7 +38,7 @@ class RentAHomePage extends StatelessWidget {
                   HomesRepository(
                       FirebaseFirestore.instance,
                       FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                          FirebaseFirestore.instance)))
+                          FirebaseFirestore.instance), FirebaseStorage.instance))
                 ..add(RentAHomeEvent.initialize(optionOf(null), location)),
             ),
           ],
