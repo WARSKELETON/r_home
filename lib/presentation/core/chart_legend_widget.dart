@@ -32,14 +32,11 @@ class ChartLegendWidget extends StatelessWidget {
     List<Widget> list = [];
     data.forEach((color, label) => list.add(_buildLegendItem(label, color)));
 
-    return Container(
-      color: Colors.red,
-      child: Wrap(
-        spacing: 6.0,
-        runSpacing: 6.0,
-        alignment: WrapAlignment.center,
-        children: list,
-      ),
+    return Wrap(
+      spacing: 6.0,
+      runSpacing: 6.0,
+      alignment: WrapAlignment.center,
+      children: list,
     );
   }
 }
