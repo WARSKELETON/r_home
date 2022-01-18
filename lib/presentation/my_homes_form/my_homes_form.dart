@@ -14,7 +14,7 @@ import 'package:r_home/infrastructure/local_activities/local_activities_reposito
 
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
-import 'package:r_home/presentation/my_homes_form/widgets/carousel_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/carousel_with_add_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/guests_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/home_name_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/image_carousel_home_widget.dart';
@@ -90,7 +90,7 @@ class MyHomesForm extends StatelessWidget {
                           const LocationField(),
                           const PriceField(),
                           const GuestsField(),
-                          CarouselWidget(title: "Selected Activities", localActivities: localActivities),
+                          CarouselWithAddWidget(title: "Selected Activities", localActivities: localActivities),
                           if (!isEditing) ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
                         ],
                       ),

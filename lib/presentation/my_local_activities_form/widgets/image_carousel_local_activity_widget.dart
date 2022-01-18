@@ -11,7 +11,11 @@ class ImageCarouselLocalActivityWidget extends StatelessWidget {
   const ImageCarouselLocalActivityWidget({Key? key, required this.title, required this.imagesPath}): super(key: key);
 
   _selectImage(BuildContext context) async {
-    List<XFile>? pickedFiles = await ImagePicker().pickMultiImage();
+    List<XFile>? pickedFiles = await ImagePicker().pickMultiImage(
+      imageQuality: 50,
+      maxHeight: 600,
+      maxWidth: 900
+    );
 
     if (pickedFiles == null) return;
 
@@ -23,6 +27,9 @@ class ImageCarouselLocalActivityWidget extends StatelessWidget {
   _takePicture(BuildContext context) async {
     final pickedFile = await ImagePicker().pickImage(
       source: ImageSource.camera,
+      imageQuality: 50,
+      maxHeight: 600,
+      maxWidth: 900
     );
 
     if (pickedFile == null) return;

@@ -30,14 +30,6 @@ class RoundedCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cutTitle =
-      title.length > 22 ?
-      (subtitle == null ?
-        title.substring(0, 22) + "..." :
-        title.substring(0, 17) + "...") :
-      title;
-
-    final cutSubtitle = subtitle != null ? (subtitle!.length > 18 ? subtitle!.substring(0, 17) + "..." : subtitle) : null;
 
     return InkWell(
       splashColor: const Color.fromRGBO(128,128,128, 0.3),
@@ -95,25 +87,36 @@ class RoundedCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (subtitle != null) ...[
-                    Text(
-                      cutTitle,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w700,
+                    SizedBox(
+                      width: width - 10,
+                      child: Text(
+                        title,
+                        overflow: TextOverflow.fade,
+                        softWrap: false,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
-                    Text(
-                      cutSubtitle!,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
+                    SizedBox(
+                      width: width - 10,
+                      child: Text(
+                        subtitle!,
+                        overflow: TextOverflow.fade,
+                        softWrap: false,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     )
                   ] else ...[
-                    Container(
+                    SizedBox(
                       width: width,
                       child: Text(
-                        cutTitle,
+                        title,
+                        overflow: TextOverflow.fade,
                         textAlign: center == null ? TextAlign.center : TextAlign.start,
                         maxLines: 2,
                         style: const TextStyle(

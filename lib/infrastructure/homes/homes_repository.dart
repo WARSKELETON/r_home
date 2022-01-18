@@ -118,10 +118,10 @@ class HomesRepository implements IHomesRepository {
   @override
   Future<void> update(Home home) async {
     _firestore
-        .collection(HOMES_COLLECTION)
-        .doc(home.uuid)
-        .update(HomeDto.fromDomain(home).toJson())
-        .then((_) => print("Home updated successfuly"))
-        .catchError((onError) => print(onError));
+      .collection(HOMES_COLLECTION)
+      .doc(home.uuid)
+      .update(HomeDto.fromDomain(home).toJson())
+      .then((_) => print("Home updated successfuly"))
+      .catchError((onError) => print(onError));
   }
 }

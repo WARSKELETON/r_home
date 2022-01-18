@@ -10,6 +10,7 @@ import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/application/homes/homes_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
+import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -52,14 +53,33 @@ class HomePage extends StatelessWidget {
             ),
             body: BlocProvider(
               create: (context) => HomesBloc(
-                  RentalsRepository(
-                      FirebaseFirestore.instance,
-                      FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                          FirebaseFirestore.instance)),
-                  HomesRepository(
-                      FirebaseFirestore.instance,
-                      FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                          FirebaseFirestore.instance), FirebaseStorage.instance))
+              RentalsRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                )
+              ),
+              HomesRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                ),
+                FirebaseStorage.instance
+              ),
+              LocalActivitiesRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                ),
+                FirebaseStorage.instance
+              ),
+            )
                 ..add(HomesEvent.initialize(currentUser, null)),
               child: SingleChildScrollView(
                   child: currentUser.role == "guest"

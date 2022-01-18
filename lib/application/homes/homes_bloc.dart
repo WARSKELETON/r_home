@@ -5,6 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/homes/i_homes_repository.dart';
+import 'package:r_home/domain/local_activities/i_local_activities_repository.dart';
+import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 
@@ -15,9 +17,11 @@ part 'homes_bloc.freezed.dart';
 class HomesBloc extends Bloc<HomesEvent, HomesState> {
   final IRentalsRepository _rentalsRepository;
   final IHomesRepository _homesRepository;
+  final ILocalActivitiesRepository _localActivitiesRepository;
 
-  HomesBloc(this._rentalsRepository, this._homesRepository) : super(HomesState.initial()) {
+  HomesBloc(this._rentalsRepository, this._homesRepository, this._localActivitiesRepository) : super(HomesState.initial()) {
     on<Initialize>(_onInitialize);
+    on<LocalActivitiesReceived>(_onLocalActivitiesReceived);
     on<ImagesReceived>(_onImagesReceived);
     on<HomesReceived>(_onHomesReceived);
     on<RentalsReceived>(_onRentalsReceived);
@@ -29,6 +33,7 @@ class HomesBloc extends Bloc<HomesEvent, HomesState> {
 
   StreamSubscription<List<Home>>? _homesStreamSubscription;
   StreamSubscription<List<Rental>>? _rentalsStreamSubscription;
+  StreamSubscription<List<LocalActivity>>? _homeLocalActivitiesStreamSubscription;
   StreamSubscription<Home>? _homeStreamSubscription;
   StreamSubscription<Rental>? _rentalStreamSubscription;
   DomainUser _currentUser = DomainUser.empty();
@@ -60,6 +65,10 @@ class HomesBloc extends Bloc<HomesEvent, HomesState> {
     }
 
     emit(state);
+  }
+
+  void _onLocalActivitiesReceived(LocalActivitiesReceived event, Emitter<HomesState> emit) {
+    emit(state.copyWith(localActivities: event.localActivities));
   }
 
   void _onImagesReceived(ImagesReceived event, Emitter<HomesState> emit) {
@@ -117,6 +126,12 @@ class HomesBloc extends Bloc<HomesEvent, HomesState> {
 
   void _onHomeReceived(HomeReceived event, Emitter<HomesState> emit) {
     emit(state.copyWith(home: event.home));
+
+    if (event.home.localActivities.isNotEmpty) {
+      _homeLocalActivitiesStreamSubscription = _localActivitiesRepository
+        .watchAllFromHome(event.home.localActivities)
+        .listen((activities) => add(HomesEvent.localActivitiesReceived(activities)));
+    }
   }
 
   void _onRentalReceived(RentalReceived event, Emitter<HomesState> emit) async {
@@ -150,6 +165,7 @@ class HomesBloc extends Bloc<HomesEvent, HomesState> {
 
   @override
   Future<void> close() {
+    _homeLocalActivitiesStreamSubscription?.cancel();
     _homesStreamSubscription?.cancel();
     _rentalsStreamSubscription?.cancel();
     _homeStreamSubscription?.cancel();

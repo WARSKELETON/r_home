@@ -8,8 +8,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/homes/homes_bloc.dart';
 import 'package:r_home/application/image_viewer/image_viewer_bloc.dart';
+import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
+import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
@@ -20,6 +22,8 @@ import 'package:r_home/presentation/core/square_icon_button_widget.dart';
 import 'package:r_home/presentation/core/string_extension.dart';
 import 'package:r_home/presentation/disputes/widgets/image_index_widget.dart';
 import 'package:r_home/presentation/core/images_view_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/carousel_widget.dart';
+import 'package:r_home/presentation/my_homes_form/widgets/carousel_with_add_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 
@@ -106,14 +110,32 @@ class HomeDetailsPage extends StatelessWidget {
         BlocProvider(
           create: (context) => HomesBloc(
               RentalsRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                      FirebaseFirestore.instance)),
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                )
+              ),
               HomesRepository(
-                  FirebaseFirestore.instance,
-                  FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                      FirebaseFirestore.instance),
-                  FirebaseStorage.instance))
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                ),
+                FirebaseStorage.instance
+              ),
+              LocalActivitiesRepository(
+                FirebaseFirestore.instance,
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                ),
+                FirebaseStorage.instance
+              ),
+            )
             ..add(HomesEvent.watchHome(homeUuid))
             ..add(HomesEvent.watchRental(rentalUuid)),
         ),
@@ -127,6 +149,7 @@ class HomeDetailsPage extends StatelessWidget {
             final _host = context.watch<HomesBloc>().state.host;
             final _guest = context.watch<HomesBloc>().state.guest;
             final _images = context.watch<HomesBloc>().state.homeImages;
+            final _localActivities = context.watch<HomesBloc>().state.localActivities;
             
             final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
 
@@ -161,6 +184,17 @@ class HomeDetailsPage extends StatelessWidget {
                         activePage: _imageIndex
                     ),
                     HomeDetailsTextWidget(home: _home),
+                    _localActivities.isNotEmpty ?
+                    CarouselWidget(
+                      title: "Recommended activities",
+                      localActivities: _localActivities,
+                    ) : 
+                    Text(
+                      _currentUser.role == "host" && _currentUser.id == _home.host ?
+                      "You didn't recommend any activity." :
+                      "The host didn't recommend any activity.",
+                      textAlign: TextAlign.center,
+                    ),
                     if (_rental.homeId != "") ...[
                       const Divider(
                         thickness: 8,

@@ -56,6 +56,15 @@ class LocalActivitiesRepository implements ILocalActivitiesRepository {
   }
 
   @override
+  Stream<List<LocalActivity>> watchAllFromHome(List<String> localActivitiesUuid) async* {
+    final docRef = _firestore
+        .collection(ACTIVITIES_COLLECTION)
+        .where("uuid", whereIn: localActivitiesUuid);
+
+    yield* docRef.snapshots().map((doc) => doc.toListLocalActivity());
+  }
+
+  @override
   Stream<LocalActivity> watch(String localActivityUuid) async* {
     final docRef = _firestore
         .collection(ACTIVITIES_COLLECTION)

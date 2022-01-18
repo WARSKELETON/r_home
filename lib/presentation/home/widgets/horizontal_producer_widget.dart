@@ -29,7 +29,6 @@ class HorizontalProducerWidget extends StatelessWidget {
           if (_localActivities.isNotEmpty) {
             return ListView.builder(
               scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
               itemCount: _localActivities.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
@@ -38,7 +37,8 @@ class HorizontalProducerWidget extends StatelessWidget {
                   child: RoundedCardWidget(
                     title: _localActivities[index].name,
                     subtitle: _localActivities[index].location,
-                    image: "assets/icons/home${1}.png",
+                    image: _localActivities[index].mainImageUrl,
+                    network: true,
                     width: 155,
                     height: 155,
                     onPressed: () => AutoRouter.of(context).push(

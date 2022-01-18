@@ -5,6 +5,7 @@ abstract class ILocalActivitiesRepository {
   Stream<List<LocalActivity>> watchAllFromUser();
   Stream<List<LocalActivity>> watchAllFromIds(List<String> activitiesIds);
   Stream<List<LocalActivity>> watchAllFromLocation(String location);
+  Stream<List<LocalActivity>> watchAllFromHome(List<String> localActivitiesUuid);
   Stream<LocalActivity> watch(String localActivityUuid);
   Future<List<String>> getLocalActivityImages(String localActivityUuid);
   Future<void> create(LocalActivity localActivity, List<String> imagesPath);

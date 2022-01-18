@@ -31,6 +31,13 @@ class _$HomesEventTearOff {
     );
   }
 
+  LocalActivitiesReceived localActivitiesReceived(
+      List<LocalActivity> localActivities) {
+    return LocalActivitiesReceived(
+      localActivities,
+    );
+  }
+
   HomesReceived homesReceived(List<Home> homes) {
     return HomesReceived(
       homes,
@@ -78,6 +85,8 @@ mixin _$HomesEvent {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -90,6 +99,8 @@ mixin _$HomesEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -102,6 +113,8 @@ mixin _$HomesEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -115,6 +128,8 @@ mixin _$HomesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -127,6 +142,7 @@ mixin _$HomesEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -139,6 +155,7 @@ mixin _$HomesEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -253,6 +270,8 @@ class _$Initialize implements Initialize {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -268,6 +287,8 @@ class _$Initialize implements Initialize {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -283,6 +304,8 @@ class _$Initialize implements Initialize {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -302,6 +325,8 @@ class _$Initialize implements Initialize {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -317,6 +342,7 @@ class _$Initialize implements Initialize {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -332,6 +358,7 @@ class _$Initialize implements Initialize {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -425,6 +452,8 @@ class _$ImagesReceived implements ImagesReceived {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -440,6 +469,8 @@ class _$ImagesReceived implements ImagesReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -455,6 +486,8 @@ class _$ImagesReceived implements ImagesReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -474,6 +507,8 @@ class _$ImagesReceived implements ImagesReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -489,6 +524,7 @@ class _$ImagesReceived implements ImagesReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -504,6 +540,7 @@ class _$ImagesReceived implements ImagesReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -525,6 +562,190 @@ abstract class ImagesReceived implements HomesEvent {
   List<String> get images;
   @JsonKey(ignore: true)
   $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LocalActivitiesReceivedCopyWith<$Res> {
+  factory $LocalActivitiesReceivedCopyWith(LocalActivitiesReceived value,
+          $Res Function(LocalActivitiesReceived) then) =
+      _$LocalActivitiesReceivedCopyWithImpl<$Res>;
+  $Res call({List<LocalActivity> localActivities});
+}
+
+/// @nodoc
+class _$LocalActivitiesReceivedCopyWithImpl<$Res>
+    extends _$HomesEventCopyWithImpl<$Res>
+    implements $LocalActivitiesReceivedCopyWith<$Res> {
+  _$LocalActivitiesReceivedCopyWithImpl(LocalActivitiesReceived _value,
+      $Res Function(LocalActivitiesReceived) _then)
+      : super(_value, (v) => _then(v as LocalActivitiesReceived));
+
+  @override
+  LocalActivitiesReceived get _value => super._value as LocalActivitiesReceived;
+
+  @override
+  $Res call({
+    Object? localActivities = freezed,
+  }) {
+    return _then(LocalActivitiesReceived(
+      localActivities == freezed
+          ? _value.localActivities
+          : localActivities // ignore: cast_nullable_to_non_nullable
+              as List<LocalActivity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LocalActivitiesReceived implements LocalActivitiesReceived {
+  const _$LocalActivitiesReceived(this.localActivities);
+
+  @override
+  final List<LocalActivity> localActivities;
+
+  @override
+  String toString() {
+    return 'HomesEvent.localActivitiesReceived(localActivities: $localActivities)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LocalActivitiesReceived &&
+            const DeepCollectionEquality()
+                .equals(other.localActivities, localActivities));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(localActivities));
+
+  @JsonKey(ignore: true)
+  @override
+  $LocalActivitiesReceivedCopyWith<LocalActivitiesReceived> get copyWith =>
+      _$LocalActivitiesReceivedCopyWithImpl<LocalActivitiesReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DomainUser currentUser, String? activityUuid)
+        initialize,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
+    required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(List<Rental> rentals) rentalsReceived,
+    required TResult Function(String homeUuid) watchHome,
+    required TResult Function(String rentalUuid) watchRental,
+    required TResult Function(Home home) homeReceived,
+    required TResult Function(Rental rental) rentalReceived,
+  }) {
+    return localActivitiesReceived(localActivities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+  }) {
+    return localActivitiesReceived?.call(localActivities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(String homeUuid)? watchHome,
+    TResult Function(String rentalUuid)? watchRental,
+    TResult Function(Home home)? homeReceived,
+    TResult Function(Rental rental)? rentalReceived,
+    required TResult orElse(),
+  }) {
+    if (localActivitiesReceived != null) {
+      return localActivitiesReceived(localActivities);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
+    required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(RentalsReceived value) rentalsReceived,
+    required TResult Function(WatchHome value) watchHome,
+    required TResult Function(WatchRental value) watchRental,
+    required TResult Function(HomeReceived value) homeReceived,
+    required TResult Function(RentalReceived value) rentalReceived,
+  }) {
+    return localActivitiesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+  }) {
+    return localActivitiesReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(WatchHome value)? watchHome,
+    TResult Function(WatchRental value)? watchRental,
+    TResult Function(HomeReceived value)? homeReceived,
+    TResult Function(RentalReceived value)? rentalReceived,
+    required TResult orElse(),
+  }) {
+    if (localActivitiesReceived != null) {
+      return localActivitiesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocalActivitiesReceived implements HomesEvent {
+  const factory LocalActivitiesReceived(List<LocalActivity> localActivities) =
+      _$LocalActivitiesReceived;
+
+  List<LocalActivity> get localActivities;
+  @JsonKey(ignore: true)
+  $LocalActivitiesReceivedCopyWith<LocalActivitiesReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -595,6 +816,8 @@ class _$HomesReceived implements HomesReceived {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -610,6 +833,8 @@ class _$HomesReceived implements HomesReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -625,6 +850,8 @@ class _$HomesReceived implements HomesReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -644,6 +871,8 @@ class _$HomesReceived implements HomesReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -659,6 +888,7 @@ class _$HomesReceived implements HomesReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -674,6 +904,7 @@ class _$HomesReceived implements HomesReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -765,6 +996,8 @@ class _$RentalsReceived implements RentalsReceived {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -780,6 +1013,8 @@ class _$RentalsReceived implements RentalsReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -795,6 +1030,8 @@ class _$RentalsReceived implements RentalsReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -814,6 +1051,8 @@ class _$RentalsReceived implements RentalsReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -829,6 +1068,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -844,6 +1084,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -933,6 +1174,8 @@ class _$WatchHome implements WatchHome {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -948,6 +1191,8 @@ class _$WatchHome implements WatchHome {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -963,6 +1208,8 @@ class _$WatchHome implements WatchHome {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -982,6 +1229,8 @@ class _$WatchHome implements WatchHome {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -997,6 +1246,7 @@ class _$WatchHome implements WatchHome {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1012,6 +1262,7 @@ class _$WatchHome implements WatchHome {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1104,6 +1355,8 @@ class _$WatchRental implements WatchRental {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -1119,6 +1372,8 @@ class _$WatchRental implements WatchRental {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -1134,6 +1389,8 @@ class _$WatchRental implements WatchRental {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -1153,6 +1410,8 @@ class _$WatchRental implements WatchRental {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -1168,6 +1427,7 @@ class _$WatchRental implements WatchRental {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1183,6 +1443,7 @@ class _$WatchRental implements WatchRental {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1283,6 +1544,8 @@ class _$HomeReceived implements HomeReceived {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -1298,6 +1561,8 @@ class _$HomeReceived implements HomeReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -1313,6 +1578,8 @@ class _$HomeReceived implements HomeReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -1332,6 +1599,8 @@ class _$HomeReceived implements HomeReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -1347,6 +1616,7 @@ class _$HomeReceived implements HomeReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1362,6 +1632,7 @@ class _$HomeReceived implements HomeReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1462,6 +1733,8 @@ class _$RentalReceived implements RentalReceived {
     required TResult Function(DomainUser currentUser, String? activityUuid)
         initialize,
     required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(String homeUuid) watchHome,
@@ -1477,6 +1750,8 @@ class _$RentalReceived implements RentalReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -1492,6 +1767,8 @@ class _$RentalReceived implements RentalReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DomainUser currentUser, String? activityUuid)? initialize,
     TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(String homeUuid)? watchHome,
@@ -1511,6 +1788,8 @@ class _$RentalReceived implements RentalReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(WatchHome value) watchHome,
@@ -1526,6 +1805,7 @@ class _$RentalReceived implements RentalReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1541,6 +1821,7 @@ class _$RentalReceived implements RentalReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(WatchHome value)? watchHome,
@@ -1571,6 +1852,7 @@ class _$HomesStateTearOff {
 
   _HomesState call(
       {required bool isLoading,
+      required List<LocalActivity> localActivities,
       required List<Home> homes,
       required List<Rental> rentals,
       required List<String> homeImages,
@@ -1580,6 +1862,7 @@ class _$HomesStateTearOff {
       required DomainUser guest}) {
     return _HomesState(
       isLoading: isLoading,
+      localActivities: localActivities,
       homes: homes,
       rentals: rentals,
       homeImages: homeImages,
@@ -1597,6 +1880,7 @@ const $HomesState = _$HomesStateTearOff();
 /// @nodoc
 mixin _$HomesState {
   bool get isLoading => throw _privateConstructorUsedError;
+  List<LocalActivity> get localActivities => throw _privateConstructorUsedError;
   List<Home> get homes => throw _privateConstructorUsedError;
   List<Rental> get rentals => throw _privateConstructorUsedError;
   List<String> get homeImages => throw _privateConstructorUsedError;
@@ -1617,6 +1901,7 @@ abstract class $HomesStateCopyWith<$Res> {
       _$HomesStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      List<LocalActivity> localActivities,
       List<Home> homes,
       List<Rental> rentals,
       List<String> homeImages,
@@ -1642,6 +1927,7 @@ class _$HomesStateCopyWithImpl<$Res> implements $HomesStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? localActivities = freezed,
     Object? homes = freezed,
     Object? rentals = freezed,
     Object? homeImages = freezed,
@@ -1655,6 +1941,10 @@ class _$HomesStateCopyWithImpl<$Res> implements $HomesStateCopyWith<$Res> {
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      localActivities: localActivities == freezed
+          ? _value.localActivities
+          : localActivities // ignore: cast_nullable_to_non_nullable
+              as List<LocalActivity>,
       homes: homes == freezed
           ? _value.homes
           : homes // ignore: cast_nullable_to_non_nullable
@@ -1723,6 +2013,7 @@ abstract class _$HomesStateCopyWith<$Res> implements $HomesStateCopyWith<$Res> {
   @override
   $Res call(
       {bool isLoading,
+      List<LocalActivity> localActivities,
       List<Home> homes,
       List<Rental> rentals,
       List<String> homeImages,
@@ -1754,6 +2045,7 @@ class __$HomesStateCopyWithImpl<$Res> extends _$HomesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? localActivities = freezed,
     Object? homes = freezed,
     Object? rentals = freezed,
     Object? homeImages = freezed,
@@ -1767,6 +2059,10 @@ class __$HomesStateCopyWithImpl<$Res> extends _$HomesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      localActivities: localActivities == freezed
+          ? _value.localActivities
+          : localActivities // ignore: cast_nullable_to_non_nullable
+              as List<LocalActivity>,
       homes: homes == freezed
           ? _value.homes
           : homes // ignore: cast_nullable_to_non_nullable
@@ -1804,6 +2100,7 @@ class __$HomesStateCopyWithImpl<$Res> extends _$HomesStateCopyWithImpl<$Res>
 class _$_HomesState implements _HomesState {
   _$_HomesState(
       {required this.isLoading,
+      required this.localActivities,
       required this.homes,
       required this.rentals,
       required this.homeImages,
@@ -1814,6 +2111,8 @@ class _$_HomesState implements _HomesState {
 
   @override
   final bool isLoading;
+  @override
+  final List<LocalActivity> localActivities;
   @override
   final List<Home> homes;
   @override
@@ -1831,7 +2130,7 @@ class _$_HomesState implements _HomesState {
 
   @override
   String toString() {
-    return 'HomesState(isLoading: $isLoading, homes: $homes, rentals: $rentals, homeImages: $homeImages, home: $home, rental: $rental, host: $host, guest: $guest)';
+    return 'HomesState(isLoading: $isLoading, localActivities: $localActivities, homes: $homes, rentals: $rentals, homeImages: $homeImages, home: $home, rental: $rental, host: $host, guest: $guest)';
   }
 
   @override
@@ -1840,6 +2139,8 @@ class _$_HomesState implements _HomesState {
         (other.runtimeType == runtimeType &&
             other is _HomesState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.localActivities, localActivities) &&
             const DeepCollectionEquality().equals(other.homes, homes) &&
             const DeepCollectionEquality().equals(other.rentals, rentals) &&
             const DeepCollectionEquality()
@@ -1854,6 +2155,7 @@ class _$_HomesState implements _HomesState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(localActivities),
       const DeepCollectionEquality().hash(homes),
       const DeepCollectionEquality().hash(rentals),
       const DeepCollectionEquality().hash(homeImages),
@@ -1871,6 +2173,7 @@ class _$_HomesState implements _HomesState {
 abstract class _HomesState implements HomesState {
   factory _HomesState(
       {required bool isLoading,
+      required List<LocalActivity> localActivities,
       required List<Home> homes,
       required List<Rental> rentals,
       required List<String> homeImages,
@@ -1881,6 +2184,8 @@ abstract class _HomesState implements HomesState {
 
   @override
   bool get isLoading;
+  @override
+  List<LocalActivity> get localActivities;
   @override
   List<Home> get homes;
   @override
