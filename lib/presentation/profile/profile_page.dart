@@ -69,7 +69,7 @@ class ProfilePage extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(right: 8.0),
                               child: Text(
-                                currentUser.numTokens.toString(),
+                                currentUser.numTokens.toStringAsFixed(2),
                                 style: const TextStyle(fontSize: 24),
                               ),
                             ),

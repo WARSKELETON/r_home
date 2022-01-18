@@ -36,7 +36,7 @@ class InfoMessageWidget extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text(
-                    "Tokens spent to start the dispute will be refunded upon resolution. The more tokens spent more priority is given to the dispute.",
+                    "Tokens spent to start the dispute will be refunded upon resolution. If you spend more tokens, the probability of providing more confidence to the users increase. In this case, your dispute is more likely to be voted.",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primaryBlue,
                       fontSize: 10,

@@ -168,38 +168,23 @@ class FirebaseAuthFacade extends TransactionRepository implements IAuthFacade {
   }
 
   @override
-  Future<void> makeTransferOfTokens(String beneficiaryId, double amount) async {
-    String? userId = getSignedInUserId();
-    DomainUser user = await getUserById(userId!);
-    DomainUser receiverUser = await getUserById(beneficiaryId);
-
-    RhomeTransaction transaction = RhomeTransaction.empty();
-    transaction = transaction.copyWith(
-      senderId: user.id,
-      receiverId: beneficiaryId,
-      senderUsername: user.getUsername(),
-      receiverUsername: receiverUser.getUsername(),
-      paymentMethod: PaymentMethod.token.name,
-      amount: amount.toDouble(),
-      type: user.role == "host" ? TransactionType.reward_guest.name : TransactionType.reward_host.name,
-    );
-    
+  Future<void> makeTransferOfTokens(RhomeTransaction transaction) async {
     _firestore
       .collection(USERS_COLLECTION)
-      .doc(user.id)
-      .update({"numTokens" : FieldValue.increment(-amount)})
+      .doc(transaction.senderId)
+      .update({"numTokens" : FieldValue.increment(-transaction.amount)})
       .then((_) => print("User updated successfuly"))
       .catchError((onError) => print(onError));
 
-    if (beneficiaryId != "") {
+    if (transaction.receiverId != "") {
       _firestore
         .collection(USERS_COLLECTION)
-        .doc(beneficiaryId)
-        .update({"numTokens" : FieldValue.increment(amount)})
+        .doc(transaction.receiverId)
+        .update({"numTokens" : FieldValue.increment(transaction.amount)})
         .then((_) => print("User updated successfuly"))
         .catchError((onError) => print(onError));
     }
 
-      createTransaction(transaction);
+    createTransaction(transaction);
   }
 }

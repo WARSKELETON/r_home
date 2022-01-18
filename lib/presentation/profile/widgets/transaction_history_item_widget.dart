@@ -30,7 +30,7 @@ class TransactionHistoryItemPage extends StatelessWidget {
             ),
             subtitle: Text(
               transaction.getDescription(currentUser.id),
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 12,
                 fontStyle: FontStyle.italic

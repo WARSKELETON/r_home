@@ -8,59 +8,55 @@ class SliderTokensWidget extends StatelessWidget {
   final double value;
   final void Function(double value) onChanged;
 
-  const SliderTokensWidget(
-      {Key? key, required this.value, required this.onChanged})
-      : super(key: key);
+  const SliderTokensWidget({Key? key, required this.value, required this.onChanged}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
-        child: Column(
-          children: [
-            Center(
-              child: SizedBox(
-                child: BlocBuilder<AuthBloc, AuthState>(
-                  builder: (context, state) {
-                    final currentUser = context.watch<AuthBloc>().state.user;
-                    return Slider(
-                      activeColor: Theme.of(context).colorScheme.primaryBlue,
-                      inactiveColor: Theme.of(context)
-                          .colorScheme
-                          .primaryBlue
-                          .withOpacity(0.2),
-                      value: value,
-                      max: currentUser.numTokens.toDouble(),
-                      divisions: 100,
-                      label: value.round().toString(),
-                      onChanged: onChanged,
-                    );
-                  },
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        final currentUser = context.read<AuthBloc>().state.user;
+
+        return Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
+            child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                Center(
                   child: SizedBox(
-                    width: 40,
-                    child: Text(
-                      value.round().toString(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 20),
-                    ),
+                    child: Slider(
+                      activeColor: Theme.of(context).colorScheme.primaryBlue,
+                      inactiveColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.2),
+                      value: value > currentUser.numTokens ? 0 : value,
+                      min: 0,
+                      max: currentUser.numTokens,
+                      divisions: 100,
+                      label: value.toStringAsFixed(2),
+                      onChanged: onChanged,
+                    )
                   ),
                 ),
-                Icon(RHomeIcon.token,
-                    color: Theme.of(context).colorScheme.primaryBlue)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: 65,
+                        child: Text(
+                          value.toStringAsFixed(2),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                    Icon(RHomeIcon.token, color: Theme.of(context).colorScheme.primaryBlue)
+                  ],
+                ),
               ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

@@ -94,6 +94,6 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
   }
 
   String getDateString() {
-    return ts.day.toString() + "/" + ts.month.toString() + "/" + ts.year.toString() + " " + ts.hour.toString().padLeft(2, '0') + ":" + ts.minute.toString();
+    return ts.day.toString().padLeft(2, '0') + "/" + ts.month.toString().padLeft(2, '0') + "/" + ts.year.toString() + " " + ts.hour.toString().padLeft(2, '0') + ":" + ts.minute.toString().padLeft(2, '0');
   }
 }

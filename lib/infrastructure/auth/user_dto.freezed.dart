@@ -29,7 +29,7 @@ class _$UserDtoTearOff {
       String? photo,
       required String role,
       required String walletAddress,
-      required int numTokens}) {
+      required double numTokens}) {
     return _UserDto(
       id: id,
       email: email,
@@ -57,7 +57,7 @@ mixin _$UserDto {
   String? get photo => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError; // maybe enum
   String get walletAddress => throw _privateConstructorUsedError;
-  int get numTokens => throw _privateConstructorUsedError;
+  double get numTokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -75,7 +75,7 @@ abstract class $UserDtoCopyWith<$Res> {
       String? photo,
       String role,
       String walletAddress,
-      int numTokens});
+      double numTokens});
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       numTokens: numTokens == freezed
           ? _value.numTokens
           : numTokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -141,7 +141,7 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String? photo,
       String role,
       String walletAddress,
-      int numTokens});
+      double numTokens});
 }
 
 /// @nodoc
@@ -191,7 +191,7 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       numTokens: numTokens == freezed
           ? _value.numTokens
           : numTokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -225,7 +225,7 @@ class _$_UserDto extends _UserDto {
   @override // maybe enum
   final String walletAddress;
   @override
-  final int numTokens;
+  final double numTokens;
 
   @override
   String toString() {
@@ -277,7 +277,7 @@ abstract class _UserDto extends UserDto {
       String? photo,
       required String role,
       required String walletAddress,
-      required int numTokens}) = _$_UserDto;
+      required double numTokens}) = _$_UserDto;
   const _UserDto._() : super._();
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
@@ -295,7 +295,7 @@ abstract class _UserDto extends UserDto {
   @override // maybe enum
   String get walletAddress;
   @override
-  int get numTokens;
+  double get numTokens;
   @override
   @JsonKey(ignore: true)
   _$UserDtoCopyWith<_UserDto> get copyWith =>

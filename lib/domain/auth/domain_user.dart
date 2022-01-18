@@ -13,14 +13,14 @@ abstract class DomainUser implements _$DomainUser {
     String? photo,
     required String role,  // maybe enum
     required String walletAddress,
-    required int numTokens
+    required double numTokens
   }) = _DomainUser;
 
   factory DomainUser.empty() => const DomainUser(
     id: "id",
     role: "guest",
     walletAddress: "0x",
-    numTokens: 0,
+    numTokens: 0.0,
   );
 
   String getUsername() {

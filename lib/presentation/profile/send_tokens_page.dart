@@ -105,7 +105,7 @@ class SendTokensPage extends StatelessWidget {
                             showDialog(context: context,
                               builder: (_) => BlocProvider.value(
                                 value: context.read<RewardUserBloc>(),
-                                child: SendTokensDialog(tokens: amount.round(), username: beneficiary.getUsername(), routeNameToPopUntil: ProfilePageRoute.name),
+                                child: SendTokensDialog(tokens: amount, username: beneficiary.getUsername(), routeNameToPopUntil: ProfilePageRoute.name),
                               )
                             ) : context.read<StepperBloc>().add(const StepperEvent.incrementIndex()),
                             backgroundColor: Theme.of(context).colorScheme.primaryBlue,
