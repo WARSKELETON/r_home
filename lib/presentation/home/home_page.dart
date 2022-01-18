@@ -14,6 +14,7 @@ import 'package:r_home/infrastructure/local_activities/local_activities_reposito
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/home_app_bar_widget.dart';
 import 'package:r_home/presentation/home/widgets/home_guest_widget.dart';
 import 'package:r_home/presentation/home/widgets/home_host_widget.dart';
 import 'package:r_home/presentation/home/widgets/home_producer_widget.dart';
@@ -30,8 +31,9 @@ class HomePage extends StatelessWidget {
 
         if (currentUser.id != "id") {
           return Scaffold(
-            appBar: AppBarWidget(
+            appBar: HomeAppBarWidget(
               title: "Hi, ${currentUser.name}",
+              role: currentUser.role,
               centerLeft: true,
               actions: [
                 IconButton(

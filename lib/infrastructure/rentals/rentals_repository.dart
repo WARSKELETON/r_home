@@ -92,8 +92,7 @@ class RentalsRepository extends TransactionRepository implements IRentalsReposit
       guestId: userId
     );
 
-    RhomeTransaction transaction = RhomeTransaction.empty();
-    transaction = transaction.copyWith(
+    RhomeTransaction transaction = RhomeTransaction.empty().copyWith(
       senderId: finalRental.guestId,
       receiverId: finalRental.hostId,
       senderUsername: currentUser.getUsername(),
@@ -121,7 +120,7 @@ class RentalsRepository extends TransactionRepository implements IRentalsReposit
       .then((_) => print("Rental created successfuly"))
       .catchError((onError) => print(onError));
 
-    createTransaction(transaction);
+    _authFacade.makeTransferOfTokens(transaction);
   }
 
   @override

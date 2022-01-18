@@ -6,6 +6,7 @@ import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
+import 'package:r_home/presentation/core/string_extension.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:r_home/r_home_icon_icons.dart';
 import 'dart:math' as math;
@@ -48,9 +49,32 @@ class ProfilePage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 50.0),
-                    child: Text(
-                      currentUser.getUsername(),
-                      style: const TextStyle(fontSize: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          currentUser.getUsername(),
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 7, right: 7),
+                          child: Container(
+                            height: 5,
+                            width: 5,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.7)
+                            ),
+                          ),
+                        ),
+                        Text(
+                          currentUser.role.capitalize(),
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Theme.of(context).colorScheme.primaryBlue
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   Padding(
@@ -100,6 +124,36 @@ class ProfilePage extends StatelessWidget {
                     RoundedButtonWidget(
                       text: 'MY ACTIVITIES',
                       onPressed: () => AutoRouter.of(context).push(const MyLocalActivitiesPageRoute()),
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                      fontWeight: FontWeight.w400,
+                      textColor: Colors.white,
+                      fontSize: 20,
+                      height: 45,
+                      width: 310,
+                      trailingIcon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 16,
+                      ),
+                    ),
+                  ] else if (currentUser.role == "guest") ...[
+                    RoundedButtonWidget(
+                      text: 'MY STAYS',
+                      onPressed: () => AutoRouter.of(context).push(HomesPageRoute()),
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                      fontWeight: FontWeight.w400,
+                      textColor: Colors.white,
+                      fontSize: 20,
+                      height: 45,
+                      width: 310,
+                      trailingIcon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 16,
+                      ),
+                    ),
+                  ] else if (currentUser.role == "host") ...[
+                    RoundedButtonWidget(
+                      text: 'MY HOMES',
+                      onPressed: () => AutoRouter.of(context).push(HomesPageRoute()),
                       backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                       fontWeight: FontWeight.w400,
                       textColor: Colors.white,

@@ -38,7 +38,7 @@ class HomeDetailsPage extends StatelessWidget {
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
       padding: const EdgeInsets.only(
-          top: 5.0, bottom: 10.0, left: 15.0, right: 15.0),
+          top: 5.0, bottom: 10.0, right: 15.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -56,7 +56,7 @@ class HomeDetailsPage extends StatelessWidget {
       BuildContext context, String left, var right, IconData icon) {
     return Padding(
       padding: const EdgeInsets.only(
-          top: 5.0, bottom: 10.0, left: 15.0, right: 15.0),
+          top: 5.0, bottom: 10.0, right: 15.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -255,23 +255,24 @@ class HomeDetailsPage extends StatelessWidget {
                                         ]),
                                     const Spacer(),
                                     SquareIconButtonWidget(
-                                        text:
-                                            "Reward\n${_userToDisplay.role.capitalize()}",
-                                        onPressed: () => AutoRouter.of(context)
-                                            .push(RewardUserPageRoute(
-                                                user: _userToDisplay,
-                                                routeNameToPopUntil:
-                                                    HomeDetailsPageRoute.name)),
-                                        size: 15,
-                                        backgroundColor: Theme.of(context)
-                                            .colorScheme
-                                            .primaryBlue,
-                                        icon: const Icon(
-                                          RHomeIcon.reward,
-                                          color: Colors.white,
-                                          size: 33,
-                                        ),
-                                        splashColor: Colors.black)
+                                      text:
+                                          "Reward\n${_userToDisplay.role.capitalize()}",
+                                      onPressed: () => AutoRouter.of(context)
+                                          .push(RewardUserPageRoute(
+                                              user: _userToDisplay,
+                                              routeNameToPopUntil:
+                                                  HomeDetailsPageRoute.name)),
+                                      size: 15,
+                                      backgroundColor: Theme.of(context)
+                                          .colorScheme
+                                          .primaryBlue,
+                                      icon: const Icon(
+                                        RHomeIcon.reward,
+                                        color: Colors.white,
+                                        size: 33,
+                                      ),
+                                      splashColor: Colors.black
+                                    )
                                   ]),
                             ),
                             const Divider(
@@ -291,38 +292,58 @@ class HomeDetailsPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            _buildRow(
-                                context, "Date: ", _rental.getDateString()),
-                            _buildMoneyRow(context, "Price per Night:",
-                                _home.price, _rental.getPaymentMethodIcon()),
-                            const Divider(
-                              thickness: 3,
-                              height: 10,
-                              color: Color(0xFFE5E5E5),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      _buildRow(
+                                        context, "Date: ", _rental.getDateString()
+                                      ),
+                                      _buildMoneyRow(context, "Price per Night: ",
+                                        _home.price, _rental.getPaymentMethodIcon()
+                                      ),
+                                      const Divider(
+                                        thickness: 3,
+                                        height: 10,
+                                        color: Color(0xFFE5E5E5),
+                                      ),
+                                      _buildMoneyRow(
+                                        context,
+                                        "Total Tokens: ",
+                                        _rental.totalPrice(_home.price),
+                                        _rental.getPaymentMethodIcon()
+                                      ),
+                                    ],
+                                  ),
+                                  SquareIconButtonWidget(
+                                    text:
+                                        "Start a \nDispute",
+                                    onPressed: () => AutoRouter.of(context).push(
+                                      StartDisputesPageRoute(
+                                        rentalUuid: _rental.uuid,
+                                        homeUuid: _rental.homeId)
+                                      ),
+                                    size: 15,
+                                    padding: 4,
+                                    backgroundColor: Theme.of(context)
+                                        .colorScheme
+                                        .primaryBlue,
+                                    icon: const Icon(
+                                      RHomeIcon.disputes,
+                                      color: Colors.white,
+                                      size: 35,
+                                    ),
+                                    splashColor: Colors.black
+                                  )
+                                ],
+                              ),
                             ),
-                            _buildMoneyRow(
-                                context,
-                                "Total Tokens: ",
-                                _rental.totalPrice(_home.price),
-                                _rental.getPaymentMethodIcon()),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
-                        child: RoundedButtonWidget(
-                          text: 'Open Dispute',
-                          onPressed: () => AutoRouter.of(context).push(
-                              StartDisputesPageRoute(
-                                  rentalUuid: _rental.uuid,
-                                  homeUuid: _rental.homeId)),
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primaryBlue,
-                          fontWeight: FontWeight.w400,
-                          textColor: Colors.white,
-                          fontSize: 20,
-                          height: 40,
-                          width: 200,
                         ),
                       ),
                     ]

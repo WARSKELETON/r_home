@@ -13,6 +13,8 @@ class RoundedCardWidget extends StatelessWidget {
   final bool? selected;
   final bool? booked;
   final bool? center;
+  final List<Widget>? details;
+  final double? titleFontSize;
 
   const RoundedCardWidget({
     Key? key,
@@ -25,7 +27,7 @@ class RoundedCardWidget extends StatelessWidget {
     required this.onPressed, 
     this.selected, 
     this.booked, 
-    this.center,
+    this.center, this.details, this.titleFontSize,
   }) : super(key: key);
 
   @override
@@ -67,7 +69,7 @@ class RoundedCardWidget extends StatelessWidget {
                       title: "BOOKED",
                       isChecked: false,
                       isClickable: false,
-                      backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6),
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.8),
                       textColor: Colors.white,
                     ),
                   ],
@@ -119,12 +121,14 @@ class RoundedCardWidget extends StatelessWidget {
                         overflow: TextOverflow.fade,
                         textAlign: center == null ? TextAlign.center : TextAlign.start,
                         maxLines: 2,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
+                          fontSize: titleFontSize == null ? 14 : titleFontSize!
                         ),
                       ),
-                    )
+                    ),
+                    if (details != null) ...details!
                   ]
                 ],
               )

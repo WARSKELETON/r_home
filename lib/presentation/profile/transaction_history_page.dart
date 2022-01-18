@@ -35,20 +35,11 @@ class TransactionHistoryPage extends StatelessWidget {
                     BlocBuilder<AuthBloc, AuthState>(
                       builder: (context, state) {
                         return Padding(
-                          padding: const EdgeInsets.only(left: 40.0, right: 40),
+                          padding: const EdgeInsets.only(left: 40.0, right: 40, bottom: 20),
                           child: NumberTokensInfoWidget(
                               title: "My tokens:", tokens: state.user.numTokens),
                         );
                       },
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
-                      child: Text(
-                        "Transaction History",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 19, fontWeight: FontWeight.bold),
-                      ),
                     ),
                     transactions.isNotEmpty
                         ? Expanded(
