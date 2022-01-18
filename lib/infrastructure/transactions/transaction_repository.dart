@@ -1,7 +1,4 @@
-import 'package:async/async.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/transactions/rhome_transaction.dart';
 import 'package:r_home/infrastructure/transactions/rhome_transaction_dto.dart';
 
@@ -13,6 +10,8 @@ abstract class TransactionRepository {
   TransactionRepository(this.firestore);
 
   Future<void> createTransaction(RhomeTransaction transaction) async {
+    transaction.copyWith(ts: DateTime.now());
+    
     firestore
       .collection(PARENT_COLLECTION)
       .doc(transaction.senderId)

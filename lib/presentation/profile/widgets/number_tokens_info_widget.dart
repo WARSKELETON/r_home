@@ -4,7 +4,7 @@ import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class NumberTokensInfoWidget extends StatelessWidget {
   final String title;
-  final int tokens;
+  final double tokens;
 
   const NumberTokensInfoWidget({
     Key? key,
@@ -41,7 +41,7 @@ class NumberTokensInfoWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Text(
-                    tokens.toString(),
+                    tokens.toStringAsFixed(2),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 24,

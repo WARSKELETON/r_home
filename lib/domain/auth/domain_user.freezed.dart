@@ -25,7 +25,7 @@ class _$DomainUserTearOff {
       String? photo,
       required String role,
       required String walletAddress,
-      required int numTokens}) {
+      required double numTokens}) {
     return _DomainUser(
       id: id,
       email: email,
@@ -49,7 +49,7 @@ mixin _$DomainUser {
   String? get photo => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError; // maybe enum
   String get walletAddress => throw _privateConstructorUsedError;
-  int get numTokens => throw _privateConstructorUsedError;
+  double get numTokens => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DomainUserCopyWith<DomainUser> get copyWith =>
@@ -68,7 +68,7 @@ abstract class $DomainUserCopyWith<$Res> {
       String? photo,
       String role,
       String walletAddress,
-      int numTokens});
+      double numTokens});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class _$DomainUserCopyWithImpl<$Res> implements $DomainUserCopyWith<$Res> {
       numTokens: numTokens == freezed
           ? _value.numTokens
           : numTokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -135,7 +135,7 @@ abstract class _$DomainUserCopyWith<$Res> implements $DomainUserCopyWith<$Res> {
       String? photo,
       String role,
       String walletAddress,
-      int numTokens});
+      double numTokens});
 }
 
 /// @nodoc
@@ -186,7 +186,7 @@ class __$DomainUserCopyWithImpl<$Res> extends _$DomainUserCopyWithImpl<$Res>
       numTokens: numTokens == freezed
           ? _value.numTokens
           : numTokens // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -217,7 +217,7 @@ class _$_DomainUser extends _DomainUser {
   @override // maybe enum
   final String walletAddress;
   @override
-  final int numTokens;
+  final double numTokens;
 
   @override
   String toString() {
@@ -264,7 +264,7 @@ abstract class _DomainUser extends DomainUser {
       String? photo,
       required String role,
       required String walletAddress,
-      required int numTokens}) = _$_DomainUser;
+      required double numTokens}) = _$_DomainUser;
   const _DomainUser._() : super._();
 
   @override
@@ -280,7 +280,7 @@ abstract class _DomainUser extends DomainUser {
   @override // maybe enum
   String get walletAddress;
   @override
-  int get numTokens;
+  double get numTokens;
   @override
   @JsonKey(ignore: true)
   _$DomainUserCopyWith<_DomainUser> get copyWith =>

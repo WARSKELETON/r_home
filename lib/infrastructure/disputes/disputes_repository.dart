@@ -93,46 +93,54 @@ class DisputesRepository extends TransactionRepository implements IDisputesRepos
 
   @override
   Future<void> create(Dispute dispute, List<String> imagesPath) async {
-    final userId = _authFacade.getSignedInUserId()!;
-    final username = _authFacade.getSignedInUsername()!;
-
-    RhomeTransaction transaction = RhomeTransaction.empty();
-
     for (var i = 0; i < imagesPath.length; i++) {
       _storage.ref("/$DISPUTES_COLLECTION/" + dispute.uuid + "/$i")
         .putFile(File(imagesPath[i]))
         .then((res) async => {
           print("Image uploaded successfuly"),
           if (i == 0) {
-            dispute = dispute.copyWith(
-              issuerUuid: userId,
-              issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase()),
-              creationDate: DateTime.now(),
-              mainImageUrl: await res.ref.getDownloadURL()
-            ),
-
-            _firestore
-              .collection(DISPUTES_COLLECTION)
-              .doc(dispute.uuid)
-              .set(DisputeDto.fromDomain(dispute).toJson())
-              .then((_) => print("Dispute created successfuly"))
-              .catchError((onError) => print(onError)),
-
-            
-            transaction = transaction.copyWith(
-              senderId: dispute.issuerUuid,
-              receiverId: "",
-              senderUsername: dispute.issuerUsername,
-              receiverUsername: "",
-              paymentMethod: PaymentMethod.token.name,
-              amount: dispute.initialStake,
-              type: TransactionType.start_dispute.name,
-            ),
-
-            _authFacade.makeTransferOfTokens("", dispute.initialStake)
+            createDispute(dispute, await res.ref.getDownloadURL())
           }
         });
     }
+
+    if (imagesPath.isEmpty) {
+      createDispute(dispute, "");
+    }
+  }
+
+  void createDispute(Dispute dispute, String mainImageUrl) async {
+    final userId = _authFacade.getSignedInUserId()!;
+    final username = _authFacade.getSignedInUsername()!;
+
+    RhomeTransaction transaction = RhomeTransaction.empty();
+
+    dispute = dispute.copyWith(
+      issuerUuid: userId,
+      issuerUsername: "@" + (username.replaceAll(" ", "").toLowerCase()),
+      creationDate: DateTime.now(),
+      mainImageUrl: mainImageUrl
+    );
+
+    _firestore
+      .collection(DISPUTES_COLLECTION)
+      .doc(dispute.uuid)
+      .set(DisputeDto.fromDomain(dispute).toJson())
+      .then((_) => print("Dispute created successfuly"))
+      .catchError((onError) => print(onError));
+
+    
+    transaction = transaction.copyWith(
+      senderId: dispute.issuerUuid,
+      receiverId: "",
+      senderUsername: dispute.issuerUsername,
+      receiverUsername: "",
+      paymentMethod: PaymentMethod.token.name,
+      amount: dispute.initialStake,
+      type: TransactionType.start_dispute.name,
+    );
+
+    _authFacade.makeTransferOfTokens(transaction);
   }
 
   @override

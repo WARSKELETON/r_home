@@ -29,14 +29,16 @@ class TransactionHistoryPage extends StatelessWidget {
 
             return Center(
               child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 40.0, top: 25.0, right: 40.0, bottom: 50.0),
+                padding: const EdgeInsets.only(top: 25.0),
                 child: Column(
                   children: [
                     BlocBuilder<AuthBloc, AuthState>(
                       builder: (context, state) {
-                        return NumberTokensInfoWidget(
-                            title: "My tokens:", tokens: state.user.numTokens);
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 40.0, right: 40),
+                          child: NumberTokensInfoWidget(
+                              title: "My tokens:", tokens: state.user.numTokens),
+                        );
                       },
                     ),
                     const Padding(

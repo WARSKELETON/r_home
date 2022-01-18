@@ -13,7 +13,7 @@ _$_UserDto _$$_UserDtoFromJson(Map<String, dynamic> json) => _$_UserDto(
       photo: json['photo'] as String?,
       role: json['role'] as String,
       walletAddress: json['walletAddress'] as String,
-      numTokens: json['numTokens'] as int,
+      numTokens: (json['numTokens'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_UserDtoToJson(_$_UserDto instance) =>

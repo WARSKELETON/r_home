@@ -25,6 +25,7 @@ import 'package:r_home/presentation/core/string_extension.dart';
 import 'package:r_home/presentation/start_dispute_forms/start_dispute_form.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/consent_message_widget.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/info_message_widget.dart';
+import 'package:r_home/presentation/start_dispute_forms/widgets/pay_dispute_dialog.dart';
 import 'package:r_home/presentation/start_dispute_forms/widgets/select_rental_widget.dart';
 
 class GeneralDisputesPage extends StatelessWidget {
@@ -96,9 +97,6 @@ class GeneralDisputesPage extends StatelessWidget {
             case 3:
               title = "Slide to choose the amount of tokens you want to pay in order to intialize this dispute:";
               break;
-            case 4:
-              title = "You have created a dispute successfully!";
-              break;
             default:
           }
 
@@ -124,11 +122,6 @@ class GeneralDisputesPage extends StatelessWidget {
                     const StartDisputesForm(),
                   ] else if (_currentIndex == 3) ...[
                     SliderTokensWidget(value: context.watch<DisputesFormBloc>().state.dispute.initialStake, onChanged: (value) => context.read<DisputesFormBloc>().add(DisputesFormEvent.initialStakeChanged(value))),
-                  ] else if (_currentIndex == 4) ...[
-                    OperationSuccessfulWidget(
-                      buttonText: "Back to Disputes",
-                      onPressed: () => AutoRouter.of(context).pop()
-                    ),
                   ],
                   if (_currentIndex != 4) ...[
                     Align(
@@ -140,43 +133,51 @@ class GeneralDisputesPage extends StatelessWidget {
                             if (_currentIndex == 3) ...[
                               const InfoMessageWidget(),
                             ],
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                RoundedButtonWidget(
-                                  text: 'Previous',
-                                  disabled: _currentIndex == 0,
-                                  onPressed: () => context.read<StepperBloc>().add(const StepperEvent.decrementIndex()),
-                                  backgroundColor: _currentIndex == 0 ? Colors.grey : Colors.white,
-                                  fontWeight: FontWeight.w400,
-                                  textColor: _currentIndex == 0 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
-                                  fontSize: 16,
-                                  height: 35,
-                                  width: 120,
-                                ),
-                                RoundedButtonWidget(
-                                  text: 'Next',
-                                  disabled: 
-                                    (_rentalUuid.isEmpty && _currentIndex == 1) |
-                                    (_initialStake == 0 && _currentIndex == 3) |
-                                    ((_dispute.title.isEmpty | _dispute.descritption.isEmpty | _images.isEmpty) && _currentIndex == 2),
-                                  onPressed: () {
+                            if (_currentIndex < 4) ...[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  RoundedButtonWidget(
+                                    text: 'Previous',
+                                    disabled: _currentIndex == 0,
+                                    onPressed: () => context.read<StepperBloc>().add(const StepperEvent.decrementIndex()),
+                                    backgroundColor: _currentIndex == 0 ? Colors.grey : Colors.white,
+                                    fontWeight: FontWeight.w400,
+                                    textColor: _currentIndex == 0 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
+                                    fontSize: 16,
+                                    height: 35,
+                                    width: 120,
+                                  ),
+                                  RoundedButtonWidget(
+                                    text: 'Next',
+                                    disabled: 
+                                      (_rentalUuid.isEmpty && _currentIndex == 1) |
+                                      (_initialStake == 0 && _currentIndex == 3) |
+                                      ((_dispute.title.isEmpty | _dispute.descritption.isEmpty | _images.isEmpty) && _currentIndex == 2),
+                                    onPressed: () {
                                     if (_currentIndex == 3) {
-                                      context.read<DisputesFormBloc>().add(const DisputesFormEvent.submit());
+                                      showDialog(context: context,
+                                        builder: (_) => BlocProvider.value(
+                                          value: context.read<DisputesFormBloc>(),
+                                          child: PayDisputeDialog(tokens: _initialStake),
+                                        )
+                                      );
+                                    } else {
+                                      context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
                                     }
-                                    context.read<StepperBloc>().add(const StepperEvent.incrementIndex());
-                                  },
-                                  backgroundColor: Theme.of(context)
-                                      .colorScheme
-                                      .primaryBlue,
-                                  fontWeight: FontWeight.w400,
-                                  textColor: Colors.white,
-                                  fontSize: 16,
-                                  height: 35,
-                                  width: 120,
-                                ),
-                              ],
-                            ),
+                                    },
+                                    backgroundColor: Theme.of(context)
+                                        .colorScheme
+                                        .primaryBlue,
+                                    fontWeight: FontWeight.w400,
+                                    textColor: Colors.white,
+                                    fontSize: 16,
+                                    height: 35,
+                                    width: 120,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ],
                         ),
                       ),

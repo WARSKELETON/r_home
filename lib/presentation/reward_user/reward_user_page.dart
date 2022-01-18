@@ -78,7 +78,7 @@ class RewardUserPage extends StatelessWidget {
                       onPressed: () => showDialog(context: context,
                         builder: (_) => BlocProvider.value(
                           value: context.read<RewardUserBloc>(),
-                          child: SendTokensDialog(tokens: _tokenAmount.round(), username: user.getUsername(), routeNameToPopUntil: routeNameToPopUntil),
+                          child: SendTokensDialog(tokens: _tokenAmount, username: user.getUsername(), routeNameToPopUntil: routeNameToPopUntil),
                         )
                       ),
                       backgroundColor:

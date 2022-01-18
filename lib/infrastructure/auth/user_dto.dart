@@ -16,7 +16,7 @@ abstract class UserDto implements _$UserDto {
     String? photo,
     required String role,  // maybe enum
     required String walletAddress,
-    required int numTokens}) = _UserDto;
+    required double numTokens}) = _UserDto;
 
   factory UserDto.fromDomain(DomainUser user) {
     return UserDto(

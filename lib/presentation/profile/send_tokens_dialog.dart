@@ -5,7 +5,7 @@ import 'package:r_home/application/reward_user/reward_user_bloc.dart';
 import 'package:r_home/presentation/core/confirmation_dialog_widget.dart';
 
 class SendTokensDialog extends StatelessWidget {
-  final int tokens;
+  final double tokens;
   final String username;
   final String routeNameToPopUntil;
 
@@ -19,7 +19,7 @@ class SendTokensDialog extends StatelessWidget {
         return ConfirmationDialogWidget(
         action1: "CANCEL", 
         action2: "SEND", 
-        message: "You are about to send $tokens tokens to user $username.",
+        message: "You are about to send ${tokens.toStringAsFixed(2)} tokens to user $username.",
         onPressed: () {
           context.read<RewardUserBloc>().add(const RewardUserEvent.sendTokens());
           AutoRouter.of(context).popUntilRouteWithName(routeNameToPopUntil);

@@ -6,6 +6,7 @@ import 'package:r_home/domain/auth/domain_user.dart';
 import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/rentals/i_rentals_repository.dart';
 import 'package:r_home/domain/rentals/rental.dart';
+import 'package:r_home/domain/transactions/rhome_transaction.dart';
 
 part 'reward_user_event.dart';
 part 'reward_user_state.dart';
@@ -46,8 +47,24 @@ class RewardUserBloc extends Bloc<RewardUserEvent, RewardUserState> {
     emit(state.copyWith(users: users));
   }
 
-  _onSubmit(Submit event, Emitter<RewardUserState> emit) {
-    _authFacade.makeTransferOfTokens(state.beneficiary.id, state.amount);
+  _onSubmit(Submit event, Emitter<RewardUserState> emit) async {
+    String receiverId = state.beneficiary.id;
+
+    String? userId = _authFacade.getSignedInUserId();
+    DomainUser user = await _authFacade.getUserById(userId!);
+    DomainUser receiverUser = await _authFacade.getUserById(receiverId);
+
+    RhomeTransaction transaction = RhomeTransaction.empty().copyWith(
+      senderId: userId,
+      receiverId: receiverId,
+      senderUsername: user.getUsername(),
+      receiverUsername: receiverUser.getUsername(),
+      paymentMethod: PaymentMethod.token.name,
+      amount: state.amount,
+      type: user.role == "host" ? TransactionType.reward_guest.name : TransactionType.reward_host.name,
+    );
+
+    _authFacade.makeTransferOfTokens(transaction);
   }
 
   @override
