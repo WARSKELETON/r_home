@@ -1,5 +1,5 @@
 var admin = require("firebase-admin");
-const { getFirestore } = require('firebase-admin/firestore');
+const { getFirestore, Timestamp } = require('firebase-admin/firestore');
 const { v1: uuidv1 } = require('uuid');
 
 var serviceAccount = require("./r-home-9fda6-firebase-adminsdk-55bt8-ad13f1ee24.json");
@@ -36,7 +36,8 @@ const observer = query.onSnapshot(querySnapshot => {
                     senderId: "",
                     senderUsername: "",
                     type: "close_dispute",
-                    uuid: uuid
+                    uuid: uuid,
+                    ts: Timestamp.fromDate(new Date())
                 });
             }
 
