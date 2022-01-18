@@ -11,7 +11,8 @@ enum TransactionType {
   reward_host,
   reward_guest,
   rental, 
-  dispute, 
+  start_dispute,
+  close_dispute, 
   vote
 }
 
@@ -75,13 +76,17 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
       desc = "Guest Reward";
     } else if (typeEnum == TransactionType.reward_host) {
       desc = "Host Reward";
-    } else if (typeEnum == TransactionType.dispute) {
+    } else if (typeEnum == TransactionType.start_dispute) {
       desc = "Starting a Dispute";
+    }  else if (typeEnum == TransactionType.close_dispute) {
+      desc = "Winning a Dispute";
     } else if (typeEnum == TransactionType.vote) {
       desc = "Voting in a Dispute";
     }
 
-    desc = desc + " with ${currentUserId == senderId ? receiverUsername : senderUsername}";
+    if (typeEnum != TransactionType.start_dispute && typeEnum != TransactionType.close_dispute) {
+      desc = desc + " with ${currentUserId == senderId ? receiverUsername : senderUsername}";
+    }
 
     return desc;
   }

@@ -46,3 +46,7 @@ app.*.map.json
 /android/app/release
 
 /android/app/google-services.json
+
+/backend/r-home-9fda6-firebase-adminsdk-55bt8-ad13f1ee24.json
+
+/backend/node_modules/
