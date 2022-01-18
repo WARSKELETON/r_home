@@ -3,6 +3,7 @@ import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/chart_legend_widget.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class MonitorizeFeesPage extends StatelessWidget {
@@ -14,14 +15,14 @@ class MonitorizeFeesPage extends StatelessWidget {
       appBar: const AppBarWidget(title: "Monitorize Fees"),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
+          padding: const EdgeInsets.only(left: 20.0, top: 15.0, right: 20.0),
           child: Column(
             children: [
               const Text(
-                "Here you can see where the fee money is being utilized in the platform.",
+                "Here you can see how the fee money is being utilized in R-HOME.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.w600
                 ),
               ),
               Padding(
@@ -33,44 +34,83 @@ class MonitorizeFeesPage extends StatelessWidget {
                   Theme.of(context).colorScheme.primary: "Reserve"}
                 ),
               ),
-              SfCircularChart(
-                tooltipBehavior: TooltipBehavior(enable: true),
-                series: <PieSeries<_PieData, String>>[
-                  PieSeries<_PieData, String>(
-                    dataSource: [
-                      _PieData(
-                        "Investment",
-                        343,
-                        "33%",
-                        Theme.of(context).colorScheme.primaryBlue
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "5.000.000",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Icon(
+                              RHomeIcon.token,
+                              size: 20,
+                              color: Theme.of(context).colorScheme.primaryBlue,
+                            ),
+                          )
+                        ]
                       ),
-                      _PieData(
-                        "Maintenance",
-                        424,
-                        "33%",
-                        const Color(0xFFF9A53C)
-                      ),
-                      _PieData(
-                        "Disputes",
-                        333,
-                        "1%",
-                        const Color(0xFFF7554C)
-                      ),
-                      _PieData(
-                        "Reserve",
-                        12,
-                        "33%",
-                        Theme.of(context).colorScheme.primary
+                      const Text(
+                        "Token Pool",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400
+                        ),
                       ),
                     ],
-                    xValueMapper: (_PieData data, _) => data.xData,
-                    yValueMapper: (_PieData data, _) => data.yData,
-                    dataLabelMapper: (_PieData data, _) => data.text,
-                    pointColorMapper: (_PieData data,  _) => data.color,
-                    dataLabelSettings: const DataLabelSettings(
-                      isVisible: true,
-                      labelPosition: ChartDataLabelPosition.outside,
-                    )
+                  ),
+                    SfCircularChart(
+                    tooltipBehavior: TooltipBehavior(enable: true),
+                    series: <DoughnutSeries<_PieData, String>>[
+                      DoughnutSeries<_PieData, String>(
+                        innerRadius: '75%',
+                        dataSource: [
+                          _PieData(
+                            "Investment",
+                            343,
+                            "33%",
+                            Theme.of(context).colorScheme.primaryBlue
+                          ),
+                          _PieData(
+                            "Maintenance",
+                            424,
+                            "33%",
+                            const Color(0xFFF9A53C)
+                          ),
+                          _PieData(
+                            "Disputes",
+                            333,
+                            "33%",
+                            const Color(0xFFF7554C)
+                          ),
+                          _PieData(
+                            "Reserve",
+                            12,
+                            "1%",
+                            Theme.of(context).colorScheme.primary
+                          ),
+                        ],
+                        xValueMapper: (_PieData data, _) => data.xData,
+                        yValueMapper: (_PieData data, _) => data.yData,
+                        dataLabelMapper: (_PieData data, _) => data.text,
+                        pointColorMapper: (_PieData data,  _) => data.color,
+                        dataLabelSettings: const DataLabelSettings(
+                          isVisible: true,
+                          labelPosition: ChartDataLabelPosition.outside,
+                        )
+                      ),
+                    ]
                   ),
                 ]
               )
