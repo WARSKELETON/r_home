@@ -4,6 +4,7 @@ part of 'homes_bloc.dart';
 abstract class HomesState with _$HomesState {
   factory HomesState({
     required bool isLoading,
+    required List<LocalActivity> localActivities,
     required List<Home> homes,
     required List<Rental> rentals,
     required List<String> homeImages,
@@ -15,6 +16,7 @@ abstract class HomesState with _$HomesState {
 
   factory HomesState.initial() => HomesState(
     isLoading: false,
+    localActivities: [],
     homes: [],
     rentals: [],
     homeImages: [],

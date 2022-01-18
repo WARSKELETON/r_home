@@ -14,6 +14,7 @@ class LocalActivitiesBloc extends Bloc<LocalActivitiesEvent, LocalActivitiesStat
 
   LocalActivitiesBloc(this._localActivitiesRepository): super(LocalActivitiesState.initial()) {
     on<Initialize>(_onInitialize);
+    on<ImagesReceived>(_onImagesReceived);
     on<WatchLocalActivity>(_onWatchLocalActivity);
     on<LocalActivitiesReceived>(_onLocalActivitiesReceived);
     on<LocalActivityReceived>(_onLocalActivityReceived);
@@ -35,10 +36,19 @@ class LocalActivitiesBloc extends Bloc<LocalActivitiesEvent, LocalActivitiesStat
     emit(state);
   }
 
+  void _onImagesReceived(ImagesReceived event, Emitter<LocalActivitiesState> emit) {
+    emit(state.copyWith(localActivityImages: event.images));
+  }
+
   void _onWatchLocalActivity(WatchLocalActivity event, Emitter<LocalActivitiesState> emit) {
     _localActivityStreamSubscription = _localActivitiesRepository.watch(event.localActivityUuid).listen(
         (localActivity) => add(LocalActivitiesEvent.localActivityReceivedReceived(localActivity))
       );
+
+    _localActivitiesRepository.getLocalActivityImages(event.localActivityUuid)
+      .then((images) => {
+        add(LocalActivitiesEvent.imagesReceived(images))
+      });
     emit(state);
   }
 

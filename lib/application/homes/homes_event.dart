@@ -4,6 +4,7 @@ part of 'homes_bloc.dart';
 class HomesEvent with _$HomesEvent {
   const factory HomesEvent.initialize(DomainUser currentUser, String? activityUuid) = Initialize;
   const factory HomesEvent.imagesReceived(List<String> images) = ImagesReceived;
+  const factory HomesEvent.localActivitiesReceived(List<LocalActivity> localActivities) = LocalActivitiesReceived;
   const factory HomesEvent.homesReceived(List<Home> homes) = HomesReceived;
   const factory HomesEvent.rentalsReceived(List<Rental> rentals) = RentalsReceived;  
   const factory HomesEvent.watchHome(String homeUuid) = WatchHome;

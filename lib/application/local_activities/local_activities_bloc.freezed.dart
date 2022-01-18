@@ -25,6 +25,12 @@ class _$LocalActivitiesEventTearOff {
     );
   }
 
+  ImagesReceived imagesReceived(List<String> images) {
+    return ImagesReceived(
+      images,
+    );
+  }
+
   LocalActivitiesReceived localActivitiesReceived(
       List<LocalActivity> localActivities) {
     return LocalActivitiesReceived(
@@ -54,6 +60,7 @@ mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool? filtered, String? location) initialize,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -64,6 +71,7 @@ mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -74,6 +82,7 @@ mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -85,6 +94,7 @@ mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(LocalActivitiesReceived value)
         localActivitiesReceived,
     required TResult Function(WatchLocalActivity value) watchLocalActivity,
@@ -95,6 +105,7 @@ mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -104,6 +115,7 @@ mixin _$LocalActivitiesEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -205,6 +217,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool? filtered, String? location) initialize,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -218,6 +231,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -231,6 +245,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -248,6 +263,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(LocalActivitiesReceived value)
         localActivitiesReceived,
     required TResult Function(WatchLocalActivity value) watchLocalActivity,
@@ -261,6 +277,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -273,6 +290,7 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -293,6 +311,168 @@ abstract class Initialize implements LocalActivitiesEvent {
   String? get location;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagesReceivedCopyWith<$Res> {
+  factory $ImagesReceivedCopyWith(
+          ImagesReceived value, $Res Function(ImagesReceived) then) =
+      _$ImagesReceivedCopyWithImpl<$Res>;
+  $Res call({List<String> images});
+}
+
+/// @nodoc
+class _$ImagesReceivedCopyWithImpl<$Res>
+    extends _$LocalActivitiesEventCopyWithImpl<$Res>
+    implements $ImagesReceivedCopyWith<$Res> {
+  _$ImagesReceivedCopyWithImpl(
+      ImagesReceived _value, $Res Function(ImagesReceived) _then)
+      : super(_value, (v) => _then(v as ImagesReceived));
+
+  @override
+  ImagesReceived get _value => super._value as ImagesReceived;
+
+  @override
+  $Res call({
+    Object? images = freezed,
+  }) {
+    return _then(ImagesReceived(
+      images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImagesReceived implements ImagesReceived {
+  const _$ImagesReceived(this.images);
+
+  @override
+  final List<String> images;
+
+  @override
+  String toString() {
+    return 'LocalActivitiesEvent.imagesReceived(images: $images)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImagesReceived &&
+            const DeepCollectionEquality().equals(other.images, images));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(images));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
+      _$ImagesReceivedCopyWithImpl<ImagesReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool? filtered, String? location) initialize,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesReceived,
+    required TResult Function(String localActivityUuid) watchLocalActivity,
+    required TResult Function(LocalActivity localActivity)
+        localActivityReceivedReceived,
+  }) {
+    return imagesReceived(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
+    TResult Function(String localActivityUuid)? watchLocalActivity,
+    TResult Function(LocalActivity localActivity)?
+        localActivityReceivedReceived,
+  }) {
+    return imagesReceived?.call(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesReceived,
+    TResult Function(String localActivityUuid)? watchLocalActivity,
+    TResult Function(LocalActivity localActivity)?
+        localActivityReceivedReceived,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(images);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(LocalActivitiesReceived value)
+        localActivitiesReceived,
+    required TResult Function(WatchLocalActivity value) watchLocalActivity,
+    required TResult Function(LocalActivityReceived value)
+        localActivityReceivedReceived,
+  }) {
+    return imagesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
+    TResult Function(WatchLocalActivity value)? watchLocalActivity,
+    TResult Function(LocalActivityReceived value)?
+        localActivityReceivedReceived,
+  }) {
+    return imagesReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
+    TResult Function(WatchLocalActivity value)? watchLocalActivity,
+    TResult Function(LocalActivityReceived value)?
+        localActivityReceivedReceived,
+    required TResult orElse(),
+  }) {
+    if (imagesReceived != null) {
+      return imagesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagesReceived implements LocalActivitiesEvent {
+  const factory ImagesReceived(List<String> images) = _$ImagesReceived;
+
+  List<String> get images;
+  @JsonKey(ignore: true)
+  $ImagesReceivedCopyWith<ImagesReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -364,6 +544,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool? filtered, String? location) initialize,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -377,6 +558,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -390,6 +572,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -407,6 +590,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(LocalActivitiesReceived value)
         localActivitiesReceived,
     required TResult Function(WatchLocalActivity value) watchLocalActivity,
@@ -420,6 +604,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -432,6 +617,7 @@ class _$LocalActivitiesReceived implements LocalActivitiesReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -522,6 +708,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool? filtered, String? location) initialize,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -535,6 +722,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -548,6 +736,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -565,6 +754,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(LocalActivitiesReceived value)
         localActivitiesReceived,
     required TResult Function(WatchLocalActivity value) watchLocalActivity,
@@ -578,6 +768,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -590,6 +781,7 @@ class _$WatchLocalActivity implements WatchLocalActivity {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -690,6 +882,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool? filtered, String? location) initialize,
+    required TResult Function(List<String> images) imagesReceived,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesReceived,
     required TResult Function(String localActivityUuid) watchLocalActivity,
@@ -703,6 +896,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -716,6 +910,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? filtered, String? location)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesReceived,
     TResult Function(String localActivityUuid)? watchLocalActivity,
@@ -733,6 +928,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(LocalActivitiesReceived value)
         localActivitiesReceived,
     required TResult Function(WatchLocalActivity value) watchLocalActivity,
@@ -746,6 +942,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -758,6 +955,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(LocalActivitiesReceived value)? localActivitiesReceived,
     TResult Function(WatchLocalActivity value)? watchLocalActivity,
     TResult Function(LocalActivityReceived value)?
@@ -787,10 +985,12 @@ class _$LocalActivitiesStateTearOff {
 
   _LocalActivitiesState call(
       {required List<LocalActivity> localActivities,
-      required LocalActivity localActivity}) {
+      required LocalActivity localActivity,
+      required List<String> localActivityImages}) {
     return _LocalActivitiesState(
       localActivities: localActivities,
       localActivity: localActivity,
+      localActivityImages: localActivityImages,
     );
   }
 }
@@ -802,6 +1002,7 @@ const $LocalActivitiesState = _$LocalActivitiesStateTearOff();
 mixin _$LocalActivitiesState {
   List<LocalActivity> get localActivities => throw _privateConstructorUsedError;
   LocalActivity get localActivity => throw _privateConstructorUsedError;
+  List<String> get localActivityImages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocalActivitiesStateCopyWith<LocalActivitiesState> get copyWith =>
@@ -813,7 +1014,10 @@ abstract class $LocalActivitiesStateCopyWith<$Res> {
   factory $LocalActivitiesStateCopyWith(LocalActivitiesState value,
           $Res Function(LocalActivitiesState) then) =
       _$LocalActivitiesStateCopyWithImpl<$Res>;
-  $Res call({List<LocalActivity> localActivities, LocalActivity localActivity});
+  $Res call(
+      {List<LocalActivity> localActivities,
+      LocalActivity localActivity,
+      List<String> localActivityImages});
 
   $LocalActivityCopyWith<$Res> get localActivity;
 }
@@ -831,6 +1035,7 @@ class _$LocalActivitiesStateCopyWithImpl<$Res>
   $Res call({
     Object? localActivities = freezed,
     Object? localActivity = freezed,
+    Object? localActivityImages = freezed,
   }) {
     return _then(_value.copyWith(
       localActivities: localActivities == freezed
@@ -841,6 +1046,10 @@ class _$LocalActivitiesStateCopyWithImpl<$Res>
           ? _value.localActivity
           : localActivity // ignore: cast_nullable_to_non_nullable
               as LocalActivity,
+      localActivityImages: localActivityImages == freezed
+          ? _value.localActivityImages
+          : localActivityImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 
@@ -859,7 +1068,10 @@ abstract class _$LocalActivitiesStateCopyWith<$Res>
           $Res Function(_LocalActivitiesState) then) =
       __$LocalActivitiesStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<LocalActivity> localActivities, LocalActivity localActivity});
+  $Res call(
+      {List<LocalActivity> localActivities,
+      LocalActivity localActivity,
+      List<String> localActivityImages});
 
   @override
   $LocalActivityCopyWith<$Res> get localActivity;
@@ -880,6 +1092,7 @@ class __$LocalActivitiesStateCopyWithImpl<$Res>
   $Res call({
     Object? localActivities = freezed,
     Object? localActivity = freezed,
+    Object? localActivityImages = freezed,
   }) {
     return _then(_LocalActivitiesState(
       localActivities: localActivities == freezed
@@ -890,6 +1103,10 @@ class __$LocalActivitiesStateCopyWithImpl<$Res>
           ? _value.localActivity
           : localActivity // ignore: cast_nullable_to_non_nullable
               as LocalActivity,
+      localActivityImages: localActivityImages == freezed
+          ? _value.localActivityImages
+          : localActivityImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -898,16 +1115,20 @@ class __$LocalActivitiesStateCopyWithImpl<$Res>
 
 class _$_LocalActivitiesState implements _LocalActivitiesState {
   _$_LocalActivitiesState(
-      {required this.localActivities, required this.localActivity});
+      {required this.localActivities,
+      required this.localActivity,
+      required this.localActivityImages});
 
   @override
   final List<LocalActivity> localActivities;
   @override
   final LocalActivity localActivity;
+  @override
+  final List<String> localActivityImages;
 
   @override
   String toString() {
-    return 'LocalActivitiesState(localActivities: $localActivities, localActivity: $localActivity)';
+    return 'LocalActivitiesState(localActivities: $localActivities, localActivity: $localActivity, localActivityImages: $localActivityImages)';
   }
 
   @override
@@ -918,14 +1139,17 @@ class _$_LocalActivitiesState implements _LocalActivitiesState {
             const DeepCollectionEquality()
                 .equals(other.localActivities, localActivities) &&
             const DeepCollectionEquality()
-                .equals(other.localActivity, localActivity));
+                .equals(other.localActivity, localActivity) &&
+            const DeepCollectionEquality()
+                .equals(other.localActivityImages, localActivityImages));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(localActivities),
-      const DeepCollectionEquality().hash(localActivity));
+      const DeepCollectionEquality().hash(localActivity),
+      const DeepCollectionEquality().hash(localActivityImages));
 
   @JsonKey(ignore: true)
   @override
@@ -937,12 +1161,15 @@ class _$_LocalActivitiesState implements _LocalActivitiesState {
 abstract class _LocalActivitiesState implements LocalActivitiesState {
   factory _LocalActivitiesState(
       {required List<LocalActivity> localActivities,
-      required LocalActivity localActivity}) = _$_LocalActivitiesState;
+      required LocalActivity localActivity,
+      required List<String> localActivityImages}) = _$_LocalActivitiesState;
 
   @override
   List<LocalActivity> get localActivities;
   @override
   LocalActivity get localActivity;
+  @override
+  List<String> get localActivityImages;
   @override
   @JsonKey(ignore: true)
   _$LocalActivitiesStateCopyWith<_LocalActivitiesState> get copyWith =>

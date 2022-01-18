@@ -53,7 +53,8 @@ class LocalActivitiesPage extends StatelessWidget implements AutoRouteWrapper {
                   RoundedCardWidget(
                     title: _localActivities[index].name,
                     subtitle: _localActivities[index].location,
-                    image: "assets/icons/food${index % 2}.png",
+                    image: _localActivities[index].mainImageUrl,
+                    network: true,
                     selected: myHomesFormBloc.state.localActivities.contains(_localActivities[index]),
                     width: 160,
                     height: 160,

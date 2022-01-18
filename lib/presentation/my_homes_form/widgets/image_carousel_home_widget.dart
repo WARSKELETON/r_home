@@ -13,7 +13,11 @@ class ImageCarouselHomeWidget extends StatelessWidget {
       : super(key: key);
 
   _selectImage(BuildContext context) async {
-    List<XFile>? pickedFiles = await ImagePicker().pickMultiImage();
+    List<XFile>? pickedFiles = await ImagePicker().pickMultiImage(
+      imageQuality: 50,
+      maxHeight: 600,
+      maxWidth: 900
+    );
 
     if (pickedFiles == null) return;
 
@@ -25,6 +29,9 @@ class ImageCarouselHomeWidget extends StatelessWidget {
   _takePicture(BuildContext context) async {
     final pickedFile = await ImagePicker().pickImage(
       source: ImageSource.camera,
+      imageQuality: 50,
+      maxHeight: 600,
+      maxWidth: 900
     );
 
     if (pickedFile == null) return;

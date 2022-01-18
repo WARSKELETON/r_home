@@ -12,7 +12,11 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      title: Text(title),
+      title: Text(
+        title,
+        overflow: TextOverflow.fade,
+        softWrap: false,
+      ),
       leading: leading,
       foregroundColor: Colors.grey[600],
       centerTitle: centerLeft == null ? true : false,
