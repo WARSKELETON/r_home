@@ -86,7 +86,7 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
       desc += "Voting in a Dispute";
     }
 
-    if (typeEnum != TransactionType.start_dispute && typeEnum != TransactionType.close_dispute) {
+    if (typeEnum != TransactionType.start_dispute && typeEnum != TransactionType.close_dispute && typeEnum != TransactionType.vote) {
       desc = desc + " with ${currentUserId == senderId ? receiverUsername : senderUsername}";
     }
 

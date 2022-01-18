@@ -6,7 +6,7 @@ class ChartLegendWidget extends StatelessWidget {
 
   Widget _buildLegendItem(String text, Color color) {
     return SizedBox(
-      width: 150,
+      width: 100,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -32,11 +32,14 @@ class ChartLegendWidget extends StatelessWidget {
     List<Widget> list = [];
     data.forEach((color, label) => list.add(_buildLegendItem(label, color)));
 
-    return Wrap(
-      spacing: 6.0,
-      runSpacing: 6.0,
-      alignment: WrapAlignment.center,
-      children: list,
+    return Container(
+      color: Colors.red,
+      child: Wrap(
+        spacing: 6.0,
+        runSpacing: 6.0,
+        alignment: WrapAlignment.center,
+        children: list,
+      ),
     );
   }
 }

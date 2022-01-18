@@ -53,7 +53,7 @@ class ConfirmationDialogWidget extends StatelessWidget {
                           Navigator.of(context).pop();
                         },
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                          padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                           child: Text(
                             action1,
                             style: const TextStyle(
@@ -64,7 +64,7 @@ class ConfirmationDialogWidget extends StatelessWidget {
                       TextButton(
                         onPressed: onPressed,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                          padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                           child: Text(
                             action2,
                             style: const TextStyle(fontSize: 18, color: Colors.black),

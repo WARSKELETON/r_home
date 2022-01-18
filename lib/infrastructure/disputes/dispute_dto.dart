@@ -23,19 +23,17 @@ abstract class DisputeDto implements _$DisputeDto {
     required String descritption,
     required String homeUuid,
     required String rentalUuid,
-    required int votesAgainst,
-    required int votesIrrelevant,
-    required int votesInFavour,
     required double initialStake,
-    required double stake,
     required String category,
-    required List<String> usersVoted,
     @JsonKey(
       fromJson: firestoreTimestampFromJson,
       toJson: firestoreTimestampToJson,
     )
     required Timestamp creationDate,
-    required String mainImageUrl
+    required String mainImageUrl,
+    required List<String> usersVotedInFavour,
+    required List<String> usersVotedIrrelevent,
+    required List<String> usersVotedAgainst
   }) = _DisputeDto;
 
   factory DisputeDto.fromDomain(Dispute dispute) {
@@ -47,15 +45,13 @@ abstract class DisputeDto implements _$DisputeDto {
       descritption: dispute.descritption,
       homeUuid: dispute.homeUuid,
       rentalUuid: dispute.rentalUuid,
-      votesAgainst: dispute.votesAgainst,
-      votesIrrelevant: dispute.votesIrrelevant,
-      votesInFavour: dispute.votesInFavour,
       initialStake: dispute.initialStake,
-      stake: dispute.stake,
       category: dispute.category,
-      usersVoted: dispute.usersVoted,
       creationDate: Timestamp.fromDate(dispute.creationDate),
-      mainImageUrl: dispute.mainImageUrl
+      mainImageUrl: dispute.mainImageUrl,
+      usersVotedInFavour: dispute.usersVotedInFavour,
+      usersVotedIrrelevent: dispute.usersVotedIrrelevent,
+      usersVotedAgainst: dispute.usersVotedAgainst,
     );
   }
 
@@ -68,15 +64,13 @@ abstract class DisputeDto implements _$DisputeDto {
       descritption: descritption,
       homeUuid: homeUuid,
       rentalUuid: rentalUuid,
-      votesAgainst: votesAgainst,
-      votesIrrelevant: votesIrrelevant,
-      votesInFavour: votesInFavour,
       initialStake: initialStake,
-      stake: stake,
       category: category,
-      usersVoted: usersVoted,
       creationDate: creationDate.toDate(),
-      mainImageUrl: mainImageUrl
+      mainImageUrl: mainImageUrl,
+      usersVotedInFavour: usersVotedInFavour,
+      usersVotedIrrelevent: usersVotedIrrelevent,
+      usersVotedAgainst: usersVotedAgainst,
     );
   }
 

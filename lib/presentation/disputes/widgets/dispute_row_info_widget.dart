@@ -34,6 +34,8 @@ class DisputeListRowWidget extends StatelessWidget {
           final _timer = context.read<TimerBloc>().state.timeToEnd;
           final _isOpened = !_closingTime.isBefore(DateTime.now());
 
+          final _stake = dispute.initialStake + dispute.getUsersVoted().length * 10;
+
           return InkWell(
             splashColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.1),
             onTap: onPressed,
@@ -100,7 +102,7 @@ class DisputeListRowWidget extends StatelessWidget {
                             RHomeIcon.token,
                             size: 16,
                           ),
-                          description: dispute.stake.toString() + " staked",
+                          description: _stake.toStringAsFixed(2) + " staked",
                         ),
                         DisputeRowDetailWidget(
                           icon: const Icon(
@@ -130,7 +132,7 @@ class DisputeListRowWidget extends StatelessWidget {
                               if (voted) ...[
                                 ChipWidget(
                                   width: 120,
-                                  title: dispute.usersVoted.contains(context.watch<AuthBloc>().state.user.id)
+                                  title: dispute.getUsersVoted().contains(context.watch<AuthBloc>().state.user.id)
                                       ? "VOTED"
                                       : "NOT VOTED",
                                   isClickable: false,

@@ -39,11 +39,22 @@ class DisputeDetailsPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => DisputesBloc(DisputesRepository(
+          create: (context) => DisputesBloc(
+            DisputesRepository(
               FirebaseFirestore.instance,
-              FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
-                  FirebaseFirestore.instance), FirebaseStorage.instance))
-            ..add(DisputesEvent.watchDispute(disputeUuid)),
+              FirebaseAuthFacade(
+                FirebaseAuth.instance,
+                GoogleSignIn(),
+                FirebaseFirestore.instance
+              ),
+              FirebaseStorage.instance
+            ),
+            FirebaseAuthFacade(
+              FirebaseAuth.instance,
+              GoogleSignIn(),
+              FirebaseFirestore.instance
+            ),            
+            )..add(DisputesEvent.watchDispute(disputeUuid)),
         ),
         BlocProvider(
           create: (context) => TimerBloc()
@@ -64,10 +75,14 @@ class DisputeDetailsPage extends StatelessWidget {
                     final _home = context.watch<DisputesBloc>().state.home;
                     final _currentVote = context.read<DisputesBloc>().state.currentVote;
                     final _images = context.watch<DisputesBloc>().state.disputeImages;
+
+                    final _usersVoted = context.watch<DisputesBloc>().state.dispute.getUsersVoted();
+
                     final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
 
                     final _userIsLoading = context.watch<AuthBloc>().state.isLoading;
                     final _user = context.watch<AuthBloc>().state.user;
+
                     final _timer = context.read<TimerBloc>().state.timeToEnd;
                     final _isOpened = !_closingTime.isBefore(DateTime.now());
 
@@ -114,7 +129,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                 width: 225.0,
                                 child: ImagesViewWidget(images: _images),
                               ),
-                              ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
+                              if (_images.length > 1) ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
                               Padding(
                                 padding: const EdgeInsets.only(top: 7.0, bottom: 7.0),
                                 child: Row(
@@ -215,7 +230,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                   height: 5,
                                 ),
                               ),
-                              if (_dispute.usersVoted.contains(_user.id)) ...[
+                              if (_usersVoted.contains(_user.id)) ...[
                                 const Center(
                                   child: Text(
                                       "You already voted in this dispute.",
@@ -231,7 +246,8 @@ class DisputeDetailsPage extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                              if (!_userIsLoading && _user.id != _dispute.issuerUuid && _home.host != _user.id && !_dispute.usersVoted.contains(_user.id)) ...[
+                              if (!_userIsLoading && _user.id != _dispute.issuerUuid && _home.host != _user.id && !_usersVoted.contains(_user.id)) ...[
+                                if (_user.numTokens < 10)
                                 const Align(
                                   alignment: Alignment.centerLeft,
                                   child: Padding(
@@ -252,7 +268,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       children: [
                                         VoteButtonWidget(
-                                          active: _currentVote == DisputeVote.against || _currentVote == DisputeVote.none,
+                                          active: (_currentVote == DisputeVote.against || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
                                           onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.against)),
                                           icon: const Icon(
                                             RHomeIcon.against, 
@@ -261,7 +277,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                           ),
                                         ),
                                         VoteButtonWidget(
-                                          active: _currentVote == DisputeVote.irrelevant || _currentVote == DisputeVote.none,
+                                          active: (_currentVote == DisputeVote.irrelevant || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
                                           onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.irrelevant)),
                                           icon: const Icon(
                                             RHomeIcon.irrelevant, 
@@ -270,7 +286,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                           ),
                                         ),
                                         VoteButtonWidget(
-                                          active: _currentVote == DisputeVote.favour || _currentVote == DisputeVote.none,
+                                          active: (_currentVote == DisputeVote.favour || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
                                           onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.favour)),
                                           icon: const Icon(
                                             RHomeIcon.favour, 
@@ -283,15 +299,15 @@ class DisputeDetailsPage extends StatelessWidget {
                                   ),
                                 ),
                                 RoundedButtonWidget(
-                                  text: _currentVote == DisputeVote.none ?
-                                  "SELECT AN OPTION" : (
-                                    _currentVote == DisputeVote.favour ?
-                                      "VOTE IN FAVOUR" : (
-                                        _currentVote == DisputeVote.against ?
-                                          "VOTE AGAINST" :
-                                          "VOTE IRRELEVANT"
+                                  text: _user.numTokens >= 10 ?
+                                  (_currentVote == DisputeVote.none ?
+                                    "SELECT AN OPTION" : (
+                                      _currentVote == DisputeVote.favour ? "VOTE IN FAVOUR" : (
+                                          _currentVote == DisputeVote.against ? "VOTE AGAINST" :
+                                            "VOTE IRRELEVANT"
+                                      )
                                     )
-                                  ),
+                                  ) : "INSUFFICIENT TOKENS TO VOTE",
                                   onPressed: () => {
                                     showDialog(context: context,
                                       builder: (_) => BlocProvider.value(
@@ -300,13 +316,13 @@ class DisputeDetailsPage extends StatelessWidget {
                                       )
                                     )
                                   },
-                                  disabled: _currentVote == DisputeVote.none,
-                                  backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                                  disabled: _currentVote == DisputeVote.none || _user.numTokens < 10,
+                                  backgroundColor: _user.numTokens < 10 ? Colors.red : Theme.of(context).colorScheme.primaryBlue,
                                   fontWeight: FontWeight.w400,
                                   textColor: Colors.white,
                                   fontSize: 15,
                                   height: 35,
-                                  width: 250,
+                                  width: _user.numTokens < 10 ? 300 : 250,
                                 ),
                               ] else ...[
                                 const Align(
@@ -318,7 +334,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                if (_dispute.usersVoted.isNotEmpty) ...[
+                                if (_usersVoted.isNotEmpty) ...[
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                     child: ChartLegendWidget(data: {
@@ -332,7 +348,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                   child: Stack(
                                     alignment: Alignment.center,
                                     children: [
-                                      if (_dispute.usersVoted.isEmpty) ...[
+                                      if (_usersVoted.isEmpty) ...[
                                         const Padding(
                                           padding: EdgeInsets.only(top: 20.0),
                                           child: Text(
@@ -341,7 +357,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                         ),
                                       ] else ...[
                                         Text(
-                                          "${_dispute.usersVoted.length} votes",
+                                          "${_usersVoted.length} votes",
                                         ),
                                         SfCircularChart(
                                           tooltipBehavior: TooltipBehavior(enable: true),
@@ -352,20 +368,20 @@ class DisputeDetailsPage extends StatelessWidget {
                                               dataSource: [
                                                 _PieData(
                                                   "In Favour",
-                                                  _dispute.votesInFavour,
-                                                  "${(_dispute.votesInFavour / _dispute.usersVoted.length * 100).round()}%",
+                                                  _dispute.usersVotedInFavour.length,
+                                                  "${(_dispute.usersVotedInFavour.length / _usersVoted.length * 100).round()}%",
                                                   Theme.of(context).colorScheme.primaryBlue
                                                 ),
                                                 _PieData(
                                                   "Irrelevant",
-                                                  _dispute.votesIrrelevant,
-                                                  "${(_dispute.votesIrrelevant / _dispute.usersVoted.length * 100).round()}%",
+                                                  _dispute.usersVotedIrrelevent.length,
+                                                  "${(_dispute.usersVotedIrrelevent.length / _usersVoted.length * 100).round()}%",
                                                   const Color(0xFFF9A53C)
                                                 ),
                                                 _PieData(
                                                   "Against",
-                                                  _dispute.votesAgainst,
-                                                  "${(_dispute.votesAgainst / _dispute.usersVoted.length * 100).round()}%",
+                                                  _dispute.usersVotedAgainst.length,
+                                                  "${(_dispute.usersVotedAgainst.length / _usersVoted.length * 100).round()}%",
                                                   const Color(0xFFF7554C)
                                                 ),
                                               ],

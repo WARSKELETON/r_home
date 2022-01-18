@@ -30,16 +30,14 @@ class _$DisputeDtoTearOff {
       required String descritption,
       required String homeUuid,
       required String rentalUuid,
-      required int votesAgainst,
-      required int votesIrrelevant,
-      required int votesInFavour,
       required double initialStake,
-      required double stake,
       required String category,
-      required List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
           required Timestamp creationDate,
-      required String mainImageUrl}) {
+      required String mainImageUrl,
+      required List<String> usersVotedInFavour,
+      required List<String> usersVotedIrrelevent,
+      required List<String> usersVotedAgainst}) {
     return _DisputeDto(
       uuid: uuid,
       issuerUuid: issuerUuid,
@@ -48,15 +46,13 @@ class _$DisputeDtoTearOff {
       descritption: descritption,
       homeUuid: homeUuid,
       rentalUuid: rentalUuid,
-      votesAgainst: votesAgainst,
-      votesIrrelevant: votesIrrelevant,
-      votesInFavour: votesInFavour,
       initialStake: initialStake,
-      stake: stake,
       category: category,
-      usersVoted: usersVoted,
       creationDate: creationDate,
       mainImageUrl: mainImageUrl,
+      usersVotedInFavour: usersVotedInFavour,
+      usersVotedIrrelevent: usersVotedIrrelevent,
+      usersVotedAgainst: usersVotedAgainst,
     );
   }
 
@@ -77,17 +73,15 @@ mixin _$DisputeDto {
   String get descritption => throw _privateConstructorUsedError;
   String get homeUuid => throw _privateConstructorUsedError;
   String get rentalUuid => throw _privateConstructorUsedError;
-  int get votesAgainst => throw _privateConstructorUsedError;
-  int get votesIrrelevant => throw _privateConstructorUsedError;
-  int get votesInFavour => throw _privateConstructorUsedError;
   double get initialStake => throw _privateConstructorUsedError;
-  double get stake => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  List<String> get usersVoted => throw _privateConstructorUsedError;
   @JsonKey(
       fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
   Timestamp get creationDate => throw _privateConstructorUsedError;
   String get mainImageUrl => throw _privateConstructorUsedError;
+  List<String> get usersVotedInFavour => throw _privateConstructorUsedError;
+  List<String> get usersVotedIrrelevent => throw _privateConstructorUsedError;
+  List<String> get usersVotedAgainst => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -108,16 +102,14 @@ abstract class $DisputeDtoCopyWith<$Res> {
       String descritption,
       String homeUuid,
       String rentalUuid,
-      int votesAgainst,
-      int votesIrrelevant,
-      int votesInFavour,
       double initialStake,
-      double stake,
       String category,
-      List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
           Timestamp creationDate,
-      String mainImageUrl});
+      String mainImageUrl,
+      List<String> usersVotedInFavour,
+      List<String> usersVotedIrrelevent,
+      List<String> usersVotedAgainst});
 }
 
 /// @nodoc
@@ -137,15 +129,13 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
     Object? descritption = freezed,
     Object? homeUuid = freezed,
     Object? rentalUuid = freezed,
-    Object? votesAgainst = freezed,
-    Object? votesIrrelevant = freezed,
-    Object? votesInFavour = freezed,
     Object? initialStake = freezed,
-    Object? stake = freezed,
     Object? category = freezed,
-    Object? usersVoted = freezed,
     Object? creationDate = freezed,
     Object? mainImageUrl = freezed,
+    Object? usersVotedInFavour = freezed,
+    Object? usersVotedIrrelevent = freezed,
+    Object? usersVotedAgainst = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -176,34 +166,14 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
           ? _value.rentalUuid
           : rentalUuid // ignore: cast_nullable_to_non_nullable
               as String,
-      votesAgainst: votesAgainst == freezed
-          ? _value.votesAgainst
-          : votesAgainst // ignore: cast_nullable_to_non_nullable
-              as int,
-      votesIrrelevant: votesIrrelevant == freezed
-          ? _value.votesIrrelevant
-          : votesIrrelevant // ignore: cast_nullable_to_non_nullable
-              as int,
-      votesInFavour: votesInFavour == freezed
-          ? _value.votesInFavour
-          : votesInFavour // ignore: cast_nullable_to_non_nullable
-              as int,
       initialStake: initialStake == freezed
           ? _value.initialStake
           : initialStake // ignore: cast_nullable_to_non_nullable
-              as double,
-      stake: stake == freezed
-          ? _value.stake
-          : stake // ignore: cast_nullable_to_non_nullable
               as double,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      usersVoted: usersVoted == freezed
-          ? _value.usersVoted
-          : usersVoted // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       creationDate: creationDate == freezed
           ? _value.creationDate
           : creationDate // ignore: cast_nullable_to_non_nullable
@@ -212,6 +182,18 @@ class _$DisputeDtoCopyWithImpl<$Res> implements $DisputeDtoCopyWith<$Res> {
           ? _value.mainImageUrl
           : mainImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      usersVotedInFavour: usersVotedInFavour == freezed
+          ? _value.usersVotedInFavour
+          : usersVotedInFavour // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      usersVotedIrrelevent: usersVotedIrrelevent == freezed
+          ? _value.usersVotedIrrelevent
+          : usersVotedIrrelevent // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      usersVotedAgainst: usersVotedAgainst == freezed
+          ? _value.usersVotedAgainst
+          : usersVotedAgainst // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -230,16 +212,14 @@ abstract class _$DisputeDtoCopyWith<$Res> implements $DisputeDtoCopyWith<$Res> {
       String descritption,
       String homeUuid,
       String rentalUuid,
-      int votesAgainst,
-      int votesIrrelevant,
-      int votesInFavour,
       double initialStake,
-      double stake,
       String category,
-      List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
           Timestamp creationDate,
-      String mainImageUrl});
+      String mainImageUrl,
+      List<String> usersVotedInFavour,
+      List<String> usersVotedIrrelevent,
+      List<String> usersVotedAgainst});
 }
 
 /// @nodoc
@@ -261,15 +241,13 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
     Object? descritption = freezed,
     Object? homeUuid = freezed,
     Object? rentalUuid = freezed,
-    Object? votesAgainst = freezed,
-    Object? votesIrrelevant = freezed,
-    Object? votesInFavour = freezed,
     Object? initialStake = freezed,
-    Object? stake = freezed,
     Object? category = freezed,
-    Object? usersVoted = freezed,
     Object? creationDate = freezed,
     Object? mainImageUrl = freezed,
+    Object? usersVotedInFavour = freezed,
+    Object? usersVotedIrrelevent = freezed,
+    Object? usersVotedAgainst = freezed,
   }) {
     return _then(_DisputeDto(
       uuid: uuid == freezed
@@ -300,34 +278,14 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
           ? _value.rentalUuid
           : rentalUuid // ignore: cast_nullable_to_non_nullable
               as String,
-      votesAgainst: votesAgainst == freezed
-          ? _value.votesAgainst
-          : votesAgainst // ignore: cast_nullable_to_non_nullable
-              as int,
-      votesIrrelevant: votesIrrelevant == freezed
-          ? _value.votesIrrelevant
-          : votesIrrelevant // ignore: cast_nullable_to_non_nullable
-              as int,
-      votesInFavour: votesInFavour == freezed
-          ? _value.votesInFavour
-          : votesInFavour // ignore: cast_nullable_to_non_nullable
-              as int,
       initialStake: initialStake == freezed
           ? _value.initialStake
           : initialStake // ignore: cast_nullable_to_non_nullable
-              as double,
-      stake: stake == freezed
-          ? _value.stake
-          : stake // ignore: cast_nullable_to_non_nullable
               as double,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      usersVoted: usersVoted == freezed
-          ? _value.usersVoted
-          : usersVoted // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       creationDate: creationDate == freezed
           ? _value.creationDate
           : creationDate // ignore: cast_nullable_to_non_nullable
@@ -336,6 +294,18 @@ class __$DisputeDtoCopyWithImpl<$Res> extends _$DisputeDtoCopyWithImpl<$Res>
           ? _value.mainImageUrl
           : mainImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      usersVotedInFavour: usersVotedInFavour == freezed
+          ? _value.usersVotedInFavour
+          : usersVotedInFavour // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      usersVotedIrrelevent: usersVotedIrrelevent == freezed
+          ? _value.usersVotedIrrelevent
+          : usersVotedIrrelevent // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      usersVotedAgainst: usersVotedAgainst == freezed
+          ? _value.usersVotedAgainst
+          : usersVotedAgainst // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -351,16 +321,14 @@ class _$_DisputeDto extends _DisputeDto {
       required this.descritption,
       required this.homeUuid,
       required this.rentalUuid,
-      required this.votesAgainst,
-      required this.votesIrrelevant,
-      required this.votesInFavour,
       required this.initialStake,
-      required this.stake,
       required this.category,
-      required this.usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
           required this.creationDate,
-      required this.mainImageUrl})
+      required this.mainImageUrl,
+      required this.usersVotedInFavour,
+      required this.usersVotedIrrelevent,
+      required this.usersVotedAgainst})
       : super._();
 
   factory _$_DisputeDto.fromJson(Map<String, dynamic> json) =>
@@ -381,29 +349,25 @@ class _$_DisputeDto extends _DisputeDto {
   @override
   final String rentalUuid;
   @override
-  final int votesAgainst;
-  @override
-  final int votesIrrelevant;
-  @override
-  final int votesInFavour;
-  @override
   final double initialStake;
   @override
-  final double stake;
-  @override
   final String category;
-  @override
-  final List<String> usersVoted;
   @override
   @JsonKey(
       fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
   final Timestamp creationDate;
   @override
   final String mainImageUrl;
+  @override
+  final List<String> usersVotedInFavour;
+  @override
+  final List<String> usersVotedIrrelevent;
+  @override
+  final List<String> usersVotedAgainst;
 
   @override
   String toString() {
-    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, votesAgainst: $votesAgainst, votesIrrelevant: $votesIrrelevant, votesInFavour: $votesInFavour, initialStake: $initialStake, stake: $stake, category: $category, usersVoted: $usersVoted, creationDate: $creationDate, mainImageUrl: $mainImageUrl)';
+    return 'DisputeDto(uuid: $uuid, issuerUuid: $issuerUuid, issuerUsername: $issuerUsername, title: $title, descritption: $descritption, homeUuid: $homeUuid, rentalUuid: $rentalUuid, initialStake: $initialStake, category: $category, creationDate: $creationDate, mainImageUrl: $mainImageUrl, usersVotedInFavour: $usersVotedInFavour, usersVotedIrrelevent: $usersVotedIrrelevent, usersVotedAgainst: $usersVotedAgainst)';
   }
 
   @override
@@ -423,21 +387,18 @@ class _$_DisputeDto extends _DisputeDto {
             const DeepCollectionEquality()
                 .equals(other.rentalUuid, rentalUuid) &&
             const DeepCollectionEquality()
-                .equals(other.votesAgainst, votesAgainst) &&
-            const DeepCollectionEquality()
-                .equals(other.votesIrrelevant, votesIrrelevant) &&
-            const DeepCollectionEquality()
-                .equals(other.votesInFavour, votesInFavour) &&
-            const DeepCollectionEquality()
                 .equals(other.initialStake, initialStake) &&
-            const DeepCollectionEquality().equals(other.stake, stake) &&
             const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality()
-                .equals(other.usersVoted, usersVoted) &&
             const DeepCollectionEquality()
                 .equals(other.creationDate, creationDate) &&
             const DeepCollectionEquality()
-                .equals(other.mainImageUrl, mainImageUrl));
+                .equals(other.mainImageUrl, mainImageUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.usersVotedInFavour, usersVotedInFavour) &&
+            const DeepCollectionEquality()
+                .equals(other.usersVotedIrrelevent, usersVotedIrrelevent) &&
+            const DeepCollectionEquality()
+                .equals(other.usersVotedAgainst, usersVotedAgainst));
   }
 
   @override
@@ -450,15 +411,13 @@ class _$_DisputeDto extends _DisputeDto {
       const DeepCollectionEquality().hash(descritption),
       const DeepCollectionEquality().hash(homeUuid),
       const DeepCollectionEquality().hash(rentalUuid),
-      const DeepCollectionEquality().hash(votesAgainst),
-      const DeepCollectionEquality().hash(votesIrrelevant),
-      const DeepCollectionEquality().hash(votesInFavour),
       const DeepCollectionEquality().hash(initialStake),
-      const DeepCollectionEquality().hash(stake),
       const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(usersVoted),
       const DeepCollectionEquality().hash(creationDate),
-      const DeepCollectionEquality().hash(mainImageUrl));
+      const DeepCollectionEquality().hash(mainImageUrl),
+      const DeepCollectionEquality().hash(usersVotedInFavour),
+      const DeepCollectionEquality().hash(usersVotedIrrelevent),
+      const DeepCollectionEquality().hash(usersVotedAgainst));
 
   @JsonKey(ignore: true)
   @override
@@ -480,16 +439,14 @@ abstract class _DisputeDto extends DisputeDto {
       required String descritption,
       required String homeUuid,
       required String rentalUuid,
-      required int votesAgainst,
-      required int votesIrrelevant,
-      required int votesInFavour,
       required double initialStake,
-      required double stake,
       required String category,
-      required List<String> usersVoted,
       @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
           required Timestamp creationDate,
-      required String mainImageUrl}) = _$_DisputeDto;
+      required String mainImageUrl,
+      required List<String> usersVotedInFavour,
+      required List<String> usersVotedIrrelevent,
+      required List<String> usersVotedAgainst}) = _$_DisputeDto;
   const _DisputeDto._() : super._();
 
   factory _DisputeDto.fromJson(Map<String, dynamic> json) =
@@ -510,25 +467,21 @@ abstract class _DisputeDto extends DisputeDto {
   @override
   String get rentalUuid;
   @override
-  int get votesAgainst;
-  @override
-  int get votesIrrelevant;
-  @override
-  int get votesInFavour;
-  @override
   double get initialStake;
   @override
-  double get stake;
-  @override
   String get category;
-  @override
-  List<String> get usersVoted;
   @override
   @JsonKey(
       fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
   Timestamp get creationDate;
   @override
   String get mainImageUrl;
+  @override
+  List<String> get usersVotedInFavour;
+  @override
+  List<String> get usersVotedIrrelevent;
+  @override
+  List<String> get usersVotedAgainst;
   @override
   @JsonKey(ignore: true)
   _$DisputeDtoCopyWith<_DisputeDto> get copyWith =>

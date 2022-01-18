@@ -2,19 +2,23 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:r_home/domain/auth/domain_user.dart';
+import 'package:r_home/domain/auth/i_auth_facade.dart';
 import 'package:r_home/domain/disputes/dispute.dart';
 import 'package:r_home/domain/disputes/i_disputes_repository.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/rentals/rental.dart';
+import 'package:r_home/domain/transactions/rhome_transaction.dart';
 
 part 'disputes_event.dart';
 part 'disputes_state.dart';
 part 'disputes_bloc.freezed.dart';
 
 class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
-    final IDisputesRepository _disputesRepository;
-
-  DisputesBloc(this._disputesRepository) : super(DisputesState.initial()) {
+  final IDisputesRepository _disputesRepository;
+  final IAuthFacade _authFacade;
+  
+  DisputesBloc(this._disputesRepository, this._authFacade) : super(DisputesState.initial()) {
     on<Initialize>(_onInitialize);
     on<ImagesReceived>(_onImagesReceived);
     on<DisputesReceived>(_onDisputesReceived);
@@ -97,16 +101,30 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
       }
   }
 
-  void _onVoteSubmit(VoteSubmit event, Emitter<DisputesState> emit) {
+  void _onVoteSubmit(VoteSubmit event, Emitter<DisputesState> emit) async {
+    String? userId = _authFacade.getSignedInUserId();
+    DomainUser user = await _authFacade.getUserById(userId!);
+    
     if (state.currentVote == DisputeVote.against) {
-      emit(state.copyWith(dispute: state.dispute.copyWith(votesAgainst: state.dispute.votesAgainst + 1)));
+      emit(state.copyWith(dispute: state.dispute.copyWith(usersVotedAgainst: [...state.dispute.usersVotedAgainst, userId])));
     } else if (state.currentVote == DisputeVote.irrelevant) {
-      emit(state.copyWith(dispute: state.dispute.copyWith(votesIrrelevant: state.dispute.votesIrrelevant + 1)));
+      emit(state.copyWith(dispute: state.dispute.copyWith(usersVotedIrrelevent: [...state.dispute.usersVotedIrrelevent, userId])));
     } else if (state.currentVote == DisputeVote.favour) {
-      emit(state.copyWith(dispute: state.dispute.copyWith(votesInFavour: state.dispute.votesInFavour + 1)));
+      emit(state.copyWith(dispute: state.dispute.copyWith(usersVotedInFavour: [...state.dispute.usersVotedInFavour, userId])));
     }
-    emit(state.copyWith(dispute: state.dispute.copyWith(usersVoted: [...state.dispute.usersVoted, event.userUuid])));
     _disputesRepository.update(state.dispute);
+
+    RhomeTransaction transaction = RhomeTransaction.empty().copyWith(
+      senderId: userId,
+      receiverId: "",
+      senderUsername: user.getUsername(),
+      receiverUsername: "",
+      paymentMethod: PaymentMethod.token.name,
+      amount: 10,
+      type: TransactionType.vote.name,
+    );
+
+    _authFacade.makeTransferOfTokens(transaction);
     emit(state);
   }
 

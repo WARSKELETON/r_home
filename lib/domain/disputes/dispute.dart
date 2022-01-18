@@ -28,16 +28,13 @@ abstract class Dispute implements _$Dispute {
     required String descritption,
     required String homeUuid,
     required String rentalUuid,
-    required int votesAgainst,
-    required int votesIrrelevant,
-    required int votesInFavour,
     required double initialStake,
-    required double stake,
     required String category,
-    required List<String> usersVoted,
     required DateTime creationDate,
-    required String mainImageUrl
-    // Add image
+    required String mainImageUrl,
+    required List<String> usersVotedInFavour,
+    required List<String> usersVotedAgainst,
+    required List<String> usersVotedIrrelevent,
   }) = _Dispute;
 
   factory Dispute.empty() => Dispute(
@@ -48,14 +45,16 @@ abstract class Dispute implements _$Dispute {
     descritption: '',
     homeUuid: '',
     rentalUuid: '',
-    votesAgainst: 0,
-    votesIrrelevant: 0,
-    votesInFavour: 0,
     initialStake: 0,
-    stake: 0,
     category: '',
-    usersVoted: [],
     creationDate: DateTime.now(),
-    mainImageUrl: ''
+    mainImageUrl: '',
+    usersVotedInFavour: [],
+    usersVotedAgainst: [],
+    usersVotedIrrelevent: [],
   );
+
+  List<String> getUsersVoted() {
+    return [...usersVotedInFavour, ...usersVotedIrrelevent, ...usersVotedAgainst];
+  }
 }

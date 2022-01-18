@@ -15,17 +15,19 @@ _$_DisputeDto _$$_DisputeDtoFromJson(Map<String, dynamic> json) =>
       descritption: json['descritption'] as String,
       homeUuid: json['homeUuid'] as String,
       rentalUuid: json['rentalUuid'] as String,
-      votesAgainst: json['votesAgainst'] as int,
-      votesIrrelevant: json['votesIrrelevant'] as int,
-      votesInFavour: json['votesInFavour'] as int,
       initialStake: (json['initialStake'] as num).toDouble(),
-      stake: (json['stake'] as num).toDouble(),
       category: json['category'] as String,
-      usersVoted: (json['usersVoted'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
       creationDate: firestoreTimestampFromJson(json['creationDate']),
       mainImageUrl: json['mainImageUrl'] as String,
+      usersVotedInFavour: (json['usersVotedInFavour'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      usersVotedIrrelevent: (json['usersVotedIrrelevent'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      usersVotedAgainst: (json['usersVotedAgainst'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
@@ -37,13 +39,11 @@ Map<String, dynamic> _$$_DisputeDtoToJson(_$_DisputeDto instance) =>
       'descritption': instance.descritption,
       'homeUuid': instance.homeUuid,
       'rentalUuid': instance.rentalUuid,
-      'votesAgainst': instance.votesAgainst,
-      'votesIrrelevant': instance.votesIrrelevant,
-      'votesInFavour': instance.votesInFavour,
       'initialStake': instance.initialStake,
-      'stake': instance.stake,
       'category': instance.category,
-      'usersVoted': instance.usersVoted,
       'creationDate': firestoreTimestampToJson(instance.creationDate),
       'mainImageUrl': instance.mainImageUrl,
+      'usersVotedInFavour': instance.usersVotedInFavour,
+      'usersVotedIrrelevent': instance.usersVotedIrrelevent,
+      'usersVotedAgainst': instance.usersVotedAgainst,
     };

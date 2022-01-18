@@ -37,7 +37,12 @@ class DisputesListPage extends StatelessWidget {
                   FirebaseFirestore.instance
                   ),
                   FirebaseStorage.instance
-                )
+                ),
+                FirebaseAuthFacade(
+                  FirebaseAuth.instance,
+                  GoogleSignIn(),
+                  FirebaseFirestore.instance
+                ),
               )..add(const DisputesEvent.initialize(true))),
           BlocProvider(
             create: (BuildContext context) => ListFilterBloc(),
@@ -58,10 +63,10 @@ class DisputesListPage extends StatelessWidget {
               (!isVotedActive && !isNotVotedActive && !isDamagesActive && !isFalseAdsActive) ? true :
               (isDamagesActive == (dispute.category == DisputeCategory.damages_in_properties.name) ||
               isFalseAdsActive == (dispute.category == DisputeCategory.false_advertisement.name))
-            ).where((dispute) =>
-              dispute.usersVoted.contains(_user.id) == isVotedActive ||
-              !dispute.usersVoted.contains(_user.id) == isNotVotedActive 
-            ).where((dispute) =>
+            ).where((dispute) {
+              final usersVoted = dispute.getUsersVoted();
+              return usersVoted.contains(_user.id) == isVotedActive || !usersVoted.contains(_user.id) == isNotVotedActive;
+            }).where((dispute) =>
               !dispute.creationDate.add(const Duration(days: 2)).isBefore(DateTime.now()) == isOpenedActive ||
               dispute.creationDate.add(const Duration(days: 2)).isBefore(DateTime.now()) == isClosedActive
             ).where((dispute) => 

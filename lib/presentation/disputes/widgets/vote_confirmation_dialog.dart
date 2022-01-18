@@ -12,17 +12,19 @@ class VoteConfirmationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _message = "You are about to vote " + (vote == DisputeVote.favour
-            ? "IN FAVOUR"
+    var _message = "You are about to vote " + (vote == DisputeVote.favour
+            ? "IN FAVOUR."
             : (vote == DisputeVote.against
-                ? "AGAINST"
-                : "IRRELEVANT"));
+                ? "AGAINST."
+                : "IRRELEVANT."));
+
+    _message += "\n This vote has a cost of 10 tokens.";
 
     return BlocBuilder<DisputesBloc, DisputesState>(
       builder: (context, state) {
         return ConfirmationDialogWidget(
         action1: "Cancel", 
-        action2: "Vote", 
+        action2: "Pay & Vote", 
         message: _message,
         onPressed: () {
           context.read<DisputesBloc>().add(DisputesEvent.voteSubmit(context.read<AuthBloc>().state.user.id));
