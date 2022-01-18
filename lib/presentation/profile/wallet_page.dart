@@ -58,8 +58,8 @@ class WalletPage extends StatelessWidget {
                         height: 25,
                       ),
                       RoundedButtonWidget(
-                        text: 'Transaction History',
-                        onPressed: () => AutoRouter.of(context).push(TransactionHistoryPageRoute()),
+                        text: 'Monitorize Fees',
+                        onPressed: () => AutoRouter.of(context).push(const MonitorizeFeesPageRoute()),
                         backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,
@@ -71,8 +71,8 @@ class WalletPage extends StatelessWidget {
                         height: 25,
                       ),
                       RoundedButtonWidget(
-                        text: 'Monitorize Fees',
-                        onPressed: () => AutoRouter.of(context).push(const MonitorizeFeesPageRoute()),
+                        text: 'Transaction History',
+                        onPressed: () => AutoRouter.of(context).push(TransactionHistoryPageRoute()),
                         backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                         fontWeight: FontWeight.w400,
                         textColor: Colors.white,

@@ -25,14 +25,10 @@ class WalletAddressWidget extends StatelessWidget {
           children: <Widget>[
             Container (
               width: MediaQuery.of(context).size.width * 0.58,
-              child: address.length > 25 ?
-              Text(address.substring(0, 25) + "...",
-                style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.black
-                )
-              ):
-              Text(address,
+              child: Text(
+                address,
+                overflow: TextOverflow.fade,
+                softWrap: false,
                 style: const TextStyle(
                   fontSize: 15,
                   color: Colors.black

@@ -45,7 +45,7 @@ class NumberTokensInfoWidget extends StatelessWidget {
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 24,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       ),
                   ),
                 ),
