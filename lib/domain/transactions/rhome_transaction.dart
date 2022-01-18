@@ -33,6 +33,7 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
     required String paymentMethod,
     required double amount,
     required String type,
+    required DateTime ts
   }) = _RhomeTransaction;
 
   factory RhomeTransaction.empty() => RhomeTransaction(
@@ -44,6 +45,7 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
     paymentMethod: '',
     amount: 0,
     type: '',
+    ts: DateTime.now()
   );
 
   IconData getPaymentMethodIcon() {
@@ -64,24 +66,24 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
   }
 
   String getAmountString(String currentUserId) {
-    return (currentUserId == senderId ? "-" : "+") + amount.toString() + " ${paymentMethod.capitalize()}";
+    return (currentUserId == senderId ? "-" : "+") + amount.toStringAsFixed(2) + " ${paymentMethod.capitalize()}";
   }
 
   String getDescription(String currentUserId) {
     final typeEnum = type.toTransactionType();
-    String desc = "";
+    String desc = "${getDateString()}\n";
     if (typeEnum == TransactionType.rental) {
-      desc = "Home Rental";
+      desc += "Home Rental";
     } else if (typeEnum == TransactionType.reward_guest) {
-      desc = "Guest Reward";
+      desc += "Guest Reward";
     } else if (typeEnum == TransactionType.reward_host) {
-      desc = "Host Reward";
+      desc += "Host Reward";
     } else if (typeEnum == TransactionType.start_dispute) {
-      desc = "Starting a Dispute";
+      desc += "Starting a Dispute";
     }  else if (typeEnum == TransactionType.close_dispute) {
-      desc = "Winning a Dispute";
+      desc += "Winning a Dispute";
     } else if (typeEnum == TransactionType.vote) {
-      desc = "Voting in a Dispute";
+      desc += "Voting in a Dispute";
     }
 
     if (typeEnum != TransactionType.start_dispute && typeEnum != TransactionType.close_dispute) {
@@ -89,5 +91,9 @@ abstract class RhomeTransaction implements _$RhomeTransaction {
     }
 
     return desc;
+  }
+
+  String getDateString() {
+    return ts.day.toString() + "/" + ts.month.toString() + "/" + ts.year.toString() + " " + ts.hour.toString().padLeft(2, '0') + ":" + ts.minute.toString();
   }
 }

@@ -24,8 +24,8 @@ class TransactionHistoryPage extends StatelessWidget {
         ..add(const TransactionsEvent.initialize()),
         child: BlocBuilder<TransactionsBloc, TransactionsState>(
           builder: (context, state) {
-            final transactions =
-                context.watch<TransactionsBloc>().state.transactions;
+            final transactions = context.watch<TransactionsBloc>().state.transactions;
+            transactions.sort((transaction1, transaction2) => transaction2.ts.compareTo(transaction1.ts));
 
             return Center(
               child: Padding(
