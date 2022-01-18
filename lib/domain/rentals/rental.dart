@@ -6,9 +6,9 @@ import 'package:uuid/uuid.dart';
 part 'rental.freezed.dart';
 
 enum PaymentMethod {
+  token,
   bitcoin, 
   ether, 
-  token, 
   eurs
 }
 

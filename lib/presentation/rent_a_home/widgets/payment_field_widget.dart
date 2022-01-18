@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/rent_a_home/rent_a_home_bloc.dart';
 import 'package:r_home/domain/rentals/rental.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/string_extension.dart';
+import 'package:r_home/r_home_icon_icons.dart';
 
 class PaymentField extends StatelessWidget {
   const PaymentField({Key? key}) : super(key: key);
@@ -19,8 +21,10 @@ class PaymentField extends StatelessWidget {
     return (nights * pricePerNight) + singleFee;
   }
 
-  List<Widget> paymentInfoWidgets(BuildContext context, IconData paymentMethodIcon) {
-    int nights = nightsBetween(context.read<RentAHomeBloc>().state.checkIn!, context.read<RentAHomeBloc>().state.checkOut!);
+  List<Widget> paymentInfoWidgets(
+      BuildContext context, IconData paymentMethodIcon) {
+    int nights = nightsBetween(context.read<RentAHomeBloc>().state.checkIn!,
+        context.read<RentAHomeBloc>().state.checkOut!);
     double price = context.read<RentAHomeBloc>().state.selectedHome.price;
 
     return [
@@ -28,10 +32,7 @@ class PaymentField extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 2.0),
         child: Text(
           "Total Price",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600
-          ),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
       Padding(
@@ -39,16 +40,8 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Number of Nights",
-              style: TextStyle(
-              fontSize: 16
-            )),
-            Text(
-              nights.toString(),
-              style: const TextStyle(
-              fontSize: 16
-          ))
+            const Text("Number of Nights", style: TextStyle(fontSize: 16)),
+            Text(nights.toString(), style: const TextStyle(fontSize: 16))
           ],
         ),
       ),
@@ -57,21 +50,13 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Price per Night",
-              style: TextStyle(
-              fontSize: 16
-            )),
+            const Text("Price per Night", style: TextStyle(fontSize: 16)),
             Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    price.toString(),
-                    style: const TextStyle(
-                        fontSize: 16
-                    )
-                  ),
+                  child: Text(price.toString(),
+                      style: const TextStyle(fontSize: 16)),
                 ),
                 Icon(
                   paymentMethodIcon,
@@ -87,21 +72,12 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Single Fee",
-              style: TextStyle(
-              fontSize: 16
-            )),
+            const Text("Single Fee", style: TextStyle(fontSize: 16)),
             Row(
               children: [
                 const Padding(
                   padding: EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    "3",
-                    style: TextStyle(
-                        fontSize: 16
-                    )
-                  ),
+                  child: Text("3", style: TextStyle(fontSize: 16)),
                 ),
                 Icon(
                   paymentMethodIcon,
@@ -117,21 +93,13 @@ class PaymentField extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Total",
-              style: TextStyle(
-              fontSize: 16
-            )),
+            const Text("Total", style: TextStyle(fontSize: 16)),
             Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    totalPrice(nights, price, 3).toString(),
-                    style: const TextStyle(
-                        fontSize: 16
-                    )
-                  ),
+                  child: Text(totalPrice(nights, price, 3).toString(),
+                      style: const TextStyle(fontSize: 16)),
                 ),
                 Icon(
                   paymentMethodIcon,
@@ -151,17 +119,12 @@ class PaymentField extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: Text(
           "Payment Method",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600
-          ),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
       Expanded(
         child: ListView.builder(
-          itemCount: PaymentMethod.values.length,
-          itemBuilder: _itemBuilder
-        ),
+            itemCount: PaymentMethod.values.length, itemBuilder: _itemBuilder),
       )
     ];
   }
@@ -172,9 +135,12 @@ class PaymentField extends StatelessWidget {
       leading: Radio<String>(
         activeColor: Theme.of(context).colorScheme.primaryBlue,
         value: PaymentMethod.values[index].name,
-        groupValue: context.watch<RentAHomeBloc>().state.idealRental.paymentMethod,
+        groupValue:
+            context.watch<RentAHomeBloc>().state.idealRental.paymentMethod,
         onChanged: (String? value) {
-          context.read<RentAHomeBloc>().add(RentAHomeEvent.paymentMethodChanged(value!));
+          context
+              .read<RentAHomeBloc>()
+              .add(RentAHomeEvent.paymentMethodChanged(value!));
         },
       ),
       trailing: SvgPicture.asset(
@@ -186,18 +152,39 @@ class PaymentField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RentAHomeBloc, RentAHomeState>(
+    return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
-        final rental = context.watch<RentAHomeBloc>().state.idealRental;
+        final numTokens = context.watch<AuthBloc>().state.user.numTokens;
+        final paymentMethod = context.watch<RentAHomeBloc>().state.idealRental.paymentMethod;
 
-        return Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ...paymentInfoWidgets(context, rental.getPaymentMethodIcon()),
-              ...paymentMethodsWidgets()
-            ],
-          ),
+        return BlocBuilder<RentAHomeBloc, RentAHomeState>(
+          builder: (context, state) {
+            final rental = context.watch<RentAHomeBloc>().state.idealRental;
+
+            return Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...paymentInfoWidgets(context, rental.getPaymentMethodIcon()),
+                  if (paymentMethod != "" && paymentMethod.toPaymentMethod() == PaymentMethod.token && numTokens < totalPrice(nightsBetween(context.read<RentAHomeBloc>().state.checkIn!, context.read<RentAHomeBloc>().state.checkOut!), context.read<RentAHomeBloc>().state.selectedHome.price, 3)) ...[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0, bottom: 2),
+                      child: Text(
+                        "Insufficient tokens to book this home",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16
+                        ),
+                      ),
+                    )
+                  ],
+                  ...paymentMethodsWidgets()
+                ],
+              ),
+            );
+          },
         );
       },
     );

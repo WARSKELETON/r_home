@@ -8,8 +8,9 @@ class SquareIconButtonWidget extends StatelessWidget {
   final Color splashColor;
   final bool? disabled;
   final double? size;
+  final double? padding;
 
-  const SquareIconButtonWidget({Key? key, required this.onPressed, required this.backgroundColor, this.disabled, required this.icon, required this.splashColor, this.size, required this.text}) : super(key: key);
+  const SquareIconButtonWidget({Key? key, required this.onPressed, required this.backgroundColor, this.disabled, required this.icon, required this.splashColor, this.size, required this.text, this.padding}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class SquareIconButtonWidget extends StatelessWidget {
         children: [
           icon,
           Padding(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding: EdgeInsets.only(top: padding == null ? 8.0 : padding!),
             child: Text(
               text, 
               style: const TextStyle(

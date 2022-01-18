@@ -169,20 +169,22 @@ class FirebaseAuthFacade extends TransactionRepository implements IAuthFacade {
 
   @override
   Future<void> makeTransferOfTokens(RhomeTransaction transaction) async {
-    _firestore
-      .collection(USERS_COLLECTION)
-      .doc(transaction.senderId)
-      .update({"numTokens" : FieldValue.increment(-transaction.amount)})
-      .then((_) => print("User updated successfuly"))
-      .catchError((onError) => print(onError));
-
-    if (transaction.receiverId != "") {
+    if (transaction.paymentMethod.toPaymentMethod() == PaymentMethod.token) {
       _firestore
         .collection(USERS_COLLECTION)
-        .doc(transaction.receiverId)
-        .update({"numTokens" : FieldValue.increment(transaction.amount)})
+        .doc(transaction.senderId)
+        .update({"numTokens" : FieldValue.increment(-transaction.amount)})
         .then((_) => print("User updated successfuly"))
         .catchError((onError) => print(onError));
+
+      if (transaction.receiverId != "") {
+        _firestore
+          .collection(USERS_COLLECTION)
+          .doc(transaction.receiverId)
+          .update({"numTokens" : FieldValue.increment(transaction.amount)})
+          .then((_) => print("User updated successfuly"))
+          .catchError((onError) => print(onError));
+      }
     }
 
     createTransaction(transaction);

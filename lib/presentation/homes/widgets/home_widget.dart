@@ -12,13 +12,35 @@ class HomeWidget extends StatelessWidget {
 
   const HomeWidget({Key? key, required this.home, required this.rental, required this.booked}) : super(key: key);
 
+  Widget _buildDetailsRow(String leadingText, String text) {
+    return Padding(
+      padding: const EdgeInsets.only(
+          top: 4.0, right: 15.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            leadingText,
+            style: const TextStyle(
+              fontWeight: FontWeight.w600
+            ),
+          ),
+          Text(
+            text
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 250,
+    return Expanded(
       child: RoundedCardWidget(
         title: home.name,
-        subtitle: home.host,
+        titleFontSize: 16,
+        center: false,
+        details: [_buildDetailsRow("Location: ", home.location), _buildDetailsRow("Price: ", home.price.toString() + " tokens/night"), _buildDetailsRow("Local Activities: ", home.localActivities.length.toString() + " host recommendations")],
         image: home.mainImageUrl,
         network: true,
         width: MediaQuery.of(context).size.width,
