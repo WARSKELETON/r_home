@@ -22,13 +22,15 @@ abstract class TransactionRepository {
       .then((_) => print("Transaction added to the blockchain"))
       .catchError((onError) => print(onError));
 
-    firestore
-      .collection(PARENT_COLLECTION)
-      .doc(transaction.receiverId)
-      .collection(TRANSACTION_COLLECTION)
-      .doc(transaction.uuid)
-      .set(RhomeTransactionDto.fromDomain(transaction).toJson())
-      .then((_) => print("Transaction added to the blockchain"))
-      .catchError((onError) => print(onError));
+    if (transaction.receiverId != "") {
+      firestore
+        .collection(PARENT_COLLECTION)
+        .doc(transaction.receiverId)
+        .collection(TRANSACTION_COLLECTION)
+        .doc(transaction.uuid)
+        .set(RhomeTransactionDto.fromDomain(transaction).toJson())
+        .then((_) => print("Transaction added to the blockchain"))
+        .catchError((onError) => print(onError));
+    }
   }
 }

@@ -30,7 +30,9 @@ class _$RhomeTransactionDtoTearOff {
       required String receiverUsername,
       required String paymentMethod,
       required double amount,
-      required String type}) {
+      required String type,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp ts}) {
     return _RhomeTransactionDto(
       uuid: uuid,
       senderId: senderId,
@@ -40,6 +42,7 @@ class _$RhomeTransactionDtoTearOff {
       paymentMethod: paymentMethod,
       amount: amount,
       type: type,
+      ts: ts,
     );
   }
 
@@ -61,6 +64,9 @@ mixin _$RhomeTransactionDto {
   String get paymentMethod => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get ts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -81,7 +87,9 @@ abstract class $RhomeTransactionDtoCopyWith<$Res> {
       String receiverUsername,
       String paymentMethod,
       double amount,
-      String type});
+      String type,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp ts});
 }
 
 /// @nodoc
@@ -103,6 +111,7 @@ class _$RhomeTransactionDtoCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? amount = freezed,
     Object? type = freezed,
+    Object? ts = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -137,6 +146,10 @@ class _$RhomeTransactionDtoCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      ts: ts == freezed
+          ? _value.ts
+          : ts // ignore: cast_nullable_to_non_nullable
+              as Timestamp,
     ));
   }
 }
@@ -156,7 +169,9 @@ abstract class _$RhomeTransactionDtoCopyWith<$Res>
       String receiverUsername,
       String paymentMethod,
       double amount,
-      String type});
+      String type,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          Timestamp ts});
 }
 
 /// @nodoc
@@ -180,6 +195,7 @@ class __$RhomeTransactionDtoCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? amount = freezed,
     Object? type = freezed,
+    Object? ts = freezed,
   }) {
     return _then(_RhomeTransactionDto(
       uuid: uuid == freezed
@@ -214,6 +230,10 @@ class __$RhomeTransactionDtoCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      ts: ts == freezed
+          ? _value.ts
+          : ts // ignore: cast_nullable_to_non_nullable
+              as Timestamp,
     ));
   }
 }
@@ -229,7 +249,9 @@ class _$_RhomeTransactionDto extends _RhomeTransactionDto {
       required this.receiverUsername,
       required this.paymentMethod,
       required this.amount,
-      required this.type})
+      required this.type,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required this.ts})
       : super._();
 
   factory _$_RhomeTransactionDto.fromJson(Map<String, dynamic> json) =>
@@ -251,10 +273,14 @@ class _$_RhomeTransactionDto extends _RhomeTransactionDto {
   final double amount;
   @override
   final String type;
+  @override
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  final Timestamp ts;
 
   @override
   String toString() {
-    return 'RhomeTransactionDto(uuid: $uuid, senderId: $senderId, receiverId: $receiverId, senderUsername: $senderUsername, receiverUsername: $receiverUsername, paymentMethod: $paymentMethod, amount: $amount, type: $type)';
+    return 'RhomeTransactionDto(uuid: $uuid, senderId: $senderId, receiverId: $receiverId, senderUsername: $senderUsername, receiverUsername: $receiverUsername, paymentMethod: $paymentMethod, amount: $amount, type: $type, ts: $ts)';
   }
 
   @override
@@ -273,7 +299,8 @@ class _$_RhomeTransactionDto extends _RhomeTransactionDto {
             const DeepCollectionEquality()
                 .equals(other.paymentMethod, paymentMethod) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.ts, ts));
   }
 
   @override
@@ -286,7 +313,8 @@ class _$_RhomeTransactionDto extends _RhomeTransactionDto {
       const DeepCollectionEquality().hash(receiverUsername),
       const DeepCollectionEquality().hash(paymentMethod),
       const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(type));
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(ts));
 
   @JsonKey(ignore: true)
   @override
@@ -309,7 +337,9 @@ abstract class _RhomeTransactionDto extends RhomeTransactionDto {
       required String receiverUsername,
       required String paymentMethod,
       required double amount,
-      required String type}) = _$_RhomeTransactionDto;
+      required String type,
+      @JsonKey(fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+          required Timestamp ts}) = _$_RhomeTransactionDto;
   const _RhomeTransactionDto._() : super._();
 
   factory _RhomeTransactionDto.fromJson(Map<String, dynamic> json) =
@@ -331,6 +361,10 @@ abstract class _RhomeTransactionDto extends RhomeTransactionDto {
   double get amount;
   @override
   String get type;
+  @override
+  @JsonKey(
+      fromJson: firestoreTimestampFromJson, toJson: firestoreTimestampToJson)
+  Timestamp get ts;
   @override
   @JsonKey(ignore: true)
   _$RhomeTransactionDtoCopyWith<_RhomeTransactionDto> get copyWith =>

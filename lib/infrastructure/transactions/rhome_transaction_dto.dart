@@ -5,6 +5,12 @@ import 'package:r_home/domain/transactions/rhome_transaction.dart';
 part 'rhome_transaction_dto.freezed.dart';
 part 'rhome_transaction_dto.g.dart';
 
+Timestamp firestoreTimestampFromJson(dynamic value) {
+  return value;
+}
+
+dynamic firestoreTimestampToJson(dynamic value) => value;
+
 @freezed
 abstract class RhomeTransactionDto implements _$RhomeTransactionDto {
   const RhomeTransactionDto._();
@@ -17,7 +23,12 @@ abstract class RhomeTransactionDto implements _$RhomeTransactionDto {
     required String receiverUsername,
     required String paymentMethod,
     required double amount,
-    required String type
+    required String type,
+    @JsonKey(
+      fromJson: firestoreTimestampFromJson,
+      toJson: firestoreTimestampToJson,
+    )
+    required Timestamp ts
   }) = _RhomeTransactionDto;
 
   factory RhomeTransactionDto.fromDomain(RhomeTransaction transaction) {
@@ -30,6 +41,7 @@ abstract class RhomeTransactionDto implements _$RhomeTransactionDto {
       paymentMethod: transaction.paymentMethod,
       amount: transaction.amount,
       type: transaction.type,
+      ts: Timestamp.fromDate(transaction.ts),
     );
   }
 
@@ -43,6 +55,7 @@ abstract class RhomeTransactionDto implements _$RhomeTransactionDto {
       paymentMethod: paymentMethod,
       amount: amount,
       type: type,
+      ts: ts.toDate()
     );
   }
 

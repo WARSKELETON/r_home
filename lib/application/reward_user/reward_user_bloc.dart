@@ -47,7 +47,7 @@ class RewardUserBloc extends Bloc<RewardUserEvent, RewardUserState> {
   }
 
   _onSubmit(Submit event, Emitter<RewardUserState> emit) {
-    _authFacade.makeTransferOfTokens(state.beneficiary.id, state.amount.round());
+    _authFacade.makeTransferOfTokens(state.beneficiary.id, state.amount);
   }
 
   @override

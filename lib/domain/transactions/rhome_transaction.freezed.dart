@@ -26,7 +26,8 @@ class _$RhomeTransactionTearOff {
       required String receiverUsername,
       required String paymentMethod,
       required double amount,
-      required String type}) {
+      required String type,
+      required DateTime ts}) {
     return _RhomeTransaction(
       uuid: uuid,
       senderId: senderId,
@@ -36,6 +37,7 @@ class _$RhomeTransactionTearOff {
       paymentMethod: paymentMethod,
       amount: amount,
       type: type,
+      ts: ts,
     );
   }
 }
@@ -53,6 +55,7 @@ mixin _$RhomeTransaction {
   String get paymentMethod => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  DateTime get ts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RhomeTransactionCopyWith<RhomeTransaction> get copyWith =>
@@ -72,7 +75,8 @@ abstract class $RhomeTransactionCopyWith<$Res> {
       String receiverUsername,
       String paymentMethod,
       double amount,
-      String type});
+      String type,
+      DateTime ts});
 }
 
 /// @nodoc
@@ -94,6 +98,7 @@ class _$RhomeTransactionCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? amount = freezed,
     Object? type = freezed,
+    Object? ts = freezed,
   }) {
     return _then(_value.copyWith(
       uuid: uuid == freezed
@@ -128,6 +133,10 @@ class _$RhomeTransactionCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      ts: ts == freezed
+          ? _value.ts
+          : ts // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -147,7 +156,8 @@ abstract class _$RhomeTransactionCopyWith<$Res>
       String receiverUsername,
       String paymentMethod,
       double amount,
-      String type});
+      String type,
+      DateTime ts});
 }
 
 /// @nodoc
@@ -171,6 +181,7 @@ class __$RhomeTransactionCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? amount = freezed,
     Object? type = freezed,
+    Object? ts = freezed,
   }) {
     return _then(_RhomeTransaction(
       uuid: uuid == freezed
@@ -205,6 +216,10 @@ class __$RhomeTransactionCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      ts: ts == freezed
+          ? _value.ts
+          : ts // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -220,7 +235,8 @@ class _$_RhomeTransaction extends _RhomeTransaction {
       required this.receiverUsername,
       required this.paymentMethod,
       required this.amount,
-      required this.type})
+      required this.type,
+      required this.ts})
       : super._();
 
   @override
@@ -239,10 +255,12 @@ class _$_RhomeTransaction extends _RhomeTransaction {
   final double amount;
   @override
   final String type;
+  @override
+  final DateTime ts;
 
   @override
   String toString() {
-    return 'RhomeTransaction(uuid: $uuid, senderId: $senderId, receiverId: $receiverId, senderUsername: $senderUsername, receiverUsername: $receiverUsername, paymentMethod: $paymentMethod, amount: $amount, type: $type)';
+    return 'RhomeTransaction(uuid: $uuid, senderId: $senderId, receiverId: $receiverId, senderUsername: $senderUsername, receiverUsername: $receiverUsername, paymentMethod: $paymentMethod, amount: $amount, type: $type, ts: $ts)';
   }
 
   @override
@@ -261,7 +279,8 @@ class _$_RhomeTransaction extends _RhomeTransaction {
             const DeepCollectionEquality()
                 .equals(other.paymentMethod, paymentMethod) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.type, type));
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.ts, ts));
   }
 
   @override
@@ -274,7 +293,8 @@ class _$_RhomeTransaction extends _RhomeTransaction {
       const DeepCollectionEquality().hash(receiverUsername),
       const DeepCollectionEquality().hash(paymentMethod),
       const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(type));
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(ts));
 
   @JsonKey(ignore: true)
   @override
@@ -291,7 +311,8 @@ abstract class _RhomeTransaction extends RhomeTransaction {
       required String receiverUsername,
       required String paymentMethod,
       required double amount,
-      required String type}) = _$_RhomeTransaction;
+      required String type,
+      required DateTime ts}) = _$_RhomeTransaction;
   const _RhomeTransaction._() : super._();
 
   @override
@@ -310,6 +331,8 @@ abstract class _RhomeTransaction extends RhomeTransaction {
   double get amount;
   @override
   String get type;
+  @override
+  DateTime get ts;
   @override
   @JsonKey(ignore: true)
   _$RhomeTransactionCopyWith<_RhomeTransaction> get copyWith =>

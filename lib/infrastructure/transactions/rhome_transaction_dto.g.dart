@@ -17,6 +17,7 @@ _$_RhomeTransactionDto _$$_RhomeTransactionDtoFromJson(
       paymentMethod: json['paymentMethod'] as String,
       amount: (json['amount'] as num).toDouble(),
       type: json['type'] as String,
+      ts: firestoreTimestampFromJson(json['ts']),
     );
 
 Map<String, dynamic> _$$_RhomeTransactionDtoToJson(
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$_RhomeTransactionDtoToJson(
       'paymentMethod': instance.paymentMethod,
       'amount': instance.amount,
       'type': instance.type,
+      'ts': firestoreTimestampToJson(instance.ts),
     };
