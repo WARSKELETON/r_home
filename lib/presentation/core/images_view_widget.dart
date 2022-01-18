@@ -11,6 +11,9 @@ class ImagesViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PageController _pageController = PageController();
+
+    final index = context.watch<ImageViewerBloc>().state.selectedImageIndex;
+
     return PageView.builder(
       itemCount: images.length,
       pageSnapping: true,
@@ -26,7 +29,7 @@ class ImagesViewWidget extends StatelessWidget {
               images[pagePosition],
             ),
           ),
-          onTap: () => images.isEmpty ? null : AutoRouter.of(context).push(ImagesViewerPageRoute(images: images)),
+          onTap: () => images.isEmpty ? null : AutoRouter.of(context).push(ImagesViewerPageRoute(images: images, initialIndex: index)),
         );
       }
     );

@@ -17,12 +17,13 @@ import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/rounded_button_widget.dart';
 import 'package:r_home/presentation/disputes/widgets/image_index_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LocalActivityDetailsPage extends StatelessWidget implements AutoRouteWrapper{
   final String localActivityUuid;
-  final MyHomesFormBloc myHomesFormBloc;
+  final MyHomesFormBloc? myHomesFormBloc;
 
-  const LocalActivityDetailsPage({Key? key, required this.localActivityUuid, required this.myHomesFormBloc}) : super(key: key);
+  const LocalActivityDetailsPage({Key? key, required this.localActivityUuid, this.myHomesFormBloc}) : super(key: key);
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
@@ -77,49 +78,50 @@ class LocalActivityDetailsPage extends StatelessWidget implements AutoRouteWrapp
             create: (context) => ImageViewerBloc(),
         ),
         ],
-              child: Builder(
-            builder: (context) {
-              final _localActivity = context.watch<LocalActivitiesBloc>().state.localActivity;
-              final _images = context.watch<LocalActivitiesBloc>().state.localActivityImages;
-    
-              final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
-              
-              return Scaffold(
-                appBar: AppBarWidget(
-                  title: _localActivity.name,
-                ),
-                body: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints viewportConstraints) {
-                    return SingleChildScrollView(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: viewportConstraints.maxHeight,
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              child: ImagesViewWidget(images: _images),
-                              width: MediaQuery.of(context).size.width,
-                              height: 230,
-                            ),
-                            ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15.0),
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 1.5,
-                                child: Column(
-                                  children: [
-                                    _buildRow(context, "Location:", _localActivity.location),
-                                    _buildRow(context, "Price:", _localActivity.price),
-                                    _buildRow(context, "Contact:", _localActivity.contact),
-                                  ],
-                                ),
+        child: Builder(
+          builder: (context) {
+            final _localActivity = context.watch<LocalActivitiesBloc>().state.localActivity;
+            final _images = context.watch<LocalActivitiesBloc>().state.localActivityImages;
+
+            final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
+            
+            return Scaffold(
+              appBar: AppBarWidget(
+                title: _localActivity.name,
+              ),
+              body: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints viewportConstraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: viewportConstraints.maxHeight,
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            child: ImagesViewWidget(images: _images),
+                            width: MediaQuery.of(context).size.width,
+                            height: 230,
+                          ),
+                          ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15.0),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              child: Column(
+                                children: [
+                                  _buildRow(context, "Location:", _localActivity.location),
+                                  _buildRow(context, "Price:", _localActivity.price),
+                                  _buildRow(context, "Contact:", _localActivity.contact),
+                                ],
                               ),
                             ),
+                          ),
+                          if (myHomesFormBloc != null) ...[
                             RoundedButtonWidget(
                               text: 'ASSOCIATE THIS ACTIVITY',
                               onPressed: () => {
-                                myHomesFormBloc.add(MyHomesFormEvent.changeLocalActivity(_localActivity)),
+                                myHomesFormBloc!.add(MyHomesFormEvent.changeLocalActivity(_localActivity)),
                                 AutoRouter.of(context).popUntilRouteWithName(MyHomesFormRoute.name)
                               },
                               backgroundColor: Theme.of(context).colorScheme.primaryBlue,
@@ -133,23 +135,42 @@ class LocalActivityDetailsPage extends StatelessWidget implements AutoRouteWrapp
                                 size: 16,
                               ),
                             ),
-                          ],
-                        ),
+                          ] else ...[
+                            RoundedButtonWidget(
+                              text: 'CALL',
+                              onPressed: () => launch("tel://${_localActivity.contact}"),
+                              backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                              fontWeight: FontWeight.w400,
+                              textColor: Colors.white,
+                              fontSize: 17,
+                              height: 40,
+                              width: 125,
+                              trailingIcon: const Icon(
+                                Icons.phone,
+                                size: 20,
+                              ),
+                            ),
+                          ]
+                        ],
                       ),
-                    );
-                  },
-                ),
-              );
-            }
-          ),
+                    ),
+                  );
+                },
+              ),
+            );
+          }
+        ),
     );
   }
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider.value(
-      value: myHomesFormBloc, 
-      child: this
-    );
+    if (myHomesFormBloc != null) {
+      return BlocProvider.value(
+        value: myHomesFormBloc!, 
+        child: this
+      );
+    }
+    return this;
   }
 }
