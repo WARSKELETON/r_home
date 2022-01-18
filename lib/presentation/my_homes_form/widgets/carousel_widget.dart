@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/domain/local_activities/local_activity.dart';
 import 'package:r_home/presentation/core/rounded_card_widget.dart';
+import 'package:r_home/presentation/routes/router.gr.dart';
 
 class CarouselWidget extends StatelessWidget {
   final String title;
@@ -17,7 +19,7 @@ class CarouselWidget extends StatelessWidget {
           network: true,
           width: 100,
           height: 100,
-          onPressed: null,
+          onPressed: () => AutoRouter.of(context).push(LocalActivityDetailsPageRoute(localActivityUuid: localActivities[index].uuid)),
       ),
     );
   }

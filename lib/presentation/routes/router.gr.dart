@@ -102,7 +102,10 @@ class MyRouter extends _i31.RootStackRouter {
       final args = routeData.argsAs<ImagesViewerPageRouteArgs>();
       return _i31.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i8.ImagesViewerPage(key: args.key, images: args.images),
+          child: _i8.ImagesViewerPage(
+              key: args.key,
+              images: args.images,
+              initialIndex: args.initialIndex),
           fullscreenDialog: true);
     },
     RentAHomePageRoute.name: (routeData) {
@@ -471,24 +474,29 @@ class MyHomesFormRouteArgs {
 /// [_i8.ImagesViewerPage]
 class ImagesViewerPageRoute
     extends _i31.PageRouteInfo<ImagesViewerPageRouteArgs> {
-  ImagesViewerPageRoute({_i32.Key? key, required List<String> images})
+  ImagesViewerPageRoute(
+      {_i32.Key? key, required List<String> images, required int initialIndex})
       : super(ImagesViewerPageRoute.name,
             path: '/images-viewer-page',
-            args: ImagesViewerPageRouteArgs(key: key, images: images));
+            args: ImagesViewerPageRouteArgs(
+                key: key, images: images, initialIndex: initialIndex));
 
   static const String name = 'ImagesViewerPageRoute';
 }
 
 class ImagesViewerPageRouteArgs {
-  const ImagesViewerPageRouteArgs({this.key, required this.images});
+  const ImagesViewerPageRouteArgs(
+      {this.key, required this.images, required this.initialIndex});
 
   final _i32.Key? key;
 
   final List<String> images;
 
+  final int initialIndex;
+
   @override
   String toString() {
-    return 'ImagesViewerPageRouteArgs{key: $key, images: $images}';
+    return 'ImagesViewerPageRouteArgs{key: $key, images: $images, initialIndex: $initialIndex}';
   }
 }
 
@@ -796,7 +804,7 @@ class LocalActivityDetailsPageRoute
   LocalActivityDetailsPageRoute(
       {_i32.Key? key,
       required String localActivityUuid,
-      required _i34.MyHomesFormBloc myHomesFormBloc})
+      _i34.MyHomesFormBloc? myHomesFormBloc})
       : super(LocalActivityDetailsPageRoute.name,
             path: '/local-activity-details-page',
             args: LocalActivityDetailsPageRouteArgs(
@@ -809,15 +817,13 @@ class LocalActivityDetailsPageRoute
 
 class LocalActivityDetailsPageRouteArgs {
   const LocalActivityDetailsPageRouteArgs(
-      {this.key,
-      required this.localActivityUuid,
-      required this.myHomesFormBloc});
+      {this.key, required this.localActivityUuid, this.myHomesFormBloc});
 
   final _i32.Key? key;
 
   final String localActivityUuid;
 
-  final _i34.MyHomesFormBloc myHomesFormBloc;
+  final _i34.MyHomesFormBloc? myHomesFormBloc;
 
   @override
   String toString() {
