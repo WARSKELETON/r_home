@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/application/homes/homes_bloc.dart';
+import 'package:r_home/application/my_local_activities/my_local_activities_bloc.dart';
 import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
@@ -53,42 +54,60 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            body: BlocProvider(
-              create: (context) => HomesBloc(
-              RentalsRepository(
-                FirebaseFirestore.instance,
-                FirebaseAuthFacade(
-                  FirebaseAuth.instance,
-                  GoogleSignIn(),
-                  FirebaseFirestore.instance
-                )
-              ),
-              HomesRepository(
-                FirebaseFirestore.instance,
-                FirebaseAuthFacade(
-                  FirebaseAuth.instance,
-                  GoogleSignIn(),
-                  FirebaseFirestore.instance
-                ),
-                FirebaseStorage.instance
-              ),
-              LocalActivitiesRepository(
-                FirebaseFirestore.instance,
-                FirebaseAuthFacade(
-                  FirebaseAuth.instance,
-                  GoogleSignIn(),
-                  FirebaseFirestore.instance
-                ),
-                FirebaseStorage.instance
-              ),
-            )
-                ..add(HomesEvent.initialize(currentUser, null)),
-              child: SingleChildScrollView(
-                  child: currentUser.role == "guest"
-                      ? const HomeGuestWidget()
-                      : (currentUser.role == "host"
-                          ? const HomeHostWidget()
-                          : const HomeProducerWidget())),
+            body: MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => HomesBloc(
+                      RentalsRepository(
+                        FirebaseFirestore.instance,
+                        FirebaseAuthFacade(
+                          FirebaseAuth.instance,
+                          GoogleSignIn(),
+                          FirebaseFirestore.instance
+                        )
+                      ),
+                      HomesRepository(
+                        FirebaseFirestore.instance,
+                        FirebaseAuthFacade(
+                          FirebaseAuth.instance,
+                          GoogleSignIn(),
+                          FirebaseFirestore.instance
+                        ),
+                        FirebaseStorage.instance
+                      ),
+                      LocalActivitiesRepository(
+                        FirebaseFirestore.instance,
+                        FirebaseAuthFacade(
+                          FirebaseAuth.instance,
+                          GoogleSignIn(),
+                          FirebaseFirestore.instance
+                        ),
+                        FirebaseStorage.instance
+                      ),
+                    )..add(HomesEvent.initialize(currentUser, null)),
+                  ),
+                  if (currentUser.role == "producer") ...[
+                    BlocProvider(
+                      create: (context) => MyLocalActivitiesBloc(
+                        LocalActivitiesRepository(
+                          FirebaseFirestore.instance,
+                          FirebaseAuthFacade(
+                            FirebaseAuth.instance,
+                            GoogleSignIn(),
+                            FirebaseFirestore.instance
+                          ),
+                          FirebaseStorage.instance
+                        )
+                      )..add(const MyLocalActivitiesEvent.initialize())
+                    ),
+                  ]
+                ],
+            child: SingleChildScrollView(
+              child: currentUser.role == "guest"
+                  ? const HomeGuestWidget()
+                  : (currentUser.role == "host"
+                      ? const HomeHostWidget()
+                      : const HomeProducerWidget())),
             ),
             bottomNavigationBar: const BottomBarWidget(),
           );

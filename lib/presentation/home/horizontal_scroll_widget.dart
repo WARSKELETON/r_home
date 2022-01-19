@@ -1,15 +1,11 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
-import 'package:r_home/application/homes/homes_bloc.dart';
 import 'package:r_home/presentation/core/flat_rounded_button_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/core/rounded_card_widget.dart';
 import 'package:r_home/presentation/home/widgets/horizontal_guest_widget.dart';
 import 'package:r_home/presentation/home/widgets/horizontal_host_widget.dart';
 import 'package:r_home/presentation/home/widgets/horizontal_producer_widget.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class HorizontalScrollWidget extends StatelessWidget {
   final String title;
