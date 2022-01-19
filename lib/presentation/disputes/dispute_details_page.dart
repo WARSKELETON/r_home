@@ -340,7 +340,8 @@ class DisputeDetailsPage extends StatelessWidget {
                                     child: ChartLegendWidget(data: {
                                       const Color(0xFFF7554C): "Against",
                                       const Color(0xFFF9A53C): "Irrelevant",
-                                      Theme.of(context).colorScheme.primaryBlue: "In Favour"}
+                                      Theme.of(context).colorScheme.primaryBlue: "In Favour"},
+                                      width: 100,
                                     ),
                                   ),
                                 ],

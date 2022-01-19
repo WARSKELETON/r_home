@@ -31,7 +31,8 @@ class MonitorizeFeesPage extends StatelessWidget {
                   const Color(0xFFF7554C): "Investment",
                   const Color(0xFFF9A53C): "Maintenance",
                   Theme.of(context).colorScheme.primaryBlue: "Disputes",
-                  Theme.of(context).colorScheme.primary: "Reserve"}
+                  Theme.of(context).colorScheme.primary: "Reserve"},
+                  width: 125,
                 ),
               ),
               Stack(
