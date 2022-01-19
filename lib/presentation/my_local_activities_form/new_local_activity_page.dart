@@ -45,8 +45,7 @@ class NewLocalAcitvityPage extends StatelessWidget {
           child: BlocBuilder<StepperBloc, StepperState>(
             buildWhen: (p, c) => p.selectedIndex != c.selectedIndex,
             builder: (context, state) {
-              int currentIndex =
-                  context.read<StepperBloc>().state.selectedIndex;
+              int currentIndex = context.read<StepperBloc>().state.selectedIndex;
 
               String title = "";
               switch (currentIndex) {
@@ -112,7 +111,9 @@ class NewLocalAcitvityPage extends StatelessWidget {
                               ),
                               BlocBuilder<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
                                 builder: (context, state) {
-                                  ActivityCategory? category = context.read<MyLocalActivitiesFormBloc>().state.category;
+                                  ActivityCategory? category = context.watch<MyLocalActivitiesFormBloc>().state.category;
+                                  LocalActivity activity = context.watch<MyLocalActivitiesFormBloc>().state.activity;
+                                  List<String> imagePaths = context.watch<MyLocalActivitiesFormBloc>().state.imagePaths;
 
                                   return RoundedButtonWidget(
                                     text: 'Next',
@@ -125,8 +126,7 @@ class NewLocalAcitvityPage extends StatelessWidget {
                                     backgroundColor: Theme.of(context)
                                         .colorScheme
                                         .primaryBlue,
-                                    disabled:
-                                        (category == null && currentIndex == 0),
+                                    disabled: (category == null && currentIndex == 0) || (((activity.name == "") || (activity.location == "") || (activity.contact == 0) || (activity.price == 0.0) || imagePaths.isEmpty) && currentIndex == 1),
                                     fontWeight: FontWeight.w400,
                                     textColor: Colors.white,
                                     fontSize: 16,

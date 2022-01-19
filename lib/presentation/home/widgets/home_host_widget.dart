@@ -18,7 +18,7 @@ class HomeHostWidget extends StatelessWidget {
 
         return Column(
           children: [
-            if (homes.isNotEmpty) ...[
+            if (homes.isEmpty) ...[
               HomeWelcomeWidget(title: "Do you have a home to rent?", buttonText: "Add Home", imageAsset: "assets/icons/host-homepage.jpg", onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute())),
             ] else ...[
               HomeWelcomeSmallWidget(title: "Do you have a home to rent?", buttonText: "Add Home", imageAsset: "assets/icons/host-homepage.jpg", onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute())),
