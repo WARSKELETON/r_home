@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class ChartLegendWidget extends StatelessWidget {
   final Map<Color, String> data;
-  const ChartLegendWidget({Key? key, required this.data}) : super(key: key);
+  final double width;
+
+  const ChartLegendWidget({Key? key, required this.data, required this.width}) : super(key: key);
 
   Widget _buildLegendItem(String text, Color color) {
     return SizedBox(
-      width: 100,
+      width: width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
