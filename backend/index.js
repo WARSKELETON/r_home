@@ -1,5 +1,5 @@
 var admin = require("firebase-admin");
-const { getFirestore, Timestamp } = require('firebase-admin/firestore');
+const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 const { v1: uuidv1 } = require('uuid');
 
 var serviceAccount = require("./r-home-9fda6-firebase-adminsdk-55bt8-ad13f1ee24.json");
@@ -14,8 +14,10 @@ const db = getFirestore();
 
 const query = db.collection('disputes');
 
+const timeWindowMs = 60000;
+
 const observer = query.onSnapshot(querySnapshot => {
-    docs = querySnapshot.docs.map(doc => doc.data()).filter(doc => (new Date(doc.creationDate.toDate().getTime() + 30000) - Date.now() > 0) && !disputeQueue.includes(doc.uuid));
+    docs = querySnapshot.docs.map(doc => doc.data()).filter(doc => (new Date(doc.creationDate.toDate().getTime() + timeWindowMs) - Date.now() > 0) && !disputeQueue.includes(doc.uuid));
     docs.forEach(doc => {
         console.log(`dispute with id ${doc.uuid} entered the system`);
         disputeQueue.push(doc.uuid);
@@ -32,8 +34,9 @@ const observer = query.onSnapshot(querySnapshot => {
             if (usersVotedInFavour.length > usersVotedIrrelevent.length && usersVotedInFavour.length > usersVotedAgainst.length) {
                 const uuidIssuer = uuidv1();
                 const transactionIssuerDocRef = db.collection('user-data').doc(data.issuerUuid).collection('transactions').doc(uuidIssuer);
+                const issuerAmount = initialStake + ((usersVotedIrrelevent.length * 10 + usersVotedAgainst.length * 10) / (usersVotedInFavour.length + 1));
                 await transactionIssuerDocRef.set({
-                    amount: initialStake + ((usersVotedIrrelevent.length * 10 + usersVotedAgainst.length * 10) / (usersVotedInFavour.length + 1)),
+                    amount: issuerAmount,
                     paymentMethod: "token",
                     receiverId: data.issuerUuid,
                     receiverUsername: data.issuerUsername,
@@ -44,11 +47,14 @@ const observer = query.onSnapshot(querySnapshot => {
                     ts: Timestamp.fromDate(new Date())
                 });
 
-                usersVotedInFavour.forEach(user => {
+                await db.collection('user-data').doc(data.issuerUuid).update({numTokens: FieldValue.increment(issuerAmount)})
+
+                usersVotedInFavour.forEach(async user => {
                     const uuid = uuidv1();
                     const transactionDocRef = db.collection('user-data').doc(user).collection('transactions').doc(uuid);
+                    const amount = 10 + ((usersVotedIrrelevent.length * 10 + usersVotedAgainst.length * 10) / (usersVotedInFavour.length + 1));
                     await transactionDocRef.set({
-                        amount: 10 + ((usersVotedIrrelevent.length * 10 + usersVotedAgainst.length * 10) / (usersVotedInFavour.length + 1)),
+                        amount: amount,
                         paymentMethod: "token",
                         receiverId: user,
                         receiverUsername: "",
@@ -58,13 +64,16 @@ const observer = query.onSnapshot(querySnapshot => {
                         uuid: uuid,
                         ts: Timestamp.fromDate(new Date())
                     });
+
+                    await db.collection('user-data').doc(user).update({numTokens: FieldValue.increment(amount)})
                 });
             } else if (usersVotedIrrelevent.length > usersVotedInFavour.length && usersVotedIrrelevent.length > usersVotedAgainst.length) {
-                usersVotedIrrelevent.forEach(user => {
+                const amount = 10 + ((initialStake + usersVotedInFavour.length * 10 + usersVotedAgainst.length * 10) / usersVotedIrrelevent.length);
+                usersVotedIrrelevent.forEach(async user => {
                     const uuid = uuidv1();
                     const transactionDocRef = db.collection('user-data').doc(user).collection('transactions').doc(uuid);
                     await transactionDocRef.set({
-                        amount: 10 + ((initialStake + usersVotedInFavour.length * 10 + usersVotedAgainst.length * 10) / usersVotedIrrelevent.length),
+                        amount: amount,
                         paymentMethod: "token",
                         receiverId: user,
                         receiverUsername: "",
@@ -74,13 +83,16 @@ const observer = query.onSnapshot(querySnapshot => {
                         uuid: uuid,
                         ts: Timestamp.fromDate(new Date())
                     });
+
+                    await db.collection('user-data').doc(user).update({numTokens: FieldValue.increment(amount)})
                 });
             } else {
-                usersVotedAgainst.forEach(user => {
+                const amount = 10 + ((initialStake + usersVotedInFavour.length * 10 + usersVotedIrrelevent.length * 10) / usersVotedAgainst.length);
+                usersVotedAgainst.forEach(async user => {
                     const uuid = uuidv1();
                     const transactionDocRef = db.collection('user-data').doc(user).collection('transactions').doc(uuid);
                     await transactionDocRef.set({
-                        amount: 10 + ((initialStake + usersVotedInFavour.length * 10 + usersVotedIrrelevent.length * 10) / usersVotedAgainst.length),
+                        amount: amount,
                         paymentMethod: "token",
                         receiverId: user,
                         receiverUsername: "",
@@ -90,12 +102,14 @@ const observer = query.onSnapshot(querySnapshot => {
                         uuid: uuid,
                         ts: Timestamp.fromDate(new Date())
                     });
+
+                    await db.collection('user-data').doc(user).update({numTokens: FieldValue.increment(amount)})
                 });
             }
 
             console.log(`dispute with id ${doc.uuid} resolved`);
             disputeQueue.pop(doc.uuid);
-        }, new Date(doc.creationDate.toDate().getTime() + 30000) - Date.now())
+        }, new Date(doc.creationDate.toDate().getTime() + timeWindowMs) - Date.now())
     });
     console.log(`Received query snapshot of size ${querySnapshot.size}`);
 }, err => {
