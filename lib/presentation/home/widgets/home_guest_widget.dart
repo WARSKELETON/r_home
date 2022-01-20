@@ -19,9 +19,9 @@ class HomeGuestWidget extends StatelessWidget {
         return Column(
           children: [
             if (rentals.isEmpty) ...[
-              HomeWelcomeWidget(title: "Ready to explore new places?", buttonText: "Rent Home", imageAsset: "assets/icons/guest-homepage.jpg", onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute())),
+              HomeWelcomeWidget(title: "Ready to explore new places?", buttonText: "Rent Home", imageAsset: "assets/icons/guest-homepage.jpg", onPressed: () => AutoRouter.of(context).push(RentAHomePageRoute())),
             ] else ...[
-              HomeWelcomeSmallWidget(title: "Ready to explore new places?", buttonText: "Rent Home", imageAsset: "assets/icons/guest-homepage.jpg", onPressed: () => AutoRouter.of(context).push(MyHomesFormRoute())),
+              HomeWelcomeSmallWidget(title: "Ready to explore new places?", buttonText: "Rent Home", imageAsset: "assets/icons/guest-homepage.jpg", onPressed: () => AutoRouter.of(context).push(RentAHomePageRoute())),
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: SizedBox(
