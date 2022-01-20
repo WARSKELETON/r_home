@@ -64,7 +64,6 @@ class MyLocalActivitiesForm extends StatelessWidget {
   }
 
   Widget buildForm() {
-    print("building form");
     return BlocConsumer<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
       listenWhen: (p, c) => p.isSaving != c.isSaving,
       listener: (context, state) {
@@ -85,7 +84,7 @@ class MyLocalActivitiesForm extends StatelessWidget {
                   const ActivityLocationField(),
                   const ActivityPriceField(),
                   const ActivityContactField(),
-                  if (editedActivity == null) ImageCarouselLocalActivityWidget(title: "Selected images", imagesPath: imagesPaths)
+                  if (editedActivity == null) ImageCarouselLocalActivityWidget(title: "Selected images*", imagesPath: imagesPaths)
                 ],
               ),
             )

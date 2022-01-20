@@ -29,7 +29,7 @@ class ImageCarouselWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 13.0),
             child: Text(
               title,
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
             ),
           ),
           Expanded(

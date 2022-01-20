@@ -64,6 +64,8 @@ class MyHomesForm extends StatelessWidget {
           final isEditing = context.read<MyHomesFormBloc>().state.isEditing;
           final localActivities = context.watch<MyHomesFormBloc>().state.localActivities;
           final imagesPaths = context.watch<MyHomesFormBloc>().state.imagePaths;
+          final formHome = context.watch<MyHomesFormBloc>().state.home;
+          final disabled = formHome.isHomeInvalid() || (imagesPaths.isEmpty && !isEditing);
 
           print(imagesPaths);
 
@@ -72,9 +74,10 @@ class MyHomesForm extends StatelessWidget {
               title: isEditing ? "Edit Home" : "Add a new Home",
               actions: [
                 IconButton(
-                  onPressed: () => context.read<MyHomesFormBloc>().add(const MyHomesFormEvent.submit()),
+                  onPressed: () => disabled ? null : context.read<MyHomesFormBloc>().add(const MyHomesFormEvent.submit()),
                   icon: const Icon(Icons.check),
                   splashRadius: 20,
+                  color: disabled ? Colors.grey.shade300 : Colors.grey,
                 )
               ],
             ),
@@ -91,7 +94,7 @@ class MyHomesForm extends StatelessWidget {
                           const PriceField(),
                           const GuestsField(),
                           CarouselWithAddWidget(title: "Selected Activities", localActivities: localActivities),
-                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected images", imagesPath: imagesPaths)
+                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected images*", imagesPath: imagesPaths)
                         ],
                       ),
                     )
