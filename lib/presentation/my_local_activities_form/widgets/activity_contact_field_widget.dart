@@ -23,7 +23,7 @@ class ActivityContactField extends HookWidget {
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.contact_phone),
-              labelText: 'Contact',
+              labelText: 'Contact*',
               counterText: '',
             ),
             onChanged: (value) => context

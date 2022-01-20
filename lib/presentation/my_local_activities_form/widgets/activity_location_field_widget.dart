@@ -25,7 +25,7 @@ class ActivityLocationField extends HookWidget {
             controller: textEditingController,
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.fmd_good),
-              labelText: 'Location',
+              labelText: 'Location*',
               counterText: '',
             ),
             onTap: () async {

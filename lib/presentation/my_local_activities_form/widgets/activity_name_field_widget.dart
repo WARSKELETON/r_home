@@ -21,7 +21,7 @@ class ActivityNameField extends HookWidget {
           child: TextFormField(
             controller: textEditingController,
             decoration: const InputDecoration(
-              labelText: 'Activity Name',
+              labelText: 'Activity Name*',
               counterText: '',
             ),
             onChanged: (value) => context

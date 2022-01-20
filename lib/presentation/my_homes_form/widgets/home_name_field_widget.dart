@@ -21,7 +21,7 @@ class HomeNameField extends HookWidget {
           child: TextFormField(
             controller: textEditingController,
             decoration: const InputDecoration(
-              labelText: 'Home Name',
+              labelText: 'Home Name*',
               counterText: '',
             ),
             onChanged: (value) => context
