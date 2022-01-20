@@ -4,6 +4,9 @@ const { v1: uuidv1 } = require('uuid');
 
 var serviceAccount = require("./r-home-9fda6-firebase-adminsdk-55bt8-ad13f1ee24.json");
 
+const express = require("express");
+const app = express();
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -114,4 +117,16 @@ const observer = query.onSnapshot(querySnapshot => {
     console.log(`Received query snapshot of size ${querySnapshot.size}`);
 }, err => {
   console.log(`Encountered error: ${err}`);
+});
+
+
+const port = 8080;
+
+app.get('/', function(req, res) {
+  console.log("received ping");
+  res.send('Hello World!')
+});
+
+app.listen(port, function() {
+  console.log(`Example app listening on port ${port}!`)
 });

@@ -24,12 +24,12 @@ class PriceField extends HookWidget {
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               prefixIcon: Icon(RHomeIcon.token),
-              labelText: 'Price per Night',
+              labelText: 'Price per Night*',
               counterText: '',
             ),
             onChanged: (value) => context
                 .read<MyHomesFormBloc>()
-                .add(MyHomesFormEvent.priceChanged(double.parse(value))),
+                .add(MyHomesFormEvent.priceChanged(value == "" ? 0.0 : double.parse(value))),
             validator: (_) {
             }
           ));

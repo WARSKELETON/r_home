@@ -24,12 +24,12 @@ class ActivityPriceField extends HookWidget {
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               prefixIcon: Icon(RHomeIcon.token),
-              labelText: 'Price',
+              labelText: 'Price*',
               counterText: '',
             ),
             onChanged: (value) => context
                 .read<MyLocalActivitiesFormBloc>()
-                .add(MyLocalActivitiesFormEvent.priceChanged(double.parse(value))),
+                .add(MyLocalActivitiesFormEvent.priceChanged(value == "" ? 0.0 : double.parse(value))),
             validator: (_) {
             }
           ));
