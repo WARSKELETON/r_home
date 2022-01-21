@@ -19,12 +19,9 @@ class BottomBarWidget extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          height: 80,
-        ),
-        Container(
-          height: 60,
+          height: 71,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.transparent,
             border: Border(
               top: BorderSide(
                 width: 2.5,

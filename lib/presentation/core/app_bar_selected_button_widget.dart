@@ -15,8 +15,8 @@ class AppBarButtonSelectedWidget extends StatelessWidget {
     return AnimatedContainer(
       curve: Curves.fastOutSlowIn,
       duration: const Duration(milliseconds: 500),
-      height: selected ? 75 : 60,
-      transform: Matrix4.translation(vector.Vector3(0, selected ? -10 : 0, 0)),
+      height: selected ? 72 : 60,
+      transform: Matrix4.translation(vector.Vector3(0, selected ? -8 : 0, 0)),
       child: Material(
         elevation: selected ? 0 : 0,
         type: MaterialType.circle,

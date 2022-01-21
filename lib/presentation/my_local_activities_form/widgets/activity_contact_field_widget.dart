@@ -28,7 +28,7 @@ class ActivityContactField extends HookWidget {
             ),
             onChanged: (value) => context
                 .read<MyLocalActivitiesFormBloc>()
-                .add(MyLocalActivitiesFormEvent.contactChanged(int.parse(value))),
+                .add(MyLocalActivitiesFormEvent.contactChanged(value == "" ? 0 : int.parse(value))),
             validator: (_) {
             }
           ));
