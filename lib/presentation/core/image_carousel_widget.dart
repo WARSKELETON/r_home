@@ -1,8 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:r_home/presentation/core/circle_icon_button_widget.dart';
+import 'package:r_home/presentation/core/image_deletion_dialog.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 import 'package:r_home/presentation/core/show_modal_function.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/addition_card_widget.dart';
+import 'package:vector_math/vector_math_64.dart' as vector;
 
 class ImageCarouselWidget extends StatelessWidget {
   final String title;
@@ -10,8 +14,9 @@ class ImageCarouselWidget extends StatelessWidget {
   final Function(BuildContext) selectImage;
   final Function(BuildContext) takePicture;
   final BuildContext blocContext;
+  final Function(String) deletionOnPressed;
 
-  const ImageCarouselWidget({Key? key, required this.blocContext, required this.title, required this.imagesPath, required this.selectImage, required this.takePicture}) : super(key: key);
+  const ImageCarouselWidget({Key? key, required this.blocContext, required this.title, required this.imagesPath, required this.selectImage, required this.takePicture, required this.deletionOnPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +57,34 @@ class ImageCarouselWidget extends StatelessWidget {
 
                 return Padding(
                   padding: const EdgeInsets.only(top: 15.0, left: 5.0, right: 5.0),
-                  child: Image.file(
-                    File(imagesPath[index - 1]),
-                    width: 100,
-                    height: 100,
+                  child: Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      Image.file(
+                        File(imagesPath[index - 1]),
+                        width: 100,
+                        height: 100,
+                      ),
+                      Container(
+                        transform: Matrix4.translation(vector.Vector3(10, -15, 0)),
+                        child: CircleIconButtonWidget(
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (_) => ImageDeletionDialog(
+                              onPressed: () => deletionOnPressed(imagesPath[index - 1])
+                            ),
+                          ),
+                          backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                          icon: const Icon(
+                            Icons.clear,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                          splashColor: Colors.black,
+                          size: 5,
+                        ),
+                      )
+                    ]
                   ),
                 );
               }

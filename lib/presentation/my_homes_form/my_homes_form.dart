@@ -67,8 +67,6 @@ class MyHomesForm extends StatelessWidget {
           final formHome = context.watch<MyHomesFormBloc>().state.home;
           final disabled = formHome.isHomeInvalid() || (imagesPaths.isEmpty && !isEditing);
 
-          print(imagesPaths);
-
           return Scaffold(
             appBar: AppBarWidget(
               title: isEditing ? "Edit Home" : "Add a new Home",

@@ -23,6 +23,7 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
   DisputesFormBloc(this._disputesRepository, this._rentalsRepository, this._homesRepository): super(DisputesFormState.initial()) {
     on<Initialize>(_onInitialize);
     on<ImageReceived>(_onImageReceived);
+    on<ImageDeleted>(_onImageDeleted);
     on<RentalsReceived>(_onRentalsReceived);
     on<HomesReceived>(_onHomesReceived);
     on<CategoryChanged>(_onCategoryChanged);
@@ -54,6 +55,10 @@ class DisputesFormBloc extends Bloc<DisputesFormEvent, DisputesFormState> {
 
   void _onImageReceived(ImageReceived event, Emitter<DisputesFormState> emit) {
     emit(state.copyWith(imagePaths: [...state.imagePaths, event.image]));
+  }
+
+  void _onImageDeleted(ImageDeleted event, Emitter<DisputesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths.where((image) => image != event.image)]));
   }
 
   void _onRentalsReceived(RentalsReceived event, Emitter<DisputesFormState> emit) {
