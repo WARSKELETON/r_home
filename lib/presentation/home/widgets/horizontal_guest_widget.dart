@@ -43,7 +43,9 @@ class HorizontalGuestWidget extends StatelessWidget {
             final homes = context.watch<HomesBloc>().state.homes;
             final rentals = context.watch<HomesBloc>().state.rentals;
 
-            if (homes.isNotEmpty && rentals.isNotEmpty) {
+            final homesIds = rentals.map((rental) => rental.homeId).toSet();
+
+            if (homes.isNotEmpty && rentals.isNotEmpty && homesIds.length == homes.length) {
               return ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
