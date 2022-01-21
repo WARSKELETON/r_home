@@ -21,6 +21,9 @@ class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
             title,
             overflow: TextOverflow.fade,
             softWrap: false,
+            style: const TextStyle(
+              color: Colors.black
+            ),
           ),
           if (centerLeft != null && role != null) ...[
             Padding(
@@ -38,7 +41,7 @@ class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
               role!.capitalize(),
               style: TextStyle(
                 fontSize: 14,
-                color: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.6)
+                color: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.7)
               ),
             )
           ]
@@ -47,7 +50,7 @@ class HomeAppBarWidget extends StatelessWidget with PreferredSizeWidget {
       leading: leading,
       foregroundColor: Colors.grey[600],
       centerTitle: centerLeft == null ? true : false,
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Theme.of(context).colorScheme.secondaryBlue,
       actions: actions,
     );
   }
