@@ -44,7 +44,7 @@ class StartDisputesPage extends StatelessWidget {
                   ProblemsWithPaymentsPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
-                      homeUuid: rentalUuid ?? "",
+                      homeUuid: homeUuid ?? "",
                       category: DisputeCategory.problems_with_payments.name
                     )
                   )
@@ -65,7 +65,7 @@ class StartDisputesPage extends StatelessWidget {
                   GeneralDisputesPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
-                      homeUuid: rentalUuid ?? "",
+                      homeUuid: homeUuid ?? "",
                       category: DisputeCategory.damages_in_properties.name
                     )
                   )
@@ -86,7 +86,7 @@ class StartDisputesPage extends StatelessWidget {
                   GeneralDisputesPageRoute(
                     dispute: Dispute.empty().copyWith(
                       rentalUuid: rentalUuid ?? "",
-                      homeUuid: rentalUuid ?? "",
+                      homeUuid: homeUuid ?? "",
                       category: DisputeCategory.false_advertisement.name
                     )
                   )

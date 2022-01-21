@@ -86,6 +86,8 @@ class DisputeListRowWidget extends StatelessWidget {
                       children: [
                         Text(
                           dispute.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               fontSize: 17, fontWeight: FontWeight.bold),
                         ),
@@ -113,7 +115,7 @@ class DisputeListRowWidget extends StatelessWidget {
                         ),
                         const Spacer(),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10.0),
+                          padding: const EdgeInsets.only(top: 5.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.end,

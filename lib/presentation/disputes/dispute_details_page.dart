@@ -135,7 +135,13 @@ class DisputeDetailsPage extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(_home.name),
+                                    SizedBox(
+                                      width: 150,
+                                      child: Text(
+                                        _home.name,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
                                     Material(
                                       borderRadius: BorderRadius.circular(5),
                                       child: Padding(

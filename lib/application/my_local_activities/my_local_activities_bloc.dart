@@ -57,4 +57,11 @@ class MyLocalActivitiesBloc
   void _onLocalActivityReceived(LocalActivityReceived event, Emitter<MyLocalActivitiesState> emit) {
     emit(state.copyWith(localActivity: event.localActivity));
   }
+
+  @override
+  Future<void> close() {
+    _localActivitiesStreamSubscription?.cancel();
+    _localActivityStreamSubscription?.cancel();
+    return super.close();
+  }
 }

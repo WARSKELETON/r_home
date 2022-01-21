@@ -179,4 +179,10 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
 
     emit(state.copyWith(isSaving: false));
   }
+
+  @override
+  Future<void> close() {
+    _localActivitiesStreamSubscription?.cancel();
+    return super.close();
+  }
 }
