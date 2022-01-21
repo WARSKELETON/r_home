@@ -57,7 +57,7 @@ class SelectHomeField extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 15.0),
                         child: Text(
-                          "No homes are available in $_location from ${getDateString(_checkIn!, _checkOut!)} for  adults,  children,  pets.",
+                          "No homes are available in $_location from ${getDateString(_checkIn!, _checkOut!)} for $_numAdults adults, $_numChildren children, $_numPets pets.",
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 18,
