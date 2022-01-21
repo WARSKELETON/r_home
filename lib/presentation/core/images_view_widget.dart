@@ -24,7 +24,7 @@ class ImagesViewWidget extends StatelessWidget {
       itemBuilder: (context, pagePosition) {
         return GestureDetector(
           child: Container(
-            margin: const EdgeInsets.all(10),
+            margin: const EdgeInsets.only(left: 2.0, right: 2.0),
             child: Image.network(
               images[pagePosition],
             ),

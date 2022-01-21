@@ -125,8 +125,8 @@ class DisputeDetailsPage extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 180.0,
-                                width: 225.0,
+                                height: 250.0,
+                                width: 400.0,
                                 child: ImagesViewWidget(images: _images),
                               ),
                               if (_images.length > 1) ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
@@ -187,6 +187,7 @@ class DisputeDetailsPage extends StatelessWidget {
                               ),
                               Text(
                                 _dispute.title,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: 20
