@@ -15,6 +15,7 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
     on<Initialize>(_onInitialize);
     on<ImagesReceived>(_onImagesReceived);
     on<ImageReceived>(_onImageReceived);
+    on<ImageDeleted>(_onImageDeleted);
     on<CategoryChanged>(_onCategoryChanged);
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
@@ -39,6 +40,10 @@ class MyLocalActivitiesFormBloc extends Bloc<MyLocalActivitiesFormEvent, MyLocal
 
   void _onImageReceived(ImageReceived event, Emitter<MyLocalActivitiesFormState> emit) {
     emit(state.copyWith(imagePaths: [...state.imagePaths, event.image]));
+  }
+
+  void _onImageDeleted(ImageDeleted event, Emitter<MyLocalActivitiesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths.where((image) => image != event.image)]));
   }
 
   void _onCategoryChanged(CategoryChanged event, Emitter<MyLocalActivitiesFormState> emit) {

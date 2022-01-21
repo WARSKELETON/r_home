@@ -42,6 +42,12 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
+  ImageDeleted imageDeleted(String image) {
+    return ImageDeleted(
+      image,
+    );
+  }
+
   LocalActivitiesChanged localActivitiesChanged(
       List<LocalActivity> localActivities) {
     return LocalActivitiesChanged(
@@ -55,8 +61,14 @@ class _$MyHomesFormEventTearOff {
     );
   }
 
-  LocalActivityReceived changeLocalActivity(LocalActivity localActivity) {
-    return LocalActivityReceived(
+  ChangeLocalActivity changeLocalActivity(LocalActivity localActivity) {
+    return ChangeLocalActivity(
+      localActivity,
+    );
+  }
+
+  RemoveLocalActivity removeLocalActivity(LocalActivity localActivity) {
+    return RemoveLocalActivity(
       localActivity,
     );
   }
@@ -131,11 +143,13 @@ mixin _$MyHomesFormEvent {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -154,10 +168,12 @@ mixin _$MyHomesFormEvent {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -176,10 +192,12 @@ mixin _$MyHomesFormEvent {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -200,10 +218,12 @@ mixin _$MyHomesFormEvent {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -222,9 +242,11 @@ mixin _$MyHomesFormEvent {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -243,9 +265,11 @@ mixin _$MyHomesFormEvent {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -347,11 +371,13 @@ class _$Initialize implements Initialize {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -373,10 +399,12 @@ class _$Initialize implements Initialize {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -398,10 +426,12 @@ class _$Initialize implements Initialize {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -428,10 +458,12 @@ class _$Initialize implements Initialize {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -453,9 +485,11 @@ class _$Initialize implements Initialize {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -477,9 +511,11 @@ class _$Initialize implements Initialize {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -578,11 +614,13 @@ class _$SelectedImageIndex implements SelectedImageIndex {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -604,10 +642,12 @@ class _$SelectedImageIndex implements SelectedImageIndex {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -629,10 +669,12 @@ class _$SelectedImageIndex implements SelectedImageIndex {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -659,10 +701,12 @@ class _$SelectedImageIndex implements SelectedImageIndex {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -684,9 +728,11 @@ class _$SelectedImageIndex implements SelectedImageIndex {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -708,9 +754,11 @@ class _$SelectedImageIndex implements SelectedImageIndex {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -809,11 +857,13 @@ class _$ImagesReceived implements ImagesReceived {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -835,10 +885,12 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -860,10 +912,12 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -890,10 +944,12 @@ class _$ImagesReceived implements ImagesReceived {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -915,9 +971,11 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -939,9 +997,11 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1039,11 +1099,13 @@ class _$ImageReceived implements ImageReceived {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1065,10 +1127,12 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1090,10 +1154,12 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1120,10 +1186,12 @@ class _$ImageReceived implements ImageReceived {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1145,9 +1213,11 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1169,9 +1239,11 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1197,6 +1269,248 @@ abstract class ImageReceived implements MyHomesFormEvent {
   String get image;
   @JsonKey(ignore: true)
   $ImageReceivedCopyWith<ImageReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageDeletedCopyWith<$Res> {
+  factory $ImageDeletedCopyWith(
+          ImageDeleted value, $Res Function(ImageDeleted) then) =
+      _$ImageDeletedCopyWithImpl<$Res>;
+  $Res call({String image});
+}
+
+/// @nodoc
+class _$ImageDeletedCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $ImageDeletedCopyWith<$Res> {
+  _$ImageDeletedCopyWithImpl(
+      ImageDeleted _value, $Res Function(ImageDeleted) _then)
+      : super(_value, (v) => _then(v as ImageDeleted));
+
+  @override
+  ImageDeleted get _value => super._value as ImageDeleted;
+
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(ImageDeleted(
+      image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageDeleted implements ImageDeleted {
+  const _$ImageDeleted(this.image);
+
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.imageDeleted(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageDeleted &&
+            const DeepCollectionEquality().equals(other.image, image));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImageDeletedCopyWith<ImageDeleted> get copyWith =>
+      _$ImageDeletedCopyWithImpl<ImageDeleted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesChanged,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return imageDeleted(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return imageDeleted?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (imageDeleted != null) {
+      return imageDeleted(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
+    required TResult Function(LocalActivitiesChanged value)
+        localActivitiesChanged,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return imageDeleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return imageDeleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (imageDeleted != null) {
+      return imageDeleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageDeleted implements MyHomesFormEvent {
+  const factory ImageDeleted(String image) = _$ImageDeleted;
+
+  String get image;
+  @JsonKey(ignore: true)
+  $ImageDeletedCopyWith<ImageDeleted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1271,11 +1585,13 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1297,10 +1613,12 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1322,10 +1640,12 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1352,10 +1672,12 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1377,9 +1699,11 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1401,9 +1725,11 @@ class _$LocalActivitiesChanged implements LocalActivitiesChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1503,11 +1829,13 @@ class _$CategoryChanged implements CategoryChanged {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1529,10 +1857,12 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1554,10 +1884,12 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1584,10 +1916,12 @@ class _$CategoryChanged implements CategoryChanged {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1609,9 +1943,11 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1633,9 +1969,11 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1666,31 +2004,31 @@ abstract class CategoryChanged implements MyHomesFormEvent {
 }
 
 /// @nodoc
-abstract class $LocalActivityReceivedCopyWith<$Res> {
-  factory $LocalActivityReceivedCopyWith(LocalActivityReceived value,
-          $Res Function(LocalActivityReceived) then) =
-      _$LocalActivityReceivedCopyWithImpl<$Res>;
+abstract class $ChangeLocalActivityCopyWith<$Res> {
+  factory $ChangeLocalActivityCopyWith(
+          ChangeLocalActivity value, $Res Function(ChangeLocalActivity) then) =
+      _$ChangeLocalActivityCopyWithImpl<$Res>;
   $Res call({LocalActivity localActivity});
 
   $LocalActivityCopyWith<$Res> get localActivity;
 }
 
 /// @nodoc
-class _$LocalActivityReceivedCopyWithImpl<$Res>
+class _$ChangeLocalActivityCopyWithImpl<$Res>
     extends _$MyHomesFormEventCopyWithImpl<$Res>
-    implements $LocalActivityReceivedCopyWith<$Res> {
-  _$LocalActivityReceivedCopyWithImpl(
-      LocalActivityReceived _value, $Res Function(LocalActivityReceived) _then)
-      : super(_value, (v) => _then(v as LocalActivityReceived));
+    implements $ChangeLocalActivityCopyWith<$Res> {
+  _$ChangeLocalActivityCopyWithImpl(
+      ChangeLocalActivity _value, $Res Function(ChangeLocalActivity) _then)
+      : super(_value, (v) => _then(v as ChangeLocalActivity));
 
   @override
-  LocalActivityReceived get _value => super._value as LocalActivityReceived;
+  ChangeLocalActivity get _value => super._value as ChangeLocalActivity;
 
   @override
   $Res call({
     Object? localActivity = freezed,
   }) {
-    return _then(LocalActivityReceived(
+    return _then(ChangeLocalActivity(
       localActivity == freezed
           ? _value.localActivity
           : localActivity // ignore: cast_nullable_to_non_nullable
@@ -1708,8 +2046,8 @@ class _$LocalActivityReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LocalActivityReceived implements LocalActivityReceived {
-  const _$LocalActivityReceived(this.localActivity);
+class _$ChangeLocalActivity implements ChangeLocalActivity {
+  const _$ChangeLocalActivity(this.localActivity);
 
   @override
   final LocalActivity localActivity;
@@ -1723,7 +2061,7 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is LocalActivityReceived &&
+            other is ChangeLocalActivity &&
             const DeepCollectionEquality()
                 .equals(other.localActivity, localActivity));
   }
@@ -1734,9 +2072,8 @@ class _$LocalActivityReceived implements LocalActivityReceived {
 
   @JsonKey(ignore: true)
   @override
-  $LocalActivityReceivedCopyWith<LocalActivityReceived> get copyWith =>
-      _$LocalActivityReceivedCopyWithImpl<LocalActivityReceived>(
-          this, _$identity);
+  $ChangeLocalActivityCopyWith<ChangeLocalActivity> get copyWith =>
+      _$ChangeLocalActivityCopyWithImpl<ChangeLocalActivity>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1745,11 +2082,13 @@ class _$LocalActivityReceived implements LocalActivityReceived {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -1771,10 +2110,12 @@ class _$LocalActivityReceived implements LocalActivityReceived {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1796,10 +2137,12 @@ class _$LocalActivityReceived implements LocalActivityReceived {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -1826,10 +2169,12 @@ class _$LocalActivityReceived implements LocalActivityReceived {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -1851,9 +2196,11 @@ class _$LocalActivityReceived implements LocalActivityReceived {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1875,9 +2222,11 @@ class _$LocalActivityReceived implements LocalActivityReceived {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -1897,13 +2246,266 @@ class _$LocalActivityReceived implements LocalActivityReceived {
   }
 }
 
-abstract class LocalActivityReceived implements MyHomesFormEvent {
-  const factory LocalActivityReceived(LocalActivity localActivity) =
-      _$LocalActivityReceived;
+abstract class ChangeLocalActivity implements MyHomesFormEvent {
+  const factory ChangeLocalActivity(LocalActivity localActivity) =
+      _$ChangeLocalActivity;
 
   LocalActivity get localActivity;
   @JsonKey(ignore: true)
-  $LocalActivityReceivedCopyWith<LocalActivityReceived> get copyWith =>
+  $ChangeLocalActivityCopyWith<ChangeLocalActivity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RemoveLocalActivityCopyWith<$Res> {
+  factory $RemoveLocalActivityCopyWith(
+          RemoveLocalActivity value, $Res Function(RemoveLocalActivity) then) =
+      _$RemoveLocalActivityCopyWithImpl<$Res>;
+  $Res call({LocalActivity localActivity});
+
+  $LocalActivityCopyWith<$Res> get localActivity;
+}
+
+/// @nodoc
+class _$RemoveLocalActivityCopyWithImpl<$Res>
+    extends _$MyHomesFormEventCopyWithImpl<$Res>
+    implements $RemoveLocalActivityCopyWith<$Res> {
+  _$RemoveLocalActivityCopyWithImpl(
+      RemoveLocalActivity _value, $Res Function(RemoveLocalActivity) _then)
+      : super(_value, (v) => _then(v as RemoveLocalActivity));
+
+  @override
+  RemoveLocalActivity get _value => super._value as RemoveLocalActivity;
+
+  @override
+  $Res call({
+    Object? localActivity = freezed,
+  }) {
+    return _then(RemoveLocalActivity(
+      localActivity == freezed
+          ? _value.localActivity
+          : localActivity // ignore: cast_nullable_to_non_nullable
+              as LocalActivity,
+    ));
+  }
+
+  @override
+  $LocalActivityCopyWith<$Res> get localActivity {
+    return $LocalActivityCopyWith<$Res>(_value.localActivity, (value) {
+      return _then(_value.copyWith(localActivity: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RemoveLocalActivity implements RemoveLocalActivity {
+  const _$RemoveLocalActivity(this.localActivity);
+
+  @override
+  final LocalActivity localActivity;
+
+  @override
+  String toString() {
+    return 'MyHomesFormEvent.removeLocalActivity(localActivity: $localActivity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RemoveLocalActivity &&
+            const DeepCollectionEquality()
+                .equals(other.localActivity, localActivity));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(localActivity));
+
+  @JsonKey(ignore: true)
+  @override
+  $RemoveLocalActivityCopyWith<RemoveLocalActivity> get copyWith =>
+      _$RemoveLocalActivityCopyWithImpl<RemoveLocalActivity>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Home> initialHomeOption) initialize,
+    required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
+    required TResult Function(List<LocalActivity> localActivities)
+        localActivitiesChanged,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int increment) adultsAdd,
+    required TResult Function(int decrement) adultsRemove,
+    required TResult Function(int increment) childrenAdd,
+    required TResult Function(int decrement) childrenRemove,
+    required TResult Function(int increment) petsAdd,
+    required TResult Function(int decrement) petsRemove,
+    required TResult Function() submit,
+  }) {
+    return removeLocalActivity(localActivity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+  }) {
+    return removeLocalActivity?.call(localActivity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Home> initialHomeOption)? initialize,
+    TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(List<LocalActivity> localActivities)?
+        localActivitiesChanged,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int increment)? adultsAdd,
+    TResult Function(int decrement)? adultsRemove,
+    TResult Function(int increment)? childrenAdd,
+    TResult Function(int decrement)? childrenRemove,
+    TResult Function(int increment)? petsAdd,
+    TResult Function(int decrement)? petsRemove,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (removeLocalActivity != null) {
+      return removeLocalActivity(localActivity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SelectedImageIndex value)
+        changeSelectedImageIndex,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
+    required TResult Function(LocalActivitiesChanged value)
+        localActivitiesChanged,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(AdultsAdd value) adultsAdd,
+    required TResult Function(AdultsRemove value) adultsRemove,
+    required TResult Function(ChildrenAdd value) childrenAdd,
+    required TResult Function(ChildrenRemove value) childrenRemove,
+    required TResult Function(PetsAdd value) petsAdd,
+    required TResult Function(PetsRemove value) petsRemove,
+    required TResult Function(Submit value) submit,
+  }) {
+    return removeLocalActivity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+  }) {
+    return removeLocalActivity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(AdultsAdd value)? adultsAdd,
+    TResult Function(AdultsRemove value)? adultsRemove,
+    TResult Function(ChildrenAdd value)? childrenAdd,
+    TResult Function(ChildrenRemove value)? childrenRemove,
+    TResult Function(PetsAdd value)? petsAdd,
+    TResult Function(PetsRemove value)? petsRemove,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (removeLocalActivity != null) {
+      return removeLocalActivity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveLocalActivity implements MyHomesFormEvent {
+  const factory RemoveLocalActivity(LocalActivity localActivity) =
+      _$RemoveLocalActivity;
+
+  LocalActivity get localActivity;
+  @JsonKey(ignore: true)
+  $RemoveLocalActivityCopyWith<RemoveLocalActivity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1976,11 +2578,13 @@ class _$NameChanged implements NameChanged {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2002,10 +2606,12 @@ class _$NameChanged implements NameChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2027,10 +2633,12 @@ class _$NameChanged implements NameChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2057,10 +2665,12 @@ class _$NameChanged implements NameChanged {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2082,9 +2692,11 @@ class _$NameChanged implements NameChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2106,9 +2718,11 @@ class _$NameChanged implements NameChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2206,11 +2820,13 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2232,10 +2848,12 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2257,10 +2875,12 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2287,10 +2907,12 @@ class _$LocationChanged implements LocationChanged {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2312,9 +2934,11 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2336,9 +2960,11 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2436,11 +3062,13 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2462,10 +3090,12 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2487,10 +3117,12 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2517,10 +3149,12 @@ class _$PriceChanged implements PriceChanged {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2542,9 +3176,11 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2566,9 +3202,11 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2663,11 +3301,13 @@ class _$AdultsAdd implements AdultsAdd {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2689,10 +3329,12 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2714,10 +3356,12 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2744,10 +3388,12 @@ class _$AdultsAdd implements AdultsAdd {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2769,9 +3415,11 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2793,9 +3441,11 @@ class _$AdultsAdd implements AdultsAdd {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -2893,11 +3543,13 @@ class _$AdultsRemove implements AdultsRemove {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -2919,10 +3571,12 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2944,10 +3598,12 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -2974,10 +3630,12 @@ class _$AdultsRemove implements AdultsRemove {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -2999,9 +3657,11 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3023,9 +3683,11 @@ class _$AdultsRemove implements AdultsRemove {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3123,11 +3785,13 @@ class _$ChildrenAdd implements ChildrenAdd {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -3149,10 +3813,12 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3174,10 +3840,12 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3204,10 +3872,12 @@ class _$ChildrenAdd implements ChildrenAdd {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -3229,9 +3899,11 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3253,9 +3925,11 @@ class _$ChildrenAdd implements ChildrenAdd {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3353,11 +4027,13 @@ class _$ChildrenRemove implements ChildrenRemove {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -3379,10 +4055,12 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3404,10 +4082,12 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3434,10 +4114,12 @@ class _$ChildrenRemove implements ChildrenRemove {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -3459,9 +4141,11 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3483,9 +4167,11 @@ class _$ChildrenRemove implements ChildrenRemove {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3580,11 +4266,13 @@ class _$PetsAdd implements PetsAdd {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -3606,10 +4294,12 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3631,10 +4321,12 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3661,10 +4353,12 @@ class _$PetsAdd implements PetsAdd {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -3686,9 +4380,11 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3710,9 +4406,11 @@ class _$PetsAdd implements PetsAdd {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3808,11 +4506,13 @@ class _$PetsRemove implements PetsRemove {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -3834,10 +4534,12 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3859,10 +4561,12 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -3889,10 +4593,12 @@ class _$PetsRemove implements PetsRemove {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -3914,9 +4620,11 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -3938,9 +4646,11 @@ class _$PetsRemove implements PetsRemove {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -4011,11 +4721,13 @@ class _$Submit implements Submit {
     required TResult Function(int selectedImageIndex) changeSelectedImageIndex,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<LocalActivity> localActivities)
         localActivitiesChanged,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(LocalActivity localActivity) changeLocalActivity,
+    required TResult Function(LocalActivity localActivity) removeLocalActivity,
     required TResult Function(String name) nameChanged,
     required TResult Function(String location) locationChanged,
     required TResult Function(double price) priceChanged,
@@ -4037,10 +4749,12 @@ class _$Submit implements Submit {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -4062,10 +4776,12 @@ class _$Submit implements Submit {
     TResult Function(int selectedImageIndex)? changeSelectedImageIndex,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<LocalActivity> localActivities)?
         localActivitiesChanged,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(LocalActivity localActivity)? changeLocalActivity,
+    TResult Function(LocalActivity localActivity)? removeLocalActivity,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
     TResult Function(double price)? priceChanged,
@@ -4092,10 +4808,12 @@ class _$Submit implements Submit {
         changeSelectedImageIndex,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(LocalActivitiesChanged value)
         localActivitiesChanged,
     required TResult Function(CategoryChanged value) categoryChanged,
-    required TResult Function(LocalActivityReceived value) changeLocalActivity,
+    required TResult Function(ChangeLocalActivity value) changeLocalActivity,
+    required TResult Function(RemoveLocalActivity value) removeLocalActivity,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(PriceChanged value) priceChanged,
@@ -4117,9 +4835,11 @@ class _$Submit implements Submit {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,
@@ -4141,9 +4861,11 @@ class _$Submit implements Submit {
     TResult Function(SelectedImageIndex value)? changeSelectedImageIndex,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(LocalActivitiesChanged value)? localActivitiesChanged,
     TResult Function(CategoryChanged value)? categoryChanged,
-    TResult Function(LocalActivityReceived value)? changeLocalActivity,
+    TResult Function(ChangeLocalActivity value)? changeLocalActivity,
+    TResult Function(RemoveLocalActivity value)? removeLocalActivity,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(PriceChanged value)? priceChanged,

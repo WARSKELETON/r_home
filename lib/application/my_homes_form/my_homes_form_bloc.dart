@@ -21,9 +21,11 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     on<Initialize>(_onInitialize);
     on<ImagesReceived>(_onImagesReceived);
     on<ImageReceived>(_onImageReceived);
+    on<ImageDeleted>(_onImageDeleted);
     on<LocalActivitiesChanged>(_onLocalActivitiesChanged);
     on<CategoryChanged>(_onCategoryChanged);
-    on<LocalActivityReceived>(_onLocalActivityReceived);
+    on<ChangeLocalActivity>(_onChangeLocalActivity);
+    on<RemoveLocalActivity>(_onRemoveLocalActivity);
     on<NameChanged>(_onNameChanged);
     on<LocationChanged>(_onLocationChanged);
     on<PriceChanged>(_onPriceChanged);
@@ -44,7 +46,7 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
       (initialHome) {
         if (initialHome.localActivities.isNotEmpty) {
           _localActivitiesStreamSubscription = _localActivitiesRepository.watchAllFromIds(initialHome.localActivities)
-            .listen((localActivities) => MyHomesFormEvent.localActivitiesChanged(localActivities));
+            .listen((localActivities) => add(MyHomesFormEvent.localActivitiesChanged(localActivities)));
         }
 
         _homesRepository.getHomeImages(initialHome.uuid)
@@ -73,15 +75,26 @@ class MyHomesFormBloc extends Bloc<MyHomesFormEvent, MyHomesFormState> {
     emit(state.copyWith(imagePaths: [...state.imagePaths, event.image]));
   }
 
+  void _onImageDeleted(ImageDeleted event, Emitter<MyHomesFormState> emit) {
+    emit(state.copyWith(imagePaths: [...state.imagePaths.where((image) => image != event.image)]));
+  }
+
   void _onLocalActivitiesChanged(LocalActivitiesChanged event, Emitter<MyHomesFormState> emit) {
     emit(state.copyWith(
       localActivities: event.localActivities
     ));
   }
 
-  void _onLocalActivityReceived(LocalActivityReceived event, Emitter<MyHomesFormState> emit) {
+  void _onChangeLocalActivity(ChangeLocalActivity event, Emitter<MyHomesFormState> emit) {
     emit(state.copyWith(
       localActivities: [...state.localActivities, event.localActivity],
+      saveFailureOrSuccessOption: none(),
+    ));
+  }
+
+  void _onRemoveLocalActivity(RemoveLocalActivity event, Emitter<MyHomesFormState> emit) {
+    emit(state.copyWith(
+      localActivities: [...state.localActivities.where((localActivity) => localActivity.uuid != event.localActivity.uuid)],
       saveFailureOrSuccessOption: none(),
     ));
   }

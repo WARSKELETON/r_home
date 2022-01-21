@@ -41,7 +41,18 @@ class ImageCarouselLocalActivityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
       builder: (context, state) {
-        return ImageCarouselWidget(blocContext: context, title: title, imagesPath: imagesPath, takePicture: (context) => _takePicture(context), selectImage: (context) => _selectImage(context));
+        return ImageCarouselWidget(
+          blocContext: context, 
+          title: title, 
+          imagesPath: imagesPath, 
+          takePicture: (context) => _takePicture(context), 
+          selectImage: (context) => _selectImage(context),
+          deletionOnPressed: (image) {
+            context.read<MyLocalActivitiesFormBloc>().add(MyLocalActivitiesFormEvent.imageDeleted(image));
+            Navigator.of(context).pop();
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text("Image removed.")));
+          },
+        );
       },
     );
   }

@@ -30,6 +30,12 @@ class _$DisputesFormEventTearOff {
     );
   }
 
+  ImageDeleted imageDeleted(String image) {
+    return ImageDeleted(
+      image,
+    );
+  }
+
   RentalsReceived rentalsReceived(List<Rental> rentals) {
     return RentalsReceived(
       rentals,
@@ -92,6 +98,7 @@ mixin _$DisputesFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -107,6 +114,7 @@ mixin _$DisputesFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -122,6 +130,7 @@ mixin _$DisputesFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -138,6 +147,7 @@ mixin _$DisputesFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -153,6 +163,7 @@ mixin _$DisputesFormEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -168,6 +179,7 @@ mixin _$DisputesFormEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -274,6 +286,7 @@ class _$Initialize implements Initialize {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -292,6 +305,7 @@ class _$Initialize implements Initialize {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -310,6 +324,7 @@ class _$Initialize implements Initialize {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -332,6 +347,7 @@ class _$Initialize implements Initialize {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -350,6 +366,7 @@ class _$Initialize implements Initialize {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -368,6 +385,7 @@ class _$Initialize implements Initialize {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -462,6 +480,7 @@ class _$ImageReceived implements ImageReceived {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -480,6 +499,7 @@ class _$ImageReceived implements ImageReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -498,6 +518,7 @@ class _$ImageReceived implements ImageReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -520,6 +541,7 @@ class _$ImageReceived implements ImageReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -538,6 +560,7 @@ class _$ImageReceived implements ImageReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -556,6 +579,7 @@ class _$ImageReceived implements ImageReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -580,6 +604,200 @@ abstract class ImageReceived implements DisputesFormEvent {
   String get image;
   @JsonKey(ignore: true)
   $ImageReceivedCopyWith<ImageReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageDeletedCopyWith<$Res> {
+  factory $ImageDeletedCopyWith(
+          ImageDeleted value, $Res Function(ImageDeleted) then) =
+      _$ImageDeletedCopyWithImpl<$Res>;
+  $Res call({String image});
+}
+
+/// @nodoc
+class _$ImageDeletedCopyWithImpl<$Res>
+    extends _$DisputesFormEventCopyWithImpl<$Res>
+    implements $ImageDeletedCopyWith<$Res> {
+  _$ImageDeletedCopyWithImpl(
+      ImageDeleted _value, $Res Function(ImageDeleted) _then)
+      : super(_value, (v) => _then(v as ImageDeleted));
+
+  @override
+  ImageDeleted get _value => super._value as ImageDeleted;
+
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(ImageDeleted(
+      image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageDeleted implements ImageDeleted {
+  const _$ImageDeleted(this.image);
+
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'DisputesFormEvent.imageDeleted(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageDeleted &&
+            const DeepCollectionEquality().equals(other.image, image));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImageDeletedCopyWith<ImageDeleted> get copyWith =>
+      _$ImageDeletedCopyWithImpl<ImageDeleted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Dispute dispute) initialize,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
+    required TResult Function(List<Rental> rentals) rentalsReceived,
+    required TResult Function(List<Home> homes) homesReceived,
+    required TResult Function(DisputeCategory category) categoryChanged,
+    required TResult Function(String rentalUuid) rentalChanged,
+    required TResult Function(String homeUuid) homeChanged,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function(double tokens) initialStakeChanged,
+    required TResult Function() submit,
+  }) {
+    return imageDeleted(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Dispute dispute)? initialize,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(DisputeCategory category)? categoryChanged,
+    TResult Function(String rentalUuid)? rentalChanged,
+    TResult Function(String homeUuid)? homeChanged,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(double tokens)? initialStakeChanged,
+    TResult Function()? submit,
+  }) {
+    return imageDeleted?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Dispute dispute)? initialize,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(List<Rental> rentals)? rentalsReceived,
+    TResult Function(List<Home> homes)? homesReceived,
+    TResult Function(DisputeCategory category)? categoryChanged,
+    TResult Function(String rentalUuid)? rentalChanged,
+    TResult Function(String homeUuid)? homeChanged,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function(double tokens)? initialStakeChanged,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (imageDeleted != null) {
+      return imageDeleted(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
+    required TResult Function(RentalsReceived value) rentalsReceived,
+    required TResult Function(HomesReceived value) homesReceived,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(RentalChanged value) rentalChanged,
+    required TResult Function(HomeChanged value) homeChanged,
+    required TResult Function(TitleChanged value) titleChanged,
+    required TResult Function(DescriptionChanged value) descriptionChanged,
+    required TResult Function(InitialStakeChanged value) initialStakeChanged,
+    required TResult Function(Submit value) submit,
+  }) {
+    return imageDeleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(RentalChanged value)? rentalChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(InitialStakeChanged value)? initialStakeChanged,
+    TResult Function(Submit value)? submit,
+  }) {
+    return imageDeleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(RentalsReceived value)? rentalsReceived,
+    TResult Function(HomesReceived value)? homesReceived,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(RentalChanged value)? rentalChanged,
+    TResult Function(HomeChanged value)? homeChanged,
+    TResult Function(TitleChanged value)? titleChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(InitialStakeChanged value)? initialStakeChanged,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (imageDeleted != null) {
+      return imageDeleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageDeleted implements DisputesFormEvent {
+  const factory ImageDeleted(String image) = _$ImageDeleted;
+
+  String get image;
+  @JsonKey(ignore: true)
+  $ImageDeletedCopyWith<ImageDeleted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -650,6 +868,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -668,6 +887,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -686,6 +906,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -708,6 +929,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -726,6 +948,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -744,6 +967,7 @@ class _$RentalsReceived implements RentalsReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -838,6 +1062,7 @@ class _$HomesReceived implements HomesReceived {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -856,6 +1081,7 @@ class _$HomesReceived implements HomesReceived {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -874,6 +1100,7 @@ class _$HomesReceived implements HomesReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -896,6 +1123,7 @@ class _$HomesReceived implements HomesReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -914,6 +1142,7 @@ class _$HomesReceived implements HomesReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -932,6 +1161,7 @@ class _$HomesReceived implements HomesReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1026,6 +1256,7 @@ class _$CategoryChanged implements CategoryChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1044,6 +1275,7 @@ class _$CategoryChanged implements CategoryChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1062,6 +1294,7 @@ class _$CategoryChanged implements CategoryChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1084,6 +1317,7 @@ class _$CategoryChanged implements CategoryChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1102,6 +1336,7 @@ class _$CategoryChanged implements CategoryChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1120,6 +1355,7 @@ class _$CategoryChanged implements CategoryChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1215,6 +1451,7 @@ class _$RentalChanged implements RentalChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1233,6 +1470,7 @@ class _$RentalChanged implements RentalChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1251,6 +1489,7 @@ class _$RentalChanged implements RentalChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1273,6 +1512,7 @@ class _$RentalChanged implements RentalChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1291,6 +1531,7 @@ class _$RentalChanged implements RentalChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1309,6 +1550,7 @@ class _$RentalChanged implements RentalChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1403,6 +1645,7 @@ class _$HomeChanged implements HomeChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1421,6 +1664,7 @@ class _$HomeChanged implements HomeChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1439,6 +1683,7 @@ class _$HomeChanged implements HomeChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1461,6 +1706,7 @@ class _$HomeChanged implements HomeChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1479,6 +1725,7 @@ class _$HomeChanged implements HomeChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1497,6 +1744,7 @@ class _$HomeChanged implements HomeChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1591,6 +1839,7 @@ class _$TitleChanged implements TitleChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1609,6 +1858,7 @@ class _$TitleChanged implements TitleChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1627,6 +1877,7 @@ class _$TitleChanged implements TitleChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1649,6 +1900,7 @@ class _$TitleChanged implements TitleChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1667,6 +1919,7 @@ class _$TitleChanged implements TitleChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1685,6 +1938,7 @@ class _$TitleChanged implements TitleChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1780,6 +2034,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1798,6 +2053,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1816,6 +2072,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -1838,6 +2095,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -1856,6 +2114,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1874,6 +2133,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -1968,6 +2228,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -1986,6 +2247,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -2004,6 +2266,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -2026,6 +2289,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2044,6 +2308,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -2062,6 +2327,7 @@ class _$InitialStakeChanged implements InitialStakeChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -2129,6 +2395,7 @@ class _$Submit implements Submit {
   TResult when<TResult extends Object?>({
     required TResult Function(Dispute dispute) initialize,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(List<Rental> rentals) rentalsReceived,
     required TResult Function(List<Home> homes) homesReceived,
     required TResult Function(DisputeCategory category) categoryChanged,
@@ -2147,6 +2414,7 @@ class _$Submit implements Submit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -2165,6 +2433,7 @@ class _$Submit implements Submit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Dispute dispute)? initialize,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(List<Rental> rentals)? rentalsReceived,
     TResult Function(List<Home> homes)? homesReceived,
     TResult Function(DisputeCategory category)? categoryChanged,
@@ -2187,6 +2456,7 @@ class _$Submit implements Submit {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(RentalsReceived value) rentalsReceived,
     required TResult Function(HomesReceived value) homesReceived,
     required TResult Function(CategoryChanged value) categoryChanged,
@@ -2205,6 +2475,7 @@ class _$Submit implements Submit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,
@@ -2223,6 +2494,7 @@ class _$Submit implements Submit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(RentalsReceived value)? rentalsReceived,
     TResult Function(HomesReceived value)? homesReceived,
     TResult Function(CategoryChanged value)? categoryChanged,

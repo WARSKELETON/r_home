@@ -6,9 +6,11 @@ class MyHomesFormEvent with _$MyHomesFormEvent {
   const factory MyHomesFormEvent.changeSelectedImageIndex(int selectedImageIndex) = SelectedImageIndex;
   const factory MyHomesFormEvent.imagesReceived(List<String> images) = ImagesReceived;
   const factory MyHomesFormEvent.imageReceived(String image) = ImageReceived;
+  const factory MyHomesFormEvent.imageDeleted(String image) = ImageDeleted;
   const factory MyHomesFormEvent.localActivitiesChanged(List<LocalActivity> localActivities) = LocalActivitiesChanged;
   const factory MyHomesFormEvent.categoryChanged(ActivityCategory? activityCategory) = CategoryChanged;
-  const factory MyHomesFormEvent.changeLocalActivity(LocalActivity localActivity) = LocalActivityReceived;
+  const factory MyHomesFormEvent.changeLocalActivity(LocalActivity localActivity) = ChangeLocalActivity;
+  const factory MyHomesFormEvent.removeLocalActivity(LocalActivity localActivity) = RemoveLocalActivity;
   const factory MyHomesFormEvent.nameChanged(String name) = NameChanged;
   const factory MyHomesFormEvent.locationChanged(String location) = LocationChanged;
   const factory MyHomesFormEvent.priceChanged(double price) = PriceChanged;

@@ -36,6 +36,12 @@ class _$MyLocalActivitiesFormEventTearOff {
     );
   }
 
+  ImageDeleted imageDeleted(String image) {
+    return ImageDeleted(
+      image,
+    );
+  }
+
   CategoryChanged categoryChanged(ActivityCategory? activityCategory) {
     return CategoryChanged(
       activityCategory,
@@ -82,6 +88,7 @@ mixin _$MyLocalActivitiesFormEvent {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -96,6 +103,7 @@ mixin _$MyLocalActivitiesFormEvent {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -109,6 +117,7 @@ mixin _$MyLocalActivitiesFormEvent {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -123,6 +132,7 @@ mixin _$MyLocalActivitiesFormEvent {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -136,6 +146,7 @@ mixin _$MyLocalActivitiesFormEvent {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -149,6 +160,7 @@ mixin _$MyLocalActivitiesFormEvent {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -246,6 +258,7 @@ class _$Initialize implements Initialize {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -263,6 +276,7 @@ class _$Initialize implements Initialize {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -279,6 +293,7 @@ class _$Initialize implements Initialize {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -299,6 +314,7 @@ class _$Initialize implements Initialize {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -315,6 +331,7 @@ class _$Initialize implements Initialize {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -331,6 +348,7 @@ class _$Initialize implements Initialize {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -425,6 +443,7 @@ class _$ImagesReceived implements ImagesReceived {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -442,6 +461,7 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -458,6 +478,7 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -478,6 +499,7 @@ class _$ImagesReceived implements ImagesReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -494,6 +516,7 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -510,6 +533,7 @@ class _$ImagesReceived implements ImagesReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -603,6 +627,7 @@ class _$ImageReceived implements ImageReceived {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -620,6 +645,7 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -636,6 +662,7 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -656,6 +683,7 @@ class _$ImageReceived implements ImageReceived {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -672,6 +700,7 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -688,6 +717,7 @@ class _$ImageReceived implements ImageReceived {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -709,6 +739,190 @@ abstract class ImageReceived implements MyLocalActivitiesFormEvent {
   String get image;
   @JsonKey(ignore: true)
   $ImageReceivedCopyWith<ImageReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageDeletedCopyWith<$Res> {
+  factory $ImageDeletedCopyWith(
+          ImageDeleted value, $Res Function(ImageDeleted) then) =
+      _$ImageDeletedCopyWithImpl<$Res>;
+  $Res call({String image});
+}
+
+/// @nodoc
+class _$ImageDeletedCopyWithImpl<$Res>
+    extends _$MyLocalActivitiesFormEventCopyWithImpl<$Res>
+    implements $ImageDeletedCopyWith<$Res> {
+  _$ImageDeletedCopyWithImpl(
+      ImageDeleted _value, $Res Function(ImageDeleted) _then)
+      : super(_value, (v) => _then(v as ImageDeleted));
+
+  @override
+  ImageDeleted get _value => super._value as ImageDeleted;
+
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(ImageDeleted(
+      image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageDeleted implements ImageDeleted {
+  const _$ImageDeleted(this.image);
+
+  @override
+  final String image;
+
+  @override
+  String toString() {
+    return 'MyLocalActivitiesFormEvent.imageDeleted(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageDeleted &&
+            const DeepCollectionEquality().equals(other.image, image));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+
+  @JsonKey(ignore: true)
+  @override
+  $ImageDeletedCopyWith<ImageDeleted> get copyWith =>
+      _$ImageDeletedCopyWithImpl<ImageDeleted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<LocalActivity> initialActivityOption)
+        initialize,
+    required TResult Function(List<String> images) imagesReceived,
+    required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
+    required TResult Function(ActivityCategory? activityCategory)
+        categoryChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(double price) priceChanged,
+    required TResult Function(int contact) contactChanged,
+    required TResult Function() submit,
+  }) {
+    return imageDeleted(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int contact)? contactChanged,
+    TResult Function()? submit,
+  }) {
+    return imageDeleted?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
+    TResult Function(List<String> images)? imagesReceived,
+    TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
+    TResult Function(ActivityCategory? activityCategory)? categoryChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(double price)? priceChanged,
+    TResult Function(int contact)? contactChanged,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (imageDeleted != null) {
+      return imageDeleted(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(ImagesReceived value) imagesReceived,
+    required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
+    required TResult Function(CategoryChanged value) categoryChanged,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(PriceChanged value) priceChanged,
+    required TResult Function(ContactChanged value) contactChanged,
+    required TResult Function(Submit value) submit,
+  }) {
+    return imageDeleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(ContactChanged value)? contactChanged,
+    TResult Function(Submit value)? submit,
+  }) {
+    return imageDeleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(ImagesReceived value)? imagesReceived,
+    TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
+    TResult Function(CategoryChanged value)? categoryChanged,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(PriceChanged value)? priceChanged,
+    TResult Function(ContactChanged value)? contactChanged,
+    TResult Function(Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (imageDeleted != null) {
+      return imageDeleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageDeleted implements MyLocalActivitiesFormEvent {
+  const factory ImageDeleted(String image) = _$ImageDeleted;
+
+  String get image;
+  @JsonKey(ignore: true)
+  $ImageDeletedCopyWith<ImageDeleted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -782,6 +996,7 @@ class _$CategoryChanged implements CategoryChanged {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -799,6 +1014,7 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -815,6 +1031,7 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -835,6 +1052,7 @@ class _$CategoryChanged implements CategoryChanged {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -851,6 +1069,7 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -867,6 +1086,7 @@ class _$CategoryChanged implements CategoryChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -961,6 +1181,7 @@ class _$NameChanged implements NameChanged {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -978,6 +1199,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -994,6 +1216,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1014,6 +1237,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -1030,6 +1254,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1046,6 +1271,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1139,6 +1365,7 @@ class _$LocationChanged implements LocationChanged {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -1156,6 +1383,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1172,6 +1400,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1192,6 +1421,7 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -1208,6 +1438,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1224,6 +1455,7 @@ class _$LocationChanged implements LocationChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1317,6 +1549,7 @@ class _$PriceChanged implements PriceChanged {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -1334,6 +1567,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1350,6 +1584,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1370,6 +1605,7 @@ class _$PriceChanged implements PriceChanged {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -1386,6 +1622,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1402,6 +1639,7 @@ class _$PriceChanged implements PriceChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1495,6 +1733,7 @@ class _$ContactChanged implements ContactChanged {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -1512,6 +1751,7 @@ class _$ContactChanged implements ContactChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1528,6 +1768,7 @@ class _$ContactChanged implements ContactChanged {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1548,6 +1789,7 @@ class _$ContactChanged implements ContactChanged {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -1564,6 +1806,7 @@ class _$ContactChanged implements ContactChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1580,6 +1823,7 @@ class _$ContactChanged implements ContactChanged {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1647,6 +1891,7 @@ class _$Submit implements Submit {
         initialize,
     required TResult Function(List<String> images) imagesReceived,
     required TResult Function(String image) imageReceived,
+    required TResult Function(String image) imageDeleted,
     required TResult Function(ActivityCategory? activityCategory)
         categoryChanged,
     required TResult Function(String name) nameChanged,
@@ -1664,6 +1909,7 @@ class _$Submit implements Submit {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1680,6 +1926,7 @@ class _$Submit implements Submit {
     TResult Function(Option<LocalActivity> initialActivityOption)? initialize,
     TResult Function(List<String> images)? imagesReceived,
     TResult Function(String image)? imageReceived,
+    TResult Function(String image)? imageDeleted,
     TResult Function(ActivityCategory? activityCategory)? categoryChanged,
     TResult Function(String name)? nameChanged,
     TResult Function(String location)? locationChanged,
@@ -1700,6 +1947,7 @@ class _$Submit implements Submit {
     required TResult Function(Initialize value) initialize,
     required TResult Function(ImagesReceived value) imagesReceived,
     required TResult Function(ImageReceived value) imageReceived,
+    required TResult Function(ImageDeleted value) imageDeleted,
     required TResult Function(CategoryChanged value) categoryChanged,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(LocationChanged value) locationChanged,
@@ -1716,6 +1964,7 @@ class _$Submit implements Submit {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
@@ -1732,6 +1981,7 @@ class _$Submit implements Submit {
     TResult Function(Initialize value)? initialize,
     TResult Function(ImagesReceived value)? imagesReceived,
     TResult Function(ImageReceived value)? imageReceived,
+    TResult Function(ImageDeleted value)? imageDeleted,
     TResult Function(CategoryChanged value)? categoryChanged,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(LocationChanged value)? locationChanged,
