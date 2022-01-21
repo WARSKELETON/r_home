@@ -47,17 +47,17 @@ class DipsutesPageWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.9,
+        height: MediaQuery.of(context).size.height * 1,
         child: Column(
           children: [
             AspectRatio(
-              aspectRatio: 840 / MediaQuery.of(context).size.height * 0.8,
+              aspectRatio: 840 / MediaQuery.of(context).size.height * 0.85,
               child: Stack(
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20.0),
                     child: AspectRatio(
-                      aspectRatio: 840 / MediaQuery.of(context).size.height * 0.8,
+                      aspectRatio: 840 / MediaQuery.of(context).size.height * 0.85,
                       child: Image.asset(
                         imageAsset,
                         fit: BoxFit.cover,
