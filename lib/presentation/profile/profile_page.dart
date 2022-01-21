@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
+import 'package:r_home/application/bottom_bar/bottom_bar_bloc.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
@@ -24,6 +25,7 @@ class ProfilePage extends StatelessWidget {
           child: IconButton(
             onPressed: () {
               context.read<AuthBloc>().add(const AuthEvent.signedOut());
+              context.read<BottomBarBloc>().add(const BottomBarEvent.changeIndex(1));
               AutoRouter.of(context).replace(const SignInPageRoute());
             },
             icon: const Icon(Icons.exit_to_app),
