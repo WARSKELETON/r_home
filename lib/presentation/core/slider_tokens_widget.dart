@@ -41,7 +41,7 @@ class SliderTokensWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
-                        width: 65,
+                        width: 75,
                         child: Text(
                           value.toStringAsFixed(2),
                           textAlign: TextAlign.center,

@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:r_home/presentation/core/r_home_color_scheme.dart';
-import 'package:r_home/presentation/routes/router.gr.dart';
 
 class HomeWelcomeSmallWidget extends StatelessWidget {
   final String title;
@@ -82,7 +80,7 @@ class HomeWelcomeSmallWidget extends StatelessWidget {
                           fontSize: 16
                         ),
                       ),
-                      onPressed: () => AutoRouter.of(context).push(NewLocalAcitvityPageRoute()),
+                      onPressed: onPressed
                     ),
                   )
                 ],

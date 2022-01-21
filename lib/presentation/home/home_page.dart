@@ -13,7 +13,6 @@ import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/homes/homes_repository.dart';
 import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/infrastructure/rentals/rentals_repository.dart';
-import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
 import 'package:r_home/presentation/core/home_app_bar_widget.dart';
 import 'package:r_home/presentation/home/widgets/home_guest_widget.dart';

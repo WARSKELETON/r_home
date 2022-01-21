@@ -35,19 +35,17 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: RoundedCardWidget(
-        title: home.name,
-        titleFontSize: 16,
-        center: false,
-        details: [_buildDetailsRow("Location: ", home.location), _buildDetailsRow("Price: ", home.price.toString() + " tokens/night"), _buildDetailsRow("Local Activities: ", home.localActivities.length.toString() + " host recommendations")],
-        image: home.mainImageUrl,
-        network: true,
-        width: MediaQuery.of(context).size.width,
-        height: 200,
-        booked: booked,
-        onPressed: () => AutoRouter.of(context).push(HomeDetailsPageRoute(homeUuid: home.uuid, rentalUuid: rental.homeId == "" ? "" : rental.uuid)),
-      ),
+    return RoundedCardWidget(
+      title: home.name,
+      titleFontSize: 16,
+      center: false,
+      details: [_buildDetailsRow("Location: ", home.location), _buildDetailsRow("Price: ", home.price.toString() + " tokens/night"), _buildDetailsRow("Local Activities: ", home.localActivities.length.toString() + " host recommendations")],
+      image: home.mainImageUrl,
+      network: true,
+      width: MediaQuery.of(context).size.width,
+      height: 200,
+      booked: booked,
+      onPressed: () => AutoRouter.of(context).push(HomeDetailsPageRoute(homeUuid: home.uuid, rentalUuid: rental.homeId == "" ? "" : rental.uuid)),
     );
   }
 }
