@@ -19,11 +19,14 @@ import 'package:r_home/presentation/disputes/widgets/image_index_widget.dart';
 import 'package:r_home/presentation/routes/router.gr.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class LocalActivityDetailsPage extends StatelessWidget implements AutoRouteWrapper{
+class LocalActivityDetailsPage extends StatelessWidget
+    implements AutoRouteWrapper {
   final String localActivityUuid;
   final MyHomesFormBloc? myHomesFormBloc;
 
-  const LocalActivityDetailsPage({Key? key, required this.localActivityUuid, this.myHomesFormBloc}) : super(key: key);
+  const LocalActivityDetailsPage(
+      {Key? key, required this.localActivityUuid, this.myHomesFormBloc})
+      : super(key: key);
 
   Widget _buildRow(BuildContext context, String left, var right) {
     return Padding(
@@ -60,116 +63,105 @@ class LocalActivityDetailsPage extends StatelessWidget implements AutoRouteWrapp
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-          create: (context) => LocalActivitiesBloc(
-            LocalActivitiesRepository(
+      providers: [
+        BlocProvider(
+          create: (context) => LocalActivitiesBloc(LocalActivitiesRepository(
               FirebaseFirestore.instance,
-              FirebaseAuthFacade(
-                FirebaseAuth.instance,
-                GoogleSignIn(),
-                FirebaseFirestore.instance
-              ),
-              FirebaseStorage.instance
-            )
-          )..add(LocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
+              FirebaseAuthFacade(FirebaseAuth.instance, GoogleSignIn(),
+                  FirebaseFirestore.instance),
+              FirebaseStorage.instance))
+            ..add(LocalActivitiesEvent.watchLocalActivity(localActivityUuid)),
         ),
         BlocProvider(
-            create: (context) => ImageViewerBloc(),
+          create: (context) => ImageViewerBloc(),
         ),
-        ],
-        child: Builder(
-          builder: (context) {
-            final _localActivity = context.watch<LocalActivitiesBloc>().state.localActivity;
-            final _images = context.watch<LocalActivitiesBloc>().state.localActivityImages;
+      ],
+      child: BlocBuilder<LocalActivitiesBloc, LocalActivitiesState>(
+        builder: (context, state) {
+          final _localActivity = context.watch<LocalActivitiesBloc>().state.localActivity;
+          final _images = context.watch<LocalActivitiesBloc>().state.localActivityImages;
 
-            final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
-            
-            return Scaffold(
+          final _imageIndex = context.watch<ImageViewerBloc>().state.selectedImageIndex;
+
+          return Scaffold(
               appBar: AppBarWidget(
                 title: _localActivity.name,
               ),
-              body: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints viewportConstraints) {
-                  return SingleChildScrollView(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: viewportConstraints.maxHeight,
-                      ),
+              body: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(
+                      child: ImagesViewWidget(images: _images),
+                      width: MediaQuery.of(context).size.width,
+                      height: 230,
+                    ),
+                    ImageIndexWidget(
+                        numberOfImages: _images.length,
+                        activePage: _imageIndex),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0, left: 15.0, right: 15.0),
                       child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            child: ImagesViewWidget(images: _images),
-                            width: MediaQuery.of(context).size.width,
-                            height: 230,
-                          ),
-                          ImageIndexWidget(numberOfImages: _images.length, activePage: _imageIndex),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 15.0),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width / 1.5,
-                              child: Column(
-                                children: [
-                                  _buildRow(context, "Location:", _localActivity.location),
-                                  _buildRow(context, "Price:", _localActivity.price),
-                                  _buildRow(context, "Contact:", _localActivity.contact),
-                                ],
-                              ),
-                            ),
-                          ),
-                          if (myHomesFormBloc != null) ...[
-                            RoundedButtonWidget(
-                              text: 'ASSOCIATE THIS ACTIVITY',
-                              onPressed: () => {
-                                myHomesFormBloc!.add(MyHomesFormEvent.changeLocalActivity(_localActivity)),
-                                AutoRouter.of(context).popUntilRouteWithName(MyHomesFormRoute.name)
-                              },
-                              backgroundColor: Theme.of(context).colorScheme.primaryBlue,
-                              fontWeight: FontWeight.w400,
-                              textColor: Colors.white,
-                              fontSize: 17,
-                              height: 40,
-                              width: 300,
-                              trailingIcon: const Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                size: 16,
-                              ),
-                            ),
-                          ] else ...[
-                            RoundedButtonWidget(
-                              text: 'CALL',
-                              onPressed: () => launch("tel://${_localActivity.contact}"),
-                              backgroundColor: Theme.of(context).colorScheme.primaryBlue,
-                              fontWeight: FontWeight.w400,
-                              textColor: Colors.white,
-                              fontSize: 17,
-                              height: 40,
-                              width: 125,
-                              trailingIcon: const Icon(
-                                Icons.phone,
-                                size: 20,
-                              ),
-                            ),
-                          ]
+                        children: [
+                          _buildRow(
+                              context, "Location:", _localActivity.location),
+                          _buildRow(context, "Price:", _localActivity.price),
+                          _buildRow(
+                              context, "Contact:", _localActivity.contact),
                         ],
                       ),
                     ),
-                  );
-                },
-              ),
-            );
-          }
-        ),
+                    if (myHomesFormBloc != null) ...[
+                      RoundedButtonWidget(
+                        text: 'ASSOCIATE THIS ACTIVITY',
+                        onPressed: () => {
+                          myHomesFormBloc!.add(
+                              MyHomesFormEvent.changeLocalActivity(
+                                  _localActivity)),
+                          AutoRouter.of(context)
+                              .popUntilRouteWithName(MyHomesFormRoute.name)
+                        },
+                        backgroundColor:
+                            Theme.of(context).colorScheme.primaryBlue,
+                        fontWeight: FontWeight.w400,
+                        textColor: Colors.white,
+                        fontSize: 17,
+                        height: 40,
+                        width: 300,
+                        trailingIcon: const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 16,
+                        ),
+                      ),
+                    ] else ...[
+                      RoundedButtonWidget(
+                        text: 'CALL',
+                        onPressed: () =>
+                            launch("tel://${_localActivity.contact}"),
+                        backgroundColor:
+                            Theme.of(context).colorScheme.primaryBlue,
+                        fontWeight: FontWeight.w400,
+                        textColor: Colors.white,
+                        fontSize: 17,
+                        height: 40,
+                        width: 125,
+                        trailingIcon: const Icon(
+                          Icons.phone,
+                          size: 20,
+                        ),
+                      ),
+                    ]
+                  ],
+                ),
+              ));
+        },
+      ),
     );
   }
 
   @override
   Widget wrappedRoute(BuildContext context) {
     if (myHomesFormBloc != null) {
-      return BlocProvider.value(
-        value: myHomesFormBloc!, 
-        child: this
-      );
+      return BlocProvider.value(value: myHomesFormBloc!, child: this);
     }
     return this;
   }
