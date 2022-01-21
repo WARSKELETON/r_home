@@ -57,13 +57,13 @@ class DipsutesPageWidget extends StatelessWidget {
             return Column(
                   children: [
                     AspectRatio(
-                      aspectRatio: 840 / MediaQuery.of(context).size.height * 0.85,
+                      aspectRatio: 840 / MediaQuery.of(context).size.height * 0.9,
                       child: Stack(
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(20.0),
                             child: AspectRatio(
-                              aspectRatio: 840 / MediaQuery.of(context).size.height * 0.85,
+                              aspectRatio: 840 / MediaQuery.of(context).size.height * 0.9,
                               child: Image.asset(
                                 imageAsset,
                                 fit: BoxFit.cover,

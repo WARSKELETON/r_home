@@ -30,7 +30,6 @@ class HomesPage extends StatelessWidget {
         final currentUser = context.watch<AuthBloc>().state.user;
 
         return Scaffold(
-          extendBody: true,
           appBar: AppBarWidget(
             title: currentUser.role == "guest" ? "My Stays" : (currentUser.role == "host" ? "My Homes" : "Homes Associated"),
             actions: [
