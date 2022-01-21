@@ -33,7 +33,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void _onSignedOut(AuthEvent event, Emitter<AuthState> emit) async {
     await _authFacade.signOut();
 
-    emit(state.copyWith(authenticated: false));
+    emit(AuthState.initial());
   }
 
   void _onGetDomainUser(AuthEvent event, Emitter<AuthState> emit) async {

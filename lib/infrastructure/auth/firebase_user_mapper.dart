@@ -7,7 +7,7 @@ extension FirebaseUserDomainX on User {
     return DomainUser(
       id: uid,
       email: email,
-      name: displayName,
+      name: user.name,
       photo: user.photo,
       walletAddress: user.walletAddress,
       role: user.role,
