@@ -30,7 +30,7 @@ class StartDisputesForm extends StatelessWidget {
                   const DisputeTitleField(),
                   const DisputeDescriptionField(),
                   ImageCarouselDisputeWidget(
-                    title: "Selected images",
+                    title: "Selected images*",
                     imagesPath: imagesPaths
                   )
                 ],

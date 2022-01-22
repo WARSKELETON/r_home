@@ -21,7 +21,7 @@ class DisputeTitleField extends HookWidget {
           child: TextFormField(
             controller: textEditingController,
             decoration: const InputDecoration(
-              labelText: 'Dispute Title',
+              labelText: 'Dispute Title*',
               counterText: '',
             ),
             onChanged: (value) => context
