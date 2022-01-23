@@ -13,8 +13,9 @@ class SelectRentalWidget extends StatelessWidget {
 
   Widget _itemBuilder(BuildContext context, int index) {
     final _user = context.read<AuthBloc>().state.user;
+    final _home = homes.firstWhere((home) => home.uuid == rentals[index].homeId);
     return ListTile(
-      title: Text(homes.firstWhere((home) => home.uuid == rentals[index].homeId).name + " - " + (_user.id == homes.firstWhere((home) => home.uuid == rentals[index].homeId).host ? "HOST" : "GUEST")),
+      title: Text(_home.name + " - " + (_user.id == _home.host ? "HOST" : "GUEST")),
       subtitle: Text(rentals[index].getDateString()),
       leading: Radio<String>(
         value: rentals[index].uuid,
@@ -24,14 +25,14 @@ class SelectRentalWidget extends StatelessWidget {
           context.read<DisputesFormBloc>().add(DisputesFormEvent.homeChanged(rentals[index].homeId));
         },
       ),
-      trailing: Image.asset("assets/icons/home3.png"),
+      trailing: Image.network(_home.mainImageUrl),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: rentals.isEmpty ? 
+      child: rentals.isEmpty || homes.isEmpty ? 
       const Padding(
         padding: EdgeInsets.only(top: 30.0, left: 15.0, right: 15.0),
         child: Text(
