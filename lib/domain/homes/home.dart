@@ -26,7 +26,7 @@ abstract class Home implements _$Home {
     location: '',
     host: '',
     price: 0.0,
-    maxAdults: 0,
+    maxAdults: 1,
     maxChildren: 0,
     maxPets: 0,
     localActivities: [],
@@ -34,6 +34,6 @@ abstract class Home implements _$Home {
   );
 
   bool isHomeInvalid() {
-    return name == "" || location == "" || price == 0.0 || (maxAdults == 0 && maxChildren == 0 && maxPets == 0);
+    return name == "" || location == "" || price == 0.0 || (maxAdults < 1);
   }
 }

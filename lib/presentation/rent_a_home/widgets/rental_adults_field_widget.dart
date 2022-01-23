@@ -27,7 +27,7 @@ class RentalAdultsField extends StatelessWidget {
                     icon: const Icon(Icons.remove, color: Colors.white),
                     backgroundColor: Theme.of(context).colorScheme.primaryBlue,
                     splashColor: Colors.black,
-                    disabled: numAdults == 0,
+                    disabled: numAdults == 1,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
