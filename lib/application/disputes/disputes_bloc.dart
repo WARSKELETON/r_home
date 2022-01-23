@@ -72,7 +72,7 @@ class DisputesBloc extends Bloc<DisputesEvent, DisputesState> {
   void _onDisputeReceived(DisputeReceived event, Emitter<DisputesState> emit) async {
     emit(state.copyWith(dispute: event.dispute));
 
-    if (event.dispute.homeUuid != "") {
+    if (event.dispute.homeUuid != "" && event.dispute.rentalUuid != "" && event.dispute.issuerUuid != "") {
       _homeStreamSubscription = _disputesRepository
         .watchHomeFromDispute(event.dispute.homeUuid)
         .listen((home) => add(DisputesEvent.homeReceived(home))

@@ -240,11 +240,11 @@ class DisputeDetailsPage extends StatelessWidget {
                               if (_usersVoted.contains(_user.id)) ...[
                                 const Center(
                                   child: Text(
-                                      "You already voted in this dispute.",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w600
-                                      ),
+                                    "You already voted in this dispute.",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600
                                     ),
+                                  ),
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
@@ -254,83 +254,95 @@ class DisputeDetailsPage extends StatelessWidget {
                                 ),
                               ],
                               if (!_userIsLoading && _user.id != _dispute.issuerUuid && _home.host != _user.id && !_usersVoted.contains(_user.id)) ...[
-                                if (_user.numTokens < 10)
-                                const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(top: 20.0, bottom: 5.0),
-                                    child: Text(
-                                      "Cast your vote",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w600
+                                if (_isOpened) ...[
+                                  const Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(bottom: 5.0),
+                                      child: Text(
+                                        "Cast your vote",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15.0, bottom: 20.0),
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width / 1.5,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        VoteButtonWidget(
-                                          active: (_currentVote == DisputeVote.favour || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
-                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.favour)),
-                                          icon: const Icon(
-                                            RHomeIcon.favour, 
-                                            color: Colors.white,
-                                            size: 28,
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15.0, bottom: 20.0),
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width / 1.5,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          VoteButtonWidget(
+                                            active: (_currentVote == DisputeVote.favour || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
+                                            onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.favour)),
+                                            icon: const Icon(
+                                              RHomeIcon.favour, 
+                                              color: Colors.white,
+                                              size: 28,
+                                            ),
                                           ),
-                                        ),
-                                        VoteButtonWidget(
-                                          active: (_currentVote == DisputeVote.irrelevant || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
-                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.irrelevant)),
-                                          icon: const Icon(
-                                            RHomeIcon.irrelevant, 
-                                            color: Colors.white,
-                                            size: 28,
+                                          VoteButtonWidget(
+                                            active: (_currentVote == DisputeVote.irrelevant || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
+                                            onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.irrelevant)),
+                                            icon: const Icon(
+                                              RHomeIcon.irrelevant, 
+                                              color: Colors.white,
+                                              size: 28,
+                                            ),
                                           ),
-                                        ),
-                                        VoteButtonWidget(
-                                          active: (_currentVote == DisputeVote.against || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
-                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.against)),
-                                          icon: const Icon(
-                                            RHomeIcon.against, 
-                                            color: Colors.white,
-                                            size: 28,
+                                          VoteButtonWidget(
+                                            active: (_currentVote == DisputeVote.against || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
+                                            onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.against)),
+                                            icon: const Icon(
+                                              RHomeIcon.against, 
+                                              color: Colors.white,
+                                              size: 28,
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                RoundedButtonWidget(
-                                  text: _user.numTokens >= 10 ?
-                                  (_currentVote == DisputeVote.none ?
-                                    "SELECT AN OPTION" : (
-                                      _currentVote == DisputeVote.favour ? "VOTE IN FAVOUR" : (
-                                          _currentVote == DisputeVote.against ? "VOTE AGAINST" :
-                                            "VOTE IRRELEVANT"
-                                      )
-                                    )
-                                  ) : "INSUFFICIENT TOKENS TO VOTE",
-                                  onPressed: () => {
-                                    showDialog(context: context,
-                                      builder: (_) => BlocProvider.value(
-                                        value: context.read<DisputesBloc>(),
-                                        child: VoteConfirmationDialog(vote: _currentVote),
-                                      )
-                                    )
-                                  },
-                                  disabled: _currentVote == DisputeVote.none || _user.numTokens < 10,
-                                  backgroundColor: _user.numTokens < 10 ? Colors.red : Theme.of(context).colorScheme.primaryBlue,
-                                  fontWeight: FontWeight.w400,
-                                  textColor: Colors.white,
-                                  fontSize: 15,
-                                  height: 35,
-                                  width: _user.numTokens < 10 ? 300 : 250,
-                                ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 15.0),
+                                    child: RoundedButtonWidget(
+                                      text: _user.numTokens >= 10 ?
+                                      (_currentVote == DisputeVote.none ?
+                                        "SELECT AN OPTION" : (
+                                          _currentVote == DisputeVote.favour ? "VOTE IN FAVOUR" : (
+                                              _currentVote == DisputeVote.against ? "VOTE AGAINST" :
+                                                "VOTE IRRELEVANT"
+                                          )
+                                        )
+                                      ) : "INSUFFICIENT TOKENS TO VOTE",
+                                      onPressed: () => {
+                                        showDialog(context: context,
+                                          builder: (_) => BlocProvider.value(
+                                            value: context.read<DisputesBloc>(),
+                                            child: VoteConfirmationDialog(vote: _currentVote),
+                                          )
+                                        )
+                                      },
+                                      disabled: _currentVote == DisputeVote.none || _user.numTokens < 10,
+                                      backgroundColor: _user.numTokens < 10 ? Colors.red : Theme.of(context).colorScheme.primaryBlue,
+                                      fontWeight: FontWeight.w400,
+                                      textColor: Colors.white,
+                                      fontSize: 15,
+                                      height: 35,
+                                      width: _user.numTokens < 10 ? 300 : 250,
+                                    ),
+                                  ),
+                                ] else ...[
+                                  const Text(
+                                    "This dispute is closed. No more votes are accepted.",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500
+                                    ),
+                                  ),
+                                ]
                               ] else ...[
                                 const Align(
                                   alignment: Alignment.centerLeft,
