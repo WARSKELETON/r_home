@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:r_home/application/auth/auth_bloc.dart';
@@ -130,8 +131,17 @@ class PaymentField extends StatelessWidget {
   }
 
   Widget _itemBuilder(BuildContext context, int index) {
+    final numTokens = context.watch<AuthBloc>().state.user.numTokens;
+    final paymentMethod = PaymentMethod.values[index];
+
     return ListTile(
-      title: Text(PaymentMethod.values[index].name.capitalize()),
+      subtitle: PaymentMethod.values[index] == PaymentMethod.token ? Text(
+        "You have " + numTokens.toStringAsFixed(2) + " tokens",
+        style: const TextStyle(
+          fontStyle: FontStyle.italic
+        ),
+      ) : null,
+      title: Text(paymentMethod.name.capitalize()),
       leading: Radio<String>(
         activeColor: Theme.of(context).colorScheme.primaryBlue,
         value: PaymentMethod.values[index].name,
@@ -167,8 +177,8 @@ class PaymentField extends StatelessWidget {
                 children: [
                   ...paymentInfoWidgets(context, rental.getPaymentMethodIcon()),
                   if (paymentMethod != "" && paymentMethod.toPaymentMethod() == PaymentMethod.token && numTokens < totalPrice(nightsBetween(context.read<RentAHomeBloc>().state.checkIn!, context.read<RentAHomeBloc>().state.checkOut!), context.read<RentAHomeBloc>().state.selectedHome.price, 3)) ...[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0, bottom: 2),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 15.0, bottom: 2),
                       child: Text(
                         "Insufficient tokens to book this home",
                         textAlign: TextAlign.center,

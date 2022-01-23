@@ -22,7 +22,7 @@ class DisputeDescriptionField extends HookWidget {
             maxLines: 7,
             controller: textEditingController,
             decoration: const InputDecoration(
-              labelText: 'Dispute Subitle*',
+              labelText: 'Dispute Description*',
               counterText: '',
               alignLabelWithHint: true,
             ),

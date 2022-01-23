@@ -275,10 +275,10 @@ class DisputeDetailsPage extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       children: [
                                         VoteButtonWidget(
-                                          active: (_currentVote == DisputeVote.against || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
-                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.against)),
+                                          active: (_currentVote == DisputeVote.favour || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
+                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.favour)),
                                           icon: const Icon(
-                                            RHomeIcon.against, 
+                                            RHomeIcon.favour, 
                                             color: Colors.white,
                                             size: 28,
                                           ),
@@ -293,10 +293,10 @@ class DisputeDetailsPage extends StatelessWidget {
                                           ),
                                         ),
                                         VoteButtonWidget(
-                                          active: (_currentVote == DisputeVote.favour || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
-                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.favour)),
+                                          active: (_currentVote == DisputeVote.against || _currentVote == DisputeVote.none) && _user.numTokens >= 10,
+                                          onPressed: () => context.read<DisputesBloc>().add(const DisputesEvent.voteReceived(DisputeVote.against)),
                                           icon: const Icon(
-                                            RHomeIcon.favour, 
+                                            RHomeIcon.against, 
                                             color: Colors.white,
                                             size: 28,
                                           ),

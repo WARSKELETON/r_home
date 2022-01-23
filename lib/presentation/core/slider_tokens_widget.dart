@@ -28,8 +28,8 @@ class SliderTokensWidget extends StatelessWidget {
                       inactiveColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.2),
                       value: value > currentUser.numTokens ? 0 : value,
                       min: 0,
-                      max: currentUser.numTokens,
-                      divisions: 100,
+                      max: currentUser.numTokens.floor().toDouble(),
+                      divisions: currentUser.numTokens.toInt() * 2,
                       label: value.toStringAsFixed(2),
                       onChanged: onChanged,
                     )
