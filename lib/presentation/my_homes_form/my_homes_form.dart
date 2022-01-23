@@ -104,8 +104,8 @@ class MyHomesForm extends StatelessWidget {
                           const LocationField(),
                           const PriceField(),
                           const GuestsField(),
+                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected Images*", imagesPath: imagesPaths),
                           CarouselWithAddWidget(title: "Selected Activities", localActivities: localActivities),
-                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected Images*", imagesPath: imagesPaths)
                         ],
                       ),
                     )
