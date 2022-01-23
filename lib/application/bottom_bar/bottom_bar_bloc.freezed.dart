@@ -236,9 +236,11 @@ abstract class _ChangeIndex implements BottomBarEvent {
 class _$BottomBarStateTearOff {
   const _$BottomBarStateTearOff();
 
-  _BottomBarState call({required int selectedIndex}) {
+  _BottomBarState call(
+      {required int selectedIndex, required int previousIndex}) {
     return _BottomBarState(
       selectedIndex: selectedIndex,
+      previousIndex: previousIndex,
     );
   }
 }
@@ -249,6 +251,7 @@ const $BottomBarState = _$BottomBarStateTearOff();
 /// @nodoc
 mixin _$BottomBarState {
   int get selectedIndex => throw _privateConstructorUsedError;
+  int get previousIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BottomBarStateCopyWith<BottomBarState> get copyWith =>
@@ -260,7 +263,7 @@ abstract class $BottomBarStateCopyWith<$Res> {
   factory $BottomBarStateCopyWith(
           BottomBarState value, $Res Function(BottomBarState) then) =
       _$BottomBarStateCopyWithImpl<$Res>;
-  $Res call({int selectedIndex});
+  $Res call({int selectedIndex, int previousIndex});
 }
 
 /// @nodoc
@@ -275,11 +278,16 @@ class _$BottomBarStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedIndex = freezed,
+    Object? previousIndex = freezed,
   }) {
     return _then(_value.copyWith(
       selectedIndex: selectedIndex == freezed
           ? _value.selectedIndex
           : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      previousIndex: previousIndex == freezed
+          ? _value.previousIndex
+          : previousIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -292,7 +300,7 @@ abstract class _$BottomBarStateCopyWith<$Res>
           _BottomBarState value, $Res Function(_BottomBarState) then) =
       __$BottomBarStateCopyWithImpl<$Res>;
   @override
-  $Res call({int selectedIndex});
+  $Res call({int selectedIndex, int previousIndex});
 }
 
 /// @nodoc
@@ -309,11 +317,16 @@ class __$BottomBarStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedIndex = freezed,
+    Object? previousIndex = freezed,
   }) {
     return _then(_BottomBarState(
       selectedIndex: selectedIndex == freezed
           ? _value.selectedIndex
           : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      previousIndex: previousIndex == freezed
+          ? _value.previousIndex
+          : previousIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -322,14 +335,17 @@ class __$BottomBarStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_BottomBarState implements _BottomBarState {
-  const _$_BottomBarState({required this.selectedIndex});
+  const _$_BottomBarState(
+      {required this.selectedIndex, required this.previousIndex});
 
   @override
   final int selectedIndex;
+  @override
+  final int previousIndex;
 
   @override
   String toString() {
-    return 'BottomBarState(selectedIndex: $selectedIndex)';
+    return 'BottomBarState(selectedIndex: $selectedIndex, previousIndex: $previousIndex)';
   }
 
   @override
@@ -338,12 +354,16 @@ class _$_BottomBarState implements _BottomBarState {
         (other.runtimeType == runtimeType &&
             other is _BottomBarState &&
             const DeepCollectionEquality()
-                .equals(other.selectedIndex, selectedIndex));
+                .equals(other.selectedIndex, selectedIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.previousIndex, previousIndex));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(selectedIndex));
+      runtimeType,
+      const DeepCollectionEquality().hash(selectedIndex),
+      const DeepCollectionEquality().hash(previousIndex));
 
   @JsonKey(ignore: true)
   @override
@@ -352,11 +372,14 @@ class _$_BottomBarState implements _BottomBarState {
 }
 
 abstract class _BottomBarState implements BottomBarState {
-  const factory _BottomBarState({required int selectedIndex}) =
-      _$_BottomBarState;
+  const factory _BottomBarState(
+      {required int selectedIndex,
+      required int previousIndex}) = _$_BottomBarState;
 
   @override
   int get selectedIndex;
+  @override
+  int get previousIndex;
   @override
   @JsonKey(ignore: true)
   _$BottomBarStateCopyWith<_BottomBarState> get copyWith =>

@@ -11,6 +11,7 @@ class BottomBarBloc extends Bloc<BottomBarEvent, BottomBarState> {
   }
 
   void _onChangeIndex(BottomBarEvent event, Emitter<BottomBarState> emit) {
-    emit(state.copyWith(selectedIndex: event.index));
+    int previousIndex = state.selectedIndex;
+    emit(state.copyWith(selectedIndex: event.index, previousIndex: previousIndex));
   }
 }

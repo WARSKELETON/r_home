@@ -26,6 +26,7 @@ class ProfilePage extends StatelessWidget {
             onPressed: () {
               context.read<AuthBloc>().add(const AuthEvent.signedOut());
               context.read<BottomBarBloc>().add(const BottomBarEvent.changeIndex(1));
+              AutoRouter.of(context).popUntilRouteWithName(const SplashPageRoute().routeName);
               AutoRouter.of(context).replace(const SignInPageRoute());
             },
             icon: const Icon(Icons.exit_to_app),
