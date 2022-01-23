@@ -14,12 +14,14 @@ import 'package:r_home/infrastructure/local_activities/local_activities_reposito
 
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/circle_icon_flat_button_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/carousel_with_add_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/guests_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/home_name_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/image_carousel_home_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/location_field_widget.dart';
 import 'package:r_home/presentation/my_homes_form/widgets/price_field_widget.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class MyHomesForm extends StatelessWidget {
   final Home? editedHome;
@@ -71,11 +73,22 @@ class MyHomesForm extends StatelessWidget {
             appBar: AppBarWidget(
               title: isEditing ? "Edit Home" : "Add a new Home",
               actions: [
-                IconButton(
-                  onPressed: () => disabled ? null : context.read<MyHomesFormBloc>().add(const MyHomesFormEvent.submit()),
-                  icon: const Icon(Icons.check),
-                  splashRadius: 20,
-                  color: disabled ? Colors.grey.shade300 : Colors.grey,
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: SizedBox(
+                    width: 40,
+                    height: 40,
+                    child: CircleIconFlatButtonWidget(
+                      onPressed: () => disabled ? null : context.read<MyHomesFormBloc>().add(const MyHomesFormEvent.submit()),
+                      icon: Icon(
+                        Icons.check,
+                        color: Theme.of(context).colorScheme.primaryBlue.withOpacity(disabled ? 0.3 : 1),
+                      ),
+                      backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(disabled ? 0.1 : 0.4), 
+                      splashColor: Colors.black,
+                      size: 1,
+                    ),
+                  ),
                 )
               ],
             ),
@@ -92,7 +105,7 @@ class MyHomesForm extends StatelessWidget {
                           const PriceField(),
                           const GuestsField(),
                           CarouselWithAddWidget(title: "Selected Activities", localActivities: localActivities),
-                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected images*", imagesPath: imagesPaths)
+                          if (!isEditing) ImageCarouselHomeWidget(title: "Selected Images*", imagesPath: imagesPaths)
                         ],
                       ),
                     )

@@ -12,11 +12,13 @@ import 'package:r_home/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:r_home/infrastructure/local_activities/local_activities_repository.dart';
 import 'package:r_home/presentation/core/app_bar_widget.dart';
 import 'package:r_home/presentation/core/bottom_bar_widget.dart';
+import 'package:r_home/presentation/core/circle_icon_flat_button_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_contact_field_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_location_field_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_name_field_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/activity_price_field_widget.dart';
 import 'package:r_home/presentation/my_local_activities_form/widgets/image_carousel_local_activity_widget.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class MyLocalActivitiesForm extends StatelessWidget {
   final LocalActivity? editedActivity;
@@ -41,10 +43,22 @@ class MyLocalActivitiesForm extends StatelessWidget {
             actions: [
               BlocBuilder<MyLocalActivitiesFormBloc, MyLocalActivitiesFormState>(
                 builder: (context, state) {
-                  return IconButton(
-                    onPressed: () => context.read<MyLocalActivitiesFormBloc>().add(const MyLocalActivitiesFormEvent.submit()),
-                    icon: const Icon(Icons.check),
-                    splashRadius: 20,
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: CircleIconFlatButtonWidget(
+                        onPressed: () => context.read<MyLocalActivitiesFormBloc>().add(const MyLocalActivitiesFormEvent.submit()),
+                        icon: Icon(
+                          Icons.check,
+                          color: Theme.of(context).colorScheme.primaryBlue.withOpacity(1),
+                        ),
+                        backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(0.4), 
+                        splashColor: Colors.black,
+                        size: 1,
+                      ),
+                    ),
                   );
                 },
               )
@@ -84,7 +98,7 @@ class MyLocalActivitiesForm extends StatelessWidget {
                   const ActivityLocationField(),
                   const ActivityPriceField(),
                   const ActivityContactField(),
-                  if (editedActivity == null) ImageCarouselLocalActivityWidget(title: "Selected images*", imagesPath: imagesPaths)
+                  if (editedActivity == null) ImageCarouselLocalActivityWidget(title: "Selected Images*", imagesPath: imagesPaths)
                 ],
               ),
             )

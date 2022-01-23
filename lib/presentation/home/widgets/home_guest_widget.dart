@@ -25,27 +25,14 @@ class HomeGuestWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: SizedBox(
-                  height: 275,
-                  child: HorizontalScrollWidget(
-                      title: "Places to Stay",
-                      isExplore: true,
-                      onPressed: () =>
-                          AutoRouter.of(context).push(RentAHomePageRoute())),
-                ),
-              ),
-              const Divider(
-                thickness: 8,
-                height: 40,
-                color: Color(0xFFE5E5E5),
-              ),
-              SizedBox(
                 height: 275,
-                child: HorizontalScrollWidget(
-                  title: "My Stays",
-                  onPressed: () =>
-                    AutoRouter.of(context).push(HomesPageRoute()
+                  child: HorizontalScrollWidget(
+                    title: "My Stays",
+                    onPressed: () =>
+                      AutoRouter.of(context).push(HomesPageRoute()
+                    )
                   )
-                )
+                ),
               ),
             ]
           ],
