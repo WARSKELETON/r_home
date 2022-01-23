@@ -147,7 +147,7 @@ class RentStepperWidget extends StatelessWidget {
                                     backgroundColor: Theme.of(context)
                                         .colorScheme
                                         .primaryBlue,
-                                    disabled: (currentIndex == 0 && (checkIn == null || checkOut == null)) || (currentIndex == 1 && (numAdults == 0 && numChildren == 0 && numPets == 0)) || (currentIndex == 2 && selectedHome.name == "") || (currentIndex == 3 && paymentMethod == "") || (currentIndex == 3 && paymentMethod.toPaymentMethod() == PaymentMethod.token &&  numTokens < totalPrice(nightsBetween(checkIn!, checkOut!), selectedHome.price, 3)),
+                                    disabled: (currentIndex == 0 && (checkIn == null || checkOut == null)) || (currentIndex == 1 && numAdults == 0) || (currentIndex == 2 && selectedHome.name == "") || (currentIndex == 3 && paymentMethod == "") || (currentIndex == 3 && paymentMethod.toPaymentMethod() == PaymentMethod.token &&  numTokens < totalPrice(nightsBetween(checkIn!, checkOut!), selectedHome.price, 3)),
                                     fontWeight: FontWeight.w400,
                                     textColor: Colors.white,
                                     fontSize: 16,

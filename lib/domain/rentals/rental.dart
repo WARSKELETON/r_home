@@ -41,7 +41,7 @@ abstract class Rental implements _$Rental {
     paymentMethod: '',
     checkIn: DateTime.now(),
     checkOut: DateTime.now(),
-    numAdults: 0,
+    numAdults: 1,
     numChildren: 0,
     numPets: 0,
   );
