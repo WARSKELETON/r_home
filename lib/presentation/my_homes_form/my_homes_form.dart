@@ -85,7 +85,7 @@ class MyHomesForm extends StatelessWidget {
                         color: Theme.of(context).colorScheme.primaryBlue.withOpacity(disabled ? 0.3 : 1),
                       ),
                       backgroundColor: Theme.of(context).colorScheme.primaryBlue.withOpacity(disabled ? 0.1 : 0.4), 
-                      splashColor: Colors.black,
+                      splashColor: disabled ? Colors.white.withOpacity(0.1) : Colors.black,
                       size: 1,
                     ),
                   ),
