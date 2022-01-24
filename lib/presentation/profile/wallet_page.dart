@@ -19,6 +19,8 @@ class WalletPage extends StatelessWidget {
       appBar: const AppBarWidget(title: "Wallet"),
       body: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
+            final currentUser = context.watch<AuthBloc>().state.user;
+
             return SingleChildScrollView(
               child: Center(
                 child: Padding(
@@ -44,19 +46,21 @@ class WalletPage extends StatelessWidget {
                         padding: EdgeInsets.only(bottom: 25.0),
                         child: WalletAddressWidget(address: "f90e0c064708e3je4328d33j2ks"),
                       ),
-                      RoundedButtonWidget(
-                        text: 'Send Tokens',
-                        onPressed: () => AutoRouter.of(context).push(const SendTokensPageRoute()),
-                        backgroundColor: Theme.of(context).colorScheme.primaryBlue,
-                        fontWeight: FontWeight.w400,
-                        textColor: Colors.white,
-                        fontSize: 20,
-                        height: 50,
-                        width: 270,
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
+                      if (currentUser.role != "producer") ...[
+                        RoundedButtonWidget(
+                          text: 'Send Tokens',
+                          onPressed: () => AutoRouter.of(context).push(const SendTokensPageRoute()),
+                          backgroundColor: Theme.of(context).colorScheme.primaryBlue,
+                          fontWeight: FontWeight.w400,
+                          textColor: Colors.white,
+                          fontSize: 20,
+                          height: 50,
+                          width: 270,
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                      ],
                       RoundedButtonWidget(
                         text: 'Monitorize Fees',
                         onPressed: () => AutoRouter.of(context).push(const MonitorizeFeesPageRoute()),
