@@ -370,7 +370,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                     children: [
                                       if (_usersVoted.isEmpty) ...[
                                         const Padding(
-                                          padding: EdgeInsets.only(top: 20.0),
+                                          padding: EdgeInsets.only(top: 20.0, bottom: 30.0),
                                           child: Text(
                                             "There are no votes yet.",
                                           ),

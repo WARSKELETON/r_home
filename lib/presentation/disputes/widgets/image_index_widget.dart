@@ -21,9 +21,12 @@ class ImageIndexWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: indicators(context, numberOfImages, activePage)
+    return Padding(
+      padding: const EdgeInsets.only(top: 5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: indicators(context, numberOfImages, activePage)
+      ),
     );
   }
 }

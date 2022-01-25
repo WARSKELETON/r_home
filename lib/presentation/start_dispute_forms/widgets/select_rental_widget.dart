@@ -4,6 +4,7 @@ import 'package:r_home/application/auth/auth_bloc.dart';
 import 'package:r_home/application/disputes_form/disputes_form_bloc.dart';
 import 'package:r_home/domain/homes/home.dart';
 import 'package:r_home/domain/rentals/rental.dart';
+import 'package:r_home/presentation/core/r_home_color_scheme.dart';
 
 class SelectRentalWidget extends StatelessWidget {
   final List<Rental> rentals;
@@ -18,6 +19,7 @@ class SelectRentalWidget extends StatelessWidget {
       title: Text(_home.name + " - " + (_user.id == _home.host ? "HOST" : "GUEST")),
       subtitle: Text(rentals[index].getDateString()),
       leading: Radio<String>(
+        activeColor: Theme.of(context).colorScheme.primaryBlue,
         value: rentals[index].uuid,
         groupValue: context.watch<DisputesFormBloc>().state.dispute.rentalUuid,
         onChanged: (String? value) {
