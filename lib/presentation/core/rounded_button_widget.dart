@@ -9,7 +9,7 @@ class RoundedButtonWidget extends StatelessWidget {
   final double fontSize;
   final double width;
   final double height;
-  final Icon? leadingIcon;
+  final Widget? leadingIcon;
   final Icon? trailingIcon;
   final bool? disabled;
   final TextAlign? textAlign;

@@ -54,18 +54,19 @@ class SignInPage extends StatelessWidget {
                     child: SvgPicture.asset('assets/icons/splash-logo.svg', width: 250),
                   ),
                   RoundedButtonWidget(
-                    text: 'SIGN IN WITH GOOGLE', 
+                    text: 'Sign in with Google', 
                     onPressed: () {
                       context
                           .read<SignInBloc>()
                           .add(const SignInEvent.signInWithGooglePressed());
                     }, 
-                    backgroundColor: Colors.grey[300]!, 
+                    backgroundColor: Colors.grey.shade300, 
                     fontWeight: FontWeight.w500, 
                     textColor: Colors.black,
                     fontSize: 20,
                     height: 50,
                     width: 310,
+                    leadingIcon: SvgPicture.asset('assets/icons/google.svg', width: 25),
                   ),
                 ],
               ),
