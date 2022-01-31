@@ -13,6 +13,9 @@ _A higher quality of living_
 ![Home Details](screenshots/home-details.png "Home Details")
 ![Reward Host](screenshots/reward-host.png "Reward Host")
 ![Local Activity](screenshots/local-activity.png "Local Activity")
+![Dispute Home](screenshots/dispute-home.png "Dispute Home")
+![Participate Dispute](screenshots/participate-disputes.png "Participate Dispute")
+![Details Dispute](screenshots/details-disputes.png "Details Dispute")
 
 ## Demo
 
@@ -30,9 +33,9 @@ _A higher quality of living_
   * Cloud Firestore (not Realtime Database)
   * Firebase Storage (for storing images)
   * Firebase In-App Messaging (for custom messages)
-* After enabling the above features, download the `google-services.json` and paste it in `android/app` folder.
-* Do `flutter pub get` to get the package dependencies.
-* Use a device or an emulator and run `flutter run`.
+* After enabling the above features, download the `google-services.json` and move it to the `android/app` folder.
+* Execute `flutter pub get` to get the package dependencies.
+* Use a physical device or an emulator and run `flutter run`.
 
 ## Setup New Firebase
 
@@ -61,9 +64,9 @@ keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.k
 
 * In the Firebase console, in the settings of your Android app, add your SHA-1 key by clicking "Add Fingerprint".
 * Follow instructions to download google-services.json
-* place `google-services.json` into `/android/app/`.
+* Move `google-services.json` into `/android/app/`.
 
-Double check install instructions for both
+Double check install instructions for both:
    - Google Auth Plugin
      - https://pub.dartlang.org/packages/firebase_auth
    - Firestore Plugin
