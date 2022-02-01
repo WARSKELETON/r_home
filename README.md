@@ -10,6 +10,7 @@ _A higher quality of living_
 ![Host Home](screenshots/host-home.png "Host Home")
 ![Producer Home](screenshots/producer-home.png "Producer Home")
 ![Guest Home](screenshots/guest-home-filled.png "Guest Home")
+![Monitorize Fees](screenshots/monitorize-fees.png "Monitorize Fees")
 ![Home Details](screenshots/home-details.png "Home Details")
 ![Reward Host](screenshots/reward-host.png "Reward Host")
 ![Local Activity](screenshots/local-activity.png "Local Activity")
