@@ -90,10 +90,10 @@ class GeneralDisputesPage extends StatelessWidget {
               title = "Select the home where the problem happened";
               break;
             case 2:
-              title = "Fill the form with the required information:";
+              title = "Fill the form with the required information";
               break;
             case 3:
-              title = "Slide to choose the amount of tokens you want to pay in order to intialize this dispute:";
+              title = "Slide to choose the amount of tokens you want to pay in order to intialize this dispute";
               break;
             default:
           }
