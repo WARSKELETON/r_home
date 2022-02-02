@@ -24,6 +24,20 @@ class SelectUserRewardWidget extends StatelessWidget {
           context.read<RewardUserBloc>().add(RewardUserEvent.rewardGuest(selectedUser));
         },
       ),
+      trailing: users[index].photo == null ? null : 
+        Padding(
+          padding: const EdgeInsets.all(6.0), 
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Theme.of(context).colorScheme.primaryBlue),
+              borderRadius: BorderRadius.circular(360),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(360), 
+              child: Image.network(users[index].photo!)
+            ),
+          )
+        ),
     );
   }
 
@@ -34,7 +48,7 @@ class SelectUserRewardWidget extends StatelessWidget {
         return Expanded(
           child: users.isEmpty ?
           const Padding(
-            padding: EdgeInsets.only(top: 30.0),
+            padding: EdgeInsets.only(top: 30.0, right: 10, left: 10),
             child: Text(
               "You cannot send tokens to any user because you haven't interacted with one yet.",
               textAlign: TextAlign.center,
