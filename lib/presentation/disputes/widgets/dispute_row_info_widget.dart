@@ -31,6 +31,7 @@ class DisputeListRowWidget extends StatelessWidget {
       create: (context) => TimerBloc()..add(TimerEvent.initialize(_closingTime)),
       child: BlocBuilder<TimerBloc, TimerState>(
         builder: (context, state) {
+          context.read<TimerBloc>().add(TimerEvent.initialize(_closingTime));
           final _timer = context.read<TimerBloc>().state.timeToEnd;
           final _isOpened = !_closingTime.isBefore(DateTime.now());
 
@@ -122,7 +123,7 @@ class DisputeListRowWidget extends StatelessWidget {
                             children: [
                               if (opened) ...[
                                 ChipWidget(
-                                  width: _isOpened && _timer.inSeconds < 30 ? 200 : 100,
+                                  width: _isOpened && _timer.inSeconds < 30 ? 150 : 100,
                                   title: _isOpened ? (_timer.inSeconds < 30 ? "CLOSING SOON" : "OPENED") : "CLOSED",
                                   isClickable: false,
                                   isChecked: false,

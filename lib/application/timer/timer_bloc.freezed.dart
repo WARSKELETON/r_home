@@ -18,14 +18,20 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TimerEventTearOff {
   const _$TimerEventTearOff();
 
-  Initialize initialize(DateTime finishTime) {
+  Initialize initialize(DateTime closingTime) {
     return Initialize(
-      finishTime,
+      closingTime,
     );
   }
 
-  TickTimer timerChanged() {
+  TickTimer timerTicked() {
     return const TickTimer();
+  }
+
+  ChangedTimer timerChanged(DateTime closingTime) {
+    return ChangedTimer(
+      closingTime,
+    );
   }
 }
 
@@ -36,39 +42,45 @@ const $TimerEvent = _$TimerEventTearOff();
 mixin _$TimerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime finishTime) initialize,
-    required TResult Function() timerChanged,
+    required TResult Function(DateTime closingTime) initialize,
+    required TResult Function() timerTicked,
+    required TResult Function(DateTime closingTime) timerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DateTime finishTime)? initialize,
-    TResult Function()? timerChanged,
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime finishTime)? initialize,
-    TResult Function()? timerChanged,
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
-    required TResult Function(TickTimer value) timerChanged,
+    required TResult Function(TickTimer value) timerTicked,
+    required TResult Function(ChangedTimer value) timerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
-    TResult Function(TickTimer value)? timerChanged,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
-    TResult Function(TickTimer value)? timerChanged,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -95,7 +107,7 @@ abstract class $InitializeCopyWith<$Res> {
   factory $InitializeCopyWith(
           Initialize value, $Res Function(Initialize) then) =
       _$InitializeCopyWithImpl<$Res>;
-  $Res call({DateTime finishTime});
+  $Res call({DateTime closingTime});
 }
 
 /// @nodoc
@@ -109,12 +121,12 @@ class _$InitializeCopyWithImpl<$Res> extends _$TimerEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? finishTime = freezed,
+    Object? closingTime = freezed,
   }) {
     return _then(Initialize(
-      finishTime == freezed
-          ? _value.finishTime
-          : finishTime // ignore: cast_nullable_to_non_nullable
+      closingTime == freezed
+          ? _value.closingTime
+          : closingTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -123,14 +135,14 @@ class _$InitializeCopyWithImpl<$Res> extends _$TimerEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Initialize implements Initialize {
-  const _$Initialize(this.finishTime);
+  const _$Initialize(this.closingTime);
 
   @override
-  final DateTime finishTime;
+  final DateTime closingTime;
 
   @override
   String toString() {
-    return 'TimerEvent.initialize(finishTime: $finishTime)';
+    return 'TimerEvent.initialize(closingTime: $closingTime)';
   }
 
   @override
@@ -139,12 +151,12 @@ class _$Initialize implements Initialize {
         (other.runtimeType == runtimeType &&
             other is Initialize &&
             const DeepCollectionEquality()
-                .equals(other.finishTime, finishTime));
+                .equals(other.closingTime, closingTime));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(finishTime));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(closingTime));
 
   @JsonKey(ignore: true)
   @override
@@ -154,30 +166,33 @@ class _$Initialize implements Initialize {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime finishTime) initialize,
-    required TResult Function() timerChanged,
+    required TResult Function(DateTime closingTime) initialize,
+    required TResult Function() timerTicked,
+    required TResult Function(DateTime closingTime) timerChanged,
   }) {
-    return initialize(finishTime);
+    return initialize(closingTime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DateTime finishTime)? initialize,
-    TResult Function()? timerChanged,
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
   }) {
-    return initialize?.call(finishTime);
+    return initialize?.call(closingTime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime finishTime)? initialize,
-    TResult Function()? timerChanged,
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
     required TResult orElse(),
   }) {
     if (initialize != null) {
-      return initialize(finishTime);
+      return initialize(closingTime);
     }
     return orElse();
   }
@@ -186,7 +201,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
-    required TResult Function(TickTimer value) timerChanged,
+    required TResult Function(TickTimer value) timerTicked,
+    required TResult Function(ChangedTimer value) timerChanged,
   }) {
     return initialize(this);
   }
@@ -195,7 +211,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
-    TResult Function(TickTimer value)? timerChanged,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
   }) {
     return initialize?.call(this);
   }
@@ -204,7 +221,8 @@ class _$Initialize implements Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
-    TResult Function(TickTimer value)? timerChanged,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -215,9 +233,9 @@ class _$Initialize implements Initialize {
 }
 
 abstract class Initialize implements TimerEvent {
-  const factory Initialize(DateTime finishTime) = _$Initialize;
+  const factory Initialize(DateTime closingTime) = _$Initialize;
 
-  DateTime get finishTime;
+  DateTime get closingTime;
   @JsonKey(ignore: true)
   $InitializeCopyWith<Initialize> get copyWith =>
       throw _privateConstructorUsedError;
@@ -246,7 +264,7 @@ class _$TickTimer implements TickTimer {
 
   @override
   String toString() {
-    return 'TimerEvent.timerChanged()';
+    return 'TimerEvent.timerTicked()';
   }
 
   @override
@@ -261,30 +279,33 @@ class _$TickTimer implements TickTimer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime finishTime) initialize,
-    required TResult Function() timerChanged,
+    required TResult Function(DateTime closingTime) initialize,
+    required TResult Function() timerTicked,
+    required TResult Function(DateTime closingTime) timerChanged,
   }) {
-    return timerChanged();
+    return timerTicked();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DateTime finishTime)? initialize,
-    TResult Function()? timerChanged,
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
   }) {
-    return timerChanged?.call();
+    return timerTicked?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime finishTime)? initialize,
-    TResult Function()? timerChanged,
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
     required TResult orElse(),
   }) {
-    if (timerChanged != null) {
-      return timerChanged();
+    if (timerTicked != null) {
+      return timerTicked();
     }
     return orElse();
   }
@@ -293,29 +314,32 @@ class _$TickTimer implements TickTimer {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initialize value) initialize,
-    required TResult Function(TickTimer value) timerChanged,
+    required TResult Function(TickTimer value) timerTicked,
+    required TResult Function(ChangedTimer value) timerChanged,
   }) {
-    return timerChanged(this);
+    return timerTicked(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
-    TResult Function(TickTimer value)? timerChanged,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
   }) {
-    return timerChanged?.call(this);
+    return timerTicked?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialize value)? initialize,
-    TResult Function(TickTimer value)? timerChanged,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
     required TResult orElse(),
   }) {
-    if (timerChanged != null) {
-      return timerChanged(this);
+    if (timerTicked != null) {
+      return timerTicked(this);
     }
     return orElse();
   }
@@ -326,13 +350,153 @@ abstract class TickTimer implements TimerEvent {
 }
 
 /// @nodoc
+abstract class $ChangedTimerCopyWith<$Res> {
+  factory $ChangedTimerCopyWith(
+          ChangedTimer value, $Res Function(ChangedTimer) then) =
+      _$ChangedTimerCopyWithImpl<$Res>;
+  $Res call({DateTime closingTime});
+}
+
+/// @nodoc
+class _$ChangedTimerCopyWithImpl<$Res> extends _$TimerEventCopyWithImpl<$Res>
+    implements $ChangedTimerCopyWith<$Res> {
+  _$ChangedTimerCopyWithImpl(
+      ChangedTimer _value, $Res Function(ChangedTimer) _then)
+      : super(_value, (v) => _then(v as ChangedTimer));
+
+  @override
+  ChangedTimer get _value => super._value as ChangedTimer;
+
+  @override
+  $Res call({
+    Object? closingTime = freezed,
+  }) {
+    return _then(ChangedTimer(
+      closingTime == freezed
+          ? _value.closingTime
+          : closingTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangedTimer implements ChangedTimer {
+  const _$ChangedTimer(this.closingTime);
+
+  @override
+  final DateTime closingTime;
+
+  @override
+  String toString() {
+    return 'TimerEvent.timerChanged(closingTime: $closingTime)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangedTimer &&
+            const DeepCollectionEquality()
+                .equals(other.closingTime, closingTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(closingTime));
+
+  @JsonKey(ignore: true)
+  @override
+  $ChangedTimerCopyWith<ChangedTimer> get copyWith =>
+      _$ChangedTimerCopyWithImpl<ChangedTimer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime closingTime) initialize,
+    required TResult Function() timerTicked,
+    required TResult Function(DateTime closingTime) timerChanged,
+  }) {
+    return timerChanged(closingTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
+  }) {
+    return timerChanged?.call(closingTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime closingTime)? initialize,
+    TResult Function()? timerTicked,
+    TResult Function(DateTime closingTime)? timerChanged,
+    required TResult orElse(),
+  }) {
+    if (timerChanged != null) {
+      return timerChanged(closingTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(TickTimer value) timerTicked,
+    required TResult Function(ChangedTimer value) timerChanged,
+  }) {
+    return timerChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
+  }) {
+    return timerChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(TickTimer value)? timerTicked,
+    TResult Function(ChangedTimer value)? timerChanged,
+    required TResult orElse(),
+  }) {
+    if (timerChanged != null) {
+      return timerChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangedTimer implements TimerEvent {
+  const factory ChangedTimer(DateTime closingTime) = _$ChangedTimer;
+
+  DateTime get closingTime;
+  @JsonKey(ignore: true)
+  $ChangedTimerCopyWith<ChangedTimer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$TimerStateTearOff {
   const _$TimerStateTearOff();
 
   _TimerState call(
-      {required DateTime finishTime, required Duration timeToEnd}) {
+      {required DateTime closingTime, required Duration timeToEnd}) {
     return _TimerState(
-      finishTime: finishTime,
+      closingTime: closingTime,
       timeToEnd: timeToEnd,
     );
   }
@@ -343,7 +507,7 @@ const $TimerState = _$TimerStateTearOff();
 
 /// @nodoc
 mixin _$TimerState {
-  DateTime get finishTime => throw _privateConstructorUsedError;
+  DateTime get closingTime => throw _privateConstructorUsedError;
   Duration get timeToEnd => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -356,7 +520,7 @@ abstract class $TimerStateCopyWith<$Res> {
   factory $TimerStateCopyWith(
           TimerState value, $Res Function(TimerState) then) =
       _$TimerStateCopyWithImpl<$Res>;
-  $Res call({DateTime finishTime, Duration timeToEnd});
+  $Res call({DateTime closingTime, Duration timeToEnd});
 }
 
 /// @nodoc
@@ -369,13 +533,13 @@ class _$TimerStateCopyWithImpl<$Res> implements $TimerStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? finishTime = freezed,
+    Object? closingTime = freezed,
     Object? timeToEnd = freezed,
   }) {
     return _then(_value.copyWith(
-      finishTime: finishTime == freezed
-          ? _value.finishTime
-          : finishTime // ignore: cast_nullable_to_non_nullable
+      closingTime: closingTime == freezed
+          ? _value.closingTime
+          : closingTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
       timeToEnd: timeToEnd == freezed
           ? _value.timeToEnd
@@ -391,7 +555,7 @@ abstract class _$TimerStateCopyWith<$Res> implements $TimerStateCopyWith<$Res> {
           _TimerState value, $Res Function(_TimerState) then) =
       __$TimerStateCopyWithImpl<$Res>;
   @override
-  $Res call({DateTime finishTime, Duration timeToEnd});
+  $Res call({DateTime closingTime, Duration timeToEnd});
 }
 
 /// @nodoc
@@ -406,13 +570,13 @@ class __$TimerStateCopyWithImpl<$Res> extends _$TimerStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? finishTime = freezed,
+    Object? closingTime = freezed,
     Object? timeToEnd = freezed,
   }) {
     return _then(_TimerState(
-      finishTime: finishTime == freezed
-          ? _value.finishTime
-          : finishTime // ignore: cast_nullable_to_non_nullable
+      closingTime: closingTime == freezed
+          ? _value.closingTime
+          : closingTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
       timeToEnd: timeToEnd == freezed
           ? _value.timeToEnd
@@ -425,16 +589,16 @@ class __$TimerStateCopyWithImpl<$Res> extends _$TimerStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TimerState implements _TimerState {
-  const _$_TimerState({required this.finishTime, required this.timeToEnd});
+  const _$_TimerState({required this.closingTime, required this.timeToEnd});
 
   @override
-  final DateTime finishTime;
+  final DateTime closingTime;
   @override
   final Duration timeToEnd;
 
   @override
   String toString() {
-    return 'TimerState(finishTime: $finishTime, timeToEnd: $timeToEnd)';
+    return 'TimerState(closingTime: $closingTime, timeToEnd: $timeToEnd)';
   }
 
   @override
@@ -443,14 +607,14 @@ class _$_TimerState implements _TimerState {
         (other.runtimeType == runtimeType &&
             other is _TimerState &&
             const DeepCollectionEquality()
-                .equals(other.finishTime, finishTime) &&
+                .equals(other.closingTime, closingTime) &&
             const DeepCollectionEquality().equals(other.timeToEnd, timeToEnd));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(finishTime),
+      const DeepCollectionEquality().hash(closingTime),
       const DeepCollectionEquality().hash(timeToEnd));
 
   @JsonKey(ignore: true)
@@ -461,11 +625,11 @@ class _$_TimerState implements _TimerState {
 
 abstract class _TimerState implements TimerState {
   const factory _TimerState(
-      {required DateTime finishTime,
+      {required DateTime closingTime,
       required Duration timeToEnd}) = _$_TimerState;
 
   @override
-  DateTime get finishTime;
+  DateTime get closingTime;
   @override
   Duration get timeToEnd;
   @override

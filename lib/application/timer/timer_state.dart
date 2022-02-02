@@ -3,9 +3,9 @@ part of 'timer_bloc.dart';
 @freezed
 class TimerState with _$TimerState {
   const factory TimerState({
-    required DateTime finishTime,
+    required DateTime closingTime,
     required Duration timeToEnd,
   }) = _TimerState;
 
-  factory TimerState.initial() => TimerState(finishTime: DateTime(DateTime.now().year), timeToEnd: Duration(hours: 48));
+  factory TimerState.initial() => TimerState(closingTime: DateTime(DateTime.now().year), timeToEnd: const Duration(minutes: 1));
 }

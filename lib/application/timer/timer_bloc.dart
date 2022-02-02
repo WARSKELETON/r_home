@@ -16,18 +16,18 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   StreamSubscription<dynamic>? _tickerSubscription;
 
   void _onInitialize(Initialize event, Emitter<TimerState> emit) {
-    var difference = Duration(milliseconds: event.finishTime.millisecondsSinceEpoch - DateTime.now().millisecondsSinceEpoch);
-    emit(state.copyWith(finishTime: event.finishTime));
+    var difference = Duration(milliseconds: event.closingTime.millisecondsSinceEpoch - DateTime.now().millisecondsSinceEpoch);
+    emit(state.copyWith(closingTime: event.closingTime));
     emit(state.copyWith(timeToEnd: difference));
 
-    _tickerSubscription ??= Stream.periodic(const Duration(seconds: 1))
-    .listen((event) => add(TimerEvent.timerChanged()));
+    _tickerSubscription != null ?_tickerSubscription ??= Stream.periodic(const Duration(seconds: 1))
+    .listen((event) => add(const TimerEvent.timerTicked())) : null;
  
     emit(state);
   }
 
   _onTickTimer(TickTimer event, Emitter<TimerState> emit) {
-    var difference = Duration(milliseconds: state.finishTime.millisecondsSinceEpoch - DateTime.now().millisecondsSinceEpoch);
+    var difference = Duration(milliseconds: state.closingTime.millisecondsSinceEpoch - DateTime.now().millisecondsSinceEpoch);
     emit(state.copyWith(timeToEnd: difference));
   }
 
