@@ -17,7 +17,7 @@ const db = getFirestore();
 
 const query = db.collection('disputes');
 
-const timeWindowMs = 60000;
+const timeWindowMs = 172800000;
 
 const observer = query.onSnapshot(querySnapshot => {
     docs = querySnapshot.docs.map(doc => doc.data()).filter(doc => (new Date(doc.creationDate.toDate().getTime() + timeWindowMs) - Date.now() > 0) && !disputeQueue.includes(doc.uuid));
