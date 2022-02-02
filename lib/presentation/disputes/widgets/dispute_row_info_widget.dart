@@ -25,7 +25,7 @@ class DisputeListRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _closingTime = dispute.creationDate.add(const Duration(days: 2));
+    final _closingTime = dispute.creationDate.add(const Duration(minutes: 1));
 
     return BlocProvider(
       create: (context) => TimerBloc()..add(TimerEvent.initialize(_closingTime)),
@@ -122,13 +122,13 @@ class DisputeListRowWidget extends StatelessWidget {
                             children: [
                               if (opened) ...[
                                 ChipWidget(
-                                  width: _isOpened && _timer.inHours < 1 ? 200 : 100,
-                                  title: _isOpened ? (_timer.inHours < 1 ? "CLOSING SOON" : "OPENED") : "CLOSED",
+                                  width: _isOpened && _timer.inSeconds < 30 ? 200 : 100,
+                                  title: _isOpened ? (_timer.inSeconds < 30 ? "CLOSING SOON" : "OPENED") : "CLOSED",
                                   isClickable: false,
                                   isChecked: false,
                                   borderColor: Theme.of(context).colorScheme.primaryBlue,
-                                  backgroundColor: _isOpened ? (_timer.inHours < 1 ? const Color(0xFFFF8383) : const Color(0xFFD2E4A9)) : const Color(0xFFFAAAAA),
-                                  textColor: _isOpened && _timer.inHours < 1 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
+                                  backgroundColor: _isOpened ? (_timer.inSeconds < 30 ? const Color(0xFFFF8383) : const Color(0xFFD2E4A9)) : const Color(0xFFFAAAAA),
+                                  textColor: _isOpened && _timer.inSeconds < 30 ? Colors.white : Theme.of(context).colorScheme.primaryBlue,
                                 ),
                               ],
                               if (voted) ...[

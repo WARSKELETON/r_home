@@ -34,7 +34,7 @@ class DisputeDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _closingTime = creationDate.add(const Duration(days: 2));
+    var _closingTime = creationDate.add(const Duration(minutes: 1));
 
     return MultiBlocProvider(
       providers: [
@@ -104,7 +104,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                       Text(
                                         "Closes in ",
                                         style: TextStyle(
-                                          color: _timer.inHours >= 1 ? Theme.of(context).colorScheme.primaryBlue : Colors.red,
+                                          color: _timer.inSeconds >= 30 ? Theme.of(context).colorScheme.primaryBlue : Colors.red,
                                         ),
                                       ),
                                       SizedBox(
@@ -112,7 +112,7 @@ class DisputeDetailsPage extends StatelessWidget {
                                         child: Text(
                                           '${_timer.inHours.toString().padLeft(2, '0')} : ${DateFormat("mm : ss").format(DateTime.fromMillisecondsSinceEpoch(_timer.inMilliseconds))}',
                                           style: TextStyle(
-                                            color: _timer.inHours >= 1 ? Theme.of(context).colorScheme.primaryBlue : Colors.red,
+                                            color: _timer.inSeconds >= 30 ? Theme.of(context).colorScheme.primaryBlue : Colors.red,
                                           ),
                                         ),
                                       ),
