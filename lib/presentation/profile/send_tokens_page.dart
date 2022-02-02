@@ -63,10 +63,10 @@ class SendTokensPage extends StatelessWidget {
             String title = "";
             switch (currentIndex) {
               case 0:
-                title = "Select the user:";
+                title = "Select the ${_user.role == "host" ? "guest" : "host"}";
                 break;
               case 1:
-                title = "Slide to choose the amount of tokens you want to send:";
+                title = "Slide to choose the amount of tokens you want to send";
                 break;
               default:
             }
@@ -74,7 +74,7 @@ class SendTokensPage extends StatelessWidget {
             return Center(
               child: Column(
                 children: [
-                  StepperWidget(numberOfSteps: 2, totalWidth: 320, stepWidth: 30, separatorWidth: 50, title: title, titleAlignment: Alignment.centerLeft, titleTextAlignment: TextAlign.left,),
+                  StepperWidget(numberOfSteps: 2, totalWidth: 320, stepWidth: 30, separatorWidth: 50, title: title, titleAlignment: Alignment.center, titleTextAlignment: TextAlign.center,),
                   if (currentIndex == 0) ...[
                     SelectUserRewardWidget(users: users),
                   ] else if (currentIndex == 1) ...[
