@@ -25,7 +25,7 @@ class SendTokensPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "R-HOME"),
+      appBar: const AppBarWidget(title: "Send Tokens"),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
