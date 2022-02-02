@@ -20,8 +20,8 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     emit(state.copyWith(closingTime: event.closingTime));
     emit(state.copyWith(timeToEnd: difference));
 
-    _tickerSubscription != null ?_tickerSubscription ??= Stream.periodic(const Duration(seconds: 1))
-    .listen((event) => add(const TimerEvent.timerTicked())) : null;
+    _tickerSubscription ??= Stream.periodic(const Duration(seconds: 1))
+    .listen((event) => add(const TimerEvent.timerTicked()));
  
     emit(state);
   }
